@@ -5990,10 +5990,10 @@ type
       out ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
 
     function Draw(
-      clientDrawingContext: Pointer;
-      renderer: IDWriteTextRenderer;
-      originX: Single;
-      originY: Single): HRESULT; stdcall;
+      AClientDrawingContext: Pointer;
+      ARenderer: IDWriteTextRenderer;
+      AOriginX: Single;
+      AOriginY: Single): HRESULT; stdcall;
 
     function GetLineMetrics(
       out ALineMetrics: DWRITE_LINE_METRICS;
@@ -6033,7 +6033,6 @@ type
       out AHitTestMetrics: DWRITE_HIT_TEST_METRICS;
       AMaxHitTestMetricsCount: UInt32;
       AOutactualHitTestMetricsCount: UInt32): HRESULT; stdcall;
-
   end;
 
   IDWriteBitmapRenderTarget = interface(IUnknown)
@@ -6365,6 +6364,11 @@ function D2D1CreateFactory(
   const ARiid: TGUID;
   const AFactoryOptions: PD2D1_FACTORY_OPTIONS;
   out AIFactory): HRESULT; stdcall; external d2d1lib;
+
+function DWriteCreateFactory(
+  AFactoryType: DWRITE_FACTORY_TYPE;
+  const AIid: TGUID;
+  out AFactory: IUnknown): HRESULT; stdcall; external dwritelib;
 
 {$REGION 'xxx yyy zzz'}
 
