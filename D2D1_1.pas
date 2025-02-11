@@ -20,6 +20,7 @@ uses Winapi.DxgiFormat, Winapi.Windows, Winapi.Wincodec, Winapi.DXGI, Winapi.Dxg
 type
 
 {$REGION 'D2DBaseTypes.h'}
+
 //=========================================================================================================================================
 // D2DBaseTypes.h
 //=========================================================================================================================================
@@ -36,6 +37,7 @@ type
 {$ENDREGION}
 
 {$REGION 'interface defenitions'}
+
 //=========================================================================================================================================
 // D2D1.h
 // D2D1helper.h
@@ -104,6 +106,46 @@ const
   IID_ID2D1Factory1                 : TGUID = '{bb12d362-daee-4b9a-aa1d-14ba401cfa1f}';
   IID_ID2D1Multithread              : TGUID = '{31e6e7bc-e0ff-4d46-8c64-a0a8c41c15d3}';
 
+  // d2d1_2.h
+  IID_ID2D1GeometryRealization      : TGUID = '{a16907d7-bc02-4801-99e8-8cf7f485f774}';
+  IID_ID2D1DeviceContext1           : TGUID = '{d37f57e4-6908-459f-a199-e72f24f79987}';
+  IID_ID2D1Device1                  : TGUID = '{d21768e1-23a4-4823-a14b-7c3eba85d658}';
+  IID_ID2D1Factory2                 : TGUID = '{94f81a73-9212-4376-9c58-b16a3a0d3992}';
+  IID_ID2D1CommandSink1             : TGUID = '{9eb767fd-4269-4467-b8c2-eb30cb305743}';
+
+  // d2d1_3.h
+  IID_ID2D1InkStyle                 : TGUID = '{bae8b344-23fc-4071-8cb5-d05d6f073848}';
+  IID_ID2D1Ink                      : TGUID = '{b499923b-7029-478f-a8b3-432c7c5f5312}';
+  IID_ID2D1GradientMesh             : TGUID = '{f292e401-c050-4cde-83d7-04962d3b23c2}';
+  IID_ID2D1ImageSource              : TGUID = '{c9b664e5-74a1-4378-9ac2-eefc37a3f4d8}';
+  IID_ID2D1ImageSourceFromWic       : TGUID = '{77395441-1c8f-4555-8683-f50dab0fe792}';
+  IID_ID2D1TransformedImageSource   : TGUID = '{7f1f79e5-2796-416c-8f55-700f911445e5}';
+  IID_ID2D1LookupTable3D            : TGUID = '{53dd9855-a3b0-4d5b-82e1-26e25c5e5797}';
+  IID_ID2D1DeviceContext2           : TGUID = '{394ea6a3-0c34-4321-950b-6ca20f0be6c7}';
+  IID_ID2D1Device2                  : TGUID = '{a44472e1-8dfb-4e60-8492-6e2861c9ca8b}';
+  IID_ID2D1Factory3                 : TGUID = '{0869759f-4f00-413f-b03e-2bda45404d0f}';
+  IID_ID2D1CommandSink2             : TGUID = '{3bab440e-417e-47df-a2e2-bc0be6a00916}';
+  IID_ID2D1GdiMetafile1             : TGUID = '{2e69f9e8-dd3f-4bf9-95ba-c04f49d788df}';
+  IID_ID2D1GdiMetafileSink1         : TGUID = '{fd0ecb6b-91e6-411e-8655-395e760f91b4}';
+  IID_ID2D1SpriteBatch              : TGUID = '{4dc583bf-3a10-438a-8722-e9765224f1f1}';
+  IID_ID2D1DeviceContext3           : TGUID = '{235a7496-8351-414c-bcd4-6672ab2d8e00}';
+  IID_ID2D1Device3                  : TGUID = '{852f2087-802c-4037-ab60-ff2e7ee6fc01}';
+  IID_ID2D1Factory4                 : TGUID = '{bd4ec2d2-0662-4bee-ba8e-6f29f032e096}';
+  IID_ID2D1CommandSink3             : TGUID = '{18079135-4cf3-4868-bc8e-06067e6d242d}';
+  IID_ID2D1SvgGlyphStyle            : TGUID = '{af671749-d241-4db8-8e41-dcc2e5c1a438}';
+  IID_ID2D1DeviceContext4           : TGUID = '{8c427831-3d90-4476-b647-c4fae349e4db}';
+  IID_ID2D1Device4                  : TGUID = '{d7bdb159-5683-4a46-bc9c-72dc720b858b}';
+  IID_ID2D1Factory5                 : TGUID = '{c4349994-838e-4b0f-8cab-44997d9eeacc}';
+  IID_ID2D1CommandSink4             : TGUID = '{c78a6519-40d6-4218-b2de-beeeb744bb3e}';
+  IID_ID2D1ColorContext1            : TGUID = '{1ab42875-c57f-4be9-bd85-9cd78d6f55ee}';
+  IID_ID2D1DeviceContext5           : TGUID = '{7836d248-68cc-4df6-b9e8-de991bf62eb7}';
+  IID_ID2D1Device5                  : TGUID = '{d55ba0a4-6405-4694-aef5-08ee1a4358b4}';
+  IID_ID2D1Factory6                 : TGUID = '{f9976f46-f642-44c1-97ca-da32ea2a2635}';
+  IID_ID2D1CommandSink5             : TGUID = '{7047dd26-b1e7-44a7-959a-8349e2144fa8}';
+  IID_ID2D1DeviceContext6           : TGUID = '{985f7e37-4ed0-4a19-98a3-15b0edfde306}';
+  IID_ID2D1Device6                  : TGUID = '{7bfef914-2d75-4bad-be87-e18ddb077b6d}';
+  IID_ID2D1Factory7                 : TGUID = '{bdc2bdd3-b96c-4de6-bdf7-99d4745454de}';
+
   // DWRITE
   IID_IDWriteFontFileLoader         : TGUID = '{727cad4e-d6af-4c9e-8a08-d695b11caa49}';
   IID_IDWriteLocalFontFileLoader    : TGUID = '{b2d9f3ec-c9fe-4a11-a2ec-d86208f7c0a2}';
@@ -133,6 +175,49 @@ const
   IID_IDWriteGlyphRunAnalysis       : TGUID = '{7d97dbf7-e085-42d4-81e3-6a883bded118}';
   IID_IDWriteFactory                : TGUID = '{b859ee5a-d838-4b5b-a2e8-1adc7d93db48}';
 
+  // d2d1effects.h
+  CLSID_D2D12DAffineTransform       : TGUID = '{6aa97485-6354-4cfc-908c-e4a74f62c96c}';
+  CLSID_D2D13DPerspectiveTransform  : TGUID = '{c2844d0b-3d86-46e7-85ba-526c9240f3fb}';
+  CLSID_D2D13DTransform             : TGUID = '{e8467b04-ec61-4b8a-b5de-d4d73debea5a}';
+  CLSID_D2D1ArithmeticComposite     : TGUID = '{fc151437-049a-4784-a24a-f1c4daf20987}';
+  CLSID_D2D1Atlas                   : TGUID = '{913e2be4-fdcf-4fe2-a5f0-2454f14ff408}';
+  CLSID_D2D1BitmapSource            : TGUID = '{5fb6c24d-c6dd-4231-9404-50f4d5c3252d}';
+  CLSID_D2D1Blend                   : TGUID = '{81c5b77b-13f8-4cdd-ad20-c890547ac65d}';
+  CLSID_D2D1Border                  : TGUID = '{2a2d49c0-4acf-43c7-8c6a-7c4a27874d27}';
+  CLSID_D2D1Brightness              : TGUID = '{8cea8d1e-77b0-4986-b3b9-2f0c0eae7887}';
+  CLSID_D2D1ColorManagement         : TGUID = '{1a28524c-fdd6-4aa4-ae8f-837eb8267b37}';
+  CLSID_D2D1ColorMatrix             : TGUID = '{921f03d6-641c-47df-852d-b4bb6153ae11}';
+  CLSID_D2D1Composite               : TGUID = '{48fc9f51-f6ac-48f1-8b58-3b28ac46f76d}';
+  CLSID_D2D1ConvolveMatrix          : TGUID = '{407f8c08-5533-4331-a341-23cc3877843e}';
+  CLSID_D2D1Crop                    : TGUID = '{e23f7110-0e9a-4324-af47-6a2c0c46f35b}';
+  CLSID_D2D1DirectionalBlur         : TGUID = '{174319a6-58e9-49b2-bb63-caf2c811a3db}';
+  CLSID_D2D1DiscreteTransfer        : TGUID = '{90866fcd-488e-454b-af06-e5041b66c36c}';
+  CLSID_D2D1DisplacementMap         : TGUID = '{edc48364-0417-4111-9450-43845fa9f890}';
+  CLSID_D2D1DistantDiffuse          : TGUID = '{3e7efd62-a32d-46d4-a83c-5278889ac954}';
+  CLSID_D2D1DistantSpecular         : TGUID = '{428c1ee5-77b8-4450-8ab5-72219c21abda}';
+  CLSID_D2D1DpiCompensation         : TGUID = '{6c26c5c7-34e0-46fc-9cfd-e5823706e228}';
+  CLSID_D2D1Flood                   : TGUID = '{61c23c20-ae69-4d8e-94cf-50078df638f2}';
+  CLSID_D2D1GammaTransfer           : TGUID = '{409444c4-c419-41a0-b0c1-8cd0c0a18e42}';
+  CLSID_D2D1GaussianBlur            : TGUID = '{1feb6d69-2fe6-4ac9-8c58-1d7f93e7a6a5}';
+  CLSID_D2D1Scale                   : TGUID = '{9daf9369-3846-4d0e-a44e-0c607934a5d7}';
+  CLSID_D2D1Histogram               : TGUID = '{881db7d0-f7ee-4d4d-a6d2-4697acc66ee8}';
+  CLSID_D2D1HueRotation             : TGUID = '{0f4458ec-4b32-491b-9e85-bd73f44d3eb6}';
+  CLSID_D2D1LinearTransfer          : TGUID = '{ad47c8fd-63ef-4acc-9b51-67979c036c06}';
+  CLSID_D2D1LuminanceToAlpha        : TGUID = '{41251ab7-0beb-46f8-9da7-59e93fcce5de}';
+  CLSID_D2D1Morphology              : TGUID = '{eae6c40d-626a-4c2d-bfcb-391001abe202}';
+  CLSID_D2D1OpacityMetadata         : TGUID = '{6c53006a-4450-4199-aa5b-ad1656fece5e}';
+  CLSID_D2D1PointDiffuse            : TGUID = '{b9e303c3-c08c-4f91-8b7b-38656bc48c20}';
+  CLSID_D2D1PointSpecular           : TGUID = '{09c3ca26-3ae2-4f09-9ebc-ed3865d53f22}';
+  CLSID_D2D1Premultiply             : TGUID = '{06eab419-deed-4018-80d2-3e1d471adeb2}';
+  CLSID_D2D1Saturation              : TGUID = '{5cb2d9cf-327d-459f-a0ce-40c0b2086bf7}';
+  CLSID_D2D1Shadow                  : TGUID = '{c67ea361-1863-4e69-89db-695d3e9a5b6b}';
+  CLSID_D2D1SpotDiffuse             : TGUID = '{818a1105-7932-44f4-aa86-08ae7b2f2c93}';
+  CLSID_D2D1SpotSpecular            : TGUID = '{edae421e-7654-4a37-9db8-71acc1beb3c1}';
+  CLSID_D2D1TableTransfer           : TGUID = '{5bf818c3-5e43-48cb-b631-868396d6a1d4}';
+  CLSID_D2D1Tile                    : TGUID = '{b0784138-3b76-4bc5-b13b-0fa2ad02659f}';
+  CLSID_D2D1Turbulence              : TGUID = '{cf2bb6ae-889a-4ad7-ba29-a2fd732c9fc9}';
+  CLSID_D2D1UnPremultiply           : TGUID = '{fb9ac489-ad8d-41ed-9999-bb6347d110f7}';
+
   // d2d1effectauthor.h
   IID_ID2D1VertexBuffer             : TGUID = '{9b8b1336-00a5-4668-92b7-ced5d8bf9b7b}';
   IID_ID2D1ResourceTexture          : TGUID = '{688d15c3-02b0-438d-b13a-d1b44c32c39a}';
@@ -159,8 +244,8 @@ const
   IID_IPrintDocumentPackageTarget2      : TGUID = '{c560298a-535c-48f9-866a-632540660cb4}';
   IID_IPrintDocumentPackageStatusEvent  : TGUID = '{ed90c8ad-5c34-4d05-a1ec-0e8a9b3ad7af}';
   IID_IPrintDocumentPackageTargetFactory: TGUID = '{d2959bf7-b31b-4a3d-9600-712eb1335ba4}';
-type
 
+type
   // d2d1.h
   ID2D1Resource                   = interface;
   ID2D1Image                      = interface;
@@ -212,6 +297,46 @@ type
   ID2D1Device                     = interface;
   ID2D1Factory1                   = interface;
   ID2D1Multithread                = interface;
+
+  //  d2d1_2.h
+  ID2D1GeometryRealization        = interface;
+  ID2D1DeviceContext1             = interface;
+  ID2D1Device1                    = interface;
+  ID2D1Factory2                   = interface;
+  ID2D1CommandSink1               = interface;
+
+  // d2d1_3.h
+  ID2D1InkStyle                   = interface;
+  ID2D1Ink                        = interface;
+  ID2D1GradientMesh               = interface;
+  ID2D1ImageSource                = interface;
+  ID2D1ImageSourceFromWic         = interface;
+  ID2D1TransformedImageSource     = interface;
+  ID2D1LookupTable3D              = interface;
+  ID2D1DeviceContext2             = interface;
+  ID2D1Device2                    = interface;
+  ID2D1Factory3                   = interface;
+  ID2D1CommandSink2               = interface;
+  ID2D1GdiMetafile1               = interface;
+  ID2D1GdiMetafileSink1           = interface;
+  ID2D1SpriteBatch                = interface;
+  ID2D1DeviceContext3             = interface;
+  ID2D1Device3                    = interface;
+  ID2D1Factory4                   = interface;
+  ID2D1CommandSink3               = interface;
+  ID2D1SvgGlyphStyle              = interface;
+  ID2D1DeviceContext4             = interface;
+  ID2D1Device4                    = interface;
+  ID2D1Factory5                   = interface;
+  ID2D1CommandSink4               = interface;
+  ID2D1ColorContext1              = interface;
+  ID2D1DeviceContext5             = interface;
+  ID2D1Device5                    = interface;
+  ID2D1Factory6                   = interface;
+  ID2D1CommandSink5               = interface;
+  ID2D1DeviceContext6             = interface;
+  ID2D1Device6                    = interface;
+  ID2D1Factory7                   = interface;
 
   // dwrite.h
   IDWriteFontFileLoader           = interface;
@@ -281,6 +406,7 @@ type
 {$ENDREGION}
 
 {$REGION 'callbacks'}
+
   /// <summary>
   /// Function pointer that sets a property on an effect.
   /// </summary>
@@ -742,6 +868,7 @@ type
 {$ENDREGION}
 
 {$REGION 'd2d1_1.h enums'}
+
   /// <summary>
   /// This defines the valid property types that can be used in an effect property
   /// interface.
@@ -1055,6 +1182,167 @@ type
   );
 
 
+{$ENDREGION}
+
+{$REGION 'd2d1_2.h enums'}
+
+/// <summary>
+/// Specifies the extent to which D2D will throttle work sent to the GPU.
+/// </summary>
+  D2D1_RENDERING_PRIORITY = (
+    D2D1_RENDERING_PRIORITY_NORMAL      = 0,
+    D2D1_RENDERING_PRIORITY_LOW         = 1,
+    D2D1_RENDERING_PRIORITY_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+{$ENDREGION}
+
+{$REGION 'd2d1_3.h enums'}
+
+  /// <summary>
+  /// Specifies the appearance of the ink nib (pen tip) as part of an
+  /// D2D1_INK_STYLE_PROPERTIES structure.
+  /// </summary>
+  D2D1_INK_NIB_SHAPE = (
+    D2D1_INK_NIB_SHAPE_ROUND        = 0,
+    D2D1_INK_NIB_SHAPE_SQUARE       = 1,
+    D2D1_INK_NIB_SHAPE_FORCE_DWORD  = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// Specifies the orientation of an image.
+  /// </summary>
+  D2D1_ORIENTATION = (
+    D2D1_ORIENTATION_DEFAULT                              = 1,
+    D2D1_ORIENTATION_FLIP_HORIZONTAL                      = 2,
+    D2D1_ORIENTATION_ROTATE_CLOCKWISE180                  = 3,
+    D2D1_ORIENTATION_ROTATE_CLOCKWISE180_FLIP_HORIZONTAL  = 4,
+    D2D1_ORIENTATION_ROTATE_CLOCKWISE90_FLIP_HORIZONTAL   = 5,
+    D2D1_ORIENTATION_ROTATE_CLOCKWISE270                  = 6,
+    D2D1_ORIENTATION_ROTATE_CLOCKWISE270_FLIP_HORIZONTAL  = 7,
+    D2D1_ORIENTATION_ROTATE_CLOCKWISE90                   = 8,
+    D2D1_ORIENTATION_FORCE_DWORD                          = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// Option flags controlling how images sources are loaded during
+  /// CreateImageSourceFromWic.
+  /// </summary>
+  D2D1_IMAGE_SOURCE_LOADING_OPTIONS = (
+    D2D1_IMAGE_SOURCE_LOADING_OPTIONS_NONE            = 0,
+    D2D1_IMAGE_SOURCE_LOADING_OPTIONS_RELEASE_SOURCE  = 1,
+    D2D1_IMAGE_SOURCE_LOADING_OPTIONS_CACHE_ON_DEMAND = 2,
+    D2D1_IMAGE_SOURCE_LOADING_OPTIONS_FORCE_DWORD     = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// Option flags controlling primary conversion performed by
+  /// CreateImageSourceFromDxgi, if any.
+  /// </summary>
+  D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS = (
+    D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS_NONE                            = 0,
+    D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS_LOW_QUALITY_PRIMARY_CONVERSION  = 1,
+    D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS_FORCE_DWORD                     = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// Option flags for transformed image sources.
+  /// </summary>
+  D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS = (
+    D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS_NONE              = 0,
+
+    /// <summary>
+    /// Prevents the image source from being automatically scaled (by a ratio of the
+    /// context DPI divided by 96) while drawn.
+    /// </summary>
+    D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS_DISABLE_DPI_SCALE = 1,
+    D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS_FORCE_DWORD       = Integer($FFFFFFFF)
+  );
+
+/// <summary>
+/// Specifies how to render gradient mesh edges.
+/// </summary>
+  D2D1_PATCH_EDGE_MODE = (
+
+    /// <summary>
+    /// Render this edge aliased.
+    /// </summary>
+    D2D1_PATCH_EDGE_MODE_ALIASED          = 0,
+
+    /// <summary>
+    /// Render this edge antialiased.
+    /// </summary>
+    D2D1_PATCH_EDGE_MODE_ANTIALIASED      = 1,
+
+    /// <summary>
+    /// Render this edge aliased and inflated out slightly.
+    /// </summary>
+    D2D1_PATCH_EDGE_MODE_ALIASED_INFLATED = 2,
+    D2D1_PATCH_EDGE_MODE_FORCE_DWORD      = Integer($FFFFFFFF)
+  );
+
+  D2D1_SPRITE_OPTIONS = (
+
+    /// <summary>
+    /// Use default sprite rendering behavior.
+    /// </summary>
+    D2D1_SPRITE_OPTIONS_NONE                      = 0,
+
+    /// <summary>
+    /// Bitmap interpolation will be clamped to the sprite's source rectangle.
+    /// </summary>
+    D2D1_SPRITE_OPTIONS_CLAMP_TO_SOURCE_RECTANGLE = 1,
+    D2D1_SPRITE_OPTIONS_FORCE_DWORD               = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// Specifies the pixel snapping policy when rendering color bitmap glyphs.
+  /// </summary>
+  D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION = (
+
+    /// <summary>
+    /// Color bitmap glyph positions are snapped to the nearest pixel if the bitmap
+    /// resolution matches that of the device context.
+    /// </summary>
+    D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION_DEFAULT     = 0,
+
+    /// <summary>
+    /// Color bitmap glyph positions are not snapped.
+    /// </summary>
+    D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION_DISABLE     = 1,
+    D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+/// <summary>
+/// This determines what gamma is used for interpolation/blending.
+/// </summary>
+  D2D1_GAMMA1 = (
+
+    /// <summary>
+    /// Colors are manipulated in 2.2 gamma color space.
+    /// </summary>
+    D2D1_GAMMA1_G22         = 0,
+
+    /// <summary>
+    /// Colors are manipulated in 1.0 gamma color space.
+    /// </summary>
+    D2D1_GAMMA1_G10         = 1,
+
+    /// <summary>
+    /// Colors are manipulated in ST.2084 PQ gamma color space.
+    /// </summary>
+    D2D1_GAMMA1_G2084       = 2,
+    D2D1_GAMMA1_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// Specifies which way a color profile is defined.
+  /// </summary>
+  D2D1_COLOR_CONTEXT_TYPE = (
+    D2D1_COLOR_CONTEXT_TYPE_ICC         = 0,
+    D2D1_COLOR_CONTEXT_TYPE_SIMPLE      = 1,
+    D2D1_COLOR_CONTEXT_TYPE_DXGI        = 2,
+    D2D1_COLOR_CONTEXT_TYPE_FORCE_DWORD = Integer($FFFFFFFF)
+  );
 {$ENDREGION}
 
 {$REGION 'dwrite enums'}
@@ -2032,6 +2320,1760 @@ type
 
   {$ENDREGION}
 
+{$REGION 'd2d1effects.h enums'}
+
+  /// <summary>
+  /// Specifies how the Crop effect handles the crop rectangle falling on fractional
+  /// pixel coordinates.
+  /// </summary>
+  D2D1_BORDER_MODE = (
+
+    D2D1_BORDER_MODE_SOFT         = 0,
+    D2D1_BORDER_MODE_HARD         = 1,
+    D2D1_BORDER_MODE_FORCE_DWORD  = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// Specifies the color channel the Displacement map effect extracts the intensity
+  /// from and uses it to spatially displace the image in the X or Y direction.
+  /// </summary>
+  D2D1_CHANNEL_SELECTOR = (
+    D2D1_CHANNEL_SELECTOR_R           = 0,
+    D2D1_CHANNEL_SELECTOR_G           = 1,
+    D2D1_CHANNEL_SELECTOR_B           = 2,
+    D2D1_CHANNEL_SELECTOR_A           = 3,
+    D2D1_CHANNEL_SELECTOR_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// Speficies whether a flip and/or rotation operation should be performed by the
+  /// Bitmap source effect
+  /// </summary>
+  D2D1_BITMAPSOURCE_ORIENTATION = (
+
+    D2D1_BITMAPSOURCE_ORIENTATION_DEFAULT                             = 1,
+    D2D1_BITMAPSOURCE_ORIENTATION_FLIP_HORIZONTAL                     = 2,
+    D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE180                 = 3,
+    D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE180_FLIP_HORIZONTAL = 4,
+    D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE270_FLIP_HORIZONTAL = 5,
+    D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE90                  = 6,
+    D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE90_FLIP_HORIZONTAL  = 7,
+    D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE270                 = 8,
+    D2D1_BITMAPSOURCE_ORIENTATION_FORCE_DWORD                         = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Gaussian Blur effect's top level properties.
+  /// Effect description: Applies a gaussian blur to a bitmap with the specified blur
+  /// radius and angle.
+  /// </summary>
+  D2D1_GAUSSIANBLUR_PROP = (
+
+    /// <summary>
+    /// Property Name: "StandardDeviation"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_GAUSSIANBLUR_PROP_STANDARD_DEVIATION = 0,
+
+    /// <summary>
+    /// Property Name: "Optimization"
+    /// Property Type: D2D1_GAUSSIANBLUR_OPTIMIZATION
+    /// </summary>
+    D2D1_GAUSSIANBLUR_PROP_OPTIMIZATION       = 1,
+
+    /// <summary>
+    /// Property Name: "BorderMode"
+    /// Property Type: D2D1_BORDER_MODE
+    /// </summary>
+    D2D1_GAUSSIANBLUR_PROP_BORDER_MODE        = 2,
+    D2D1_GAUSSIANBLUR_PROP_FORCE_DWORD        = Integer($FFFFFFFF)
+  );
+
+  D2D1_GAUSSIANBLUR_OPTIMIZATION = (
+
+    D2D1_GAUSSIANBLUR_OPTIMIZATION_SPEED = 0,
+    D2D1_GAUSSIANBLUR_OPTIMIZATION_BALANCED = 1,
+    D2D1_GAUSSIANBLUR_OPTIMIZATION_QUALITY = 2,
+    D2D1_GAUSSIANBLUR_OPTIMIZATION_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Directional Blur effect's top level properties.
+  /// Effect description: Applies a directional blur to a bitmap with the specified
+  /// blur radius and angle.
+  /// </summary>
+  D2D1_DIRECTIONALBLUR_PROP = (
+
+    /// <summary>
+    /// Property Name: "StandardDeviation"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_DIRECTIONALBLUR_PROP_STANDARD_DEVIATION  = 0,
+
+    /// <summary>
+    /// Property Name: "Angle"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_DIRECTIONALBLUR_PROP_ANGLE               = 1,
+
+    /// <summary>
+    /// Property Name: "Optimization"
+    /// Property Type: D2D1_DIRECTIONALBLUR_OPTIMIZATION
+    /// </summary>
+    D2D1_DIRECTIONALBLUR_PROP_OPTIMIZATION        = 2,
+
+    /// <summary>
+    /// Property Name: "BorderMode"
+    /// Property Type: D2D1_BORDER_MODE
+    /// </summary>
+    D2D1_DIRECTIONALBLUR_PROP_BORDER_MODE         = 3,
+    D2D1_DIRECTIONALBLUR_PROP_FORCE_DWORD         = Integer($FFFFFFFF)
+  );
+
+  D2D1_DIRECTIONALBLUR_OPTIMIZATION = (
+    D2D1_DIRECTIONALBLUR_OPTIMIZATION_SPEED       = 0,
+    D2D1_DIRECTIONALBLUR_OPTIMIZATION_BALANCED    = 1,
+    D2D1_DIRECTIONALBLUR_OPTIMIZATION_QUALITY     = 2,
+    D2D1_DIRECTIONALBLUR_OPTIMIZATION_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Shadow effect's top level properties.
+  /// Effect description: Applies a shadow to a bitmap based on its alpha channel.
+  /// </summary>
+  D2D1_SHADOW_PROP = (
+
+    /// <summary>
+    /// Property Name: "BlurStandardDeviation"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_SHADOW_PROP_BLUR_STANDARD_DEVIATION  = 0,
+
+    /// <summary>
+    /// Property Name: "Color"
+    /// Property Type: D2D1_VECTOR_4F
+    /// </summary>
+    D2D1_SHADOW_PROP_COLOR                    = 1,
+
+    /// <summary>
+    /// Property Name: "Optimization"
+    /// Property Type: D2D1_SHADOW_OPTIMIZATION
+    /// </summary>
+    D2D1_SHADOW_PROP_OPTIMIZATION             = 2,
+    D2D1_SHADOW_PROP_FORCE_DWORD              = Integer($FFFFFFFF)
+  );
+
+  D2D1_SHADOW_OPTIMIZATION = (
+    D2D1_SHADOW_OPTIMIZATION_SPEED        = 0,
+    D2D1_SHADOW_OPTIMIZATION_BALANCED     = 1,
+    D2D1_SHADOW_OPTIMIZATION_QUALITY      = 2,
+    D2D1_SHADOW_OPTIMIZATION_FORCE_DWORD  = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Blend effect's top level properties.
+  /// Effect description: Blends a foreground and background using a pre-defined blend
+  /// mode.
+  /// </summary>
+  D2D1_BLEND_PROP = (
+
+    /// <summary>
+    /// Property Name: "Mode"
+    /// Property Type: D2D1_BLEND_MODE
+    /// </summary>
+    D2D1_BLEND_PROP_MODE        = 0,
+    D2D1_BLEND_PROP_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  D2D1_BLEND_MODE = (
+
+    D2D1_BLEND_MODE_MULTIPLY      = 0,
+    D2D1_BLEND_MODE_SCREEN        = 1,
+    D2D1_BLEND_MODE_DARKEN        = 2,
+    D2D1_BLEND_MODE_LIGHTEN       = 3,
+    D2D1_BLEND_MODE_DISSOLVE      = 4,
+    D2D1_BLEND_MODE_COLOR_BURN    = 5,
+    D2D1_BLEND_MODE_LINEAR_BURN   = 6,
+    D2D1_BLEND_MODE_DARKER_COLOR  = 7,
+    D2D1_BLEND_MODE_LIGHTER_COLOR = 8,
+    D2D1_BLEND_MODE_COLOR_DODGE   = 9,
+    D2D1_BLEND_MODE_LINEAR_DODGE  = 10,
+    D2D1_BLEND_MODE_OVERLAY       = 11,
+    D2D1_BLEND_MODE_SOFT_LIGHT    = 12,
+    D2D1_BLEND_MODE_HARD_LIGHT    = 13,
+    D2D1_BLEND_MODE_VIVID_LIGHT   = 14,
+    D2D1_BLEND_MODE_LINEAR_LIGHT  = 15,
+    D2D1_BLEND_MODE_PIN_LIGHT     = 16,
+    D2D1_BLEND_MODE_HARD_MIX      = 17,
+    D2D1_BLEND_MODE_DIFFERENCE    = 18,
+    D2D1_BLEND_MODE_EXCLUSION     = 19,
+    D2D1_BLEND_MODE_HUE           = 20,
+    D2D1_BLEND_MODE_SATURATION    = 21,
+    D2D1_BLEND_MODE_COLOR         = 22,
+    D2D1_BLEND_MODE_LUMINOSITY    = 23,
+    D2D1_BLEND_MODE_SUBTRACT      = 24,
+    D2D1_BLEND_MODE_DIVISION      = 25,
+    D2D1_BLEND_MODE_FORCE_DWORD   = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Saturation effect's top level properties.
+  /// Effect description: Alters the saturation of the bitmap based on the user
+  /// specified saturation value.
+  /// </summary>
+  D2D1_SATURATION_PROP = (
+
+    /// <summary>
+    /// Property Name: "Saturation"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_SATURATION_PROP_SATURATION   = 0,
+    D2D1_SATURATION_PROP_FORCE_DWORD  = Integer($FFFFFFFF)
+  );
+
+/// <summary>
+  /// The enumeration of the Hue Rotation effect's top level properties.
+  /// Effect description: Changes the Hue of a bitmap based on a user specified Hue
+  /// Rotation angle.
+  /// </summary>
+  D2D1_HUEROTATION_PROP = (
+
+    /// <summary>
+    /// Property Name: "Angle"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_HUEROTATION_PROP_ANGLE       = 0,
+    D2D1_HUEROTATION_PROP_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Color Matrix effect's top level properties.
+  /// Effect description: Applies a user specified color matrix to each channel of the
+  /// input bitmap.
+  /// </summary>
+  D2D1_COLORMATRIX_PROP = (
+
+    /// <summary>
+    /// Property Name: "ColorMatrix"
+    /// Property Type: D2D1_MATRIX_5X4_F
+    /// </summary>
+    D2D1_COLORMATRIX_PROP_COLOR_MATRIX  = 0,
+
+    /// <summary>
+    /// Property Name: "AlphaMode"
+    /// Property Type: D2D1_COLORMATRIX_ALPHA_MODE
+    /// </summary>
+    D2D1_COLORMATRIX_PROP_ALPHA_MODE    = 1,
+
+    /// <summary>
+    /// Property Name: "ClampOutput"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_COLORMATRIX_PROP_CLAMP_OUTPUT  = 2,
+    D2D1_COLORMATRIX_PROP_FORCE_DWORD   = Integer($FFFFFFFF)
+  );
+
+  D2D1_COLORMATRIX_ALPHA_MODE = (
+
+    D2D1_COLORMATRIX_ALPHA_MODE_PREMULTIPLIED = 1,
+    D2D1_COLORMATRIX_ALPHA_MODE_STRAIGHT = 2,
+    D2D1_COLORMATRIX_ALPHA_MODE_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Bitmap Source effect's top level properties.
+  /// Effect description: Provides an image source.
+  /// </summary>
+  D2D1_BITMAPSOURCE_PROP = (
+
+    /// <summary>
+    /// Property Name: "WicBitmapSource"
+    /// Property Type: IUnknown *
+    /// </summary>
+    D2D1_BITMAPSOURCE_PROP_WIC_BITMAP_SOURCE      = 0,
+
+    /// <summary>
+    /// Property Name: "Scale"
+    /// Property Type: D2D1_VECTOR_2F
+    /// </summary>
+    D2D1_BITMAPSOURCE_PROP_SCALE                  = 1,
+
+    /// <summary>
+    /// Property Name: "InterpolationMode"
+    /// Property Type: D2D1_BITMAPSOURCE_INTERPOLATION_MODE
+    /// </summary>
+    D2D1_BITMAPSOURCE_PROP_INTERPOLATION_MODE     = 2,
+
+    /// <summary>
+    /// Property Name: "EnableDPICorrection"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_BITMAPSOURCE_PROP_ENABLE_DPI_CORRECTION  = 3,
+
+    /// <summary>
+    /// Property Name: "AlphaMode"
+    /// Property Type: D2D1_BITMAPSOURCE_ALPHA_MODE
+    /// </summary>
+    D2D1_BITMAPSOURCE_PROP_ALPHA_MODE             = 4,
+
+    /// <summary>
+    /// Property Name: "Orientation"
+    /// Property Type: D2D1_BITMAPSOURCE_ORIENTATION
+    /// </summary>
+    D2D1_BITMAPSOURCE_PROP_ORIENTATION            = 5,
+    D2D1_BITMAPSOURCE_PROP_FORCE_DWORD            = Integer($FFFFFFFF)
+  );
+
+  D2D1_BITMAPSOURCE_INTERPOLATION_MODE = (
+
+    D2D1_BITMAPSOURCE_INTERPOLATION_MODE_NEAREST_NEIGHBOR = 0,
+    D2D1_BITMAPSOURCE_INTERPOLATION_MODE_LINEAR           = 1,
+    D2D1_BITMAPSOURCE_INTERPOLATION_MODE_CUBIC            = 2,
+    D2D1_BITMAPSOURCE_INTERPOLATION_MODE_FANT             = 6,
+    D2D1_BITMAPSOURCE_INTERPOLATION_MODE_MIPMAP_LINEAR    = 7,
+    D2D1_BITMAPSOURCE_INTERPOLATION_MODE_FORCE_DWORD      = Integer($FFFFFFFF)
+  );
+
+  D2D1_BITMAPSOURCE_ALPHA_MODE = (
+    D2D1_BITMAPSOURCE_ALPHA_MODE_PREMULTIPLIED  = 1,
+    D2D1_BITMAPSOURCE_ALPHA_MODE_STRAIGHT       = 2,
+    D2D1_BITMAPSOURCE_ALPHA_MODE_FORCE_DWORD    = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Composite effect's top level properties.
+  /// Effect description: Composites foreground and background images using the
+  /// selected composition mode.
+  /// </summary>
+  D2D1_COMPOSITE_PROP = (
+
+    /// <summary>
+    /// Property Name: "Mode"
+    /// Property Type: D2D1_COMPOSITE_MODE
+    /// </summary>
+    D2D1_COMPOSITE_PROP_MODE        = 0,
+    D2D1_COMPOSITE_PROP_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the 3D Transform effect's top level properties.
+  /// Effect description: Applies a 3D transform to a bitmap.
+  /// </summary>
+  D2D1_3DTRANSFORM_PROP = (
+
+    /// <summary>
+    /// Property Name: "InterpolationMode"
+    /// Property Type: D2D1_3DTRANSFORM_INTERPOLATION_MODE
+    /// </summary>
+    D2D1_3DTRANSFORM_PROP_INTERPOLATION_MODE  = 0,
+
+    /// <summary>
+    /// Property Name: "BorderMode"
+    /// Property Type: D2D1_BORDER_MODE
+    /// </summary>
+    D2D1_3DTRANSFORM_PROP_BORDER_MODE         = 1,
+
+    /// <summary>
+    /// Property Name: "TransformMatrix"
+    /// Property Type: D2D1_MATRIX_4X4_F
+    /// </summary>
+    D2D1_3DTRANSFORM_PROP_TRANSFORM_MATRIX    = 2,
+    D2D1_3DTRANSFORM_PROP_FORCE_DWORD         = Integer($FFFFFFFF)
+  );
+
+  D2D1_3DTRANSFORM_INTERPOLATION_MODE = (
+
+    D2D1_3DTRANSFORM_INTERPOLATION_MODE_NEAREST_NEIGHBOR    = 0,
+    D2D1_3DTRANSFORM_INTERPOLATION_MODE_LINEAR              = 1,
+    D2D1_3DTRANSFORM_INTERPOLATION_MODE_CUBIC               = 2,
+    D2D1_3DTRANSFORM_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR = 3,
+    D2D1_3DTRANSFORM_INTERPOLATION_MODE_ANISOTROPIC         = 4,
+    D2D1_3DTRANSFORM_INTERPOLATION_MODE_FORCE_DWORD         = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the 3D Perspective Transform effect's top level properties.
+  /// Effect description: Applies a 3D perspective transform to a bitmap.
+  /// </summary>
+  D2D1_3DPERSPECTIVETRANSFORM_PROP = (
+
+    /// <summary>
+    /// Property Name: "InterpolationMode"
+    /// Property Type: D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE
+    /// </summary>
+    D2D1_3DPERSPECTIVETRANSFORM_PROP_INTERPOLATION_MODE = 0,
+
+    /// <summary>
+    /// Property Name: "BorderMode"
+    /// Property Type: D2D1_BORDER_MODE
+    /// </summary>
+    D2D1_3DPERSPECTIVETRANSFORM_PROP_BORDER_MODE        = 1,
+
+    /// <summary>
+    /// Property Name: "Depth"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_3DPERSPECTIVETRANSFORM_PROP_DEPTH              = 2,
+
+    /// <summary>
+    /// Property Name: "PerspectiveOrigin"
+    /// Property Type: D2D1_VECTOR_2F
+    /// </summary>
+    D2D1_3DPERSPECTIVETRANSFORM_PROP_PERSPECTIVE_ORIGIN = 3,
+
+    /// <summary>
+    /// Property Name: "LocalOffset"
+    /// Property Type: D2D1_VECTOR_3F
+    /// </summary>
+    D2D1_3DPERSPECTIVETRANSFORM_PROP_LOCAL_OFFSET       = 4,
+
+    /// <summary>
+    /// Property Name: "GlobalOffset"
+    /// Property Type: D2D1_VECTOR_3F
+    /// </summary>
+    D2D1_3DPERSPECTIVETRANSFORM_PROP_GLOBAL_OFFSET      = 5,
+
+    /// <summary>
+    /// Property Name: "RotationOrigin"
+    /// Property Type: D2D1_VECTOR_3F
+    /// </summary>
+    D2D1_3DPERSPECTIVETRANSFORM_PROP_ROTATION_ORIGIN    = 6,
+
+    /// <summary>
+    /// Property Name: "Rotation"
+    /// Property Type: D2D1_VECTOR_3F
+    /// </summary>
+    D2D1_3DPERSPECTIVETRANSFORM_PROP_ROTATION           = 7,
+    D2D1_3DPERSPECTIVETRANSFORM_PROP_FORCE_DWORD        = Integer($FFFFFFFF)
+  );
+
+  D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE = (
+
+    D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_NEAREST_NEIGHBOR     = 0,
+    D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_LINEAR               = 1,
+    D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_CUBIC                = 2,
+    D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR  = 3,
+    D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_ANISOTROPIC          = 4,
+    D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_FORCE_DWORD          = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the 2D Affine Transform effect's top level properties.
+  /// Effect description: Applies a 2D affine transform to a bitmap.
+  /// </summary>
+  D2D1_2DAFFINETRANSFORM_PROP = (
+
+    /// <summary>
+    /// Property Name: "InterpolationMode"
+    /// Property Type: D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE
+    /// </summary>
+    D2D1_2DAFFINETRANSFORM_PROP_INTERPOLATION_MODE  = 0,
+
+    /// <summary>
+    /// Property Name: "BorderMode"
+    /// Property Type: D2D1_BORDER_MODE
+    /// </summary>
+    D2D1_2DAFFINETRANSFORM_PROP_BORDER_MODE         = 1,
+
+    /// <summary>
+    /// Property Name: "TransformMatrix"
+    /// Property Type: D2D1_MATRIX_3X2_F
+    /// </summary>
+    D2D1_2DAFFINETRANSFORM_PROP_TRANSFORM_MATRIX    = 2,
+
+    /// <summary>
+    /// Property Name: "Sharpness"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_2DAFFINETRANSFORM_PROP_SHARPNESS           = 3,
+    D2D1_2DAFFINETRANSFORM_PROP_FORCE_DWORD         = Integer($FFFFFFFF)
+  );
+
+  D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE = (
+
+    D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_NEAREST_NEIGHBOR    = 0,
+    D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_LINEAR              = 1,
+    D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_CUBIC               = 2,
+    D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR = 3,
+    D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_ANISOTROPIC         = 4,
+    D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC  = 5,
+    D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_FORCE_DWORD         = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the DPI Compensation effect's top level properties.
+  /// Effect description: Scales according to the input DPI and the current context
+  /// DPI
+  /// </summary>
+  D2D1_DPICOMPENSATION_PROP = (
+
+    /// <summary>
+    /// Property Name: "InterpolationMode"
+    /// Property Type: D2D1_DPICOMPENSATION_INTERPOLATION_MODE
+    /// </summary>
+    D2D1_DPICOMPENSATION_PROP_INTERPOLATION_MODE  = 0,
+
+    /// <summary>
+    /// Property Name: "BorderMode"
+    /// Property Type: D2D1_BORDER_MODE
+    /// </summary>
+    D2D1_DPICOMPENSATION_PROP_BORDER_MODE         = 1,
+
+    /// <summary>
+    /// Property Name: "InputDpi"
+    /// Property Type: D2D1_VECTOR_2F
+    /// </summary>
+    D2D1_DPICOMPENSATION_PROP_INPUT_DPI           = 2,
+    D2D1_DPICOMPENSATION_PROP_FORCE_DWORD         = Integer($FFFFFFFF)
+  );
+
+  D2D1_DPICOMPENSATION_INTERPOLATION_MODE = (
+
+    D2D1_DPICOMPENSATION_INTERPOLATION_MODE_NEAREST_NEIGHBOR    = 0,
+    D2D1_DPICOMPENSATION_INTERPOLATION_MODE_LINEAR              = 1,
+    D2D1_DPICOMPENSATION_INTERPOLATION_MODE_CUBIC               = 2,
+    D2D1_DPICOMPENSATION_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR = 3,
+    D2D1_DPICOMPENSATION_INTERPOLATION_MODE_ANISOTROPIC         = 4,
+    D2D1_DPICOMPENSATION_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC  = 5,
+    D2D1_DPICOMPENSATION_INTERPOLATION_MODE_FORCE_DWORD         = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Scale effect's top level properties.
+  /// Effect description: Applies scaling operation to the bitmap.
+  /// </summary>
+  D2D1_SCALE_PROP = (
+
+    /// <summary>
+    /// Property Name: "Scale"
+    /// Property Type: D2D1_VECTOR_2F
+    /// </summary>
+    D2D1_SCALE_PROP_SCALE               = 0,
+
+    /// <summary>
+    /// Property Name: "CenterPoint"
+    /// Property Type: D2D1_VECTOR_2F
+    /// </summary>
+    D2D1_SCALE_PROP_CENTER_POINT        = 1,
+
+    /// <summary>
+    /// Property Name: "InterpolationMode"
+    /// Property Type: D2D1_SCALE_INTERPOLATION_MODE
+    /// </summary>
+    D2D1_SCALE_PROP_INTERPOLATION_MODE  = 2,
+
+    /// <summary>
+    /// Property Name: "BorderMode"
+    /// Property Type: D2D1_BORDER_MODE
+    /// </summary>
+    D2D1_SCALE_PROP_BORDER_MODE         = 3,
+
+    /// <summary>
+    /// Property Name: "Sharpness"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_SCALE_PROP_SHARPNESS           = 4,
+    D2D1_SCALE_PROP_FORCE_DWORD         = Integer($FFFFFFFF)
+  );
+
+  D2D1_SCALE_INTERPOLATION_MODE = (
+
+    D2D1_SCALE_INTERPOLATION_MODE_NEAREST_NEIGHBOR = 0,
+    D2D1_SCALE_INTERPOLATION_MODE_LINEAR = 1,
+    D2D1_SCALE_INTERPOLATION_MODE_CUBIC = 2,
+    D2D1_SCALE_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR = 3,
+    D2D1_SCALE_INTERPOLATION_MODE_ANISOTROPIC = 4,
+    D2D1_SCALE_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC = 5,
+    D2D1_SCALE_INTERPOLATION_MODE_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Turbulence effect's top level properties.
+  /// Effect description: Generates a bitmap based on the Perlin noise turbulence
+  /// function.
+  /// </summary>
+  D2D1_TURBULENCE_PROP = (
+
+    /// <summary>
+    /// Property Name: "Offset"
+    /// Property Type: D2D1_VECTOR_2F
+    /// </summary>
+    D2D1_TURBULENCE_PROP_OFFSET         = 0,
+
+    /// <summary>
+    /// Property Name: "Size"
+    /// Property Type: D2D1_VECTOR_2F
+    /// </summary>
+    D2D1_TURBULENCE_PROP_SIZE           = 1,
+
+    /// <summary>
+    /// Property Name: "BaseFrequency"
+    /// Property Type: D2D1_VECTOR_2F
+    /// </summary>
+    D2D1_TURBULENCE_PROP_BASE_FREQUENCY = 2,
+
+    /// <summary>
+    /// Property Name: "NumOctaves"
+    /// Property Type: UINT32
+    /// </summary>
+    D2D1_TURBULENCE_PROP_NUM_OCTAVES    = 3,
+
+    /// <summary>
+    /// Property Name: "Seed"
+    /// Property Type: INT32
+    /// </summary>
+    D2D1_TURBULENCE_PROP_SEED           = 4,
+
+    /// <summary>
+    /// Property Name: "Noise"
+    /// Property Type: D2D1_TURBULENCE_NOISE
+    /// </summary>
+    D2D1_TURBULENCE_PROP_NOISE        = 5,
+
+    /// <summary>
+    /// Property Name: "Stitchable"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_TURBULENCE_PROP_STITCHABLE   = 6,
+    D2D1_TURBULENCE_PROP_FORCE_DWORD  = Integer($FFFFFFFF)
+  );
+
+  D2D1_TURBULENCE_NOISE = (
+
+    D2D1_TURBULENCE_NOISE_FRACTAL_SUM = 0,
+    D2D1_TURBULENCE_NOISE_TURBULENCE  = 1,
+    D2D1_TURBULENCE_NOISE_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Displacement Map effect's top level properties.
+  /// Effect description: Displaces a bitmap based on user specified setting and
+  /// another bitmap.
+  /// </summary>
+  D2D1_DISPLACEMENTMAP_PROP = (
+
+    /// <summary>
+    /// Property Name: "Scale"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_DISPLACEMENTMAP_PROP_SCALE             = 0,
+
+    /// <summary>
+    /// Property Name: "XChannelSelect"
+    /// Property Type: D2D1_CHANNEL_SELECTOR
+    /// </summary>
+    D2D1_DISPLACEMENTMAP_PROP_X_CHANNEL_SELECT  = 1,
+
+    /// <summary>
+    /// Property Name: "YChannelSelect"
+    /// Property Type: D2D1_CHANNEL_SELECTOR
+    /// </summary>
+    D2D1_DISPLACEMENTMAP_PROP_Y_CHANNEL_SELECT  = 2,
+    D2D1_DISPLACEMENTMAP_PROP_FORCE_DWORD       = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Color Management effect's top level properties.
+  /// Effect description: Changes colors based on user provided color contexts.
+  /// </summary>
+  D2D1_COLORMANAGEMENT_PROP = (
+
+    /// <summary>
+    /// Property Name: "SourceColorContext"
+    /// Property Type: ID2D1ColorContext *
+    /// </summary>
+    D2D1_COLORMANAGEMENT_PROP_SOURCE_COLOR_CONTEXT          = 0,
+
+    /// <summary>
+    /// Property Name: "SourceRenderingIntent"
+    /// Property Type: D2D1_RENDERING_INTENT
+    /// </summary>
+    D2D1_COLORMANAGEMENT_PROP_SOURCE_RENDERING_INTENT       = 1,
+
+    /// <summary>
+    /// Property Name: "DestinationColorContext"
+    /// Property Type: ID2D1ColorContext *
+    /// </summary>
+    D2D1_COLORMANAGEMENT_PROP_DESTINATION_COLOR_CONTEXT     = 2,
+
+    /// <summary>
+    /// Property Name: "DestinationRenderingIntent"
+    /// Property Type: D2D1_RENDERING_INTENT
+    /// </summary>
+    D2D1_COLORMANAGEMENT_PROP_DESTINATION_RENDERING_INTENT  = 3,
+
+    /// <summary>
+    /// Property Name: "AlphaMode"
+    /// Property Type: D2D1_COLORMANAGEMENT_ALPHA_MODE
+    /// </summary>
+    D2D1_COLORMANAGEMENT_PROP_ALPHA_MODE                    = 4,
+
+    /// <summary>
+    /// Property Name: "Quality"
+    /// Property Type: D2D1_COLORMANAGEMENT_QUALITY
+    /// </summary>
+    D2D1_COLORMANAGEMENT_PROP_QUALITY                       = 5,
+    D2D1_COLORMANAGEMENT_PROP_FORCE_DWORD                   = Integer($FFFFFFFF)
+  );
+
+  D2D1_COLORMANAGEMENT_ALPHA_MODE = (
+
+    D2D1_COLORMANAGEMENT_ALPHA_MODE_PREMULTIPLIED = 1,
+    D2D1_COLORMANAGEMENT_ALPHA_MODE_STRAIGHT      = 2,
+    D2D1_COLORMANAGEMENT_ALPHA_MODE_FORCE_DWORD   = Integer($FFFFFFFF)
+  );
+
+  D2D1_COLORMANAGEMENT_QUALITY = (
+
+    D2D1_COLORMANAGEMENT_QUALITY_PROOF = 0,
+    D2D1_COLORMANAGEMENT_QUALITY_NORMAL = 1,
+    D2D1_COLORMANAGEMENT_QUALITY_BEST = 2,
+    D2D1_COLORMANAGEMENT_QUALITY_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// Specifies which ICC rendering intent the Color management effect should use.
+  /// </summary>
+  D2D1_COLORMANAGEMENT_RENDERING_INTENT = (
+
+    D2D1_COLORMANAGEMENT_RENDERING_INTENT_PERCEPTUAL            = 0,
+    D2D1_COLORMANAGEMENT_RENDERING_INTENT_RELATIVE_COLORIMETRIC = 1,
+    D2D1_COLORMANAGEMENT_RENDERING_INTENT_SATURATION            = 2,
+    D2D1_COLORMANAGEMENT_RENDERING_INTENT_ABSOLUTE_COLORIMETRIC = 3,
+    D2D1_COLORMANAGEMENT_RENDERING_INTENT_FORCE_DWORD           = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Histogram effect's top level properties.
+  /// Effect description: Computes the histogram of an image.
+  /// </summary>
+  D2D1_HISTOGRAM_PROP = (
+
+    /// <summary>
+    /// Property Name: "NumBins"
+    /// Property Type: UINT32
+    /// </summary>
+    D2D1_HISTOGRAM_PROP_NUM_BINS          = 0,
+
+    /// <summary>
+    /// Property Name: "ChannelSelect"
+    /// Property Type: D2D1_CHANNEL_SELECTOR
+    /// </summary>
+    D2D1_HISTOGRAM_PROP_CHANNEL_SELECT    = 1,
+
+    /// <summary>
+    /// Property Name: "HistogramOutput"
+    /// Property Type: (blob)
+    /// </summary>
+    D2D1_HISTOGRAM_PROP_HISTOGRAM_OUTPUT  = 2,
+    D2D1_HISTOGRAM_PROP_FORCE_DWORD       = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Point-Specular effect's top level properties.
+  /// Effect description: Creates a specular lighting effect with a point light
+  /// source.
+  /// </summary>
+  D2D1_POINTSPECULAR_PROP = (
+
+    /// <summary>
+    /// Property Name: "LightPosition"
+    /// Property Type: D2D1_VECTOR_3F
+    /// </summary>
+    D2D1_POINTSPECULAR_PROP_LIGHT_POSITION      = 0,
+
+    /// <summary>
+    /// Property Name: "SpecularExponent"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_POINTSPECULAR_PROP_SPECULAR_EXPONENT   = 1,
+
+    /// <summary>
+    /// Property Name: "SpecularConstant"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_POINTSPECULAR_PROP_SPECULAR_CONSTANT   = 2,
+
+    /// <summary>
+    /// Property Name: "SurfaceScale"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_POINTSPECULAR_PROP_SURFACE_SCALE       = 3,
+
+    /// <summary>
+    /// Property Name: "Color"
+    /// Property Type: D2D1_VECTOR_3F
+    /// </summary>
+    D2D1_POINTSPECULAR_PROP_COLOR               = 4,
+
+    /// <summary>
+    /// Property Name: "KernelUnitLength"
+    /// Property Type: D2D1_VECTOR_2F
+    /// </summary>
+    D2D1_POINTSPECULAR_PROP_KERNEL_UNIT_LENGTH  = 5,
+
+    /// <summary>
+    /// Property Name: "ScaleMode"
+    /// Property Type: D2D1_POINTSPECULAR_SCALE_MODE
+    /// </summary>
+    D2D1_POINTSPECULAR_PROP_SCALE_MODE          = 6,
+    D2D1_POINTSPECULAR_PROP_FORCE_DWORD         = Integer($FFFFFFFF)
+  );
+
+  D2D1_POINTSPECULAR_SCALE_MODE = (
+
+    D2D1_POINTSPECULAR_SCALE_MODE_NEAREST_NEIGHBOR    = 0,
+    D2D1_POINTSPECULAR_SCALE_MODE_LINEAR              = 1,
+    D2D1_POINTSPECULAR_SCALE_MODE_CUBIC               = 2,
+    D2D1_POINTSPECULAR_SCALE_MODE_MULTI_SAMPLE_LINEAR = 3,
+    D2D1_POINTSPECULAR_SCALE_MODE_ANISOTROPIC         = 4,
+    D2D1_POINTSPECULAR_SCALE_MODE_HIGH_QUALITY_CUBIC  = 5,
+    D2D1_POINTSPECULAR_SCALE_MODE_FORCE_DWORD         = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Spot-Specular effect's top level properties.
+  /// Effect description: Creates a specular lighting effect with a spot light source.
+  /// </summary>
+  D2D1_SPOTSPECULAR_PROP = (
+
+    /// <summary>
+    /// Property Name: "LightPosition"
+    /// Property Type: D2D1_VECTOR_3F
+    /// </summary>
+    D2D1_SPOTSPECULAR_PROP_LIGHT_POSITION       = 0,
+
+    /// <summary>
+    /// Property Name: "PointsAt"
+    /// Property Type: D2D1_VECTOR_3F
+    /// </summary>
+    D2D1_SPOTSPECULAR_PROP_POINTS_AT            = 1,
+
+    /// <summary>
+    /// Property Name: "Focus"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_SPOTSPECULAR_PROP_FOCUS                = 2,
+
+    /// <summary>
+    /// Property Name: "LimitingConeAngle"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_SPOTSPECULAR_PROP_LIMITING_CONE_ANGLE  = 3,
+
+    /// <summary>
+    /// Property Name: "SpecularExponent"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_SPOTSPECULAR_PROP_SPECULAR_EXPONENT    = 4,
+
+    /// <summary>
+    /// Property Name: "SpecularConstant"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_SPOTSPECULAR_PROP_SPECULAR_CONSTANT    = 5,
+
+    /// <summary>
+    /// Property Name: "SurfaceScale"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_SPOTSPECULAR_PROP_SURFACE_SCALE        = 6,
+
+    /// <summary>
+    /// Property Name: "Color"
+    /// Property Type: D2D1_VECTOR_3F
+    /// </summary>
+    D2D1_SPOTSPECULAR_PROP_COLOR                = 7,
+
+    /// <summary>
+    /// Property Name: "KernelUnitLength"
+    /// Property Type: D2D1_VECTOR_2F
+    /// </summary>
+    D2D1_SPOTSPECULAR_PROP_KERNEL_UNIT_LENGTH   = 8,
+
+    /// <summary>
+    /// Property Name: "ScaleMode"
+    /// Property Type: D2D1_SPOTSPECULAR_SCALE_MODE
+    /// </summary>
+    D2D1_SPOTSPECULAR_PROP_SCALE_MODE           = 9,
+    D2D1_SPOTSPECULAR_PROP_FORCE_DWORD          = Integer($FFFFFFFF)
+  );
+
+  D2D1_SPOTSPECULAR_SCALE_MODE = (
+
+    D2D1_SPOTSPECULAR_SCALE_MODE_NEAREST_NEIGHBOR = 0,
+    D2D1_SPOTSPECULAR_SCALE_MODE_LINEAR = 1,
+    D2D1_SPOTSPECULAR_SCALE_MODE_CUBIC = 2,
+    D2D1_SPOTSPECULAR_SCALE_MODE_MULTI_SAMPLE_LINEAR = 3,
+    D2D1_SPOTSPECULAR_SCALE_MODE_ANISOTROPIC = 4,
+    D2D1_SPOTSPECULAR_SCALE_MODE_HIGH_QUALITY_CUBIC = 5,
+    D2D1_SPOTSPECULAR_SCALE_MODE_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Distant-Specular effect's top level properties.
+  /// Effect description: Creates a specular lighting effect with a distant light
+  /// source.
+  /// </summary>
+  D2D1_DISTANTSPECULAR_PROP = (
+
+    /// <summary>
+    /// Property Name: "Azimuth"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_DISTANTSPECULAR_PROP_AZIMUTH             = 0,
+
+    /// <summary>
+    /// Property Name: "Elevation"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_DISTANTSPECULAR_PROP_ELEVATION           = 1,
+
+    /// <summary>
+    /// Property Name: "SpecularExponent"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_DISTANTSPECULAR_PROP_SPECULAR_EXPONENT   = 2,
+
+    /// <summary>
+    /// Property Name: "SpecularConstant"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_DISTANTSPECULAR_PROP_SPECULAR_CONSTANT   = 3,
+
+    /// <summary>
+    /// Property Name: "SurfaceScale"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_DISTANTSPECULAR_PROP_SURFACE_SCALE       = 4,
+
+    /// <summary>
+    /// Property Name: "Color"
+    /// Property Type: D2D1_VECTOR_3F
+    /// </summary>
+    D2D1_DISTANTSPECULAR_PROP_COLOR               = 5,
+
+    /// <summary>
+    /// Property Name: "KernelUnitLength"
+    /// Property Type: D2D1_VECTOR_2F
+    /// </summary>
+    D2D1_DISTANTSPECULAR_PROP_KERNEL_UNIT_LENGTH  = 6,
+
+    /// <summary>
+    /// Property Name: "ScaleMode"
+    /// Property Type: D2D1_DISTANTSPECULAR_SCALE_MODE
+    /// </summary>
+    D2D1_DISTANTSPECULAR_PROP_SCALE_MODE          = 7,
+    D2D1_DISTANTSPECULAR_PROP_FORCE_DWORD         = Integer($FFFFFFFF)
+  );
+
+  D2D1_DISTANTSPECULAR_SCALE_MODE = (
+
+    D2D1_DISTANTSPECULAR_SCALE_MODE_NEAREST_NEIGHBOR = 0,
+    D2D1_DISTANTSPECULAR_SCALE_MODE_LINEAR = 1,
+    D2D1_DISTANTSPECULAR_SCALE_MODE_CUBIC = 2,
+    D2D1_DISTANTSPECULAR_SCALE_MODE_MULTI_SAMPLE_LINEAR = 3,
+    D2D1_DISTANTSPECULAR_SCALE_MODE_ANISOTROPIC = 4,
+    D2D1_DISTANTSPECULAR_SCALE_MODE_HIGH_QUALITY_CUBIC = 5,
+    D2D1_DISTANTSPECULAR_SCALE_MODE_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Point-Diffuse effect's top level properties.
+  /// Effect description: Creates a diffuse lighting effect with a point light source.
+  /// </summary>
+  D2D1_POINTDIFFUSE_PROP = (
+
+    /// <summary>
+    /// Property Name: "LightPosition"
+    /// Property Type: D2D1_VECTOR_3F
+    /// </summary>
+    D2D1_POINTDIFFUSE_PROP_LIGHT_POSITION     = 0,
+
+    /// <summary>
+    /// Property Name: "DiffuseConstant"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_POINTDIFFUSE_PROP_DIFFUSE_CONSTANT   = 1,
+
+    /// <summary>
+    /// Property Name: "SurfaceScale"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_POINTDIFFUSE_PROP_SURFACE_SCALE      = 2,
+
+    /// <summary>
+    /// Property Name: "Color"
+    /// Property Type: D2D1_VECTOR_3F
+    /// </summary>
+    D2D1_POINTDIFFUSE_PROP_COLOR              = 3,
+
+    /// <summary>
+    /// Property Name: "KernelUnitLength"
+    /// Property Type: D2D1_VECTOR_2F
+    /// </summary>
+    D2D1_POINTDIFFUSE_PROP_KERNEL_UNIT_LENGTH = 4,
+
+    /// <summary>
+    /// Property Name: "ScaleMode"
+    /// Property Type: D2D1_POINTDIFFUSE_SCALE_MODE
+    /// </summary>
+    D2D1_POINTDIFFUSE_PROP_SCALE_MODE         = 5,
+    D2D1_POINTDIFFUSE_PROP_FORCE_DWORD        = Integer($FFFFFFFF)
+  );
+
+  D2D1_POINTDIFFUSE_SCALE_MODE = (
+
+    D2D1_POINTDIFFUSE_SCALE_MODE_NEAREST_NEIGHBOR     = 0,
+    D2D1_POINTDIFFUSE_SCALE_MODE_LINEAR               = 1,
+    D2D1_POINTDIFFUSE_SCALE_MODE_CUBIC                = 2,
+    D2D1_POINTDIFFUSE_SCALE_MODE_MULTI_SAMPLE_LINEAR  = 3,
+    D2D1_POINTDIFFUSE_SCALE_MODE_ANISOTROPIC          = 4,
+    D2D1_POINTDIFFUSE_SCALE_MODE_HIGH_QUALITY_CUBIC   = 5,
+    D2D1_POINTDIFFUSE_SCALE_MODE_FORCE_DWORD          = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Spot-Diffuse effect's top level properties.
+  /// Effect description: Creates a diffuse lighting effect with a spot light source.
+  /// </summary>
+  D2D1_SPOTDIFFUSE_PROP = (
+
+    /// <summary>
+    /// Property Name: "LightPosition"
+    /// Property Type: D2D1_VECTOR_3F
+    /// </summary>
+    D2D1_SPOTDIFFUSE_PROP_LIGHT_POSITION      = 0,
+
+    /// <summary>
+    /// Property Name: "PointsAt"
+    /// Property Type: D2D1_VECTOR_3F
+    /// </summary>
+    D2D1_SPOTDIFFUSE_PROP_POINTS_AT           = 1,
+
+    /// <summary>
+    /// Property Name: "Focus"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_SPOTDIFFUSE_PROP_FOCUS               = 2,
+
+    /// <summary>
+    /// Property Name: "LimitingConeAngle"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_SPOTDIFFUSE_PROP_LIMITING_CONE_ANGLE = 3,
+
+    /// <summary>
+    /// Property Name: "DiffuseConstant"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_SPOTDIFFUSE_PROP_DIFFUSE_CONSTANT    = 4,
+
+    /// <summary>
+    /// Property Name: "SurfaceScale"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_SPOTDIFFUSE_PROP_SURFACE_SCALE       = 5,
+
+    /// <summary>
+    /// Property Name: "Color"
+    /// Property Type: D2D1_VECTOR_3F
+    /// </summary>
+    D2D1_SPOTDIFFUSE_PROP_COLOR               = 6,
+
+    /// <summary>
+    /// Property Name: "KernelUnitLength"
+    /// Property Type: D2D1_VECTOR_2F
+    /// </summary>
+    D2D1_SPOTDIFFUSE_PROP_KERNEL_UNIT_LENGTH  = 7,
+
+    /// <summary>
+    /// Property Name: "ScaleMode"
+    /// Property Type: D2D1_SPOTDIFFUSE_SCALE_MODE
+    /// </summary>
+    D2D1_SPOTDIFFUSE_PROP_SCALE_MODE          = 8,
+    D2D1_SPOTDIFFUSE_PROP_FORCE_DWORD         = Integer($FFFFFFFF)
+  );
+
+  D2D1_SPOTDIFFUSE_SCALE_MODE = (
+
+    D2D1_SPOTDIFFUSE_SCALE_MODE_NEAREST_NEIGHBOR    = 0,
+    D2D1_SPOTDIFFUSE_SCALE_MODE_LINEAR              = 1,
+    D2D1_SPOTDIFFUSE_SCALE_MODE_CUBIC               = 2,
+    D2D1_SPOTDIFFUSE_SCALE_MODE_MULTI_SAMPLE_LINEAR = 3,
+    D2D1_SPOTDIFFUSE_SCALE_MODE_ANISOTROPIC         = 4,
+    D2D1_SPOTDIFFUSE_SCALE_MODE_HIGH_QUALITY_CUBIC  = 5,
+    D2D1_SPOTDIFFUSE_SCALE_MODE_FORCE_DWORD         = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Distant-Diffuse effect's top level properties.
+  /// Effect description: Creates a diffuse lighting effect with a distant light
+  /// source.
+  /// </summary>
+  D2D1_DISTANTDIFFUSE_PROP = (
+
+    /// <summary>
+    /// Property Name: "Azimuth"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_DISTANTDIFFUSE_PROP_AZIMUTH            = 0,
+
+    /// <summary>
+    /// Property Name: "Elevation"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_DISTANTDIFFUSE_PROP_ELEVATION          = 1,
+
+    /// <summary>
+    /// Property Name: "DiffuseConstant"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_DISTANTDIFFUSE_PROP_DIFFUSE_CONSTANT   = 2,
+
+    /// <summary>
+    /// Property Name: "SurfaceScale"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_DISTANTDIFFUSE_PROP_SURFACE_SCALE      = 3,
+
+    /// <summary>
+    /// Property Name: "Color"
+    /// Property Type: D2D1_VECTOR_3F
+    /// </summary>
+    D2D1_DISTANTDIFFUSE_PROP_COLOR              = 4,
+
+    /// <summary>
+    /// Property Name: "KernelUnitLength"
+    /// Property Type: D2D1_VECTOR_2F
+    /// </summary>
+    D2D1_DISTANTDIFFUSE_PROP_KERNEL_UNIT_LENGTH = 5,
+
+    /// <summary>
+    /// Property Name: "ScaleMode"
+    /// Property Type: D2D1_DISTANTDIFFUSE_SCALE_MODE
+    /// </summary>
+    D2D1_DISTANTDIFFUSE_PROP_SCALE_MODE         = 6,
+    D2D1_DISTANTDIFFUSE_PROP_FORCE_DWORD        = Integer($FFFFFFFF)
+  );
+
+  D2D1_DISTANTDIFFUSE_SCALE_MODE = (
+
+    D2D1_DISTANTDIFFUSE_SCALE_MODE_NEAREST_NEIGHBOR     = 0,
+    D2D1_DISTANTDIFFUSE_SCALE_MODE_LINEAR               = 1,
+    D2D1_DISTANTDIFFUSE_SCALE_MODE_CUBIC                = 2,
+    D2D1_DISTANTDIFFUSE_SCALE_MODE_MULTI_SAMPLE_LINEAR  = 3,
+    D2D1_DISTANTDIFFUSE_SCALE_MODE_ANISOTROPIC          = 4,
+    D2D1_DISTANTDIFFUSE_SCALE_MODE_HIGH_QUALITY_CUBIC   = 5,
+    D2D1_DISTANTDIFFUSE_SCALE_MODE_FORCE_DWORD          = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Flood effect's top level properties.
+  /// Effect description: Renders an infinite sized floodfill of the given color.
+  /// </summary>
+  D2D1_FLOOD_PROP = (
+
+    /// <summary>
+    /// Property Name: "Color"
+    /// Property Type: D2D1_VECTOR_4F
+    /// </summary>
+    D2D1_FLOOD_PROP_COLOR       = 0,
+    D2D1_FLOOD_PROP_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Linear Transfer effect's top level properties.
+  /// Effect description: Remaps the color intensities of the input bitmap based on a
+  /// user specified linear transfer function for each RGBA channel.
+  /// </summary>
+  D2D1_LINEARTRANSFER_PROP = (
+
+    /// <summary>
+    /// Property Name: "RedYIntercept"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_LINEARTRANSFER_PROP_RED_Y_INTERCEPT    = 0,
+
+    /// <summary>
+    /// Property Name: "RedSlope"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_LINEARTRANSFER_PROP_RED_SLOPE          = 1,
+
+    /// <summary>
+    /// Property Name: "RedDisable"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_LINEARTRANSFER_PROP_RED_DISABLE        = 2,
+
+    /// <summary>
+    /// Property Name: "GreenYIntercept"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_LINEARTRANSFER_PROP_GREEN_Y_INTERCEPT  = 3,
+
+    /// <summary>
+    /// Property Name: "GreenSlope"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_LINEARTRANSFER_PROP_GREEN_SLOPE        = 4,
+
+    /// <summary>
+    /// Property Name: "GreenDisable"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_LINEARTRANSFER_PROP_GREEN_DISABLE      = 5,
+
+    /// <summary>
+    /// Property Name: "BlueYIntercept"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_LINEARTRANSFER_PROP_BLUE_Y_INTERCEPT   = 6,
+
+    /// <summary>
+    /// Property Name: "BlueSlope"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_LINEARTRANSFER_PROP_BLUE_SLOPE         = 7,
+
+    /// <summary>
+    /// Property Name: "BlueDisable"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_LINEARTRANSFER_PROP_BLUE_DISABLE       = 8,
+
+    /// <summary>
+    /// Property Name: "AlphaYIntercept"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_LINEARTRANSFER_PROP_ALPHA_Y_INTERCEPT  = 9,
+
+    /// <summary>
+    /// Property Name: "AlphaSlope"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_LINEARTRANSFER_PROP_ALPHA_SLOPE        = 10,
+
+    /// <summary>
+    /// Property Name: "AlphaDisable"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_LINEARTRANSFER_PROP_ALPHA_DISABLE      = 11,
+
+    /// <summary>
+    /// Property Name: "ClampOutput"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_LINEARTRANSFER_PROP_CLAMP_OUTPUT       = 12,
+    D2D1_LINEARTRANSFER_PROP_FORCE_DWORD        = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Gamma Transfer effect's top level properties.
+  /// Effect description: Remaps the color intensities of the input bitmap based on a
+  /// user specified gamma transfer function for each RGBA channel.
+  /// </summary>
+  D2D1_GAMMATRANSFER_PROP = (
+
+    /// <summary>
+    /// Property Name: "RedAmplitude"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_GAMMATRANSFER_PROP_RED_AMPLITUDE = 0,
+
+    /// <summary>
+    /// Property Name: "RedExponent"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_GAMMATRANSFER_PROP_RED_EXPONENT    = 1,
+
+    /// <summary>
+    /// Property Name: "RedOffset"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_GAMMATRANSFER_PROP_RED_OFFSET      = 2,
+
+    /// <summary>
+    /// Property Name: "RedDisable"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_GAMMATRANSFER_PROP_RED_DISABLE     = 3,
+
+    /// <summary>
+    /// Property Name: "GreenAmplitude"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_GAMMATRANSFER_PROP_GREEN_AMPLITUDE = 4,
+
+    /// <summary>
+    /// Property Name: "GreenExponent"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_GAMMATRANSFER_PROP_GREEN_EXPONENT  = 5,
+
+    /// <summary>
+    /// Property Name: "GreenOffset"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_GAMMATRANSFER_PROP_GREEN_OFFSET    = 6,
+
+    /// <summary>
+    /// Property Name: "GreenDisable"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_GAMMATRANSFER_PROP_GREEN_DISABLE   = 7,
+
+    /// <summary>
+    /// Property Name: "BlueAmplitude"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_GAMMATRANSFER_PROP_BLUE_AMPLITUDE  = 8,
+
+    /// <summary>
+    /// Property Name: "BlueExponent"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_GAMMATRANSFER_PROP_BLUE_EXPONENT   = 9,
+
+    /// <summary>
+    /// Property Name: "BlueOffset"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_GAMMATRANSFER_PROP_BLUE_OFFSET     = 10,
+
+    /// <summary>
+    /// Property Name: "BlueDisable"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_GAMMATRANSFER_PROP_BLUE_DISABLE    = 11,
+
+    /// <summary>
+    /// Property Name: "AlphaAmplitude"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_GAMMATRANSFER_PROP_ALPHA_AMPLITUDE = 12,
+
+    /// <summary>
+    /// Property Name: "AlphaExponent"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_GAMMATRANSFER_PROP_ALPHA_EXPONENT  = 13,
+
+    /// <summary>
+    /// Property Name: "AlphaOffset"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_GAMMATRANSFER_PROP_ALPHA_OFFSET    = 14,
+
+    /// <summary>
+    /// Property Name: "AlphaDisable"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_GAMMATRANSFER_PROP_ALPHA_DISABLE   = 15,
+
+    /// <summary>
+    /// Property Name: "ClampOutput"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_GAMMATRANSFER_PROP_CLAMP_OUTPUT    = 16,
+    D2D1_GAMMATRANSFER_PROP_FORCE_DWORD     = Integer($FFFFFFFF)
+  );
+
+
+  /// <summary>
+  /// The enumeration of the Table Transfer effect's top level properties.
+  /// Effect description: Remaps the color intensities of the input bitmap based on a
+  /// transfer function generated by a user specified list of values for each RGBA
+  /// channel.
+  /// </summary>
+  D2D1_TABLETRANSFER_PROP = (
+
+    /// <summary>
+    /// Property Name: "RedTable"
+    /// Property Type: (blob)
+    /// </summary>
+    D2D1_TABLETRANSFER_PROP_RED_TABLE     = 0,
+
+    /// <summary>
+    /// Property Name: "RedDisable"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_TABLETRANSFER_PROP_RED_DISABLE   = 1,
+
+    /// <summary>
+    /// Property Name: "GreenTable"
+    /// Property Type: (blob)
+    /// </summary>
+    D2D1_TABLETRANSFER_PROP_GREEN_TABLE   = 2,
+
+    /// <summary>
+    /// Property Name: "GreenDisable"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_TABLETRANSFER_PROP_GREEN_DISABLE = 3,
+
+    /// <summary>
+    /// Property Name: "BlueTable"
+    /// Property Type: (blob)
+    /// </summary>
+    D2D1_TABLETRANSFER_PROP_BLUE_TABLE    = 4,
+
+    /// <summary>
+    /// Property Name: "BlueDisable"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_TABLETRANSFER_PROP_BLUE_DISABLE  = 5,
+
+    /// <summary>
+    /// Property Name: "AlphaTable"
+    /// Property Type: (blob)
+    /// </summary>
+    D2D1_TABLETRANSFER_PROP_ALPHA_TABLE   = 6,
+
+    /// <summary>
+    /// Property Name: "AlphaDisable"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_TABLETRANSFER_PROP_ALPHA_DISABLE = 7,
+
+    /// <summary>
+    /// Property Name: "ClampOutput"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_TABLETRANSFER_PROP_CLAMP_OUTPUT  = 8,
+    D2D1_TABLETRANSFER_PROP_FORCE_DWORD   = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Discrete Transfer effect's top level properties.
+  /// Effect description: Remaps the color intensities of the input bitmap based on a
+  /// discrete function generated by a user specified list of values for each RGBA
+  /// channel.
+  /// </summary>
+  D2D1_DISCRETETRANSFER_PROP = (
+
+    /// <summary>
+    /// Property Name: "RedTable"
+    /// Property Type: (blob)
+    /// </summary>
+    D2D1_DISCRETETRANSFER_PROP_RED_TABLE      = 0,
+
+    /// <summary>
+    /// Property Name: "RedDisable"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_DISCRETETRANSFER_PROP_RED_DISABLE    = 1,
+
+    /// <summary>
+    /// Property Name: "GreenTable"
+    /// Property Type: (blob)
+    /// </summary>
+    D2D1_DISCRETETRANSFER_PROP_GREEN_TABLE    = 2,
+
+    /// <summary>
+    /// Property Name: "GreenDisable"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_DISCRETETRANSFER_PROP_GREEN_DISABLE  = 3,
+
+    /// <summary>
+    /// Property Name: "BlueTable"
+    /// Property Type: (blob)
+    /// </summary>
+    D2D1_DISCRETETRANSFER_PROP_BLUE_TABLE     = 4,
+
+    /// <summary>
+    /// Property Name: "BlueDisable"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_DISCRETETRANSFER_PROP_BLUE_DISABLE   = 5,
+
+    /// <summary>
+    /// Property Name: "AlphaTable"
+    /// Property Type: (blob)
+    /// </summary>
+    D2D1_DISCRETETRANSFER_PROP_ALPHA_TABLE    = 6,
+
+    /// <summary>
+    /// Property Name: "AlphaDisable"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_DISCRETETRANSFER_PROP_ALPHA_DISABLE  = 7,
+
+    /// <summary>
+    /// Property Name: "ClampOutput"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_DISCRETETRANSFER_PROP_CLAMP_OUTPUT   = 8,
+    D2D1_DISCRETETRANSFER_PROP_FORCE_DWORD    = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Convolve Matrix effect's top level properties.
+  /// Effect description: Applies a user specified convolution kernel to a bitmap.
+  /// </summary>
+  D2D1_CONVOLVEMATRIX_PROP = (
+
+    /// <summary>
+    /// Property Name: "KernelUnitLength"
+    /// Property Type: D2D1_VECTOR_2F
+    /// </summary>
+    D2D1_CONVOLVEMATRIX_PROP_KERNEL_UNIT_LENGTH = 0,
+
+    /// <summary>
+    /// Property Name: "ScaleMode"
+    /// Property Type: D2D1_CONVOLVEMATRIX_SCALE_MODE
+    /// </summary>
+    D2D1_CONVOLVEMATRIX_PROP_SCALE_MODE         = 1,
+
+    /// <summary>
+    /// Property Name: "KernelSizeX"
+    /// Property Type: UINT32
+    /// </summary>
+    D2D1_CONVOLVEMATRIX_PROP_KERNEL_SIZE_X      = 2,
+
+    /// <summary>
+    /// Property Name: "KernelSizeY"
+    /// Property Type: UINT32
+    /// </summary>
+    D2D1_CONVOLVEMATRIX_PROP_KERNEL_SIZE_Y      = 3,
+
+    /// <summary>
+    /// Property Name: "KernelMatrix"
+    /// Property Type: (blob)
+    /// </summary>
+    D2D1_CONVOLVEMATRIX_PROP_KERNEL_MATRIX      = 4,
+
+    /// <summary>
+    /// Property Name: "Divisor"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_CONVOLVEMATRIX_PROP_DIVISOR            = 5,
+
+    /// <summary>
+    /// Property Name: "Bias"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_CONVOLVEMATRIX_PROP_BIAS               = 6,
+
+    /// <summary>
+    /// Property Name: "KernelOffset"
+    /// Property Type: D2D1_VECTOR_2F
+    /// </summary>
+    D2D1_CONVOLVEMATRIX_PROP_KERNEL_OFFSET      = 7,
+
+    /// <summary>
+    /// Property Name: "PreserveAlpha"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_CONVOLVEMATRIX_PROP_PRESERVE_ALPHA     = 8,
+
+    /// <summary>
+    /// Property Name: "BorderMode"
+    /// Property Type: D2D1_BORDER_MODE
+    /// </summary>
+    D2D1_CONVOLVEMATRIX_PROP_BORDER_MODE        = 9,
+
+    /// <summary>
+    /// Property Name: "ClampOutput"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_CONVOLVEMATRIX_PROP_CLAMP_OUTPUT       = 10,
+    D2D1_CONVOLVEMATRIX_PROP_FORCE_DWORD        = Integer($FFFFFFFF)
+  );
+
+  D2D1_CONVOLVEMATRIX_SCALE_MODE = (
+
+    D2D1_CONVOLVEMATRIX_SCALE_MODE_NEAREST_NEIGHBOR     = 0,
+    D2D1_CONVOLVEMATRIX_SCALE_MODE_LINEAR               = 1,
+    D2D1_CONVOLVEMATRIX_SCALE_MODE_CUBIC                = 2,
+    D2D1_CONVOLVEMATRIX_SCALE_MODE_MULTI_SAMPLE_LINEAR  = 3,
+    D2D1_CONVOLVEMATRIX_SCALE_MODE_ANISOTROPIC          = 4,
+    D2D1_CONVOLVEMATRIX_SCALE_MODE_HIGH_QUALITY_CUBIC   = 5,
+    D2D1_CONVOLVEMATRIX_SCALE_MODE_FORCE_DWORD          = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Brightness effect's top level properties.
+  /// Effect description: Adjusts the brightness of the image based on the specified
+  /// white and black point.
+  /// </summary>
+  D2D1_BRIGHTNESS_PROP = (
+
+    /// <summary>
+    /// Property Name: "WhitePoint"
+    /// Property Type: D2D1_VECTOR_2F
+    /// </summary>
+    D2D1_BRIGHTNESS_PROP_WHITE_POINT = 0,
+
+    /// <summary>
+    /// Property Name: "BlackPoint"
+    /// Property Type: D2D1_VECTOR_2F
+    /// </summary>
+    D2D1_BRIGHTNESS_PROP_BLACK_POINT = 1,
+    D2D1_BRIGHTNESS_PROP_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Arithmetic Composite effect's top level properties.
+  /// Effect description: Composites two bitmaps based on the following algorithm:
+  /// Output = Coefficients_1 * Source * Destination + Coefficients_2 * Source+
+  /// Coefficients_3 * Destination + Coefficients_4.
+  /// </summary>
+  D2D1_ARITHMETICCOMPOSITE_PROP = (
+
+    /// <summary>
+    /// Property Name: "Coefficients"
+    /// Property Type: D2D1_VECTOR_4F
+    /// </summary>
+    D2D1_ARITHMETICCOMPOSITE_PROP_COEFFICIENTS  = 0,
+
+    /// <summary>
+    /// Property Name: "ClampOutput"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_ARITHMETICCOMPOSITE_PROP_CLAMP_OUTPUT  = 1,
+    D2D1_ARITHMETICCOMPOSITE_PROP_FORCE_DWORD   = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Crop effect's top level properties.
+  /// Effect description: Crops the input bitmap according to the specified
+  /// parameters.
+  /// </summary>
+  D2D1_CROP_PROP = (
+
+    /// <summary>
+    /// Property Name: "Rect"
+    /// Property Type: D2D1_VECTOR_4F
+    /// </summary>
+    D2D1_CROP_PROP_RECT         = 0,
+
+    /// <summary>
+    /// Property Name: "BorderMode"
+    /// Property Type: D2D1_BORDER_MODE
+    /// </summary>
+    D2D1_CROP_PROP_BORDER_MODE  = 1,
+    D2D1_CROP_PROP_FORCE_DWORD  = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Border effect's top level properties.
+  /// Effect description: Extends the region of the bitmap based on the selected
+  /// border mode.
+  /// </summary>
+  D2D1_BORDER_PROP = (
+
+    /// <summary>
+    /// Property Name: "EdgeModeX"
+    /// Property Type: D2D1_BORDER_EDGE_MODE
+    /// </summary>
+    D2D1_BORDER_PROP_EDGE_MODE_X = 0,
+
+    /// <summary>
+    /// Property Name: "EdgeModeY"
+    /// Property Type: D2D1_BORDER_EDGE_MODE
+    /// </summary>
+    D2D1_BORDER_PROP_EDGE_MODE_Y = 1,
+    D2D1_BORDER_PROP_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The edge mode for the Border effect.
+  /// </summary>
+  D2D1_BORDER_EDGE_MODE = (
+    D2D1_BORDER_EDGE_MODE_CLAMP       = 0,
+    D2D1_BORDER_EDGE_MODE_WRAP        = 1,
+    D2D1_BORDER_EDGE_MODE_MIRROR      = 2,
+    D2D1_BORDER_EDGE_MODE_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Morphology effect's top level properties.
+  /// Effect description: Erodes or dilates a bitmap by the given radius.
+  /// </summary>
+  D2D1_MORPHOLOGY_PROP = (
+
+    /// <summary>
+    /// Property Name: "Mode"
+    /// Property Type: D2D1_MORPHOLOGY_MODE
+    /// </summary>
+    D2D1_MORPHOLOGY_PROP_MODE         = 0,
+
+    /// <summary>
+    /// Property Name: "Width"
+    /// Property Type: UINT32
+    /// </summary>
+    D2D1_MORPHOLOGY_PROP_WIDTH        = 1,
+
+    /// <summary>
+    /// Property Name: "Height"
+    /// Property Type: UINT32
+    /// </summary>
+    D2D1_MORPHOLOGY_PROP_HEIGHT       = 2,
+    D2D1_MORPHOLOGY_PROP_FORCE_DWORD  = Integer($FFFFFFFF)
+  );
+
+  D2D1_MORPHOLOGY_MODE = (
+    D2D1_MORPHOLOGY_MODE_ERODE        = 0,
+    D2D1_MORPHOLOGY_MODE_DILATE       = 1,
+    D2D1_MORPHOLOGY_MODE_FORCE_DWORD  = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Tile effect's top level properties.
+  /// Effect description: Tiles the specified region of the input bitmap.
+  /// </summary>
+  D2D1_TILE_PROP = (
+
+    /// <summary>
+    /// Property Name: "Rect"
+    /// Property Type: D2D1_VECTOR_4F
+    /// </summary>
+    D2D1_TILE_PROP_RECT = 0,
+    D2D1_TILE_PROP_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Atlas effect's top level properties.
+  /// Effect description: Changes the available area of the input to the specified
+  /// rectangle. Provides an optimization for scenarios where a bitmap is used as an
+  /// atlas.
+  /// </summary>
+  D2D1_ATLAS_PROP = (
+
+    /// <summary>
+    /// Property Name: "InputRect"
+    /// Property Type: D2D1_VECTOR_4F
+    /// </summary>
+    D2D1_ATLAS_PROP_INPUT_RECT          = 0,
+
+    /// <summary>
+    /// Property Name: "InputPaddingRect"
+    /// Property Type: D2D1_VECTOR_4F
+    /// </summary>
+    D2D1_ATLAS_PROP_INPUT_PADDING_RECT  = 1,
+    D2D1_ATLAS_PROP_FORCE_DWORD         = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The enumeration of the Opacity Metadata effect's top level properties.
+  /// Effect description: Changes the rectangle which is assumed to be opaque.
+  /// Provides optimizations in certain scenarios.
+  /// </summary>
+  D2D1_OPACITYMETADATA_PROP = (
+
+    /// <summary>
+    /// Property Name: "InputOpaqueRect"
+    /// Property Type: D2D1_VECTOR_4F
+    /// </summary>
+    D2D1_OPACITYMETADATA_PROP_INPUT_OPAQUE_RECT = 0,
+    D2D1_OPACITYMETADATA_PROP_FORCE_DWORD       = Integer($FFFFFFFF)
+  );
+
+{$ENDREGION}
+
 {$REGION 'd2d1effectauthor.h enums'}
 
   /// <summary>
@@ -2205,6 +4247,7 @@ type
 {$ENDREGION}
 
 {$REGION 'DocumentTypes.h enums'}
+
   PrintDocumentPackageCompletion = (
     PrintDocumentPackageCompletion_InProgress	= 0,
     PrintDocumentPackageCompletion_Completed	= (PrintDocumentPackageCompletion_InProgress + 1),
@@ -2213,7 +4256,7 @@ type
   );
 {$ENDREGION}
 
-{$REGION 'd2d1.h  records'}
+{$REGION 'd2d1.h records'}
 
   D2D1_PIXEL_FORMAT = record
     DXGIFormat: DXGI_FORMAT;
@@ -2573,6 +4616,7 @@ type
 {$ENDREGION}
 
 {$REGION 'd2d1_1.h records'}
+
   D2D1_MATRIX_4X4_F = record
     M11, M12, M13, M14: Single;
     M21, M22, M23, M24: Single;
@@ -2773,6 +4817,255 @@ type
   end;
 
   PD2D1_CREATION_PROPERTIES = ^D2D1_CREATION_PROPERTIES;
+
+{$ENDREGION}
+
+{$REGION 'd2d1_2.h records'}
+
+//
+{$ENDREGION}
+
+{$REGION 'd2d1_3.h records'}
+
+  /// <summary>
+  /// Properties of a transformed image source.
+  /// </summary>
+  D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES = record
+
+    /// <summary>
+    /// The orientation at which the image source is drawn.
+    /// </summary>
+    Orientation: D2D1_ORIENTATION;
+
+    /// <summary>
+    /// The horizontal scale factor at which the image source is drawn.
+    /// </summary>
+    ScaleX: Single;
+
+    /// <summary>
+    /// The vertical scale factor at which the image source is drawn.
+    /// </summary>
+    ScaleY: Single;
+
+    /// <summary>
+    /// The interpolation mode used when the image source is drawn.  This is ignored if
+    /// the image source is drawn using the DrawImage method, or using an image brush.
+    /// </summary>
+    InterpolationMode: D2D1_INTERPOLATION_MODE;
+
+    /// <summary>
+    /// Option flags.
+    /// </summary>
+    Options: D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS;
+  end;
+
+  PD2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES = ^D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES;
+
+  /// <summary>
+  /// Represents a point, radius pair that makes up part of a D2D1_INK_BEZIER_SEGMENT.
+  /// </summary>
+  D2D1_INK_POINT = record
+    X: Single;
+    Y: Single;
+    Radius: Single
+  end;
+
+  PD2D1_INK_POINT = ^D2D1_INK_POINT;
+
+  /// <summary>
+  /// Represents a Bezier segment to be used in the creation of an ID2D1Ink object.
+  /// This structure differs from D2D1_BEZIER_SEGMENT in that it is composed of
+  /// D2D1_INK_POINT s, which contain a radius in addition to x- and y-coordinates.
+  /// </summary>
+  D2D1_INK_BEZIER_SEGMENT = record
+    Point1: D2D1_INK_POINT;
+    Point2: D2D1_INK_POINT;
+    Point3: D2D1_INK_POINT;
+  end;
+
+  PD2D1_INK_BEZIER_SEGMENT = ^D2D1_INK_BEZIER_SEGMENT;
+
+  /// <summary>
+  /// Defines the general pen tip shape and the transform used in an ID2D1InkStyle
+  /// object.
+  /// </summary>
+  D2D1_INK_STYLE_PROPERTIES = record
+
+    /// <summary>
+    /// The general shape of the nib used to draw a given ink object.
+    /// </summary>
+    NibShape: D2D1_INK_NIB_SHAPE;
+
+    /// <summary>
+    /// The transform applied to shape of the nib. _31 and _32 are ignored.
+    /// </summary>
+    NibTransform: D2D1_MATRIX_3X2_F;
+  end;
+
+  PD2D1_INK_STYLE_PROPERTIES = ^D2D1_INK_STYLE_PROPERTIES;
+
+  /// <summary>
+  /// Represents a tensor patch with 16 control points, 4 corner colors, and boundary
+  /// flags. An ID2D1GradientMesh is made up of 1 or more gradient mesh patches. Use
+  /// the GradientMeshPatch function or the GradientMeshPatchFromCoonsPatch function
+  /// to create one.
+  /// </summary>
+  D2D1_GRADIENT_MESH_PATCH = record
+    /// <summary>
+    /// The gradient mesh patch control point at position 00.
+    /// </summary>
+    Point00: D2D1_POINT_2F;
+
+    /// <summary>
+    /// The gradient mesh patch control point at position 01.
+    /// </summary>
+    Point01: D2D1_POINT_2F;
+
+    /// <summary>
+    /// The gradient mesh patch control point at position 02.
+    /// </summary>
+    Point02: D2D1_POINT_2F;
+
+    /// <summary>
+    /// The gradient mesh patch control point at position 03.
+    /// </summary>
+    Point03: D2D1_POINT_2F;
+
+    /// <summary>
+    /// The gradient mesh patch control point at position 10.
+    /// </summary>
+    Point10: D2D1_POINT_2F;
+
+    /// <summary>
+    /// The gradient mesh patch control point at position 11.
+    /// </summary>
+    Point11: D2D1_POINT_2F;
+
+    /// <summary>
+    /// The gradient mesh patch control point at position 12.
+    /// </summary>
+    Point12: D2D1_POINT_2F;
+
+    /// <summary>
+    /// The gradient mesh patch control point at position 13.
+    /// </summary>
+    Point13: D2D1_POINT_2F;
+
+    /// <summary>
+    /// The gradient mesh patch control point at position 20.
+    /// </summary>
+    Point20: D2D1_POINT_2F;
+
+    /// <summary>
+    /// The gradient mesh patch control point at position 21.
+    /// </summary>
+    Point21: D2D1_POINT_2F;
+
+    /// <summary>
+    /// The gradient mesh patch control point at position 22.
+    /// </summary>
+    Point22: D2D1_POINT_2F;
+
+    /// <summary>
+    /// The gradient mesh patch control point at position 23.
+    /// </summary>
+    Point23: D2D1_POINT_2F;
+
+    /// <summary>
+    /// The gradient mesh patch control point at position 30.
+    /// </summary>
+    Point30: D2D1_POINT_2F;
+
+    /// <summary>
+    /// The gradient mesh patch control point at position 31.
+    /// </summary>
+    Point31: D2D1_POINT_2F;
+
+    /// <summary>
+    /// The gradient mesh patch control point at position 32.
+    /// </summary>
+    Point32: D2D1_POINT_2F;
+
+    /// <summary>
+    /// The gradient mesh patch control point at position 33.
+    /// </summary>
+    Point33: D2D1_POINT_2F;
+
+    /// <summary>
+    /// The color associated with control point at position 00.
+    /// </summary>
+    Color00: D2D1_COLOR_F;
+
+    /// <summary>
+    /// The color associated with control point at position 03.
+    /// </summary>
+    Color03: D2D1_COLOR_F;
+
+    /// <summary>
+    /// The color associated with control point at position 30.
+    /// </summary>
+    Color30: D2D1_COLOR_F;
+
+    /// <summary>
+    /// The color associated with control point at position 33.
+    /// </summary>
+    Color33: D2D1_COLOR_F;
+
+    /// <summary>
+    /// The edge mode for the top edge of the patch.
+    /// </summary>
+    TopEdgeMode: D2D1_PATCH_EDGE_MODE;
+
+    /// <summary>
+    /// The edge mode for the left edge of the patch.
+    /// </summary>
+    LeftEdgeMode: D2D1_PATCH_EDGE_MODE;
+
+    /// <summary>
+    /// The edge mode for the bottom edge of the patch.
+    /// </summary>
+    BottomEdgeMode: D2D1_PATCH_EDGE_MODE;
+
+    /// <summary>
+    /// The edge mode for the right edge of the patch.
+    /// </summary>
+    RightEdgeMode: D2D1_PATCH_EDGE_MODE;
+  end;
+
+  PD2D1_GRADIENT_MESH_PATCH = ^D2D1_GRADIENT_MESH_PATCH;
+
+  /// <summary>
+  /// Simple description of a color space.
+  /// </summary>
+  D2D1_SIMPLE_COLOR_PROFILE = record
+    /// <summary>
+    /// The XY coordinates of the red primary in CIEXYZ space.
+    /// </summary>
+    RedPrimary: D2D1_POINT_2F;
+
+    /// <summary>
+    /// The XY coordinates of the green primary in CIEXYZ space.
+    /// </summary>
+    GreenPrimary: D2D1_POINT_2F;
+
+    /// <summary>
+    /// The XY coordinates of the blue primary in CIEXYZ space.
+    /// </summary>
+    BluePrimary: D2D1_POINT_2F;
+
+    /// <summary>
+    /// The X/Z tristimulus values for the whitepoint, normalized for relative
+    /// luminance.
+    /// </summary>
+    WhitePointXZ: D2D1_POINT_2F;
+
+    /// <summary>
+    /// The gamma encoding to use for this color space.
+    /// </summary>
+    Gamma: D2D1_GAMMA1;
+  end;
+
+  PD2D1_SIMPLE_COLOR_PROFILE = ^D2D1_SIMPLE_COLOR_PROFILE;
 
 {$ENDREGION}
 
@@ -3239,7 +5532,7 @@ type
     /// <summary>
     /// The text associated with the glyphs.
     /// </summary>
-    &String: PWCHAR;
+    &String: PWChar;
 
     /// <summary>
     /// The number of characters (UTF16 code-units).
@@ -3313,7 +5606,7 @@ type
     /// left for Chinese but on the right for Japanese.
     /// This choice is completely left up to higher levels.
     /// </summary>
-    LocaleName: PWCHAR;
+    LocaleName: PWChar;
 
     /// <summary>
     /// The measuring mode can be useful to the renderer to determine how
@@ -3367,7 +5660,7 @@ type
     /// <summary>
     /// Locale of the range. Can be pertinent where the locale affects the style.
     /// </summary>
-    LocaleName: PWCHAR;
+    LocaleName: PWChar;
 
     /// <summary>
     /// The measuring mode can be useful to the renderer to determine how
@@ -4439,7 +6732,7 @@ type
     /// baseline snapping.
     /// </summary>
     procedure DrawText(
-      const AString: PWCHAR;
+      const AString: PWChar;
       AStringLength: UInt32;
       ATextFormat: IDWriteTextFormat;
       const ALayoutRect: PD2D1_RECT_F;
@@ -5278,6 +7571,568 @@ type
     ['{31e6e7bc-e0ff-4d46-8c64-a0a8c41c15d3}']
 
   end;
+{$ENDREGION}
+
+{$REGION 'd2d1_2.h interfaces'}
+  ID2D1GeometryRealization = interface(ID2D1Resource)
+    ['{a16907d7-bc02-4801-99e8-8cf7f485f774}']
+
+  end;
+
+  ID2D1DeviceContext1 = interface(ID2D1DeviceContext)
+    ['{d37f57e4-6908-459f-a199-e72f24f79987}']
+
+    function CreateFilledGeometryRealization(
+      AGeometry: ID2D1Geometry;
+      AFlatteningTolerance: Single;
+      out geometryRealization: ID2D1GeometryRealization): HRESULT; stdcall;
+
+    function CreateStrokedGeometryRealization(
+      AGeometry: ID2D1Geometry;
+      AFlatteningTolerance: Single;
+      AStrokeWidth: Single;
+      AStrokeStyle: ID2D1StrokeStyle;
+      out AGeometryRealization: ID2D1GeometryRealization): HRESULT; stdcall;
+
+    procedure DrawGeometryRealization(
+      AGeometryRealization: ID2D1GeometryRealization;
+      ABrush: ID2D1Brush); stdcall;
+  end;
+
+  ID2D1Device1 = interface(ID2D1Device)
+    ['{d21768e1-23a4-4823-a14b-7c3eba85d658}']
+
+    function GetRenderingPriority: D2D1_RENDERING_PRIORITY; stdcall;
+
+    procedure SetRenderingPriority(ARenderingPriority: D2D1_RENDERING_PRIORITY); stdcall;
+
+    function CreateDeviceContext(
+      AOptions: D2D1_DEVICE_CONTEXT_OPTIONS;
+      out ADeviceContext1: ID2D1DeviceContext1): HRESULT; stdcall;
+  end;
+
+  ID2D1Factory2 = interface(ID2D1Factory1)
+    ['{94f81a73-9212-4376-9c58-b16a3a0d3992}']
+
+    function CreateDevice(
+      ADXGIDevice: IDXGIDevice;
+      out AD2DDevice1: ID2D1Device1): HRESULT; stdcall;
+  end;
+
+  ID2D1CommandSink1 = interface(ID2D1CommandSink)
+    ['{9eb767fd-4269-4467-b8c2-eb30cb305743}']
+    function SetPrimitiveBlend1(APrimitiveBlend: D2D1_PRIMITIVE_BLEND): HRESULT; stdcall;
+  end;
+
+{$ENDREGION}
+
+{$REGION 'd2d1_3.h interfaces'}
+  ID2D1InkStyle = interface(ID2D1Resource)
+    ['{bae8b344-23fc-4071-8cb5-d05d6f073848}']
+    procedure SetNibTransform(const ATtransform: PD2D1_MATRIX_3X2_F); stdcall;
+
+    procedure GetNibTransform(out ATransform: D2D1_MATRIX_3X2_F); stdcall;
+
+    procedure SetNibShape(ANibShape: D2D1_INK_NIB_SHAPE); stdcall;
+
+    function GetNibShape: D2D1_INK_NIB_SHAPE; stdcall;
+  end;
+
+  ID2D1Ink = interface(ID2D1Resource)
+    ['{b499923b-7029-478f-a8b3-432c7c5f5312}']
+
+    procedure SetStartPoint(const AStartPoint: PD2D1_INK_POINT); stdcall;
+
+    function GetStartPoint: D2D1_INK_POINT; stdcall;
+
+    function AddSegments(
+      const ASegments: PD2D1_INK_BEZIER_SEGMENT;
+      ASegmentsCount: UInt32): HRESULT; stdcall;
+
+    function RemoveSegmentsAtEnd(segmentsCount: UInt32): HRESULT; stdcall;
+
+    function SetSegments(
+      AStartSegment: PUint32;
+      const ASegments: PD2D1_INK_BEZIER_SEGMENT;
+      ASegmentsCount: UInt32): HRESULT; stdcall;
+
+    function SetSegmentAtEnd(const ASegment: PD2D1_INK_BEZIER_SEGMENT): HRESULT; stdcall;
+
+    function GetSegmentCount: UInt32; stdcall;
+
+    function GetSegments(
+      startSegment: UInt32;
+      const ASegments: PD2D1_INK_BEZIER_SEGMENT;
+      segmentsCount: UInt32): HRESULT; stdcall;
+
+    function StreamAsGeometry(
+      AInkStyle: ID2D1InkStyle;
+      const AWorldTransform: PD2D1_MATRIX_3X2_F;
+      AFlatteningTolerance: Single;
+      AGeometrySink: ID2D1SimplifiedGeometrySink): HRESULT; stdcall;
+
+    function GetBounds(
+      AInkStyle: ID2D1InkStyle;
+      const AWorldTransform: PD2D1_MATRIX_3X2_F;
+      out ABounds: D2D1_RECT_F): HRESULT; stdcall;
+  end;
+
+  ID2D1GradientMesh = interface(ID2D1Resource)
+    ['{f292e401-c050-4cde-83d7-04962d3b23c2}']
+
+    function GetPatchCount: UInt32; stdcall;
+
+    function GetPatches(
+      AStartIndex: UInt32;
+      out patches: D2D1_GRADIENT_MESH_PATCH;
+      patchesCount: UInt32): HRESULT; stdcall;
+  end;
+
+  ID2D1ImageSource = interface(ID2D1Image)
+    ['{c9b664e5-74a1-4378-9ac2-eefc37a3f4d8}']
+
+    function OfferResources: HRESULT; stdcall;
+
+    function TryReclaimResources(out AResourcesDiscarded: BOOL): HRESULT; stdcall;
+
+  end;
+
+  ID2D1ImageSourceFromWic = interface(ID2D1ImageSource)
+    ['{77395441-1c8f-4555-8683-f50dab0fe792}']
+
+    function EnsureCached(const ARectangleToFill: PD2D1_RECT_U): HRESULT; stdcall;
+
+    function TrimCache(const ARectangleToPreserve: PD2D1_RECT_U): HRESULT; stdcall;
+
+    procedure GetSource(out  AWicBitmapSource: IWICBitmapSource); stdcall;
+
+  end;
+
+  ID2D1TransformedImageSource = interface(ID2D1Image)
+    ['{7f1f79e5-2796-416c-8f55-700f911445e5}']
+    procedure GetSource(out AImageSource: ID2D1ImageSource); stdcall;
+
+    procedure GetProperties(out AProperties: D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES); stdcall;
+
+  end;
+
+  ID2D1LookupTable3D = interface(ID2D1Resource)
+    ['{53dd9855-a3b0-4d5b-82e1-26e25c5e5797}']
+
+  end;
+
+  ID2D1DeviceContext2 = interface(ID2D1DeviceContext1)
+    ['{394ea6a3-0c34-4321-950b-6ca20f0be6c7}']
+    function CreateInk(
+      const AStartPoint: PD2D1_INK_POINT;
+      out AInk: ID2D1Ink): HRESULT; stdcall;
+
+    function CreateInkStyle(
+      const AInkStyleProperties: D2D1_INK_STYLE_PROPERTIES;
+      out AInkStyle: ID2D1InkStyle): HRESULT; stdcall;
+
+    function CreateGradientMesh(
+      const APatches: PD2D1_GRADIENT_MESH_PATCH;
+      patchesCount: UInt32;
+      out gradientMesh: ID2D1GradientMesh): HRESULT; stdcall;
+
+    function CreateImageSourceFromWic(
+      AWicBitmapSource: IWICBitmapSource;
+      ALoadingOptions: D2D1_IMAGE_SOURCE_LOADING_OPTIONS;
+      AAlphaMode: D2D1_ALPHA_MODE;
+      out AImageSource: ID2D1ImageSourceFromWic): HRESULT; stdcall;
+
+    function CreateLookupTable3D(
+      APrecision: D2D1_BUFFER_PRECISION;
+      const AExtents: PUint32;
+      const AData: PByte;
+      ADataCount: UINT32;
+      const AStrides: PUint32;
+      out ALookupTable: ID2D1LookupTable3D): HRESULT; stdcall;
+
+    /// <summary>
+    /// surfaces should be Pointer of IDXGISurface
+    /// original: IDXGISurface **surfaces,
+    /// </summary>
+    function CreateImageSourceFromDxgi(
+      var surfaces: IDXGISurface;
+      ASurfaceCount: UINT32;
+      AColorSpace: DXGI_COLOR_SPACE_TYPE;
+      AOptions: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS;
+      out AImageSource:ID2D1ImageSource): HRESULT; stdcall;
+
+    function GetGradientMeshWorldBounds(
+      AGradientMesh: ID2D1GradientMesh;
+      out pBounds: D2D1_RECT_F): HRESULT; stdcall;
+
+    procedure DrawInk(
+      AInk: ID2D1Ink;
+      ABrush: ID2D1Brush;
+      AInkStyle: ID2D1InkStyle); stdcall;
+
+    procedure DrawGradientMesh(AGradientMesh: ID2D1GradientMesh); stdcall;
+
+    procedure DrawGdiMetafile(
+      AGdiMetafile: ID2D1GdiMetafile;
+      const ADestinationRectangle: PD2D1_RECT_F;
+      const sourceRectangle: PD2D1_RECT_F = nil); stdcall;
+
+    function CreateTransformedImageSource(
+      AImageSource: ID2D1ImageSource;
+      const AProperties:  PD2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES;
+      out ATransformedImageSource: ID2D1TransformedImageSource): HRESULT; stdcall;
+  end;
+
+  ID2D1Device2 = interface(ID2D1Device1)
+    ['{a44472e1-8dfb-4e60-8492-6e2861c9ca8b}']
+
+    function CreateDeviceContext(
+      AOptions: D2D1_DEVICE_CONTEXT_OPTIONS;
+      out deviceContext2: ID2D1DeviceContext2): HRESULT; stdcall;
+
+    procedure FlushDeviceContexts(ABitmap: ID2D1Bitmap); stdcall;
+
+    function GetDxgiDevice(out ADXGIDevice: IDXGIDevice): HRESULT; stdcall;
+
+  end;
+
+  ID2D1Factory3 = interface(ID2D1Factory2)
+    ['{0869759f-4f00-413f-b03e-2bda45404d0f}']
+    function CreateDevice(
+      ADXGIDevice: IDXGIDevice;
+      out AD2DDevice2: ID2D1Device2): HRESULT; stdcall;
+  end;
+
+  ID2D1CommandSink2 = interface(ID2D1CommandSink1)
+    ['{3bab440e-417e-47df-a2e2-bc0be6a00916}']
+    function DrawInk(
+      AInk: ID2D1Ink;
+      ABrush: ID2D1Brush;
+      AInkStyle: ID2D1InkStyle): HRESULT; stdcall;
+
+    function DrawGradientMesh(AGradientMesh: ID2D1GradientMesh): HRESULT; stdcall;
+
+    function DrawGdiMetafile(
+      AGdiMetafile: ID2D1GdiMetafile;
+      const ADestinationRectangle: PD2D1_RECT_F;
+      const ASourceRectangle: PD2D1_RECT_F): HRESULT; stdcall;
+  end;
+
+  ID2D1GdiMetafile1 = interface(ID2D1GdiMetafile)
+    ['{2e69f9e8-dd3f-4bf9-95ba-c04f49d788df}']
+
+    function GetDpi(
+      out ADpiX: Single;
+      out ADpiY: Single): HRESULT; stdcall;
+
+    function GetSourceBounds(out ABounds: D2D1_RECT_F): HRESULT; stdcall;
+
+  end;
+
+  ID2D1GdiMetafileSink1 = interface(ID2D1GdiMetafileSink)
+    ['{fd0ecb6b-91e6-411e-8655-395e760f91b4}']
+
+    function ProcessRecord(
+      ARecordType: DWORD;
+      const ARecordData: Pointer;
+      ARecordDataSize: DWORD;
+      AFlags: UINT32): HRESULT; stdcall;
+  end;
+
+  ID2D1SpriteBatch = interface(ID2D1Resource)
+    ['{4dc583bf-3a10-438a-8722-e9765224f1f1}']
+    function AddSprites(
+      ASpriteCount: UInt32;
+      const ADestinationRectangles: PD2D1_RECT_F;
+      const ASourceRectangles: PD2D1_RECT_U = nil;
+      const AColors: PD2D1_COLOR_F = nil;
+      const ATransforms: PD2D1_MATRIX_3X2_F = nil;
+      ADestinationRectanglesStride: UInt32 = SizeOf(D2D1_RECT_F);
+      ASourceRectanglesStride: UInt32 = SizeOf(D2D1_RECT_U);
+      AColorsStride: UInt32 = SizeOf(D2D1_COLOR_F);
+      ATransformsStride: UInt32 = SizeOf(D2D1_MATRIX_3X2_F)): HRESULT; stdcall;
+
+    function SetSprites(
+      AStartIndex: UINT32;
+      ASpriteCount: UINT32;
+      const ADestinationRectangles: PD2D1_RECT_F;
+      const ASourceRectangles: PD2D1_RECT_U = nil;
+      const AColors: PD2D1_COLOR_F = nil;
+      const ATransforms: PD2D1_MATRIX_3X2_F = nil;
+      ADestinationRectanglesStride: UInt32 = SizeOf(D2D1_RECT_F);
+      ASourceRectanglesStride: UInt32 = SizeOf(D2D1_RECT_U);
+      AColorsStride: UInt32 = SizeOf(D2D1_COLOR_F);
+      ATransformsStride: UInt32 = SizeOf(D2D1_MATRIX_3X2_F)): HRESULT; stdcall;
+
+    function GetSprites(
+      AStartIndex: UINT32;
+      ASpriteCount: UINT32;
+      out ADestinationRectangles: D2D1_RECT_F;
+      out ASourceRectangles: D2D1_RECT_U;
+      out AColors: D2D1_COLOR_F;
+      out ATransforms: D2D1_MATRIX_3X2_F): HRESULT; stdcall;
+
+    function GetSpriteCount: UInt32; stdcall;
+
+    procedure Clear; stdcall;
+
+  end;
+
+  ID2D1DeviceContext3 = interface(ID2D1DeviceContext2)
+    ['{235a7496-8351-414c-bcd4-6672ab2d8e00}']
+
+    function CreateSpriteBatch(out ASpriteBatch: ID2D1SpriteBatch): HRESULT; stdcall;
+
+    procedure DrawSpriteBatch(
+      ASpriteBatch: ID2D1SpriteBatch;
+      AStartIndex: UInt32;
+      ASpriteCount: UInt32;
+      ABitmap: ID2D1Bitmap;
+      AInterpolationMode: D2D1_BITMAP_INTERPOLATION_MODE = D2D1_BITMAP_INTERPOLATION_MODE_LINEAR;
+      ASpriteOptions: D2D1_SPRITE_OPTIONS = D2D1_SPRITE_OPTIONS_NONE); stdcall;
+  end;
+
+  ID2D1Device3 = interface(ID2D1Device2)
+    ['{852f2087-802c-4037-ab60-ff2e7ee6fc01}']
+
+    function CreateDeviceContext(
+      AOptions: D2D1_DEVICE_CONTEXT_OPTIONS;
+      out deviceContext3: ID2D1DeviceContext3): HRESULT; stdcall;
+
+  end;
+
+  ID2D1Factory4 = interface(ID2D1Factory3)
+    ['{bd4ec2d2-0662-4bee-ba8e-6f29f032e096}']
+
+    function CreateDevice(
+      ADXGIDevice: IDXGIDevice;
+      out AD2DDevice3: ID2D1Device3): HRESULT; stdcall;
+
+  end;
+
+  ID2D1CommandSink3 = interface(ID2D1CommandSink2)
+    ['{18079135-4cf3-4868-bc8e-06067e6d242d}']
+
+    function DrawSpriteBatch(
+      ASpriteBatch: ID2D1SpriteBatch;
+      AStartIndex: UInt32;
+      ASpriteCount: UInt32;
+      ABitmap: ID2D1Bitmap;
+      AInterpolationMode: D2D1_BITMAP_INTERPOLATION_MODE;
+      ASpriteOptions: D2D1_SPRITE_OPTIONS): HRESULT; stdcall;
+
+  end;
+
+  ID2D1SvgGlyphStyle = interface(ID2D1Resource)
+    ['{af671749-d241-4db8-8e41-dcc2e5c1a438}']
+
+    function SetFill(ABrush: ID2D1Brush): HRESULT; stdcall;
+
+    procedure GetFill(ABrush: ID2D1Brush); stdcall;
+
+    function SetStroke(
+      ABrush: ID2D1Brush;
+      strokeWidth: Single = 1.0;
+      const ADashes: PSingle = nil;
+      ADashesCount: UInt32 = 0;
+      ADashOffset: Single = 1.0): HRESULT; stdcall;
+
+    function GetStrokeDashesCount: UInt32; stdcall;
+
+    procedure GetStroke(
+      out ABrush: ID2D1Brush;
+      out AStrokeWidth: Single;
+      ADashes: PSingle = nil;
+      ADashesCount: UInt32 = 0;
+      ADashOffset: PSingle = nil); stdcall;
+  end;
+
+  ID2D1DeviceContext4 = interface(ID2D1DeviceContext3)
+    ['{8c427831-3d90-4476-b647-c4fae349e4db}']
+
+    function CreateSvgGlyphStyle(out ASvgGlyphStyle: ID2D1SvgGlyphStyle): HRESULT; stdcall;
+
+    procedure DrawText(
+      const AString: PWChar;
+      AStringLength: UInt32;
+      ATextFormat: IDWriteTextFormat;
+      const ALayoutRect: PD2D1_RECT_F;
+      ADefaultFillBrush: ID2D1Brush;
+      ASvgGlyphStyle: ID2D1SvgGlyphStyle;
+      AColorPaletteIndex: UInt32  = 0;
+      AOptions: D2D1_DRAW_TEXT_OPTIONS = D2D1_DRAW_TEXT_OPTIONS_ENABLE_COLOR_FONT;
+      AMeasuringMode: DWRITE_MEASURING_MODE = DWRITE_MEASURING_MODE_NATURAL); stdcall;
+
+    procedure DrawTextLayout(
+      AOrigin: D2D1_POINT_2F;
+      ATextLayout: IDWriteTextLayout;
+      ADefaultFillBrush: ID2D1Brush;
+      ASvgGlyphStyle: ID2D1SvgGlyphStyle;
+      AColorPaletteIndex: UINT32 = 0;
+      AOptions: D2D1_DRAW_TEXT_OPTIONS = D2D1_DRAW_TEXT_OPTIONS_ENABLE_COLOR_FONT); stdcall;
+
+    procedure DrawColorBitmapGlyphRun(
+      AGlyphImageFormat: DWRITE_GLYPH_IMAGE_FORMATS;
+      ABaselineOrigin: D2D1_POINT_2F;
+      const AGlyphRun: PDWRITE_GLYPH_RUN;
+      AMeasuringMode: DWRITE_MEASURING_MODE = DWRITE_MEASURING_MODE_NATURAL;
+      ABitmapSnapOption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION = D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION_DEFAULT); stdcall;
+
+    procedure DrawSvgGlyphRun(
+      ABaselineOrigin: D2D1_POINT_2F;
+      const AGlyphRun: PDWRITE_GLYPH_RUN;
+      ADefaultFillBrush: ID2D1Brush = nil;
+      ASvgGlyphStyle: ID2D1SvgGlyphStyle = nil;
+      AColorPaletteIndex: UInt32 = 0;
+      AMeasuringMode:DWRITE_MEASURING_MODE = DWRITE_MEASURING_MODE_NATURAL); stdcall;
+
+    function GetColorBitmapGlyphImage(
+      AGlyphImageFormat: DWRITE_GLYPH_IMAGE_FORMATS;
+      AGlyphOrigin: D2D1_POINT_2F;
+      AFontFace: IDWriteFontFace;
+      AFontEmSize: Single;
+      AGlyphIndex: UInt16;
+      AIsSideways: BOOL;
+      const AWorldTransform: PD2D1_MATRIX_3X2_F;
+      ADpiX: Single;
+      ADpiY: Single;
+      out AGlyphTransform: D2D1_MATRIX_3X2_F;
+      out AGlyphImage: ID2D1Image): HRESULT; stdcall;
+
+    function GetSvgGlyphImage(
+      AGlyphOrigin: D2D1_POINT_2F;
+      AFontFace: IDWriteFontFace;
+      AFontEmSize: Single;
+      AGlyphIndex: UInt16;
+      AIsSideways: BOOL;
+      const AWorldTransform: PD2D1_MATRIX_3X2_F;
+      ADefaultFillBrush: ID2D1Brush;
+      ASvgGlyphStyle: ID2D1SvgGlyphStyle;
+      ACcolorPaletteIndex: UInt32;
+      out AGlyphTransform: D2D1_MATRIX_3X2_F;
+      out AGlyphImage: ID2D1CommandList): HRESULT; stdcall;
+
+  end;
+
+  ID2D1Device4 = interface(ID2D1Device3)
+    ['{d7bdb159-5683-4a46-bc9c-72dc720b858b}']
+
+    function CreateDeviceContext(
+      AOptions: D2D1_DEVICE_CONTEXT_OPTIONS;
+      out ADeviceContext4: ID2D1DeviceContext4): HRESULT; stdcall;
+
+    procedure SetMaximumColorGlyphCacheMemory(AMaximumInBytes: UInt64); stdcall;
+
+    function GetMaximumColorGlyphCacheMemory: UInt64; stdcall;
+
+  end;
+
+  ID2D1Factory5 = interface(ID2D1Factory4)
+    ['{c4349994-838e-4b0f-8cab-44997d9eeacc}']
+
+    function CreateDevice(
+      ADXGIDevice: IDXGIDevice;
+      out d2dDevice4: ID2D1Device4): HRESULT; stdcall;
+
+  end;
+
+  ID2D1CommandSink4 = interface(ID2D1CommandSink3)
+    ['{c78a6519-40d6-4218-b2de-beeeb744bb3e}']
+
+    function SetPrimitiveBlend2(APrimitiveBlend: D2D1_PRIMITIVE_BLEND): HRESULT; stdcall;
+
+  end;
+
+  ID2D1ColorContext1 = interface(ID2D1ColorContext)
+    ['{1ab42875-c57f-4be9-bd85-9cd78d6f55ee}']
+
+    function GetColorContextType: D2D1_COLOR_CONTEXT_TYPE; stdcall;
+
+    function GetDXGIColorSpace: DXGI_COLOR_SPACE_TYPE; stdcall;
+
+    function GetSimpleColorProfile(out ASimpleProfile: D2D1_SIMPLE_COLOR_PROFILE): HRESULT; stdcall;
+
+  end;
+
+  ID2D1DeviceContext5 = interface(ID2D1DeviceContext4)
+    ['{7836d248-68cc-4df6-b9e8-de991bf62eb7}']
+
+    function CreateSvgDocument(
+      AInputXmlStream: IStream;
+      AViewportSize: D2D1_SIZE_F;
+      out ASvgDocument: ID2D1SvgDocument): HRESULT; stdcall;
+
+    procedure DrawSvgDocument(ASvgDocument: ID2D1SvgDocument); stdcall;
+
+    function CreateColorContextFromDxgiColorSpace(
+      AColorSpace: DXGI_COLOR_SPACE_TYPE;
+      out AColorContext: ID2D1ColorContext1): HRESULT; stdcall;
+
+    function CreateColorContextFromSimpleColorProfile(
+      const simpleProfile: PD2D1_SIMPLE_COLOR_PROFILE;
+      out colorContext: ID2D1ColorContext1): HRESULT; stdcall;
+
+  end;
+
+  ID2D1Device5 = interface(ID2D1Device4)
+    ['{d55ba0a4-6405-4694-aef5-08ee1a4358b4}']
+
+    function CreateDeviceContext(
+      AOptions: D2D1_DEVICE_CONTEXT_OPTIONS;
+      out ADeviceContext5: ID2D1DeviceContext5): HRESULT; stdcall;
+
+  end;
+
+  ID2D1Factory6 = interface(ID2D1Factory5)
+    ['{f9976f46-f642-44c1-97ca-da32ea2a2635}']
+
+    function CreateDevice(
+      ADXGIDevice: IDXGIDevice;
+      out d2dDevice5: ID2D1Device5): HRESULT; stdcall;
+
+  end;
+
+  ID2D1CommandSink5 = interface(ID2D1CommandSink4)
+    ['{7047dd26-b1e7-44a7-959a-8349e2144fa8}']
+
+    function BlendImage(
+      AImage: ID2D1Image;
+      ABlendMode: D2D1_BLEND_MODE;
+      const ATargetOffset: PD2D1_POINT_2F;
+      const AImageRectangle: PD2D1_RECT_F;
+      AInterpolationMode: D2D1_INTERPOLATION_MODE): HRESULT; stdcall;
+
+  end;
+
+  ID2D1DeviceContext6 = interface(ID2D1DeviceContext5)
+    ['{985f7e37-4ed0-4a19-98a3-15b0edfde306}']
+
+    procedure BlendImage(
+      AImage: ID2D1Image;
+      ABlendMode: D2D1_BLEND_MODE;
+      const ATargetOffset: PD2D1_POINT_2F = nil;
+      const AImageRectangle: PD2D1_RECT_F = nil;
+      AInterpolationMode: D2D1_INTERPOLATION_MODE = D2D1_INTERPOLATION_MODE_LINEAR); stdcall;
+
+  end;
+
+  ID2D1Device6 = interface(ID2D1Device5)
+    ['{7bfef914-2d75-4bad-be87-e18ddb077b6d}']
+
+    function CreateDeviceContext(
+      AOptions: D2D1_DEVICE_CONTEXT_OPTIONS;
+      out deviceContext6: ID2D1DeviceContext6): HRESULT; stdcall;
+
+  end;
+
+  ID2D1Factory7 = interface(ID2D1Factory6)
+    ['{bdc2bdd3-b96c-4de6-bdf7-99d4745454de}']
+
+    function CreateDevice(
+      ADXGIDevice: IDXGIDevice;
+      out d2dDevice6: ID2D1Device6): HRESULT; stdcall;
+  end;
+
 {$ENDREGION}
 
 {$REGION 'dwrite interfaces'}
@@ -6318,7 +9173,6 @@ type
 
   end;
 {$ENDREGION}
-
 
 {$REGION 'DocumentTarget.h interfaces'}
   IPrintDocumentPackageTarget = interface(IUnknown)
