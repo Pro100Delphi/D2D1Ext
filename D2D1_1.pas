@@ -10093,7 +10093,6 @@ type
 
     BOOL, IsBufferPrecisionSupported(bufferPrecision: D2D1_BUFFER_PRECISION); stdcall;
 
-
   end;
 {$ENDREGION}
 
