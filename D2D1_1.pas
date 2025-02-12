@@ -899,6 +899,9 @@ type
     D2D1_FACTORY_TYPE_FORCE_DWORD = Integer($FFFFFFFF)
   );
 
+  TD2D1FactoryType = D2D1_FACTORY_TYPE;
+  PD2D1FactoryType = ^TD2D1FactoryType;
+
 {$ENDREGION}
 
 {$REGION 'd2d1_1.h enums'}
@@ -6750,10 +6753,10 @@ type
 
 {$REGION 'd2d1.h interfaces'}
   ID2D1Resource = interface(IUnknown)
+
     /// <summary>
     /// Retrieve the factory associated with this resource.
     /// </summary>
-
     procedure GetFactory(out AFactory: ID2D1Factory); stdcall;
   end;
 
@@ -9780,8 +9783,6 @@ type
     procedure SetCached(AIsCached: BOOL); stdcall;
 
     procedure SetInstructionCountHint(AInstructionCount: UINT32); stdcall;
-
-
   end;
 
   ID2D1DrawInfo = interface(ID2D1RenderInfo)
@@ -9992,106 +9993,100 @@ type
   ID2D1EffectContext = interface(IUnknown)
     ['{3d9f916b-27dc-4ad7-b4f1-64945340f563}']
 
-    void, GetDpi(
-      *dpiX: _Out_ FLOAT;
-      *dpiY: _Out_ FLOAT;
-    ); stdcall;
+    procedure GetDpi(
+      out ADpiX: Single;
+      out ADpiY: Single); stdcall;
 
-    CreateEffect(
-      effectId: _In_ REFCLSID;
-      **effect: _COM_Outptr_ ID2D1Effect;
-    ); stdcall;
+    function CreateEffect(
+      AEffectId: TGUID;
+      out AEffect: ID2D1Effect): HRESULT; stdcall;
 
-    GetMaximumSupportedFeatureLevel(In_reads_(featureLevelsCount: ); stdcall;
+    function GetMaximumSupportedFeatureLevel(
+      const AFeatureLevels: PD3D_FEATURE_LEVEL;
+      featureLevelsCount: UInt32;
+      out maximumSupportedFeatureLevel: D3D_FEATURE_LEVEL): HRESULT; stdcall;
 
-    CreateTransformNodeFromEffect(
-      *effect: _In_ ID2D1Effect;
-      **transformNode: _COM_Outptr_ ID2D1TransformNode;
-    ); stdcall;
+    function CreateTransformNodeFromEffect(
+      AEffect: ID2D1Effect;
+      out ATransformNode: ID2D1TransformNode): HRESULT; stdcall;
 
-    CreateBlendTransform(
-      numInputs: UINT32;
-      *blendDescription: _In_ CONST D2D1_BLEND_DESCRIPTION;
-      **transform: _COM_Outptr_ ID2D1BlendTransform;
-    ); stdcall;
+    function CreateBlendTransform(
+      ANumInputs: UINT32;
+      const ABlendDescription: PD2D1_BLEND_DESCRIPTION;
+      out ATransform: ID2D1BlendTransform): HRESULT; stdcall;
 
-    CreateBorderTransform(
-      extendModeX: D2D1_EXTEND_MODE;
-      extendModeY: D2D1_EXTEND_MODE;
-      **transform: _COM_Outptr_ ID2D1BorderTransform;
-    ); stdcall;
+    function CreateBorderTransform(
+      AExtendModeX: D2D1_EXTEND_MODE;
+      AExtendModeY: D2D1_EXTEND_MODE;
+      out ATransform: ID2D1BorderTransform): HRESULT; stdcall;
 
-    CreateOffsetTransform(
-      offset: D2D1_POINT_2L;
-      **transform: _COM_Outptr_ ID2D1OffsetTransform;
-    ); stdcall;
+    function CreateOffsetTransform(
+      AOffset: D2D1_POINT_2L;
+      out ATransform: ID2D1OffsetTransform): HRESULT; stdcall;
 
-    CreateBoundsAdjustmentTransform(
-      *outputRectangle: _In_ CONST D2D1_RECT_L;
-      **transform: _COM_Outptr_ ID2D1BoundsAdjustmentTransform;
-    ); stdcall;
+    function CreateBoundsAdjustmentTransform(
+      const AOutputRectangle: PD2D1_RECT_L;
+      out transform: ID2D1BoundsAdjustmentTransform): HRESULT; stdcall;
 
-    LoadPixelShader(
-      shaderId: REFGUID;
-      In_reads_(shaderBufferCount: ;
-    ); stdcall;
+    function LoadPixelShader(
+      AShaderId: TGUID;
+      const shaderBuffer: PByte;
+      shaderBufferCount: UInt32): HRESULT; stdcall;
 
-    LoadVertexShader(
-      resourceId: REFGUID;
-      In_reads_(shaderBufferCount: ;
-    ); stdcall;
+    function LoadVertexShader(
+      AResourceId: TGUID;
+      const shaderBuffer: PByte;
+      shaderBufferCount: UInt32): HRESULT; stdcall;
 
-    LoadComputeShader(
-      resourceId: REFGUID;
-      In_reads_(shaderBufferCount: ;
-    ); stdcall;
+    function LoadComputeShader(
+      AResourceId: TGUID;
+      const AShaderBuffer: PByte;
+      shaderBufferCount: UInt32): HRESULT; stdcall;
 
-    BOOL, IsShaderLoaded(shaderId: REFGUID); stdcall;
+    function IsShaderLoaded(AShaderId: TGUID): BOOL; stdcall;
 
-    CreateResourceTexture(
-      *resourceId: _In_opt_ CONST GUID;
-      *resourceTextureProperties: _In_ CONST D2D1_RESOURCE_TEXTURE_PROPERTIES;
-      In_reads_opt_(dataSize: ;
-    ); stdcall;
+    function CreateResourceTexture(
+      const AResourceId: PGUID;
+      const AResourceTextureProperties: PD2D1_RESOURCE_TEXTURE_PROPERTIES;
+      const AData: PByte;
+      const strides: PUint32;
+      dataSize: UInt32;
+      out resourceTexture: ID2D1ResourceTexture): HRESULT; stdcall;
 
-    FindResourceTexture(
-      *resourceId: _In_ CONST GUID;
-      **resourceTexture: _COM_Outptr_ ID2D1ResourceTexture;
-    ); stdcall;
+    function FindResourceTexture(
+      const AResourceId: PGUID;
+      out resourceTexture: ID2D1ResourceTexture): HRESULT; stdcall;
 
-    CreateVertexBuffer(
-      *vertexBufferProperties: _In_ CONST D2D1_VERTEX_BUFFER_PROPERTIES;
-      *resourceId: _In_opt_ CONST GUID;
-      *customVertexBufferProperties: _In_opt_ CONST D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES;
-      **buffer: _COM_Outptr_ ID2D1VertexBuffer;
-    ); stdcall;
+    function CreateVertexBuffer(
+      const AVertexBufferProperties: PD2D1_VERTEX_BUFFER_PROPERTIES;
+      const AResourceId: PGUID;
+      const ACustomVertexBufferProperties: PD2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES;
+      out ABuffer: ID2D1VertexBuffer): HRESULT; stdcall;
 
-    FindVertexBuffer(
-      *resourceId: _In_ CONST GUID;
-      **buffer: _COM_Outptr_ ID2D1VertexBuffer;
-    ); stdcall;
+    function FindVertexBuffer(
+      const AResourceId: PGUID;
+      out ABuffer: ID2D1VertexBuffer): HRESULT; stdcall;
 
-    CreateColorContext(
-      space: D2D1_COLOR_SPACE;
-      In_reads_opt_(profileSize: ;
-    ); stdcall;
+    function CreateColorContext(
+      ASpace: D2D1_COLOR_SPACE;
+      const AProfile: PByte;
+      AProfileSize: UInt32;
+      out AColorContext: ID2D1ColorContext): HRESULT; stdcall;
 
-    CreateColorContextFromFilename(
-      filename: _In_ PCWSTR;
-      **colorContext: _COM_Outptr_ ID2D1ColorContext;
-    ); stdcall;
+    function CreateColorContextFromFilename(
+      AFilename: LPCWSTR;
+      out AColorContext: ID2D1ColorContext): HRESULT; stdcall;
 
-    CreateColorContextFromWicColorContext(
-      *wicColorContext: _In_ IWICColorContext;
-      **colorContext: _COM_Outptr_ ID2D1ColorContext;
-    ); stdcall;
+    function CreateColorContextFromWicColorContext(
+      AWiColorContext: IWICColorContext;
+      out AColorContext: ID2D1ColorContext): HRESULT; stdcall;
 
-    CheckFeatureSupport(
-      feature: D2D1_FEATURE;
-      Out_writes_bytes_(featureSupportDataSize: ;
-    ); stdcall;
+    function CheckFeatureSupport(
+      AFeature: D2D1_FEATURE;
+      AFeatureSupportData: Pointer;
+      AFeatureSupportDataSize: UInt32): HRESULT; stdcall;
 
-    BOOL, IsBufferPrecisionSupported(bufferPrecision: D2D1_BUFFER_PRECISION); stdcall;
+    function IsBufferPrecisionSupported(ABufferPrecision: D2D1_BUFFER_PRECISION): BOOL; stdcall;
 
   end;
 {$ENDREGION}
@@ -10459,67 +10454,83 @@ function DWriteCreateFactory(
 implementation
 
 {=========================================================================================================================================}
-function DWRITE_LINE_BREAKPOINT.GetByte(const AIndex: Integer): Byte;
+procedure SetBits8(var ABits: Byte; AIndex: Integer; AValue: Byte);
+var O, M: Integer;
 begin
-  Result := ((Data shr (AIndex shr 8)) and (AIndex and $FF));
+  O := AIndex shr 8;
+  M := AIndex and $FF;
+
+  ABits := (ABits and not (M shl O)) or ((AValue and M) shl O);
+end;
+
+{=========================================================================================================================================}
+function GetBits8(ABits: Byte; AIndex: Integer): Byte;
+begin
+  Result := (ABits shr (AIndex shr 8)) and (AIndex and $FF);
+end;
+
+{=========================================================================================================================================}
+procedure SetBits16(var ABits: Word; AIndex: Integer; AValue: Word);
+var O, M: Integer;
+begin
+  O := AIndex shr 16;
+  M := AIndex and $FFFF;
+
+  ABits := (ABits and not (M shl O)) or ((AValue and M) shl O);
+end;
+
+{=========================================================================================================================================}
+function GetBits16(ABits: Word; AIndex: Integer): Word;
+begin
+  Result := (ABits shr (AIndex shr 16)) and (AIndex and $FFFF);
 end;
 
 {=========================================================================================================================================}
 procedure DWRITE_LINE_BREAKPOINT.SetByte(const AIndex: Integer; AValue: Byte);
 begin
-  // offset = index shr 8           , 2 in example
-  // mask = index and $FF           , $0003 in example
-  // shifted mask = mask shl offset , $000B in example
-  Data := (Data and (not ((AIndex and $FF) shl (AIndex shr 8)))) or
-    ((AValue and AIndex and $FF) shl (AIndex shr 8));
+  SetBits8(Data, AIndex, AValue)
 end;
 
 {=========================================================================================================================================}
-function DWRITE_SHAPING_TEXT_PROPERTIES.GetWord(const AIndex: Integer): WORD;
+function DWRITE_LINE_BREAKPOINT.GetByte(const AIndex: Integer): Byte;
 begin
-  Result := ((Data shr (AIndex shr 16)) and (AIndex and $FFFF));
+  Result := GetBits8(Data, AIndex);
 end;
 
 {=========================================================================================================================================}
 procedure DWRITE_SHAPING_TEXT_PROPERTIES.SetWord(const AIndex: Integer; AValue: WORD);
 begin
-  // offset = index shr 16          , 1 in example
-  // mask = index and $FFFF         , $7FFF in example
-  // shifted mask = mask shl offset , $FFFE in example
-  Data := (Data and (not ((AIndex and $FFFF) shl (AIndex shr 16)))) or
-    ((AValue and AIndex and $FFFF) shl (AIndex shr 16));
+  SetBits16(Data, AIndex, AValue);
 end;
 
 {=========================================================================================================================================}
-function DWRITE_SHAPING_GLYPH_PROPERTIES.GetWord(const AIndex: Integer): WORD;
+function DWRITE_SHAPING_TEXT_PROPERTIES.GetWord(const AIndex: Integer): WORD;
 begin
-  Result := ((Data shr (AIndex shr 16)) and (AIndex and $FFFF));
+  Result := GetBits16(Data, AIndex);
 end;
 
 {=========================================================================================================================================}
 procedure DWRITE_SHAPING_GLYPH_PROPERTIES.SetWord(const AIndex: Integer; AValue: WORD);
 begin
-  // offset = index shr 16          , 4 in example
-  // mask = index and $FFFF         , $0001 in example
-  // shifted mask = mask shl offset , $FFFE in example
-  Data := (Data and (not ((AIndex and $FFFF) shl (AIndex shr 16)))) or
-    ((AValue and AIndex and $FFFF) shl (AIndex shr 16));
+  SetBits16(Data, AIndex, AValue);
 end;
 
 {=========================================================================================================================================}
-function DWRITE_CLUSTER_METRICS.GetWord(const AIndex: Integer): WORD;
+function DWRITE_SHAPING_GLYPH_PROPERTIES.GetWord(const AIndex: Integer): WORD;
 begin
-  Result := ((Data shr (AIndex shr 16)) and (AIndex and $FFFF));
+  Result := GetBits16(Data, AIndex);
 end;
 
 {=========================================================================================================================================}
 procedure DWRITE_CLUSTER_METRICS.SetWord(const AIndex: Integer; AValue: WORD);
 begin
-  // offset = index shr 16          , 4 in example
-  // mask = index and $FFFF         , $0001 in example
-  // shifted mask = mask shl offset , $FFFE in example
-  Data := (Data and (not ((AIndex and $FFFF) shl (AIndex shr 16)))) or
-    ((AValue and AIndex and $FFFF) shl (AIndex shr 16));
+  SetBits16(Data, AIndex, AValue)
+end;
+
+{=========================================================================================================================================}
+function DWRITE_CLUSTER_METRICS.GetWord(const AIndex: Integer): WORD;
+begin
+  Result := GetBits16(Data, AIndex);
 end;
 
 {=========================================================================================================================================}
