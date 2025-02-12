@@ -8667,7 +8667,7 @@ type
 
     function DrawLine(
       APoint0: D2D1_POINT_2F;
-      APpoint1: D2D1_POINT_2F;
+      APoint1: D2D1_POINT_2F;
       ABrush: ID2D1Brush;
       AStrokeWidth: Single;
       AStrokeStyle: ID2D1StrokeStyle): HRESULT; stdcall;
@@ -8723,7 +8723,7 @@ type
       ABrush: ID2D1Brush): HRESULT; stdcall;
 
     function PushAxisAlignedClip(
-      const clipRect: PD2D1_RECT_F;
+      const AClipRect: PD2D1_RECT_F;
       AAntialiasMode: D2D1_ANTIALIAS_MODE): HRESULT; stdcall;
 
     function PushLayer(
@@ -8812,13 +8812,13 @@ type
    function GetPropertyCount: UInt32; stdcall;
 
     function GetPropertyName(
-      AIndex: UINT32;
+      AIndex: UInt32;
       AName: LPWSTR;
       NameCount: UInt32): HRESULT; stdcall;
 
     function GetPropertyNameLength(AIndex: UInt32): UInt32; stdcall;
 
-    function GetType(AIndex: UINT32): D2D1_PROPERTY_TYPE; stdcall;
+    function GetType(AIndex: UInt32): D2D1_PROPERTY_TYPE; stdcall;
 
     /// <summary>
     /// I'm not sure if this one is correct, the original one is like this: PCWSTR name
@@ -8831,7 +8831,7 @@ type
     function SetValueByName(
       AName: LPCWSTR;
       AType: D2D1_PROPERTY_TYPE;
-      dataSize: UInt32): HRESULT; stdcall;
+      ADataSize: UInt32): HRESULT; stdcall;
 
     function SetValue(
       AIndex: UInt32;
@@ -8857,7 +8857,7 @@ type
     function GetValueSize(AIndex: UINT32): UInt32; stdcall;
 
     function GetSubProperties(
-      AIindex: UInt32;
+      AIndex: UInt32;
       out ASubProperties: ID2D1Properties): HRESULT; stdcall;
   end;
 
@@ -8865,7 +8865,7 @@ type
     ['{28211a43-7d89-476f-8181-2d6159b220ad}']
 
     procedure SetInput(
-      AIindex: UInt32;
+      AIndex: UInt32;
       AInput: ID2D1Image;
       AInvalidate: BOOL = True); stdcall;
 
@@ -8973,13 +8973,13 @@ type
 
     function CreateGradientStopCollection(
       const AStraightAlphaGradientStops: PD2D1_GRADIENT_STOP;
-      straightAlphaGradientStopsCount: UInt32;
-      preInterpolationSpace: D2D1_COLOR_SPACE;
-      postInterpolationSpace: D2D1_COLOR_SPACE;
-      bufferPrecision: D2D1_BUFFER_PRECISION;
-      extendMode: D2D1_EXTEND_MODE;
-      colorInterpolationMode: D2D1_COLOR_INTERPOLATION_MODE;
-      out gradientStopCollection1: ID2D1GradientStopCollection1): HRESULT; stdcall;
+      AStraightAlphaGradientStopsCount: UInt32;
+      APreInterpolationSpace: D2D1_COLOR_SPACE;
+      APostInterpolationSpace: D2D1_COLOR_SPACE;
+      ABufferPrecision: D2D1_BUFFER_PRECISION;
+      AExtendMode: D2D1_EXTEND_MODE;
+      AColorInterpolationMode: D2D1_COLOR_INTERPOLATION_MODE;
+      out AGradientStopCollection1: ID2D1GradientStopCollection1): HRESULT; stdcall;
 
     function CreateImageBrush(
       AIimage: ID2D1Image;
@@ -9053,9 +9053,9 @@ type
       ABitmap: ID2D1Bitmap;
       const ADestinationRectangle: PD2D1_RECT_F;
       AOpacity: Single;
-      interpolationMode: D2D1_INTERPOLATION_MODE;
-      const sourceRectangle: PD2D1_RECT_F = nil;
-      const perspectiveTransform: PD2D1_MATRIX_4X4_F = nil); stdcall;
+      AInterpolationMode: D2D1_INTERPOLATION_MODE;
+      const ASourceRectangle: PD2D1_RECT_F = nil;
+      const APerspectiveTransform: PD2D1_MATRIX_4X4_F = nil); stdcall;
 
     procedure PushLayer(
       const ALayerParameters:  PD2D1_LAYER_PARAMETERS1;
@@ -9078,8 +9078,8 @@ type
     function GetEffectRequiredInputRectangles(
       ARenderEffect: ID2D1Effect;
       const ARenderImageRectangle: PD2D1_RECT_F;
-      const inputDescriptions: PD2D1_EFFECT_INPUT_DESCRIPTION;
-      out requiredInputRects: D2D1_RECT_F): HRESULT; stdcall;
+      const AInputDescriptions: PD2D1_EFFECT_INPUT_DESCRIPTION;
+      out ARequiredInputRects: D2D1_RECT_F): HRESULT; stdcall;
 
     procedure FillOpacityMask(
       AOpacityMask: ID2D1Bitmap;
@@ -9120,7 +9120,7 @@ type
       const AStrokeStyleProperties: PD2D1_STROKE_STYLE_PROPERTIES1;
       const ADashes: PSingle;
       ADashesCount: UInt32;
-      out strokeStyle: ID2D1StrokeStyle1): HRESULT; stdcall;
+      out AStrokeStyle: ID2D1StrokeStyle1): HRESULT; stdcall;
 
     function CreatePathGeometry(APathGeometry: ID2D1PathGeometry1): HRESULT; stdcall;
 
@@ -9137,26 +9137,26 @@ type
       AClassId: TGUID;
       APropertyXml: IStream;
       const ABindings: PD2D1_PROPERTY_BINDING;
-      BindingsCount: UInt32;
-      EffectFactory: PD2D1_EFFECT_FACTORY): HRESULT; stdcall;
+      ABindingsCount: UInt32;
+      AEffectFactory: PD2D1_EFFECT_FACTORY): HRESULT; stdcall;
 
     function RegisterEffectFromString(
       AClassId: TGUID;
       APropertyXml: LPCWSTR;
-      const Bindings: PD2D1_PROPERTY_BINDING;
-      BindingsCount: UInt32): HRESULT; stdcall;
+      const ABindings: PD2D1_PROPERTY_BINDING;
+      ABindingsCount: UInt32): HRESULT; stdcall;
 
     function UnregisterEffect(AClassId: TGUID): HRESULT; stdcall;
 
     function GetRegisteredEffects(
-      effects: PGUID;
-      effectsCount: UInt32;
-      out effectsReturned: UInt32;
-      out effectsRegistered: UInt32): HRESULT; stdcall;
+      AEffects: PGUID;
+      AEffectsCount: UInt32;
+      out AEffectsReturned: UInt32;
+      out AEffectsRegistered: UInt32): HRESULT; stdcall;
 
     function GetEffectProperties(
       AEffectId: TGUID;
-      out properties: ID2D1Properties): HRESULT; stdcall;
+      out AProperties: ID2D1Properties): HRESULT; stdcall;
   end;
 
   ID2D1Multithread = interface(IUnknown)
@@ -9177,7 +9177,7 @@ type
     function CreateFilledGeometryRealization(
       AGeometry: ID2D1Geometry;
       AFlatteningTolerance: Single;
-      out geometryRealization: ID2D1GeometryRealization): HRESULT; stdcall;
+      out AGeometryRealization: ID2D1GeometryRealization): HRESULT; stdcall;
 
     function CreateStrokedGeometryRealization(
       AGeometry: ID2D1Geometry;
@@ -9253,9 +9253,9 @@ type
     function GetSegmentCount: UInt32; stdcall;
 
     function GetSegments(
-      startSegment: UInt32;
+      AStartSegment: UInt32;
       const ASegments: PD2D1_INK_BEZIER_SEGMENT;
-      segmentsCount: UInt32): HRESULT; stdcall;
+      ASegmentsCount: UInt32): HRESULT; stdcall;
 
     function StreamAsGeometry(
       AInkStyle: ID2D1InkStyle;
@@ -9276,8 +9276,8 @@ type
 
     function GetPatches(
       AStartIndex: UInt32;
-      out patches: D2D1_GRADIENT_MESH_PATCH;
-      patchesCount: UInt32): HRESULT; stdcall;
+      out APatches: D2D1_GRADIENT_MESH_PATCH;
+      APatchesCount: UInt32): HRESULT; stdcall;
   end;
 
   ID2D1ImageSource = interface(ID2D1Image)
@@ -9296,7 +9296,7 @@ type
 
     function TrimCache(const ARectangleToPreserve: PD2D1_RECT_U): HRESULT; stdcall;
 
-    procedure GetSource(out  AWicBitmapSource: IWICBitmapSource); stdcall;
+    procedure GetSource(out AWicBitmapSource: IWICBitmapSource); stdcall;
 
   end;
 
@@ -9325,8 +9325,8 @@ type
 
     function CreateGradientMesh(
       const APatches: PD2D1_GRADIENT_MESH_PATCH;
-      patchesCount: UInt32;
-      out gradientMesh: ID2D1GradientMesh): HRESULT; stdcall;
+      APatchesCount: UInt32;
+      out AGradientMesh: ID2D1GradientMesh): HRESULT; stdcall;
 
     function CreateImageSourceFromWic(
       AWicBitmapSource: IWICBitmapSource;
@@ -9347,7 +9347,7 @@ type
     /// original: IDXGISurface **surfaces,
     /// </summary>
     function CreateImageSourceFromDxgi(
-      var surfaces: IDXGISurface;
+      var ASurfaces: IDXGISurface;
       ASurfaceCount: UINT32;
       AColorSpace: DXGI_COLOR_SPACE_TYPE;
       AOptions: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS;
@@ -9355,7 +9355,7 @@ type
 
     function GetGradientMeshWorldBounds(
       AGradientMesh: ID2D1GradientMesh;
-      out pBounds: D2D1_RECT_F): HRESULT; stdcall;
+      out ABounds: D2D1_RECT_F): HRESULT; stdcall;
 
     procedure DrawInk(
       AInk: ID2D1Ink;
@@ -9367,7 +9367,7 @@ type
     procedure DrawGdiMetafile(
       AGdiMetafile: ID2D1GdiMetafile;
       const ADestinationRectangle: PD2D1_RECT_F;
-      const sourceRectangle: PD2D1_RECT_F = nil); stdcall;
+      const ASourceRectangle: PD2D1_RECT_F = nil); stdcall;
 
     function CreateTransformedImageSource(
       AImageSource: ID2D1ImageSource;
@@ -9380,7 +9380,7 @@ type
 
     function CreateDeviceContext(
       AOptions: D2D1_DEVICE_CONTEXT_OPTIONS;
-      out deviceContext2: ID2D1DeviceContext2): HRESULT; stdcall;
+      out ADeviceContext2: ID2D1DeviceContext2): HRESULT; stdcall;
 
     procedure FlushDeviceContexts(ABitmap: ID2D1Bitmap); stdcall;
 
@@ -9489,7 +9489,7 @@ type
 
     function CreateDeviceContext(
       AOptions: D2D1_DEVICE_CONTEXT_OPTIONS;
-      out deviceContext3: ID2D1DeviceContext3): HRESULT; stdcall;
+      out ADeviceContext3: ID2D1DeviceContext3): HRESULT; stdcall;
 
   end;
 
@@ -9524,7 +9524,7 @@ type
 
     function SetStroke(
       ABrush: ID2D1Brush;
-      strokeWidth: Single = 1.0;
+      AStrokeWidth: Single = 1.0;
       const ADashes: PSingle = nil;
       ADashesCount: UInt32 = 0;
       ADashOffset: Single = 1.0): HRESULT; stdcall;
@@ -9624,7 +9624,7 @@ type
 
     function CreateDevice(
       ADXGIDevice: IDXGIDevice;
-      out d2dDevice4: ID2D1Device4): HRESULT; stdcall;
+      out AD2dDevice4: ID2D1Device4): HRESULT; stdcall;
 
   end;
 
@@ -9661,8 +9661,8 @@ type
       out AColorContext: ID2D1ColorContext1): HRESULT; stdcall;
 
     function CreateColorContextFromSimpleColorProfile(
-      const simpleProfile: PD2D1_SIMPLE_COLOR_PROFILE;
-      out colorContext: ID2D1ColorContext1): HRESULT; stdcall;
+      const ASimpleProfile: PD2D1_SIMPLE_COLOR_PROFILE;
+      out AColorContext: ID2D1ColorContext1): HRESULT; stdcall;
 
   end;
 
@@ -9680,7 +9680,7 @@ type
 
     function CreateDevice(
       ADXGIDevice: IDXGIDevice;
-      out d2dDevice5: ID2D1Device5): HRESULT; stdcall;
+      out AD2DDevice5: ID2D1Device5): HRESULT; stdcall;
 
   end;
 
@@ -9713,7 +9713,7 @@ type
 
     function CreateDeviceContext(
       AOptions: D2D1_DEVICE_CONTEXT_OPTIONS;
-      out deviceContext6: ID2D1DeviceContext6): HRESULT; stdcall;
+      out ADeviceContext6: ID2D1DeviceContext6): HRESULT; stdcall;
 
   end;
 
@@ -9722,7 +9722,7 @@ type
 
     function CreateDevice(
       ADXGIDevice: IDXGIDevice;
-      out d2dDevice6: ID2D1Device6): HRESULT; stdcall;
+      out AD2DDevice6: ID2D1Device6): HRESULT; stdcall;
   end;
 
 {$ENDREGION}
@@ -9883,9 +9883,9 @@ type
 
     function CreateEnumeratorFromKey(
       AFactory: IDWriteFactory;
-      collectionKey: Pointer;
-      collectionKeySize: UInt32;
-      out fontFileEnumerator: IDWriteFontFileEnumerator): HRESULT; stdcall;
+      ACollectionKey: Pointer;
+      ACollectionKeySize: UInt32;
+      out AFontFileEnumerator: IDWriteFontFileEnumerator): HRESULT; stdcall;
   end;
 
   IDWriteFontFileEnumerator = interface(IUnknown)
@@ -9936,7 +9936,7 @@ type
       out AFontFamily: IDWriteFontFamily): HRESULT; stdcall;
 
     function FindFamilyName(
-      const familyName: PWChar;
+      const AFamilyName: PWChar;
       out AIndex: UInt32;
       out AExists: BOOL): HRESULT; stdcall;
 
@@ -10125,9 +10125,9 @@ type
       const AScriptAnalysis: PDWRITE_SCRIPT_ANALYSIS): HRESULT; stdcall;
 
     function SetLineBreakpoints(
-      textPosition: UINT32;
-      textLength: UINT32;
-      const lineBreakpoints: DWRITE_LINE_BREAKPOINT): HRESULT; stdcall;
+      ATextPosition: UINT32;
+      ATextLength: UINT32;
+      const ALineBreakpoints: DWRITE_LINE_BREAKPOINT): HRESULT; stdcall;
 
     function SetBidiLevel(
       ATextPosition: UInt32;
@@ -10600,26 +10600,26 @@ type
       out ARenderingParams: IDWriteRenderingParams): HRESULT; stdcall;
 
     function CreateCustomRenderingParams(
-      gamma: Single;
-      enhancedContrast: Single;
-      clearTypeLevel: Single;
-      pixelGeometry: DWRITE_PIXEL_GEOMETRY;
-      renderingMode: DWRITE_RENDERING_MODE;
-      out renderingParams: IDWriteRenderingParams): HRESULT; stdcall;
+      AGamma: Single;
+      AEnhancedContrast: Single;
+      AClearTypeLevel: Single;
+      APixelGeometry: DWRITE_PIXEL_GEOMETRY;
+      ARenderingMode: DWRITE_RENDERING_MODE;
+      out ARenderingParams: IDWriteRenderingParams): HRESULT; stdcall;
 
     function RegisterFontFileLoader(AFontFileLoader: IDWriteFontFileLoader): HRESULT; stdcall;
 
     function UnregisterFontFileLoader(AFontFileLoader: IDWriteFontFileLoader): HRESULT; stdcall;
 
     function CreateTextFormat(
-      fontFamilyName: PWCHAR;
-      fontCollection: IDWriteFontCollection;
-      fontWeight: DWRITE_FONT_WEIGHT;
-      fontStyle: DWRITE_FONT_STYLE;
-      fontStretch: DWRITE_FONT_STRETCH;
-      fontSize: Single;
-      localeName: PWCHAR;
-      out textFormat: IDWriteTextFormat): HRESULT; stdcall;
+      AFontFamilyName: PWCHAR;
+      AFontCollection: IDWriteFontCollection;
+      AFontWeight: DWRITE_FONT_WEIGHT;
+      AFontStyle: DWRITE_FONT_STYLE;
+      AFontStretch: DWRITE_FONT_STRETCH;
+      AFontSize: Single;
+      ALocaleName: PWCHAR;
+      out ATextFormat: IDWriteTextFormat): HRESULT; stdcall;
 
     function CreateTypography(ATypography: IDWriteTypography): HRESULT; stdcall;
 
@@ -10645,8 +10645,8 @@ type
       out ATextLayout: IDWriteTextLayout): HRESULT; stdcall;
 
     function CreateEllipsisTrimmingSign(
-      textFormat: IDWriteTextFormat;
-      out trimmingSign: IDWriteInlineObject): HRESULT; stdcall;
+      ATextFormat: IDWriteTextFormat;
+      out ATrimmingSign: IDWriteInlineObject): HRESULT; stdcall;
 
     function CreateTextAnalyzer(out ATextAnalyzer: IDWriteTextAnalyzer): HRESULT; stdcall;
 
@@ -10657,14 +10657,14 @@ type
       out ANumberSubstitution: IDWriteNumberSubstitution): HRESULT; stdcall;
 
     function CreateGlyphRunAnalysis(
-      glyphRun: PDWRITE_GLYPH_RUN;
-      pixelsPerDip: Single;
-      transform: PDWRITE_MATRIX;
-      renderingMode: DWRITE_RENDERING_MODE;
-      measuringMode: DWRITE_MEASURING_MODE;
-      baselineOriginX: Single;
-      baselineOriginY: Single;
-      out glyphRunAnalysis: IDWriteGlyphRunAnalysis): HRESULT; stdcall;
+      AGlyphRun: PDWRITE_GLYPH_RUN;
+      APixelsPerDip: Single;
+      ATransform: PDWRITE_MATRIX;
+      ARenderingMode: DWRITE_RENDERING_MODE;
+      AMeasuringMode: DWRITE_MEASURING_MODE;
+      ABaselineOriginX: Single;
+      ABaselineOriginY: Single;
+      out AGlyphRunAnalysis: IDWriteGlyphRunAnalysis): HRESULT; stdcall;
   end;
 
 {$ENDREGION}
@@ -10782,7 +10782,7 @@ type
 
     procedure Clear; stdcall;
 
-    function SetPassthroughGraph(effectInputIndex: UINT32): HRESULT; stdcall;
+    function SetPassthroughGraph(AEffectInputIndex: UINT32): HRESULT; stdcall;
 
 
   end;
@@ -10857,7 +10857,7 @@ type
       ABufferPrecision: D2D1_BUFFER_PRECISION;
       AChannelDepth: D2D1_CHANNEL_DEPTH): HRESULT; stdcall;
 
-    procedure SetCached(AisCached: BOOL); stdcall;
+    procedure SetCached(AIsCached: BOOL); stdcall;
 
   end;
 
@@ -10926,8 +10926,8 @@ type
 
     function GetMaximumSupportedFeatureLevel(
       const AFeatureLevels: PD3D_FEATURE_LEVEL;
-      featureLevelsCount: UInt32;
-      out maximumSupportedFeatureLevel: D3D_FEATURE_LEVEL): HRESULT; stdcall;
+      AFeatureLevelsCount: UInt32;
+      out AMaximumSupportedFeatureLevel: D3D_FEATURE_LEVEL): HRESULT; stdcall;
 
     function CreateTransformNodeFromEffect(
       AEffect: ID2D1Effect;
@@ -10949,22 +10949,22 @@ type
 
     function CreateBoundsAdjustmentTransform(
       const AOutputRectangle: PD2D1_RECT_L;
-      out transform: ID2D1BoundsAdjustmentTransform): HRESULT; stdcall;
+      out ATransform: ID2D1BoundsAdjustmentTransform): HRESULT; stdcall;
 
     function LoadPixelShader(
       AShaderId: TGUID;
-      const shaderBuffer: PByte;
-      shaderBufferCount: UInt32): HRESULT; stdcall;
+      const AShaderBuffer: PByte;
+      AShaderBufferCount: UInt32): HRESULT; stdcall;
 
     function LoadVertexShader(
       AResourceId: TGUID;
-      const shaderBuffer: PByte;
-      shaderBufferCount: UInt32): HRESULT; stdcall;
+      const AShaderBuffer: PByte;
+      AShaderBufferCount: UInt32): HRESULT; stdcall;
 
     function LoadComputeShader(
       AResourceId: TGUID;
       const AShaderBuffer: PByte;
-      shaderBufferCount: UInt32): HRESULT; stdcall;
+      AShaderBufferCount: UInt32): HRESULT; stdcall;
 
     function IsShaderLoaded(AShaderId: TGUID): BOOL; stdcall;
 
@@ -10972,13 +10972,13 @@ type
       const AResourceId: PGUID;
       const AResourceTextureProperties: PD2D1_RESOURCE_TEXTURE_PROPERTIES;
       const AData: PByte;
-      const strides: PUint32;
-      dataSize: UInt32;
-      out resourceTexture: ID2D1ResourceTexture): HRESULT; stdcall;
+      const AStrides: PUint32;
+      ADataSize: UInt32;
+      out AResourceTexture: ID2D1ResourceTexture): HRESULT; stdcall;
 
     function FindResourceTexture(
       const AResourceId: PGUID;
-      out resourceTexture: ID2D1ResourceTexture): HRESULT; stdcall;
+      out AResourceTexture: ID2D1ResourceTexture): HRESULT; stdcall;
 
     function CreateVertexBuffer(
       const AVertexBufferProperties: PD2D1_VERTEX_BUFFER_PROPERTIES;
@@ -11110,13 +11110,13 @@ type
 
     function UpdatePoints(
       const APoints: PD2D1_POINT_2F;
-      pointsCount: UInt32;
-      startIndex: UInt32 = 0): HRESULT; stdcall;
+      APointsCount: UInt32;
+      AStartIndex: UInt32 = 0): HRESULT; stdcall;
 
     function GetPoints(
       APoints: PD2D1_POINT_2F;
-      pointsCount: UInt32;
-      startIndex: UInt32 = 0): HRESULT; stdcall;
+      APointsCount: UInt32;
+      AStartIndex: UInt32 = 0): HRESULT; stdcall;
 
     function GetPointsCount: UInt32; stdcall;
 
@@ -11165,7 +11165,7 @@ type
 
     function GetTagName(
       AName: LPWSTR;
-      nameCount: UInt32): HRESULT; stdcall;
+      ANameCount: UInt32): HRESULT; stdcall;
 
     function GetTagNameLength: UInt32; stdcall;
 
@@ -11189,7 +11189,7 @@ type
 
     function InsertChildBefore(
       ANewChild: ID2D1SvgElement;
-      referenceChild: ID2D1SvgElement = nil): HRESULT; stdcall;
+      AReferenceChild: ID2D1SvgElement = nil): HRESULT; stdcall;
 
     function AppendChild(ANnewChild: ID2D1SvgElement): HRESULT; stdcall;
 
@@ -11201,7 +11201,7 @@ type
 
     function CreateChild(
       ATagName: LPCWSTR;
-      out newChild: ID2D1SvgElement): HRESULT; stdcall;
+      out ANewChild: ID2D1SvgElement): HRESULT; stdcall;
 
     function IsAttributeSpecified(
       AName: LPCWSTR;
@@ -11212,7 +11212,7 @@ type
     function GetSpecifiedAttributeName(
       AIndex: UInt32;
       AName: LPWSTR;
-      nameCount: UInt32;
+      ANameCount: UInt32;
       out AInherited): HRESULT; stdcall;
 
     function GetSpecifiedAttributeNameLength(
@@ -11274,7 +11274,7 @@ type
   ID2D1SvgDocument = interface(ID2D1Resource)
     ['{86b88e4d-afa4-4d7b-88e4-68a51c4a0aec}']
 
-    function SetViewportSize(viewportSize: D2D1_SIZE_F): HRESULT; stdcall;
+    function SetViewportSize(AViewportSize: D2D1_SIZE_F): HRESULT; stdcall;
 
     function GetViewportSize: D2D1_SIZE_F; stdcall;
 
@@ -11302,12 +11302,12 @@ type
 
     function CreateStrokeDashArray(
       const ADashes: PD2D1_SVG_LENGTH;
-      dashesCount: UInt32;
-      out strokeDashArray: ID2D1SvgStrokeDashArray): HRESULT; stdcall;
+      ADashesCount: UInt32;
+      out AStrokeDashArray: ID2D1SvgStrokeDashArray): HRESULT; stdcall;
 
     function CreatePointCollection(
-      const points: PD2D1_POINT_2F;
-      pointsCount: UInt32;
+      const APoints: PD2D1_POINT_2F;
+      APointsCount: UInt32;
       out APointCollection: ID2D1SvgPointCollection): HRESULT; stdcall;
 
     function CreatePathData(
@@ -11315,7 +11315,7 @@ type
       ASegmentDataCount: UInt32;
       const ACommands: PD2D1_SVG_PATH_COMMAND;
       ACommandsCount: UInt32;
-      out pathData: ID2D1SvgPathData): HRESULT; stdcall;
+      out APathData: ID2D1SvgPathData): HRESULT; stdcall;
   end;
 
 {$ENDREGION}
@@ -11340,11 +11340,11 @@ type
     ['{d2959bf7-b31b-4a3d-9600-712eb1335ba4}']
 
     function CreateDocumentPackageTargetForPrintJob(
-      PrinterName: LPCWSTR;
-      JobName: LPCWSTR;
-      jobOutputStream: IStream;
-      jobPrintTicketStream: IStream;
-      out docPackageTarget: IPrintDocumentPackageTarget): HRESULT; stdcall;
+      APrinterName: LPCWSTR;
+      AJobName: LPCWSTR;
+      AJobOutputStream: IStream;
+      AJobPrintTicketStream: IStream;
+      out ADocPackageTarget: IPrintDocumentPackageTarget): HRESULT; stdcall;
   end;
 
   IPrintDocumentPackageStatusEvent = interface(IDispatch)
