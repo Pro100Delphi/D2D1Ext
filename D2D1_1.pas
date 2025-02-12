@@ -19,6 +19,9 @@ uses Winapi.DxgiFormat, Winapi.Windows, Winapi.Wincodec, Winapi.DXGI, Winapi.Dxg
 
 type
 
+  REFGUID = TGUID;
+  REFIID = TIID;
+
 {$REGION 'D2DBaseTypes.h'}
 
 //=========================================================================================================================================
@@ -218,6 +221,9 @@ const
   CLSID_D2D1Turbulence              : TGUID = '{cf2bb6ae-889a-4ad7-ba29-a2fd732c9fc9}';
   CLSID_D2D1UnPremultiply           : TGUID = '{fb9ac489-ad8d-41ed-9999-bb6347d110f7}';
 
+  // d2d1effects_1.h
+  CLSID_D2D1YCbCr                   : TGUID = '{99503cc1-66c7-45c9-a875-8ad8a7914401}';
+
   // d2d1effectauthor.h
   IID_ID2D1VertexBuffer             : TGUID = '{9b8b1336-00a5-4668-92b7-ced5d8bf9b7b}';
   IID_ID2D1ResourceTexture          : TGUID = '{688d15c3-02b0-438d-b13a-d1b44c32c39a}';
@@ -238,6 +244,19 @@ const
   IID_ID2D1BoundsAdjustmentTransform : TGUID = '{90f732e2-5092-4606-a819-8651970baccd}';
   IID_ID2D1EffectImpl               : TGUID = '{a248fd3f-3e6c-4e63-9f03-7f68ecc91db9}';
   IID_ID2D1EffectContext            : TGUID = '{3d9f916b-27dc-4ad7-b4f1-64945340f563}';
+
+  // d2d1effectauthor_1.h
+  IID_ID2D1EffectContext1           : TGUID = '{84ab595a-fc81-4546-bacd-e8ef4d8abe7a}';
+  IID_ID2D1EffectContext2           : TGUID = '{577ad2a0-9fc7-4dda-8b18-dab810140052}';
+
+  // d2d1svg.h
+  IID_ID2D1SvgAttribute             : TGUID = '{c9cdb0dd-f8c9-4e70-b7c2-301c80292c5e}';
+  IID_ID2D1SvgPaint                 : TGUID = '{d59bab0a-68a2-455b-a5dc-9eb2854e2490}';
+  IID_ID2D1SvgStrokeDashArray       : TGUID = '{f1c0ca52-92a3-4f00-b4ce-f35691efd9d9}';
+  IID_ID2D1SvgPointCollection       : TGUID = '{9dbe4c0d-3572-4dd9-9825-5530813bb712}';
+  IID_ID2D1SvgPathData              : TGUID = '{c095e4f4-bb98-43d6-9745-4d1b84ec9888}';
+  IID_ID2D1SvgElement               : TGUID = '{ac7b67a6-183e-49c1-a823-0ebe40b0db29}';
+  IID_ID2D1SvgDocument              : TGUID = '{86b88e4d-afa4-4d7b-88e4-68a51c4a0aec}';
 
   // DocumentTarget.h
   IID_IPrintDocumentPackageTarget       : TGUID = '{1b8efec4-3019-4c27-964e-367202156906}';
@@ -389,6 +408,19 @@ type
   ID2D1EffectImpl                 = interface;
   ID2D1EffectContext              = interface;
 
+  // d2d1effectauthor_1.h
+  ID2D1EffectContext1             = interface;
+  ID2D1EffectContext2             = interface;
+
+  // d2d1svg.h
+  ID2D1SvgAttribute               = interface;
+  ID2D1SvgPaint                   = interface;
+  ID2D1SvgStrokeDashArray         = interface;
+  ID2D1SvgPointCollection         = interface;
+  ID2D1SvgPathData                = interface;
+  ID2D1SvgElement                 = interface;
+  ID2D1SvgDocument                = interface;
+
   // DocumentTarget.h
   IPrintDocumentPackageTarget       = interface;
   IPrintDocumentPackageStatusEvent  = interface;
@@ -405,6 +437,7 @@ type
   PIDWriteFontFile = ^IDWriteFontFile;
 {$ENDREGION}
 
+
 {$REGION 'callbacks'}
 
   /// <summary>
@@ -420,6 +453,7 @@ type
   PD2D1_EFFECT_FACTORY = function(out AEffectImpl: IUnknown): HRESULT; stdcall;
 
 {$ENDREGION}
+
 
 {$REGION 'd2d1.h enums'}
 
@@ -4074,6 +4108,59 @@ type
 
 {$ENDREGION}
 
+{$REGION 'd2d1effects_1.h'}
+
+  /// <summary>
+  /// The enumeration of the YCbCr effect's top level properties.
+  /// Effect description: An effect that takes a Y plane as input 0 and a CbCr plane
+  /// as input 1 and outputs RGBA.  The CbCr plane can be chroma subsampled.  Useful
+  /// for JPEG color conversion.
+  /// </summary>
+  D2D1_YCBCR_PROP = (
+
+    /// <summary>
+    /// Property Name: "ChromaSubsampling"
+    /// Property Type: D2D1_YCBCR_CHROMA_SUBSAMPLING
+    /// </summary>
+    D2D1_YCBCR_PROP_CHROMA_SUBSAMPLING  = 0,
+
+    /// <summary>
+    /// Property Name: "TransformMatrix"
+    /// Property Type: D2D1_MATRIX_3X2_F
+    /// </summary>
+    D2D1_YCBCR_PROP_TRANSFORM_MATRIX    = 1,
+
+    /// <summary>
+    /// Property Name: "InterpolationMode"
+    /// Property Type: D2D1_YCBCR_INTERPOLATION_MODE
+    /// </summary>
+    D2D1_YCBCR_PROP_INTERPOLATION_MODE  = 2,
+    D2D1_YCBCR_PROP_FORCE_DWORD         = Integer($FFFFFFFF)
+  );
+
+  D2D1_YCBCR_CHROMA_SUBSAMPLING = (
+
+    D2D1_YCBCR_CHROMA_SUBSAMPLING_AUTO        = 0,
+    D2D1_YCBCR_CHROMA_SUBSAMPLING_420         = 1,
+    D2D1_YCBCR_CHROMA_SUBSAMPLING_422         = 2,
+    D2D1_YCBCR_CHROMA_SUBSAMPLING_444         = 3,
+    D2D1_YCBCR_CHROMA_SUBSAMPLING_440         = 4,
+    D2D1_YCBCR_CHROMA_SUBSAMPLING_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  D2D1_YCBCR_INTERPOLATION_MODE = (
+
+    D2D1_YCBCR_INTERPOLATION_MODE_NEAREST_NEIGHBOR    = 0,
+    D2D1_YCBCR_INTERPOLATION_MODE_LINEAR              = 1,
+    D2D1_YCBCR_INTERPOLATION_MODE_CUBIC               = 2,
+    D2D1_YCBCR_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR = 3,
+    D2D1_YCBCR_INTERPOLATION_MODE_ANISOTROPIC         = 4,
+    D2D1_YCBCR_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC  = 5,
+    D2D1_YCBCR_INTERPOLATION_MODE_FORCE_DWORD         = Integer($FFFFFFFF)
+  );
+
+{$ENDREGION}
+
 {$REGION 'd2d1effectauthor.h enums'}
 
   /// <summary>
@@ -4246,6 +4333,486 @@ type
 
 {$ENDREGION}
 
+{$REGION 'd2d21effectauthor_1.h enums'}
+
+//
+
+{$ENDREGION}
+
+{$REGION 'd2d1svg.h enums'}
+
+  /// <summary>
+  /// Specifies the paint type for an SVG fill or stroke.
+  /// </summary>
+  D2D1_SVG_PAINT_TYPE = (
+
+    /// <summary>
+    /// The fill or stroke is not rendered.
+    /// </summary>
+    D2D1_SVG_PAINT_TYPE_NONE              = 0,
+
+    /// <summary>
+    /// A solid color is rendered.
+    /// </summary>
+    D2D1_SVG_PAINT_TYPE_COLOR             = 1,
+
+    /// <summary>
+    /// The current color is rendered.
+    /// </summary>
+    D2D1_SVG_PAINT_TYPE_CURRENT_COLOR     = 2,
+
+    /// <summary>
+    /// A paint server, defined by another element in the SVG document, is used.
+    /// </summary>
+    D2D1_SVG_PAINT_TYPE_URI               = 3,
+
+    /// <summary>
+    /// A paint server, defined by another element in the SVG document, is used. If the
+    /// paint server reference is invalid, fall back to D2D1_SVG_PAINT_TYPE_NONE.
+    /// </summary>
+    D2D1_SVG_PAINT_TYPE_URI_NONE          = 4,
+
+    /// <summary>
+    /// A paint server, defined by another element in the SVG document, is used. If the
+    /// paint server reference is invalid, fall back to D2D1_SVG_PAINT_TYPE_COLOR.
+    /// </summary>
+    D2D1_SVG_PAINT_TYPE_URI_COLOR         = 5,
+
+    /// <summary>
+    /// A paint server, defined by another element in the SVG document, is used. If the
+    /// paint server reference is invalid, fall back to
+    /// D2D1_SVG_PAINT_TYPE_CURRENT_COLOR.
+    /// </summary>
+    D2D1_SVG_PAINT_TYPE_URI_CURRENT_COLOR = 6,
+    D2D1_SVG_PAINT_TYPE_FORCE_DWORD       = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// Specifies the units for an SVG length.
+  /// </summary>
+  D2D1_SVG_LENGTH_UNITS = (
+
+    /// <summary>
+    /// The length is unitless.
+    /// </summary>
+    D2D1_SVG_LENGTH_UNITS_NUMBER      = 0,
+
+    /// <summary>
+    /// The length is a percentage value.
+    /// </summary>
+    D2D1_SVG_LENGTH_UNITS_PERCENTAGE  = 1,
+    D2D1_SVG_LENGTH_UNITS_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// Specifies a value for the SVG display property.
+  /// </summary>
+  D2D1_SVG_DISPLAY = (
+
+    /// <summary>
+    /// The element uses the default display behavior.
+    /// </summary>
+    D2D1_SVG_DISPLAY_INLINE       = 0,
+
+    /// <summary>
+    /// The element and all children are not rendered directly.
+    /// </summary>
+    D2D1_SVG_DISPLAY_NONE         = 1,
+    D2D1_SVG_DISPLAY_FORCE_DWORD  = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// Specifies a value for the SVG visibility property.
+  /// </summary>
+  D2D1_SVG_VISIBILITY = (
+
+    /// <summary>
+    /// The element is visible.
+    /// </summary>
+    D2D1_SVG_VISIBILITY_VISIBLE     = 0,
+
+    /// <summary>
+    /// The element is invisible.
+    /// </summary>
+    D2D1_SVG_VISIBILITY_HIDDEN      = 1,
+    D2D1_SVG_VISIBILITY_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// Specifies a value for the SVG overflow property.
+  /// </summary>
+  D2D1_SVG_OVERFLOW = (
+
+    /// <summary>
+    /// The element is not clipped to its viewport.
+    /// </summary>
+    D2D1_SVG_OVERFLOW_VISIBLE     = 0,
+
+    /// <summary>
+    /// The element is clipped to its viewport.
+    /// </summary>
+    D2D1_SVG_OVERFLOW_HIDDEN      = 1,
+    D2D1_SVG_OVERFLOW_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// Specifies a value for the SVG stroke-linecap property.
+  /// </summary>
+  D2D1_SVG_LINE_CAP = (
+
+    /// <summary>
+    /// The property is set to SVG's 'butt' value.
+    /// </summary>
+    D2D1_SVG_LINE_CAP_BUTT        = 0,
+
+    /// <summary>
+    /// The property is set to SVG's 'square' value.
+    /// </summary>
+    D2D1_SVG_LINE_CAP_SQUARE      = 1,
+
+    /// <summary>
+    /// The property is set to SVG's 'round' value.
+    /// </summary>
+    D2D1_SVG_LINE_CAP_ROUND       = 2,
+    D2D1_SVG_LINE_CAP_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// Specifies a value for the SVG stroke-linejoin property.
+  /// </summary>
+  D2D1_SVG_LINE_JOIN = (
+
+    /// <summary>
+    /// The property is set to SVG's 'bevel' value.
+    /// </summary>
+    D2D1_SVG_LINE_JOIN_BEVEL = 1,
+
+    /// <summary>
+    /// The property is set to SVG's 'miter' value. Note that this is equivalent to
+    /// D2D1_LINE_JOIN_MITER_OR_BEVEL, not D2D1_LINE_JOIN_MITER.
+    /// </summary>
+    D2D1_SVG_LINE_JOIN_MITER = 3,
+
+    /// <summary>
+    /// \ The property is set to SVG's 'round' value.
+    /// </summary>
+    D2D1_SVG_LINE_JOIN_ROUND = 2,
+    D2D1_SVG_LINE_JOIN_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The alignment portion of the SVG preserveAspectRatio attribute.
+  /// </summary>
+  D2D1_SVG_ASPECT_ALIGN = (
+
+    /// <summary>
+    /// The alignment is set to SVG's 'none' value.
+    /// </summary>
+    D2D1_SVG_ASPECT_ALIGN_NONE        = 0,
+
+    /// <summary>
+    /// The alignment is set to SVG's 'xMinYMin' value.
+    /// </summary>
+    D2D1_SVG_ASPECT_ALIGN_X_MIN_Y_MIN = 1,
+
+    /// <summary>
+    /// The alignment is set to SVG's 'xMidYMin' value.
+    /// </summary>
+    D2D1_SVG_ASPECT_ALIGN_X_MID_Y_MIN = 2,
+
+    /// <summary>
+    /// The alignment is set to SVG's 'xMaxYMin' value.
+    /// </summary>
+    D2D1_SVG_ASPECT_ALIGN_X_MAX_Y_MIN = 3,
+
+    /// <summary>
+    /// The alignment is set to SVG's 'xMinYMid' value.
+    /// </summary>
+    D2D1_SVG_ASPECT_ALIGN_X_MIN_Y_MID = 4,
+
+    /// <summary>
+    /// The alignment is set to SVG's 'xMidYMid' value.
+    /// </summary>
+    D2D1_SVG_ASPECT_ALIGN_X_MID_Y_MID = 5,
+
+    /// <summary>
+    /// The alignment is set to SVG's 'xMaxYMid' value.
+    /// </summary>
+    D2D1_SVG_ASPECT_ALIGN_X_MAX_Y_MID = 6,
+
+    /// <summary>
+    /// The alignment is set to SVG's 'xMinYMax' value.
+    /// </summary>
+    D2D1_SVG_ASPECT_ALIGN_X_MIN_Y_MAX = 7,
+
+    /// <summary>
+    /// The alignment is set to SVG's 'xMidYMax' value.
+    /// </summary>
+    D2D1_SVG_ASPECT_ALIGN_X_MID_Y_MAX = 8,
+
+    /// <summary>
+    /// The alignment is set to SVG's 'xMaxYMax' value.
+    /// </summary>
+    D2D1_SVG_ASPECT_ALIGN_X_MAX_Y_MAX = 9,
+    D2D1_SVG_ASPECT_ALIGN_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// The meetOrSlice portion of the SVG preserveAspectRatio attribute.
+  /// </summary>
+  D2D1_SVG_ASPECT_SCALING = (
+    /// <summary>
+    /// Scale the viewBox up as much as possible such that the entire viewBox is visible
+    /// within the viewport.
+    /// </summary>
+    D2D1_SVG_ASPECT_SCALING_MEET        = 0,
+
+    /// <summary>
+    /// Scale the viewBox down as much as possible such that the entire viewport is
+    /// covered by the viewBox.
+    /// </summary>
+    D2D1_SVG_ASPECT_SCALING_SLICE       = 1,
+    D2D1_SVG_ASPECT_SCALING_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// Represents a path commmand. Each command may reference floats from the segment
+  /// data. Commands ending in _ABSOLUTE interpret data as absolute coordinate.
+  /// Commands ending in _RELATIVE interpret data as being relative to the previous
+  /// point.
+  /// </summary>
+  D2D1_SVG_PATH_COMMAND = (
+
+    /// <summary>
+    /// Closes the current subpath. Uses no segment data.
+    /// </summary>
+    D2D1_SVG_PATH_COMMAND_CLOSE_PATH                = 0,
+
+    /// <summary>
+    /// Starts a new subpath at the coordinate (x y). Uses 2 floats of segment data.
+    /// </summary>
+    D2D1_SVG_PATH_COMMAND_MOVE_ABSOLUTE             = 1,
+
+    /// <summary>
+    /// Starts a new subpath at the coordinate (x y). Uses 2 floats of segment data.
+    /// </summary>
+    D2D1_SVG_PATH_COMMAND_MOVE_RELATIVE             = 2,
+
+    /// <summary>
+    /// Draws a line to the coordinate (x y). Uses 2 floats of segment data.
+    /// </summary>
+    D2D1_SVG_PATH_COMMAND_LINE_ABSOLUTE             = 3,
+
+    /// <summary>
+    /// Draws a line to the coordinate (x y). Uses 2 floats of segment data.
+    /// </summary>
+    D2D1_SVG_PATH_COMMAND_LINE_RELATIVE             = 4,
+
+    /// <summary>
+    /// Draws a cubic Bezier curve (x1 y1 x2 y2 x y). The curve ends at (x, y) and is
+    /// defined by the two control points (x1, y1) and (x2, y2). Uses 6 floats of
+    /// segment data.
+    /// </summary>
+    D2D1_SVG_PATH_COMMAND_CUBIC_ABSOLUTE            = 5,
+
+    /// <summary>
+    /// Draws a cubic Bezier curve (x1 y1 x2 y2 x y). The curve ends at (x, y) and is
+    /// defined by the two control points (x1, y1) and (x2, y2). Uses 6 floats of
+    /// segment data.
+    /// </summary>
+    D2D1_SVG_PATH_COMMAND_CUBIC_RELATIVE            = 6,
+
+    /// <summary>
+    /// Draws a quadratic Bezier curve (x1 y1 x y). The curve ends at (x, y) and is
+    /// defined by the control point (x1 y1). Uses 4 floats of segment data.
+    /// </summary>
+    D2D1_SVG_PATH_COMMAND_QUADRADIC_ABSOLUTE        = 7,
+
+    /// <summary>
+    /// Draws a quadratic Bezier curve (x1 y1 x y). The curve ends at (x, y) and is
+    /// defined by the control point (x1 y1). Uses 4 floats of segment data.
+    /// </summary>
+    D2D1_SVG_PATH_COMMAND_QUADRADIC_RELATIVE        = 8,
+
+    /// <summary>
+    /// Draws an elliptical arc (rx ry x-axis-rotation large-arc-flag sweep-flag x y).
+    /// The curve ends at (x, y) and is defined by the arc parameters. The two flags are
+    /// considered set if their values are non-zero. Uses 7 floats of segment data.
+    /// </summary>
+    D2D1_SVG_PATH_COMMAND_ARC_ABSOLUTE              = 9,
+
+    /// <summary>
+    /// Draws an elliptical arc (rx ry x-axis-rotation large-arc-flag sweep-flag x y).
+    /// The curve ends at (x, y) and is defined by the arc parameters. The two flags are
+    /// considered set if their values are non-zero. Uses 7 floats of segment data.
+    /// </summary>
+    D2D1_SVG_PATH_COMMAND_ARC_RELATIVE              = 10,
+
+    /// <summary>
+    /// Draws a horizontal line to the coordinate (x). Uses 1 float of segment data.
+    /// </summary>
+    D2D1_SVG_PATH_COMMAND_HORIZONTAL_ABSOLUTE       = 11,
+
+    /// <summary>
+    /// Draws a horizontal line to the coordinate (x). Uses 1 float of segment data.
+    /// </summary>
+    D2D1_SVG_PATH_COMMAND_HORIZONTAL_RELATIVE       = 12,
+
+    /// <summary>
+    /// Draws a vertical line to the coordinate (y). Uses 1 float of segment data.
+    /// </summary>
+    D2D1_SVG_PATH_COMMAND_VERTICAL_ABSOLUTE         = 13,
+
+    /// <summary>
+    /// Draws a vertical line to the coordinate (y). Uses 1 float of segment data.
+    /// </summary>
+    D2D1_SVG_PATH_COMMAND_VERTICAL_RELATIVE         = 14,
+
+    /// <summary>
+    /// Draws a smooth cubic Bezier curve (x2 y2 x y). The curve ends at (x, y) and is
+    /// defined by the control point (x2, y2). Uses 4 floats of segment data.
+    /// </summary>
+    D2D1_SVG_PATH_COMMAND_CUBIC_SMOOTH_ABSOLUTE     = 15,
+
+    /// <summary>
+    /// Draws a smooth cubic Bezier curve (x2 y2 x y). The curve ends at (x, y) and is
+    /// defined by the control point (x2, y2). Uses 4 floats of segment data.
+    /// </summary>
+    D2D1_SVG_PATH_COMMAND_CUBIC_SMOOTH_RELATIVE     = 16,
+
+    /// <summary>
+    /// Draws a smooth quadratic Bezier curve ending at (x, y). Uses 2 floats of segment
+    /// data.
+    /// </summary>
+    D2D1_SVG_PATH_COMMAND_QUADRADIC_SMOOTH_ABSOLUTE = 17,
+
+    /// <summary>
+    /// Draws a smooth quadratic Bezier curve ending at (x, y). Uses 2 floats of segment
+    /// data.
+    /// </summary>
+    D2D1_SVG_PATH_COMMAND_QUADRADIC_SMOOTH_RELATIVE = 18,
+    D2D1_SVG_PATH_COMMAND_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  PD2D1_SVG_PATH_COMMAND = ^D2D1_SVG_PATH_COMMAND;
+
+  /// <summary>
+  /// Defines the coordinate system used for SVG gradient or clipPath elements.
+  /// </summary>
+  D2D1_SVG_UNIT_TYPE = (
+
+    /// <summary>
+    /// The property is set to SVG's 'userSpaceOnUse' value.
+    /// </summary>
+    D2D1_SVG_UNIT_TYPE_USER_SPACE_ON_USE    = 0,
+
+    /// <summary>
+    /// The property is set to SVG's 'objectBoundingBox' value.
+    /// </summary>
+    D2D1_SVG_UNIT_TYPE_OBJECT_BOUNDING_BOX  = 1,
+    D2D1_SVG_UNIT_TYPE_FORCE_DWORD          = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// Defines the type of SVG string attribute to set or get.
+  /// </summary>
+  D2D1_SVG_ATTRIBUTE_STRING_TYPE = (
+
+    /// <summary>
+    /// The attribute is a string in the same form as it would appear in the SVG XML.
+    ///
+    /// Note that when getting values of this type, the value returned may not exactly
+    /// match the value that was set. Instead, the output value is a normalized version
+    /// of the value. For example, an input color of 'red' may be output as '#FF0000'.
+    /// </summary>
+    D2D1_SVG_ATTRIBUTE_STRING_TYPE_SVG          = 0,
+
+    /// <summary>
+    /// The attribute is an element ID.
+    /// </summary>
+    D2D1_SVG_ATTRIBUTE_STRING_TYPE_ID           = 1,
+    D2D1_SVG_ATTRIBUTE_STRING_TYPE_FORCE_DWORD  = Integer($FFFFFFFF)
+  );
+
+  /// <summary>
+  /// Defines the type of SVG POD attribute to set or get.
+  /// </summary>
+  D2D1_SVG_ATTRIBUTE_POD_TYPE = (
+
+    /// <summary>
+    /// The attribute is a FLOAT.
+    /// </summary>
+    D2D1_SVG_ATTRIBUTE_POD_TYPE_FLOAT                 = 0,
+
+    /// <summary>
+    /// The attribute is a D2D1_COLOR_F.
+    /// </summary>
+    D2D1_SVG_ATTRIBUTE_POD_TYPE_COLOR                 = 1,
+
+    /// <summary>
+    /// The attribute is a D2D1_FILL_MODE.
+    /// </summary>
+    D2D1_SVG_ATTRIBUTE_POD_TYPE_FILL_MODE             = 2,
+
+    /// <summary>
+    /// The attribute is a D2D1_SVG_DISPLAY.
+    /// </summary>
+    D2D1_SVG_ATTRIBUTE_POD_TYPE_DISPLAY               = 3,
+
+    /// <summary>
+    /// The attribute is a D2D1_SVG_OVERFLOW.
+    /// </summary>
+    D2D1_SVG_ATTRIBUTE_POD_TYPE_OVERFLOW              = 4,
+
+    /// <summary>
+    /// The attribute is a D2D1_SVG_LINE_CAP.
+    /// </summary>
+    D2D1_SVG_ATTRIBUTE_POD_TYPE_LINE_CAP              = 5,
+
+    /// <summary>
+    /// The attribute is a D2D1_SVG_LINE_JOIN.
+    /// </summary>
+    D2D1_SVG_ATTRIBUTE_POD_TYPE_LINE_JOIN             = 6,
+
+    /// <summary>
+    /// The attribute is a D2D1_SVG_VISIBILITY.
+    /// </summary>
+    D2D1_SVG_ATTRIBUTE_POD_TYPE_VISIBILITY            = 7,
+
+    /// <summary>
+    /// The attribute is a D2D1_MATRIX_3X2_F.
+    /// </summary>
+    D2D1_SVG_ATTRIBUTE_POD_TYPE_MATRIX                = 8,
+
+    /// <summary>
+    /// The attribute is a D2D1_SVG_UNIT_TYPE.
+    /// </summary>
+    D2D1_SVG_ATTRIBUTE_POD_TYPE_UNIT_TYPE             = 9,
+
+    /// <summary>
+    /// The attribute is a D2D1_EXTEND_MODE.
+    /// </summary>
+    D2D1_SVG_ATTRIBUTE_POD_TYPE_EXTEND_MODE           = 10,
+
+    /// <summary>
+    /// The attribute is a D2D1_SVG_PRESERVE_ASPECT_RATIO.
+    /// </summary>
+    D2D1_SVG_ATTRIBUTE_POD_TYPE_PRESERVE_ASPECT_RATIO = 11,
+
+    /// <summary>
+    /// The attribute is a D2D1_SVG_VIEWBOX.
+    /// </summary>
+    D2D1_SVG_ATTRIBUTE_POD_TYPE_VIEWBOX               = 12,
+
+    /// <summary>
+    /// The attribute is a D2D1_SVG_LENGTH.
+    /// </summary>
+    D2D1_SVG_ATTRIBUTE_POD_TYPE_LENGTH                = 13,
+    D2D1_SVG_ATTRIBUTE_POD_TYPE_FORCE_DWORD           = Integer($FFFFFFFF)
+  );
+
+{$ENDREGION}
+
 {$REGION 'DocumentTypes.h enums'}
 
   PrintDocumentPackageCompletion = (
@@ -4255,6 +4822,7 @@ type
     PrintDocumentPackageCompletion_Failed	    = (PrintDocumentPackageCompletion_Canceled + 1)
   );
 {$ENDREGION}
+
 
 {$REGION 'd2d1.h records'}
 
@@ -4617,6 +5185,31 @@ type
 
 {$REGION 'd2d1_1.h records'}
 
+  D2D1_POINT_2L = record
+    X: Int32;
+    Y: Int32;
+  end;
+
+  PD2D1_POINT_2L = ^D2D1_POINT_2L;
+
+  D2D1_RECT_L = record
+    Left: Int32;
+    Top: Int32;
+    Right: Int32;
+    Bottom: Int32;
+  end;
+
+  PD2D1_RECT_L = ^D2D1_RECT_L;
+
+  D2D1_MATRIX_4X3_F = record
+    M11, M12, M13: Single;
+    M21, M22, M23: Single;
+    M31, M32, M33: Single;
+    M41, M42, M43: Single;
+  end;
+
+  PD2D1_MATRIX_4X3_F = ^D2D1_MATRIX_4X3_F;
+
   D2D1_MATRIX_4X4_F = record
     M11, M12, M13, M14: Single;
     M21, M22, M23, M24: Single;
@@ -4823,6 +5416,7 @@ type
 {$REGION 'd2d1_2.h records'}
 
 //
+
 {$ENDREGION}
 
 {$REGION 'd2d1_3.h records'}
@@ -5932,7 +6526,19 @@ type
 
 {$ENDREGION}
 
-{$REGION 'D2D1EffectAuthor.h records'}
+{$REGION 'd2d1effects.h records'}
+
+//
+
+{$ENDREGION}
+
+{$REGION 'd2d1effects_1.h records'}
+
+//
+
+{$ENDREGION}
+
+{$REGION 'd21effectauthor.h records'}
 
   /// <summary>
   /// Defines a property binding to a function. The name must match the property
@@ -6071,6 +6677,65 @@ type
 
 {$ENDREGION}
 
+{$REGION 'd21effectauthor_1.h records'}
+
+//
+
+{$ENDREGION}
+
+{$REGION 'd2d1svg.h records'}
+
+  /// <summary>
+  /// Represents an SVG length.
+  /// </summary>
+  D2D1_SVG_LENGTH = record
+
+    Value: Single;
+    Units: D2D1_SVG_LENGTH_UNITS;
+  end;
+
+  PD2D1_SVG_LENGTH = ^D2D1_SVG_LENGTH;
+
+  /// <summary>
+  /// Represents all SVG preserveAspectRatio settings.
+  /// </summary>
+  D2D1_SVG_PRESERVE_ASPECT_RATIO = record
+
+    /// <summary>
+    /// Sets the 'defer' portion of the preserveAspectRatio settings. This field only
+    /// has an effect on an 'image' element that references another SVG document. As
+    /// this is not currently supported, the field has no impact on rendering.
+    /// </summary>
+    Defer: BOOL;
+
+    /// <summary>
+    /// Sets the align portion of the preserveAspectRatio settings.
+    /// </summary>
+    Align: D2D1_SVG_ASPECT_ALIGN;
+
+    /// <summary>
+    /// Sets the meetOrSlice portion of the preserveAspectRatio settings.
+    /// </summary>
+    MeetOrSlice: D2D1_SVG_ASPECT_SCALING;
+  end;
+
+  PD2D1_SVG_PRESERVE_ASPECT_RATIO = ^D2D1_SVG_PRESERVE_ASPECT_RATIO;
+
+  /// <summary>
+  /// Represents an SVG viewBox.
+  /// </summary>
+  D2D1_SVG_VIEWBOX = record
+    X: Single;
+    Y: Single;
+    Width: Single;
+    Height: Single;
+  end;
+
+  PD2D1_SVG_VIEWBOX = ^D2D1_SVG_VIEWBOX;
+
+
+{$ENDREGION}
+
 {$REGION 'DocumentTypes.h' records}
   PrintDocumentPackageStatus = record
     JobId: UInt32;
@@ -6081,6 +6746,7 @@ type
     PackageStatus: HRESULT;
   end;
 {$ENDREGION}
+
 
 {$REGION 'd2d1.h interfaces'}
   ID2D1Resource = interface(IUnknown)
@@ -9081,97 +9747,660 @@ type
   ID2D1VertexBuffer = interface(IUnknown)
     ['{9b8b1336-00a5-4668-92b7-ced5d8bf9b7b}']
 
+    function Map(out AData: PByte): HRESULT; stdcall;
+
+    function Unmap: HRESULT; stdcall;
+
   end;
 
   ID2D1ResourceTexture = interface(IUnknown)
     ['{688d15c3-02b0-438d-b13a-d1b44c32c39a}']
+
+    function Update(
+      const AMinimumExtents: PUInt32;
+      const AMaximimumExtents: PUInt32;
+      const AStrides: PUInt32;
+      ADimensions: UInt32;
+      const AData: PByte;
+      ADataCount: UInt32): HRESULT; stdcall;
 
   end;
 
   ID2D1RenderInfo = interface(IUnknown)
     ['{519ae1bd-d19a-420d-b849-364f594776b7}']
 
+    function SetInputDescription(
+      AInputIndex: UINT32;
+      AInputDescription: D2D1_INPUT_DESCRIPTION): HRESULT; stdcall;
+
+    function SetOutputBuffer(
+      ABufferPrecision: D2D1_BUFFER_PRECISION;
+      AChannelDepth: D2D1_CHANNEL_DEPTH): HRESULT; stdcall;
+
+    procedure SetCached(AIsCached: BOOL); stdcall;
+
+    procedure SetInstructionCountHint(AInstructionCount: UINT32); stdcall;
+
+
   end;
 
   ID2D1DrawInfo = interface(ID2D1RenderInfo)
     ['{693ce632-7f2f-45de-93fe-18d88b37aa21}']
 
+    function SetPixelShaderConstantBuffer(
+      const ABuffer: PByte;
+      ABufferCount: UInt32): HRESULT; stdcall;
+
+    function SetResourceTexture(
+      ATextureIndex: UInt32;
+      AResourceTexture: ID2D1ResourceTexture): HRESULT; stdcall;
+
+    function SetVertexShaderConstantBuffer(
+      const ABuffer: PByte;
+      ABufferCount: UInt32): HRESULT; stdcall;
+
+    function SetPixelShader(
+      AShaderId: TGUID;
+      APixelOptions: D2D1_PIXEL_OPTIONS = D2D1_PIXEL_OPTIONS_NONE): HRESULT; stdcall;
+
+    function SetVertexProcessing(
+      AVertexBuffer: ID2D1VertexBuffer;
+      AVertexOptions: D2D1_VERTEX_OPTIONS;
+      const ABlendDescription: PD2D1_BLEND_DESCRIPTION = nil;
+      const AVertexRangeNULL: PD2D1_VERTEX_RANGE = nil;
+      const AVertexShaderNULL: PGUID = nil): HRESULT; stdcall;
   end;
 
   ID2D1ComputeInfo = interface(ID2D1RenderInfo)
     ['{5598b14b-9fd7-48b7-9bdb-8f0964eb38bc}']
+
+    function SetComputeShaderConstantBuffer(
+      const ABuffer: PByte;
+      ABufferCount: UInt32): HRESULT; stdcall;
+
+    function SetComputeShader(AHhaderId: TGUID): HRESULT; stdcall;
+
+    function SetResourceTexture(
+      ATextureIndex: UInt32;
+      AResourceTexture: ID2D1ResourceTexture): HRESULT; stdcall;
 
   end;
 
   ID2D1TransformNode = interface(IUnknown)
     ['{b2efe1e7-729f-4102-949f-505fa21bf666}']
 
+    function GetInputCount: UInt32; stdcall;
+
   end;
 
   ID2D1TransformGraph = interface(IUnknown)
     ['{13d29038-c3e6-4034-9081-13b53a417992}']
+
+    function GetInputCount: UInt32; stdcall;
+
+    function SetSingleTransformNode(ANode: ID2D1TransformNode): HRESULT; stdcall;
+
+    function AddNode(ANode: ID2D1TransformNode): HRESULT; stdcall;
+
+    function RemoveNode(ANode: ID2D1TransformNode): HRESULT; stdcall;
+
+    function SetOutputNode(ANode: ID2D1TransformNode): HRESULT; stdcall;
+
+    function ConnectNode(
+      AFromNode: ID2D1TransformNode;
+      AToNode: ID2D1TransformNode;
+      AToNodeInputIndex: UInt32): HRESULT; stdcall;
+
+    function ConnectToEffectInput(
+      AToEffectInputIndex: UINT32;
+      ANode: ID2D1TransformNode;
+      AToNodeInputIndex: UINT32): HRESULT; stdcall;
+
+    procedure Clear; stdcall;
+
+    function SetPassthroughGraph(effectInputIndex: UINT32): HRESULT; stdcall;
+
 
   end;
 
   ID2D1Transform = interface(ID2D1TransformNode)
     ['{ef1a287d-342a-4f76-8fdb-da0d6ea9f92b}']
 
+    function MapOutputRectToInputRects(
+      const AOutputRect: PD2D1_RECT_L;
+      out AInputRects: D2D1_RECT_L;
+      AInputRectsCount: UInt32): HRESULT; stdcall;
+
+    function MapInputRectsToOutputRect(
+      const AInputRects: PD2D1_RECT_L;
+      const AInputOpaqueSubRects: PD2D1_RECT_L;
+      AInputRectCount: UInt32;
+      out AOutputRect: D2D1_RECT_L;
+      out AOutputOpaqueSubRect: D2D1_RECT_L): HRESULT; stdcall;
+
+    function MapInvalidRect(
+      AInputIndex: UInt32;
+      AInvalidInputRect: D2D1_RECT_L;
+      out AInvalidOutputRect: D2D1_RECT_L): HRESULT; stdcall;
+
   end;
 
   ID2D1DrawTransform = interface(ID2D1Transform)
     ['{36bfdcb6-9739-435d-a30d-a653beff6a6f}']
+
+    function SetDrawInfo(ADrawInfo: ID2D1DrawInfo): HRESULT; stdcall;
 
   end;
 
   ID2D1ComputeTransform = interface(ID2D1Transform)
     ['{0d85573c-01e3-4f7d-bfd9-0d60608bf3c3}']
 
+    function SetComputeInfo(AComputeInfo: ID2D1ComputeInfo): HRESULT; stdcall;
+
+    function CalculateThreadgroups(
+      const AOutputRect: PD2D1_RECT_L;
+      out ADimensionX: UInt32;
+      out ADimensionY: UInt32;
+      out ADimensionZ: UInt32): HRESULT; stdcall;
+
   end;
 
   ID2D1AnalysisTransform = interface(IUnknown)
     ['{0359dc30-95e6-4568-9055-27720d130e93}']
+
+    function ProcessAnalysisResults(
+      const AAnalysisData: PByte;
+      AAnalysisDataCount: UInt32): HRESULT; stdcall;
 
   end;
 
   ID2D1SourceTransform = interface(ID2D1Transform)
     ['{db1800dd-0c34-4cf9-be90-31cc0a5653e1}']
 
+    function SetRenderInfo(ARenderInfo: ID2D1RenderInfo): HRESULT; stdcall;
+
+    function Draw(
+      ATarget: ID2D1Bitmap1;
+      const ADrawRect: PD2D1_RECT_L;
+      ATargetOrigin: D2D1_POINT_2U): HRESULT; stdcall;
+
   end;
 
   ID2D1ConcreteTransform = interface(ID2D1TransformNode)
     ['{1a799d8a-69f7-4e4c-9fed-437ccc6684cc}']
+
+    function SetOutputBuffer(
+      ABufferPrecision: D2D1_BUFFER_PRECISION;
+      AChannelDepth: D2D1_CHANNEL_DEPTH): HRESULT; stdcall;
+
+    procedure SetCached(AisCached: BOOL); stdcall;
 
   end;
 
   ID2D1BlendTransform = interface(ID2D1ConcreteTransform)
     ['{63ac0b32-ba44-450f-8806-7f4ca1ff2f1b}']
 
+    procedure SetDescription(const ADescription: D2D1_BLEND_DESCRIPTION); stdcall;
+
+    procedure GetDescription(out ADescription: D2D1_BLEND_DESCRIPTION); stdcall;
+
   end;
 
   ID2D1BorderTransform = interface(ID2D1ConcreteTransform)
     ['{4998735c-3a19-473c-9781-656847e3a347}']
+
+    procedure SetExtendModeX(AExtendMode: D2D1_EXTEND_MODE); stdcall;
+
+    procedure SetExtendModeY(AExtendMode: D2D1_EXTEND_MODE); stdcall;
+
+    function GetExtendModeX: D2D1_EXTEND_MODE; stdcall;
+
+    function GetExtendModeY: D2D1_EXTEND_MODE; stdcall;
 
   end;
 
   ID2D1OffsetTransform = interface(ID2D1TransformNode)
     ['{3fe6adea-7643-4f53-bd14-a0ce63f24042}']
 
+    procedure SetOffset(AOffset: D2D1_POINT_2L); stdcall;
+
+    function GetOffset: D2D1_POINT_2L; stdcall;
   end;
 
   ID2D1BoundsAdjustmentTransform = interface(ID2D1TransformNode)
     ['{90f732e2-5092-4606-a819-8651970baccd}']
+
+    procedure SetOutputBounds(const AOutputBounds: D2D1_RECT_L); stdcall;
+
+    procedure GetOutputBounds(out AOutputBounds: D2D1_RECT_L); stdcall;
 
   end;
 
   ID2D1EffectImpl = interface(IUnknown)
     ['{a248fd3f-3e6c-4e63-9f03-7f68ecc91db9}']
 
+    function Initialize(
+      AEffectContext: ID2D1EffectContext;
+      ATransformGraph: ID2D1TransformGraph): HRESULT; stdcall;
+
+    function PrepareForRender(AChangeType: D2D1_CHANGE_TYPE): HRESULT; stdcall;
+
+    function SetGraph(ATransformGraph: ID2D1TransformGraph): HRESULT; stdcall;
+
   end;
 
   ID2D1EffectContext = interface(IUnknown)
     ['{3d9f916b-27dc-4ad7-b4f1-64945340f563}']
 
+    void, GetDpi(
+      *dpiX: _Out_ FLOAT;
+      *dpiY: _Out_ FLOAT;
+    ); stdcall;
+
+    CreateEffect(
+      effectId: _In_ REFCLSID;
+      **effect: _COM_Outptr_ ID2D1Effect;
+    ); stdcall;
+
+    GetMaximumSupportedFeatureLevel(In_reads_(featureLevelsCount: ); stdcall;
+
+    CreateTransformNodeFromEffect(
+      *effect: _In_ ID2D1Effect;
+      **transformNode: _COM_Outptr_ ID2D1TransformNode;
+    ); stdcall;
+
+    CreateBlendTransform(
+      numInputs: UINT32;
+      *blendDescription: _In_ CONST D2D1_BLEND_DESCRIPTION;
+      **transform: _COM_Outptr_ ID2D1BlendTransform;
+    ); stdcall;
+
+    CreateBorderTransform(
+      extendModeX: D2D1_EXTEND_MODE;
+      extendModeY: D2D1_EXTEND_MODE;
+      **transform: _COM_Outptr_ ID2D1BorderTransform;
+    ); stdcall;
+
+    CreateOffsetTransform(
+      offset: D2D1_POINT_2L;
+      **transform: _COM_Outptr_ ID2D1OffsetTransform;
+    ); stdcall;
+
+    CreateBoundsAdjustmentTransform(
+      *outputRectangle: _In_ CONST D2D1_RECT_L;
+      **transform: _COM_Outptr_ ID2D1BoundsAdjustmentTransform;
+    ); stdcall;
+
+    LoadPixelShader(
+      shaderId: REFGUID;
+      In_reads_(shaderBufferCount: ;
+    ); stdcall;
+
+    LoadVertexShader(
+      resourceId: REFGUID;
+      In_reads_(shaderBufferCount: ;
+    ); stdcall;
+
+    LoadComputeShader(
+      resourceId: REFGUID;
+      In_reads_(shaderBufferCount: ;
+    ); stdcall;
+
+    BOOL, IsShaderLoaded(shaderId: REFGUID); stdcall;
+
+    CreateResourceTexture(
+      *resourceId: _In_opt_ CONST GUID;
+      *resourceTextureProperties: _In_ CONST D2D1_RESOURCE_TEXTURE_PROPERTIES;
+      In_reads_opt_(dataSize: ;
+    ); stdcall;
+
+    FindResourceTexture(
+      *resourceId: _In_ CONST GUID;
+      **resourceTexture: _COM_Outptr_ ID2D1ResourceTexture;
+    ); stdcall;
+
+    CreateVertexBuffer(
+      *vertexBufferProperties: _In_ CONST D2D1_VERTEX_BUFFER_PROPERTIES;
+      *resourceId: _In_opt_ CONST GUID;
+      *customVertexBufferProperties: _In_opt_ CONST D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES;
+      **buffer: _COM_Outptr_ ID2D1VertexBuffer;
+    ); stdcall;
+
+    FindVertexBuffer(
+      *resourceId: _In_ CONST GUID;
+      **buffer: _COM_Outptr_ ID2D1VertexBuffer;
+    ); stdcall;
+
+    CreateColorContext(
+      space: D2D1_COLOR_SPACE;
+      In_reads_opt_(profileSize: ;
+    ); stdcall;
+
+    CreateColorContextFromFilename(
+      filename: _In_ PCWSTR;
+      **colorContext: _COM_Outptr_ ID2D1ColorContext;
+    ); stdcall;
+
+    CreateColorContextFromWicColorContext(
+      *wicColorContext: _In_ IWICColorContext;
+      **colorContext: _COM_Outptr_ ID2D1ColorContext;
+    ); stdcall;
+
+    CheckFeatureSupport(
+      feature: D2D1_FEATURE;
+      Out_writes_bytes_(featureSupportDataSize: ;
+    ); stdcall;
+
+    BOOL, IsBufferPrecisionSupported(bufferPrecision: D2D1_BUFFER_PRECISION); stdcall;
+
+
   end;
+{$ENDREGION}
+
+{$REGION 'd21effectauthor_1.h interfaces'}
+
+  ID2D1EffectContext1 = interface(ID2D1EffectContext)
+    ['{84ab595a-fc81-4546-bacd-e8ef4d8abe7a}']
+
+    function CreateLookupTable3D(
+      APrecision: D2D1_BUFFER_PRECISION;
+      const AExtents: PUint32;
+      const AData: PByte;
+      ADataCount: UInt32;
+      const AStrides: PUint32;
+      out ALookupTable: ID2D1LookupTable3D): HRESULT; stdcall;
+
+  end;
+
+  ID2D1EffectContext2 = interface(ID2D1EffectContext1)
+    ['{577ad2a0-9fc7-4dda-8b18-dab810140052}']
+
+    function CreateColorContextFromDxgiColorSpace(
+      AColorSpace: DXGI_COLOR_SPACE_TYPE;
+      out AColorContext: ID2D1ColorContext1): HRESULT; stdcall;
+
+    function CreateColorContextFromSimpleColorProfile(
+      const ASimpleProfile: PD2D1_SIMPLE_COLOR_PROFILE;
+      out AColorContext: ID2D1ColorContext1): HRESULT; stdcall;
+  end;
+
+{$ENDREGION}
+
+{$REGION 'd2d1svg.h'}
+
+  ID2D1SvgAttribute = interface(ID2D1Resource)
+    ['{c9cdb0dd-f8c9-4e70-b7c2-301c80292c5e}']
+
+    procedure GetElement(out AElement: ID2D1SvgElement); stdcall;
+
+    function Clone(out AAttribute: ID2D1SvgAttribute): HRESULT; stdcall;
+  end;
+
+  ID2D1SvgPaint = interface(ID2D1SvgAttribute)
+    ['{d59bab0a-68a2-455b-a5dc-9eb2854e2490}']
+
+    function SetPaintType(APaintType: D2D1_SVG_PAINT_TYPE): HRESULT; stdcall;
+
+    function GetPaintType: D2D1_SVG_PAINT_TYPE; stdcall;
+
+    function SetColor(const AColor: PD2D1_COLOR_F): HRESULT; stdcall;
+
+    procedure GetColor(AColor: D2D1_COLOR_F); stdcall;
+
+    function SetId(AId: LPCWSTR): HRESULT; stdcall;
+
+    function GetId(
+      out AId: LPWSTR;
+      AIdCount: UInt32): HRESULT; stdcall;
+
+    function GetIdLength: UInt32; stdcall;
+
+  end;
+
+  ID2D1SvgStrokeDashArray = interface(ID2D1SvgAttribute)
+    ['{f1c0ca52-92a3-4f00-b4ce-f35691efd9d9}']
+
+    function RemoveDashesAtEnd(ADashesCount: UInt32): HRESULT; stdcall;
+
+    function UpdateDashes(
+      const ADashes: PSingle;
+      ADashesCount: UInt32;
+      AStartIndex: UInt32 = 0): HRESULT; stdcall; overload;
+
+    function UpdateDashes(
+      const ADashes: PD2D1_SVG_LENGTH;
+      ADashesCount: UInt32;
+      AStartIndex: UInt32 = 0): HRESULT; stdcall; overload;
+
+    function GetDashes(
+      ADashes: PSingle;
+      ADashesCount: UInt32;
+      AStartIndex: UInt32 = 0): HRESULT; stdcall; overload;
+
+    function GetDashes(
+      ADashes: PD2D1_SVG_LENGTH;
+      ADashesCount: UInt32;
+      AStartIndex: UInt32 = 0): HRESULT; stdcall; overload;
+
+    function GetDashesCount: UInt32; stdcall;
+
+  end;
+
+  ID2D1SvgPointCollection = interface(ID2D1SvgAttribute)
+    ['{9dbe4c0d-3572-4dd9-9825-5530813bb712}']
+
+    function RemovePointsAtEnd(APointsCount: UInt32): HRESULT; stdcall;
+
+    function UpdatePoints(
+      const APoints: PD2D1_POINT_2F;
+      pointsCount: UInt32;
+      startIndex: UInt32 = 0): HRESULT; stdcall;
+
+    function GetPoints(
+      APoints: PD2D1_POINT_2F;
+      pointsCount: UInt32;
+      startIndex: UInt32 = 0): HRESULT; stdcall;
+
+    function GetPointsCount: UInt32; stdcall;
+
+  end;
+
+  ID2D1SvgPathData = interface(ID2D1SvgAttribute)
+    ['{c095e4f4-bb98-43d6-9745-4d1b84ec9888}']
+
+    function RemoveSegmentDataAtEnd(ADataCount: UInt32): HRESULT; stdcall;
+
+    function UpdateSegmentData(
+      const AData: PSingle;
+      ADataCount: UInt32;
+      AStartIndex: UInt32 = 0): HRESULT; stdcall;
+
+    function GetSegmentData(
+      AData: PSingle;
+      ADataCount: UInt32;
+      AStartIndex: UInt32 = 0): HRESULT; stdcall;
+
+    function GetSegmentDataCount: UInt32; stdcall;
+
+    function RemoveCommandsAtEnd(ACommandsCount: UInt32): HRESULT; stdcall;
+
+    function UpdateCommands(
+      const ACommands: PD2D1_SVG_PATH_COMMAND;
+      ACommandsCount: UInt32;
+      AStartIndex: UInt32 = 0): HRESULT; stdcall;
+
+    function GetCommands(
+      ACommands: PD2D1_SVG_PATH_COMMAND;
+      ACommandsCount: UInt32;
+      AStartIndex: UInt32 = 0): HRESULT; stdcall;
+
+    function GetCommandsCount: UInt32; stdcall;
+
+    function CreatePathGeometry(
+      AFillMode: D2D1_FILL_MODE;
+      out APathGeometry: ID2D1PathGeometry1): HRESULT; stdcall;
+  end;
+
+  ID2D1SvgElement = interface(ID2D1Resource)
+    ['{ac7b67a6-183e-49c1-a823-0ebe40b0db29}']
+
+    procedure GetDocument(out ADocument: ID2D1SvgDocument); stdcall;
+
+    function GetTagName(
+      AName: LPWSTR;
+      nameCount: UInt32): HRESULT; stdcall;
+
+    function GetTagNameLength: UInt32; stdcall;
+
+    function IsTextContent: BOOL; stdcall;
+
+    procedure GetParent(out AParent: ID2D1SvgElement); stdcall;
+
+    function HasChildren: BOOL; stdcall;
+
+    procedure GetFirstChild(out AChild: ID2D1SvgElement); stdcall;
+
+    procedure GetLastChild(out AChild: ID2D1SvgElement); stdcall;
+
+    function GetPreviousChild(
+      AReferenceChild: ID2D1SvgElement;
+      out APreviousChild: ID2D1SvgElement): HRESULT; stdcall;
+
+    function GetNextChild(
+      AReferenceChild: ID2D1SvgElement;
+      out ANextChild: ID2D1SvgElement): HRESULT; stdcall;
+
+    function InsertChildBefore(
+      ANewChild: ID2D1SvgElement;
+      referenceChild: ID2D1SvgElement = nil): HRESULT; stdcall;
+
+    function AppendChild(ANnewChild: ID2D1SvgElement): HRESULT; stdcall;
+
+    function ReplaceChild(
+      ANewChild: ID2D1SvgElement;
+      AOldChild: ID2D1SvgElement): HRESULT; stdcall;
+
+    function RemoveChild(AOldChild: ID2D1SvgElement): HRESULT; stdcall;
+
+    function CreateChild(
+      ATagName: LPCWSTR;
+      out newChild: ID2D1SvgElement): HRESULT; stdcall;
+
+    function IsAttributeSpecified(
+      AName: LPCWSTR;
+      out AInherited: BOOL): BOOL; stdcall;
+
+    function GetSpecifiedAttributeCount: UInt32; stdcall;
+
+    function GetSpecifiedAttributeName(
+      AIndex: UInt32;
+      AName: LPWSTR;
+      nameCount: UInt32;
+      out AInherited): HRESULT; stdcall;
+
+    function GetSpecifiedAttributeNameLength(
+      AIndex: UInt32;
+      out ANameLength: UINT32;
+      out AInherited: BOOL): HRESULT; stdcall;
+
+    function RemoveAttribute(AName: LPCWSTR): HRESULT; stdcall;
+
+    function SetTextValue(
+      const AName: PWCHAR;
+      ANameCount: UInt32): HRESULT; stdcall;
+
+    function GetTextValue(
+      AName: PWCHAR;
+      ANameCount: UInt32): HRESULT; stdcall;
+
+    function GetTextValueLength: UInt32; stdcall;
+
+    function SetAttributeValue(
+      AName: LPCWSTR;
+      AType: D2D1_SVG_ATTRIBUTE_STRING_TYPE;
+      AValue: LPCWSTR): HRESULT; stdcall; overload;
+
+    function GetAttributeValue(
+      AName: LPCWSTR;
+      ATtype: D2D1_SVG_ATTRIBUTE_STRING_TYPE;
+      AValue: LPWSTR;
+      AValueCount: UInt32): HRESULT; stdcall; overload;
+
+    function GetAttributeValueLength(
+      AName: LPCWSTR;
+      AType: D2D1_SVG_ATTRIBUTE_STRING_TYPE;
+      out AValueLength: UInt32): HRESULT; stdcall;
+
+    function SetAttributeValue(
+      AName: LPCWSTR;
+      AType: D2D1_SVG_ATTRIBUTE_POD_TYPE;
+      const AValue: Pointer;
+      AValueSizeInBytes: UInt32): HRESULT; stdcall; overload;
+
+    function GetAttributeValue(
+      AName: LPCWSTR;
+      Atype: D2D1_SVG_ATTRIBUTE_POD_TYPE;
+      AValue: Pointer;
+      AValueSizeInBytes: UInt32): HRESULT; stdcall; overload;
+
+    function SetAttributeValue(
+      AName: LPCWSTR;
+      AValue: ID2D1SvgAttribute): HRESULT; stdcall; overload;
+
+    function GetAttributeValue(
+      AName: LPCWSTR;
+      ARiid: TGUID;
+      out AValue: Pointer): HRESULT; stdcall; overload;
+
+  end;
+
+  ID2D1SvgDocument = interface(ID2D1Resource)
+    ['{86b88e4d-afa4-4d7b-88e4-68a51c4a0aec}']
+
+    function SetViewportSize(viewportSize: D2D1_SIZE_F): HRESULT; stdcall;
+
+    function GetViewportSize: D2D1_SIZE_F; stdcall;
+
+    function SetRoot(ARoot: ID2D1SvgElement): HRESULT; stdcall;
+
+    procedure GetRoot(out ARoot: ID2D1SvgElement); stdcall;
+
+    function FindElementById(
+      AId: LPCWSTR;
+      out ASvgElement: ID2D1SvgElement): HRESULT; stdcall;
+
+    function Serialize(
+      AOutputXmlStream: IStream;
+      ASubtree: ID2D1SvgElement = nil): HRESULT; stdcall;
+
+    function Deserialize(
+      AInputXmlStream: IStream;
+      out ASubtree: ID2D1SvgElement): HRESULT; stdcall;
+
+    function CreatePaint(
+      APaintType: D2D1_SVG_PAINT_TYPE;
+      const AColor: PD2D1_COLOR_F;
+      AId: LPCWSTR;
+      out APaint: ID2D1SvgPaint): HRESULT; stdcall;
+
+    function CreateStrokeDashArray(
+      const ADashes: PD2D1_SVG_LENGTH;
+      dashesCount: UInt32;
+      out strokeDashArray: ID2D1SvgStrokeDashArray): HRESULT; stdcall;
+
+    function CreatePointCollection(
+      const points: PD2D1_POINT_2F;
+      pointsCount: UInt32;
+      out APointCollection: ID2D1SvgPointCollection): HRESULT; stdcall;
+
+    function CreatePathData(
+      const ASegmentData: PSingle;
+      ASegmentDataCount: UInt32;
+      const ACommands: PD2D1_SVG_PATH_COMMAND;
+      ACommandsCount: UInt32;
+      out pathData: ID2D1SvgPathData): HRESULT; stdcall;
+  end;
+
 {$ENDREGION}
 
 {$REGION 'DocumentTarget.h interfaces'}
