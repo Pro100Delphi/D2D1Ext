@@ -703,6 +703,8 @@ type
     D2D1_FIGURE_END_FORCE_DWORD = Integer($FFFFFFFF)
   );
 
+  PD2D1_FIGURE_END = ^D2D1_FIGURE_END;
+
   TD2D1FigureEnd = D2D1_FIGURE_END;
   PD2D1FigureEnd = ^TD2D1FigureEnd;
 
@@ -717,6 +719,8 @@ type
     D2D1_PATH_SEGMENT_FORCE_DWORD           = Integer($FFFFFFFF)
   );
 
+  PD2D1_PATH_SEGMENT = ^D2D1_PATH_SEGMENT;
+
   TD2D1PathSegment = D2D1_PATH_SEGMENT;
   PD2D1PathSegment = ^TD2D1PathSegment;
 
@@ -728,6 +732,8 @@ type
     D2D1_SWEEP_DIRECTION_CLOCKWISE          = 1,
     D2D1_SWEEP_DIRECTION_FORCE_DWORD        = Integer($FFFFFFFF)
   );
+
+  PD2D1_SWEEP_DIRECTION = ^D2D1_SWEEP_DIRECTION;
 
   TD2D1SweepDirection = D2D1_SWEEP_DIRECTION;
   PD2D1SweepDirection = ^TD2D1SweepDirection;
@@ -742,6 +748,8 @@ type
     D2D1_FILL_MODE_FORCE_DWORD  = Integer($FFFFFFFF)
   );
 
+  PD2D1_FILL_MODE = ^D2D1_FILL_MODE;
+
   TD2D1FillMode = D2D1_FILL_MODE;
   PD2D1FillMode = ^TD2D1FillMode;
 
@@ -754,6 +762,8 @@ type
     D2D1_ARC_SIZE_LARGE       = 1,
     D2D1_ARC_SIZE_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+  PD2D1_ARC_SIZE = ^D2D1_ARC_SIZE;
 
   TD2D1ArcSize = D2D1_ARC_SIZE;
   PD2D1ArcSize = ^TD2D1ArcSize;
@@ -772,6 +782,8 @@ type
     D2D1_LAYER_OPTIONS_FORCE_DWORD              = Integer($FFFFFFFF)
   );
 
+  PD2D1_LAYER_OPTIONS = ^D2D1_LAYER_OPTIONS;
+
   TD2D1LayerOptions = D2D1_LAYER_OPTIONS;
   PD2D1LayerOptions = ^TD2D1LayerOptions;
 
@@ -783,6 +795,8 @@ type
     D2D1_WINDOW_STATE_OCCLUDED    = 1,
     D2D1_WINDOW_STATE_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+  PD2D1_WINDOW_STATE = ^D2D1_WINDOW_STATE;
 
   TD2D1WindowState = D2D1_WINDOW_STATE;
   PD2D1WindowState = ^TD2D1WindowState;
@@ -798,6 +812,8 @@ type
     D2D1_RENDER_TARGET_TYPE_FORCE_DWORD = Integer($FFFFFFFF)
   );
 
+  PD2D1_RENDER_TARGET_TYPE = ^D2D1_RENDER_TARGET_TYPE;
+
   TD2D1RenderTargetType = D2D1_RENDER_TARGET_TYPE;
   PD2D1RenderTargetType = ^TD2D1RenderTargetType;
 
@@ -812,8 +828,10 @@ type
     D2D1_FEATURE_LEVEL_FORCE_DWORD  = Integer($FFFFFFFF)
   );
 
- TD2D1FeatureLevel = D2D1_FEATURE_LEVEL;
- PD2D1FeatureLevel = ^TD2D1FeatureLevel;
+  PD2D1_FEATURE_LEVEL = ^D2D1_FEATURE_LEVEL;
+
+  TD2D1FeatureLevel = D2D1_FEATURE_LEVEL;
+  PD2D1FeatureLevel = ^TD2D1FeatureLevel;
 
   /// <summary>
   /// Describes how a render target is remoted and whether it should be
@@ -827,6 +845,8 @@ type
     D2D1_RENDER_TARGET_USAGE_FORCE_DWORD            = Integer($FFFFFFFF)
   );
 
+  PD2D1_RENDER_TARGET_USAGE = ^D2D1_RENDER_TARGET_USAGE;
+
   TD2D1RenderTargetUsage = D2D1_RENDER_TARGET_USAGE;
   PD2D1RenderTargetUsage = ^TD2D1RenderTargetUsage;
 
@@ -839,6 +859,8 @@ type
     D2D1_PRESENT_OPTIONS_IMMEDIATELY      = 2,
     D2D1_PRESENT_OPTIONS_FORCE_DWORD      = Integer($FFFFFFFF)
   );
+
+  PD2D1_PRESENT_OPTIONS = ^D2D1_PRESENT_OPTIONS;
 
   TD2D1PresentOptions = D2D1_PRESENT_OPTIONS;
   PD2D1PresentOptions = ^TD2D1PresentOptions;
@@ -859,6 +881,8 @@ type
     D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS_FORCE_DWORD     = Integer($FFFFFFFF)
   );
 
+  PD2D1_COMPATIBLE_RENDER_TARGET_OPTIONS =  D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS;
+
   TD2D1CompatibleRenderTargetOptions = D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS;
   PD2D1CompatibleRenderTargetOptions = ^TD2D1CompatibleRenderTargetOptions;
 
@@ -871,6 +895,8 @@ type
     D2D1_DC_INITIALIZE_MODE_CLEAR       = 1,
     D2D1_DC_INITIALIZE_MODE_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+  PD2D1_DC_INITIALIZE_MODE = ^D2D1_DC_INITIALIZE_MODE;
 
   TD2D1DCInitializeMode = D2D1_DC_INITIALIZE_MODE;
   PD2D1DCInitializeMode = ^TD2D1DCInitializeMode;
@@ -886,6 +912,8 @@ type
     D2D1_DEBUG_LEVEL_FORCE_DWORD = Integer($FFFFFFFF)
   );
 
+  PD2D1_DEBUG_LEVEL = ^D2D1_DEBUG_LEVEL;
+
   TD2D1DebugLevel = D2D1_DEBUG_LEVEL;
   PD2D1DebugLevel = ^TD2D1DebugLevel;
 
@@ -898,6 +926,8 @@ type
     D2D1_FACTORY_TYPE_MULTI_THREADED = 1,
     D2D1_FACTORY_TYPE_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+  PD2D1_FACTORY_TYPE = ^D2D1_FACTORY_TYPE;
 
   TD2D1FactoryType = D2D1_FACTORY_TYPE;
   PD2D1FactoryType = ^TD2D1FactoryType;
@@ -933,6 +963,11 @@ type
     D2D1_PROPERTY_TYPE_FORCE_DWORD    = Integer($FFFFFFFF)
   );
 
+  PD2D1_PROPERTY_TYPE = ^D2D1_PROPERTY_TYPE;
+
+  TD2D1PropertyType = D2D1_PROPERTY_TYPE;
+  PD2D1PropertyType = ^TD2D1PropertyType;
+
   /// <summary>
   /// This defines the list of system properties present on the root effect property
   /// interface.
@@ -951,6 +986,11 @@ type
     D2D1_PROPERTY_FORCE_DWORD = Integer($FFFFFFFF)
   );
 
+  PD2D1_PROPERTY = ^D2D1_PROPERTY;
+
+  TD2D1Property = D2D1_PROPERTY;
+  PD2D1Property = ^TD2D1Property;
+
   /// <summary>
   /// This defines the indices of sub-properties that may be present on any parent
   /// property.
@@ -965,6 +1005,11 @@ type
     D2D1_SUBPROPERTY_INDEX        = Integer($80000006),
     D2D1_SUBPROPERTY_FORCE_DWORD  = Integer($FFFFFFFF)
   );
+
+  PD2D1_SUBPROPERTY = ^D2D1_SUBPROPERTY;
+
+  TD2D1Subproperty = D2D1_SUBPROPERTY;
+  PD2D1Subproperty = ^TD2D1Subproperty;
 
   /// <summary>
   /// Specifies how the bitmap can be used.
@@ -998,6 +1043,11 @@ type
     D2D1_BITMAP_OPTIONS_FORCE_DWORD = Integer($FFFFFFFF)
   );
 
+	PD2D1_BITMAP_OPTIONS = ^D2D1_BITMAP_OPTIONS;
+
+	TD2D1BitmapOptions = D2D1_BITMAP_OPTIONS;
+	PD2D1BitmapOptions = ^TD2D1BitmapOptions;
+
   /// <summary>
   /// Specifies the composite mode that will be applied.
   /// </summary>
@@ -1018,6 +1068,11 @@ type
     D2D1_COMPOSITE_MODE_FORCE_DWORD         = Integer($FFFFFFFF)
   );
 
+	PD2D1_COMPOSITE_MODE = ^D2D1_COMPOSITE_MODE;
+
+	TD2D1CompositeMode = D2D1_COMPOSITE_MODE;
+	PD2D1CompositeMode = ^TD2D1CompositeMode;
+
   /// <summary>
   /// This specifies the precision that should be used in buffers allocated by D2D.
   /// </summary>
@@ -1030,6 +1085,11 @@ type
     D2D1_BUFFER_PRECISION_32BPC_FLOAT     = 5,
     D2D1_BUFFER_PRECISION_FORCE_DWORD     = Integer($FFFFFFFF)
   );
+
+	PD2D1_BUFFER_PRECISION = ^D2D1_BUFFER_PRECISION;
+
+	TD2D1BufferPrecision = D2D1_BUFFER_PRECISION;
+	PD2D1BufferPrecision = ^TD2D1BufferPrecision;
 
   /// <summary>
   /// This describes how the individual mapping operation should be performed.
@@ -1057,6 +1117,11 @@ type
     D2D1_MAP_OPTIONS_FORCE_DWORD = Integer($FFFFFFFF)
   );
 
+  PD2D1_MAP_OPTIONS = ^D2D1_MAP_OPTIONS;
+
+	TD2D1MapOptions = D2D1_MAP_OPTIONS;
+	PD2D1MapOptions = ^TD2D1MapOptions;
+
   /// <summary>
   /// This is used to specify the quality of image scaling with
   /// ID2D1DeviceContext::DrawImage and with the 2D Affine Transform Effect.
@@ -1071,6 +1136,11 @@ type
     D2D1_INTERPOLATION_MODE_FORCE_DWORD         = Integer($FFFFFFFF)
   );
 
+	PD2D1_INTERPOLATION_MODE = ^D2D1_INTERPOLATION_MODE;
+
+	TD2D1InterpolationMode = D2D1_INTERPOLATION_MODE;
+	PD2D1InterpolationMode = ^TD2D1InterpolationMode;
+
   /// <summary>
   /// This specifies what units should be accepted by the D2D API.
   /// </summary>
@@ -1079,6 +1149,11 @@ type
     D2D1_UNIT_MODE_PIXELS       = 1,
     D2D1_UNIT_MODE_FORCE_DWORD  = Integer($FFFFFFFF)
   );
+
+	PD2D1_UNIT_MODE = ^D2D1_UNIT_MODE;
+
+	TD2D1UnitMode = D2D1_UNIT_MODE;
+	PD2D1UnitMode = ^TD2D1UnitMode;
 
   /// <summary>
   /// Defines a color space.
@@ -1101,6 +1176,11 @@ type
     D2D1_COLOR_SPACE_FORCE_DWORD  = Integer($FFFFFFFF)
   );
 
+	PD2D1_COLOR_SPACE = ^D2D1_COLOR_SPACE;
+
+	TD2D1ColorSpace = D2D1_COLOR_SPACE;
+	PD2D1ColorSpace = ^TD2D1ColorSpace;
+
   /// <summary>
   /// This specifies options that apply to the device context for its lifetime.
   /// </summary>
@@ -1114,6 +1194,11 @@ type
     D2D1_DEVICE_CONTEXT_OPTIONS_ENABLE_MULTITHREADED_OPTIMIZATIONS  = 1,
     D2D1_DEVICE_CONTEXT_OPTIONS_FORCE_DWORD                         = Integer($FFFFFFFF)
   );
+
+	PD2D1_DEVICE_CONTEXT_OPTIONS = ^D2D1_DEVICE_CONTEXT_OPTIONS;
+
+	TD2D1DeviceContextOptions = D2D1_DEVICE_CONTEXT_OPTIONS;
+	PD2D1DeviceContextOptions = ^TD2D1DeviceContextOptions;
 
   /// <summary>
   /// Defines how the world transform, dots per inch (dpi), and stroke width affect
@@ -1138,6 +1223,11 @@ type
     D2D1_STROKE_TRANSFORM_TYPE_FORCE_DWORD  = Integer($FFFFFFFF)
   );
 
+	PD2D1_STROKE_TRANSFORM_TYPE = ^D2D1_STROKE_TRANSFORM_TYPE;
+
+	TD2D1StrokeTransformType = D2D1_STROKE_TRANSFORM_TYPE;
+	PD2D1StrokeTransformType = ^TD2D1StrokeTransformType;
+
   /// <summary>
   /// A blend mode that applies to all primitives drawn on the context.
   /// </summary>
@@ -1149,6 +1239,11 @@ type
     D2D1_PRIMITIVE_BLEND_MAX          = 4,
     D2D1_PRIMITIVE_BLEND_FORCE_DWORD  = Integer($FFFFFFFF)
   );
+
+	PD2D1_PRIMITIVE_BLEND = ^D2D1_PRIMITIVE_BLEND;
+
+	TD2D1PrimitiveBlend = D2D1_PRIMITIVE_BLEND;
+	PD2D1PrimitiveBlend = ^TD2D1PrimitiveBlend;
 
   /// <summary>
   /// This specifies the threading mode used while simultaneously creating the device,
@@ -1170,6 +1265,11 @@ type
     D2D1_THREADING_MODE_FORCE_DWORD     = Integer($FFFFFFFF)
   );
 
+	PD2D1_THREADING_MODE = ^D2D1_THREADING_MODE;
+
+	TD2D1ThreadingMode = D2D1_THREADING_MODE;
+	PD2D1ThreadingMode = ^TD2D1ThreadingMode;
+
   /// <summary>
   /// This specifies how colors are interpolated.
   /// </summary>
@@ -1186,6 +1286,11 @@ type
     D2D1_COLOR_INTERPOLATION_MODE_FORCE_DWORD   = Integer($FFFFFFFF)
   );
 
+	PD2D1_COLOR_INTERPOLATION_MODE = ^D2D1_COLOR_INTERPOLATION_MODE;
+
+	TD2D1ColorInterpolationMode = D2D1_COLOR_INTERPOLATION_MODE;
+	PD2D1ColorInterpolationMode = ^TD2D1ColorInterpolationMode;
+
   /// <summary>
   /// Specifies how the layer contents should be prepared.
   /// </summary>
@@ -1195,6 +1300,11 @@ type
     D2D1_LAYER_OPTIONS1_IGNORE_ALPHA                = 2,
     D2D1_LAYER_OPTIONS1_FORCE_DWORD                 = Integer($FFFFFFFF)
   );
+
+	PD2D1_LAYER_OPTIONS1 = ^D2D1_LAYER_OPTIONS1;
+
+	TD2D1LayerOptions1 = D2D1_LAYER_OPTIONS1;
+	PD2D1LayerOptions1 = ^TD2D1LayerOptions1;
 
   /// <summary>
   /// Defines when font resources should be subset during printing.
@@ -1218,6 +1328,10 @@ type
     D2D1_PRINT_FONT_SUBSET_MODE_FORCE_DWORD = Integer($FFFFFFFF)
   );
 
+	PD2D1_PRINT_FONT_SUBSET_MODE = ^D2D1_PRINT_FONT_SUBSET_MODE;
+
+	TD2D1PrintFontSubsetMode = D2D1_PRINT_FONT_SUBSET_MODE;
+	PD2D1PrintFontSubsetMode = ^TD2D1PrintFontSubsetMode;
 
 {$ENDREGION}
 
@@ -1231,6 +1345,12 @@ type
     D2D1_RENDERING_PRIORITY_LOW         = 1,
     D2D1_RENDERING_PRIORITY_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+	PD2D1_RENDERING_PRIORITY = ^D2D1_RENDERING_PRIORITY;
+
+	TD2D1RenderingPriority = D2D1_RENDERING_PRIORITY;
+	PD2D1RenderingPriority = ^TD2D1RenderingPriority;
+
 {$ENDREGION}
 
 {$REGION 'd2d1_3.h enums'}
@@ -1244,6 +1364,11 @@ type
     D2D1_INK_NIB_SHAPE_SQUARE       = 1,
     D2D1_INK_NIB_SHAPE_FORCE_DWORD  = Integer($FFFFFFFF)
   );
+
+	PD2D1_INK_NIB_SHAPE = ^D2D1_INK_NIB_SHAPE;
+
+	TD2D1InkNibShape = D2D1_INK_NIB_SHAPE;
+	PD2D1InkNibShape = ^TD2D1InkNibShape;
 
   /// <summary>
   /// Specifies the orientation of an image.
@@ -1260,6 +1385,11 @@ type
     D2D1_ORIENTATION_FORCE_DWORD                          = Integer($FFFFFFFF)
   );
 
+	PD2D1_ORIENTATION = ^D2D1_ORIENTATION;
+
+	TD2D1Orientation = D2D1_ORIENTATION;
+	PD2D1Orientation = ^TD2D1Orientation;
+
   /// <summary>
   /// Option flags controlling how images sources are loaded during
   /// CreateImageSourceFromWic.
@@ -1271,6 +1401,11 @@ type
     D2D1_IMAGE_SOURCE_LOADING_OPTIONS_FORCE_DWORD     = Integer($FFFFFFFF)
   );
 
+	PD2D1_IMAGE_SOURCE_LOADING_OPTIONS = ^D2D1_IMAGE_SOURCE_LOADING_OPTIONS;
+
+	TD2D1ImageSourceLoadingOptions = D2D1_IMAGE_SOURCE_LOADING_OPTIONS;
+	PD2D1ImageSourceLoadingOptions = ^TD2D1ImageSourceLoadingOptions;
+
   /// <summary>
   /// Option flags controlling primary conversion performed by
   /// CreateImageSourceFromDxgi, if any.
@@ -1280,6 +1415,11 @@ type
     D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS_LOW_QUALITY_PRIMARY_CONVERSION  = 1,
     D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS_FORCE_DWORD                     = Integer($FFFFFFFF)
   );
+
+	PD2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS = ^D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS;
+
+	TD2D1ImageSourceFromDxgiOptions = D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS;
+	PD2D1ImageSourceFromDxgiOptions = ^TD2D1ImageSourceFromDxgiOptions;
 
   /// <summary>
   /// Option flags for transformed image sources.
@@ -1294,6 +1434,11 @@ type
     D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS_DISABLE_DPI_SCALE = 1,
     D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS_FORCE_DWORD       = Integer($FFFFFFFF)
   );
+
+	PD2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS = ^D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS;
+
+	TD2D1TransformedImageSourceOptions = D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS;
+	PD2D1TransformedImageSourceOptions = ^TD2D1TransformedImageSourceOptions;
 
 /// <summary>
 /// Specifies how to render gradient mesh edges.
@@ -1317,6 +1462,11 @@ type
     D2D1_PATCH_EDGE_MODE_FORCE_DWORD      = Integer($FFFFFFFF)
   );
 
+	PD2D1_PATCH_EDGE_MODE = ^D2D1_PATCH_EDGE_MODE;
+
+	TD2D1PatchEdgeMode = D2D1_PATCH_EDGE_MODE;
+	PD2D1PatchEdgeMode = ^TD2D1PatchEdgeMode;
+
   D2D1_SPRITE_OPTIONS = (
 
     /// <summary>
@@ -1330,6 +1480,11 @@ type
     D2D1_SPRITE_OPTIONS_CLAMP_TO_SOURCE_RECTANGLE = 1,
     D2D1_SPRITE_OPTIONS_FORCE_DWORD               = Integer($FFFFFFFF)
   );
+
+	PD2D1_SPRITE_OPTIONS = ^D2D1_SPRITE_OPTIONS;
+
+	TD2D1SpriteOptions = D2D1_SPRITE_OPTIONS;
+	PD2D1SpriteOptions = ^TD2D1SpriteOptions;
 
   /// <summary>
   /// Specifies the pixel snapping policy when rendering color bitmap glyphs.
@@ -1348,6 +1503,11 @@ type
     D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION_DISABLE     = 1,
     D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+	PD2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION = ^D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION;
+
+	TD2D1ColorBitmapGlyphSnapOption = D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION;
+	PD2D1ColorBitmapGlyphSnapOption = ^TD2D1ColorBitmapGlyphSnapOption;
 
 /// <summary>
 /// This determines what gamma is used for interpolation/blending.
@@ -1371,6 +1531,11 @@ type
     D2D1_GAMMA1_FORCE_DWORD = Integer($FFFFFFFF)
   );
 
+	PD2D1_GAMMA1 = ^D2D1_GAMMA1;
+
+	TD2D1Gamma1 = D2D1_GAMMA1;
+	PD2D1Gamma1 = ^TD2D1Gamma1;
+
   /// <summary>
   /// Specifies which way a color profile is defined.
   /// </summary>
@@ -1380,6 +1545,12 @@ type
     D2D1_COLOR_CONTEXT_TYPE_DXGI        = 2,
     D2D1_COLOR_CONTEXT_TYPE_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+	PD2D1_COLOR_CONTEXT_TYPE = ^D2D1_COLOR_CONTEXT_TYPE;
+
+	TD2D1ColorContextType = D2D1_COLOR_CONTEXT_TYPE;
+	PD2D1ColorContextType = ^TD2D1ColorContextType;
+
 {$ENDREGION}
 
 {$REGION 'dwrite enums'}
@@ -1404,6 +1575,11 @@ type
     /// </summary>
     DWRITE_MEASURING_MODE_GDI_NATURAL
   );
+
+	PDWRITE_MEASURING_MODE = ^DWRITE_MEASURING_MODE;
+
+	TDWriteMeasuringMode = DWRITE_MEASURING_MODE;
+	PDWriteMeasuringMode = ^TDWriteMeasuringMode;
 
   /// <summary>
   /// Fonts may contain multiple drawable data formats for glyphs. These flags specify which formats
@@ -1461,6 +1637,11 @@ type
     DWRITE_GLYPH_IMAGE_FORMATS_PREMULTIPLIED_B8G8R8A8 = $00000080
   );
 
+	PDWRITE_GLYPH_IMAGE_FORMATS = ^DWRITE_GLYPH_IMAGE_FORMATS;
+
+	TDWriteGlyphImageFormats = DWRITE_GLYPH_IMAGE_FORMATS;
+	PDWriteGlyphImageFormats = ^TDWriteGlyphImageFormats;
+
   /// <summary>
   /// The type of a font represented by a single font file.
   /// Font formats that consist of multiple files, e.g. Type 1 .PFM and .PFB, have
@@ -1510,6 +1691,11 @@ type
     // The following name is obsolete, but kept as an alias to avoid breaking existing code.
     DWRITE_FONT_FILE_TYPE_TRUETYPE_COLLECTION = DWRITE_FONT_FILE_TYPE_OPENTYPE_COLLECTION
   );
+
+	PDWRITE_FONT_FILE_TYPE = ^DWRITE_FONT_FILE_TYPE;
+
+	TDWriteFontFileType = DWRITE_FONT_FILE_TYPE;
+	PDWriteFontFileType = ^TDWriteFontFileType;
 
   /// <summary>
   /// The file format of a complete font face.
@@ -1564,6 +1750,11 @@ type
     DWRITE_FONT_FACE_TYPE_TRUETYPE_COLLECTION = DWRITE_FONT_FACE_TYPE_OPENTYPE_COLLECTION
   );
 
+	PDWRITE_FONT_FACE_TYPE = ^DWRITE_FONT_FACE_TYPE;
+
+	TDWriteFontFaceType = DWRITE_FONT_FACE_TYPE;
+	PDWriteFontFaceType = ^TDWriteFontFaceType;
+
   /// <summary>
   /// Specifies algorithmic style simulations to be applied to the font face.
   /// Bold and oblique simulations can be combined via bitwise OR operation.
@@ -1584,6 +1775,11 @@ type
     /// </summary>
     DWRITE_FONT_SIMULATIONS_OBLIQUE = $0002
   );
+
+	PDWRITE_FONT_SIMULATIONS = ^DWRITE_FONT_SIMULATIONS;
+
+	TDWriteFontSimulations = DWRITE_FONT_SIMULATIONS;
+	PDWriteFontSimulations = ^TDWriteFontSimulations;
 
   /// <summary>
   /// The font weight enumeration describes common values for degree of blackness or thickness of strokes of characters in a font.
@@ -1676,6 +1872,11 @@ type
     DWRITE_FONT_WEIGHT_ULTRA_BLACK  = 950
   );
 
+	PDWRITE_FONT_WEIGHT = ^DWRITE_FONT_WEIGHT;
+
+	TDWriteFontWeight = DWRITE_FONT_WEIGHT;
+	PDWriteFontWeight = ^TDWriteFontWeight;
+
   /// <summary>
   /// The font stretch enumeration describes relative change from the normal aspect ratio
   /// as specified by a font designer for the glyphs in a font.
@@ -1738,6 +1939,11 @@ type
     DWRITE_FONT_STRETCH_ULTRA_EXPANDED = 9
   );
 
+	PDWRITE_FONT_STRETCH = ^DWRITE_FONT_STRETCH;
+
+	TDWriteFontStretch = DWRITE_FONT_STRETCH;
+	PDWriteFontStretch = ^TDWriteFontStretch;
+
   /// <summary>
   /// The font style enumeration describes the slope style of a font face, such as Normal, Italic or Oblique.
   /// Values other than the ones defined in the enumeration are considered to be invalid, and they are rejected by font API functions.
@@ -1758,6 +1964,11 @@ type
     /// </summary>
     DWRITE_FONT_STYLE_ITALIC
   );
+
+	PDWRITE_FONT_STYLE = ^DWRITE_FONT_STYLE;
+
+	TDWriteFontStyle = DWRITE_FONT_STYLE;
+	PDWriteFontStyle = ^TDWriteFontStyle;
 
   /// <summary>
   /// The informational string enumeration identifies a string in a font.
@@ -1884,6 +2095,11 @@ type
     DWRITE_INFORMATIONAL_STRING_WWS_FAMILY_NAME = DWRITE_INFORMATIONAL_STRING_WEIGHT_STRETCH_STYLE_FAMILY_NAME
   );
 
+	PDWRITE_INFORMATIONAL_STRING_ID = ^DWRITE_INFORMATIONAL_STRING_ID;
+
+	TDWriteInformationalStringId = DWRITE_INFORMATIONAL_STRING_ID;
+	PDWriteInformationalStringId = ^TDWriteInformationalStringId;
+
   /// <summary>
   /// Specifies the type of DirectWrite factory object.
   /// DirectWrite factory contains internal state such as font loader registration and cached font data.
@@ -1907,6 +2123,11 @@ type
     DWRITE_FACTORY_TYPE_ISOLATED
   );
 
+	PDWRITE_FACTORY_TYPE = ^DWRITE_FACTORY_TYPE;
+
+	TDWriteFactoryType = DWRITE_FACTORY_TYPE;
+	PDWriteFactoryType = ^TDWriteFactoryType;
+
   /// <summary>
   /// Represents the internal structure of a device pixel (i.e., the physical arrangement of red,
   /// green, and blue color components) that is assumed for purposes of rendering text.
@@ -1929,6 +2150,11 @@ type
     /// </summary>
     DWRITE_PIXEL_GEOMETRY_BGR
   );
+
+	PDWRITE_PIXEL_GEOMETRY = ^DWRITE_PIXEL_GEOMETRY;
+
+	TDWritePixelGeometry = DWRITE_PIXEL_GEOMETRY;
+	PDWritePixelGeometry = ^TDWritePixelGeometry;
 
   /// <summary>
   /// Represents a method of rendering glyphs.
@@ -1993,6 +2219,11 @@ type
     DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL_SYMMETRIC   = DWRITE_RENDERING_MODE_NATURAL_SYMMETRIC
   );
 
+	PDWRITE_RENDERING_MODE = ^DWRITE_RENDERING_MODE;
+
+	TDWriteRenderingMode = DWRITE_RENDERING_MODE;
+	PDWriteRenderingMode = ^TDWriteRenderingMode;
+
   /// <summary>
   /// Direction for how reading progresses.
   /// </summary>
@@ -2018,6 +2249,11 @@ type
     DWRITE_READING_DIRECTION_BOTTOM_TO_TOP = 3
   );
 
+	PDWRITE_READING_DIRECTION = ^DWRITE_READING_DIRECTION;
+
+	TDWriteReadingDirection = DWRITE_READING_DIRECTION;
+	PDWriteReadingDirection = ^TDWriteReadingDirection;
+
   /// <summary>
   /// Direction for how lines of text are placed relative to one another.
   /// </summary>
@@ -2042,6 +2278,11 @@ type
     /// </summary>
     DWRITE_FLOW_DIRECTION_RIGHT_TO_LEFT = 3
   );
+
+	PDWRITE_FLOW_DIRECTION = ^DWRITE_FLOW_DIRECTION;
+
+	TDWriteFlowDirection = DWRITE_FLOW_DIRECTION;
+	PDWriteFlowDirection = ^TDWriteFlowDirection;
 
   /// <summary>
   /// Alignment of paragraph text along the reading direction axis relative to
@@ -2069,6 +2310,11 @@ type
     DWRITE_TEXT_ALIGNMENT_JUSTIFIED
   );
 
+	PDWRITE_TEXT_ALIGNMENT = ^DWRITE_TEXT_ALIGNMENT;
+
+	TDWriteTextAlignment = DWRITE_TEXT_ALIGNMENT;
+	PDWriteTextAlignment = ^TDWriteTextAlignment;
+
   /// <summary>
   /// Alignment of paragraph text along the flow direction axis relative to the
   /// flow's beginning and ending edge of the layout box.
@@ -2089,6 +2335,11 @@ type
     /// </summary>
     DWRITE_PARAGRAPH_ALIGNMENT_CENTER
   );
+
+	PDWRITE_PARAGRAPH_ALIGNMENT = ^DWRITE_PARAGRAPH_ALIGNMENT;
+
+	TDWriteParagraphAlignment = DWRITE_PARAGRAPH_ALIGNMENT;
+	PDWriteParagraphAlignment = ^TDWriteParagraphAlignment;
 
   /// <summary>
   /// Word wrapping in multiline paragraph.
@@ -2123,6 +2374,11 @@ type
     DWRITE_WORD_WRAPPING_CHARACTER        = 4
   );
 
+	PDWRITE_WORD_WRAPPING = ^DWRITE_WORD_WRAPPING;
+
+	TDWriteWordWrapping = DWRITE_WORD_WRAPPING;
+	PDWriteWordWrapping = ^TDWriteWordWrapping;
+
   /// <summary>
   /// The method used for line spacing in layout.
   /// </summary>
@@ -2144,6 +2400,11 @@ type
     DWRITE_LINE_SPACING_METHOD_PROPORTIONAL
   );
 
+	PDWRITE_LINE_SPACING_METHOD = ^DWRITE_LINE_SPACING_METHOD;
+
+	TDWriteLineSpacingMethod = DWRITE_LINE_SPACING_METHOD;
+	PDWriteLineSpacingMethod = ^TDWriteLineSpacingMethod;
+
   /// <summary>
   /// Text granularity used to trim text overflowing the layout box.
   /// </summary>
@@ -2163,6 +2424,11 @@ type
     /// </summary>
     DWRITE_TRIMMING_GRANULARITY_WORD
   );
+
+	PDWRITE_TRIMMING_GRANULARITY = ^DWRITE_TRIMMING_GRANULARITY;
+
+	TDWriteTrimmingGranularity = DWRITE_TRIMMING_GRANULARITY;
+	PDWriteTrimmingGranularity = ^TDWriteTrimmingGranularity;
 
   /// <summary>
   /// Typographic feature of text supplied by the font.
@@ -2254,6 +2520,11 @@ type
     DWRITE_FONT_FEATURE_TAG_SLASHED_ZERO                        = $6F72657A  // zero
   );
 
+	PDWRITE_FONT_FEATURE_TAG = ^DWRITE_FONT_FEATURE_TAG;
+
+	TDWriteFontFeatureTag = DWRITE_FONT_FEATURE_TAG;
+	PDWriteFontFeatureTag = ^TDWriteFontFeatureTag;
+
   DWRITE_SCRIPT_SHAPES = (
     /// <summary>
     /// No additional shaping requirement. Text is shaped with the writing system default behavior.
@@ -2265,6 +2536,11 @@ type
     /// </summary>
     DWRITE_SCRIPT_SHAPES_NO_VISUAL  = 1
   );
+
+	PDWRITE_SCRIPT_SHAPES = ^DWRITE_SCRIPT_SHAPES;
+
+	TDWriteScriptShapes = DWRITE_SCRIPT_SHAPES;
+	PDWriteScriptShapes = ^TDWriteScriptShapes;
 
   /// <summary>
   /// Condition at the edges of inline object or text used to determine
@@ -2296,6 +2572,11 @@ type
     /// </summary>
     DWRITE_BREAK_CONDITION_MUST_BREAK
   );
+
+	PDWRITE_BREAK_CONDITION = ^DWRITE_BREAK_CONDITION;
+
+	TDWriteBreakCondition = DWRITE_BREAK_CONDITION;
+	PDWriteBreakCondition = ^TDWriteBreakCondition;
 
   /// <summary>
   /// How to apply number substitution on digits and related punctuation.
@@ -2337,6 +2618,11 @@ type
     DWRITE_NUMBER_SUBSTITUTION_METHOD_TRADITIONAL
   );
 
+	PDWRITE_NUMBER_SUBSTITUTION_METHOD = ^DWRITE_NUMBER_SUBSTITUTION_METHOD;
+
+	TDWriteNumberSubstitutionMethod = DWRITE_NUMBER_SUBSTITUTION_METHOD;
+	PDWriteNumberSubstitutionMethod = ^TDWriteNumberSubstitutionMethod;
+
   /// <summary>
   /// The DWRITE_TEXTURE_TYPE enumeration identifies a type of alpha texture. An alpha texture is a bitmap of alpha values, each
   /// representing the darkness (i.e., opacity) of a pixel or subpixel.
@@ -2355,7 +2641,12 @@ type
     DWRITE_TEXTURE_CLEARTYPE_3x1
   );
 
-  {$ENDREGION}
+	PDWRITE_TEXTURE_TYPE = ^DWRITE_TEXTURE_TYPE;
+
+	TDWriteTextureType = DWRITE_TEXTURE_TYPE;
+	PDWriteTextureType = ^TDWriteTextureType;
+
+{$ENDREGION}
 
 {$REGION 'd2d1effects.h enums'}
 
@@ -2370,6 +2661,11 @@ type
     D2D1_BORDER_MODE_FORCE_DWORD  = Integer($FFFFFFFF)
   );
 
+	PD2D1_BORDER_MODE = ^D2D1_BORDER_MODE;
+
+	TD2D1BorderMode = D2D1_BORDER_MODE;
+	PD2D1BorderMode = ^TD2D1BorderMode;
+
   /// <summary>
   /// Specifies the color channel the Displacement map effect extracts the intensity
   /// from and uses it to spatially displace the image in the X or Y direction.
@@ -2381,6 +2677,11 @@ type
     D2D1_CHANNEL_SELECTOR_A           = 3,
     D2D1_CHANNEL_SELECTOR_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+	PD2D1_CHANNEL_SELECTOR = ^D2D1_CHANNEL_SELECTOR;
+
+	TD2D1ChannelSelector = D2D1_CHANNEL_SELECTOR;
+	PD2D1ChannelSelector = ^TD2D1ChannelSelector;
 
   /// <summary>
   /// Speficies whether a flip and/or rotation operation should be performed by the
@@ -2398,6 +2699,11 @@ type
     D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE270                 = 8,
     D2D1_BITMAPSOURCE_ORIENTATION_FORCE_DWORD                         = Integer($FFFFFFFF)
   );
+
+	PD2D1_BITMAPSOURCE_ORIENTATION = ^D2D1_BITMAPSOURCE_ORIENTATION;
+
+	TD2D1BitmapsourceOrientation = D2D1_BITMAPSOURCE_ORIENTATION;
+	PD2D1BitmapsourceOrientation = ^TD2D1BitmapsourceOrientation;
 
   /// <summary>
   /// The enumeration of the Gaussian Blur effect's top level properties.
@@ -2426,6 +2732,11 @@ type
     D2D1_GAUSSIANBLUR_PROP_FORCE_DWORD        = Integer($FFFFFFFF)
   );
 
+	PD2D1_GAUSSIANBLUR_PROP = ^D2D1_GAUSSIANBLUR_PROP;
+
+	TD2D1GaussianblurProp = D2D1_GAUSSIANBLUR_PROP;
+	PD2D1GaussianblurProp = ^TD2D1GaussianblurProp;
+
   D2D1_GAUSSIANBLUR_OPTIMIZATION = (
 
     D2D1_GAUSSIANBLUR_OPTIMIZATION_SPEED = 0,
@@ -2433,6 +2744,12 @@ type
     D2D1_GAUSSIANBLUR_OPTIMIZATION_QUALITY = 2,
     D2D1_GAUSSIANBLUR_OPTIMIZATION_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+	PD2D1_GAUSSIANBLUR_OPTIMIZATION = ^D2D1_GAUSSIANBLUR_OPTIMIZATION;
+
+	TD2D1GaussianblurOptimization = D2D1_GAUSSIANBLUR_OPTIMIZATION;
+	PD2D1GaussianblurOptimization = ^TD2D1GaussianblurOptimization;
+
 
   /// <summary>
   /// The enumeration of the Directional Blur effect's top level properties.
@@ -2467,12 +2784,22 @@ type
     D2D1_DIRECTIONALBLUR_PROP_FORCE_DWORD         = Integer($FFFFFFFF)
   );
 
+	PD2D1_DIRECTIONALBLUR_PROP = ^D2D1_DIRECTIONALBLUR_PROP;
+
+	TD2D1DirectionalblurProp = D2D1_DIRECTIONALBLUR_PROP;
+	PD2D1DirectionalblurProp = ^TD2D1DirectionalblurProp;
+
   D2D1_DIRECTIONALBLUR_OPTIMIZATION = (
     D2D1_DIRECTIONALBLUR_OPTIMIZATION_SPEED       = 0,
     D2D1_DIRECTIONALBLUR_OPTIMIZATION_BALANCED    = 1,
     D2D1_DIRECTIONALBLUR_OPTIMIZATION_QUALITY     = 2,
     D2D1_DIRECTIONALBLUR_OPTIMIZATION_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+	PD2D1_DIRECTIONALBLUR_OPTIMIZATION = ^D2D1_DIRECTIONALBLUR_OPTIMIZATION;
+
+	TD2D1DirectionalblurOptimization = D2D1_DIRECTIONALBLUR_OPTIMIZATION;
+	PD2D1DirectionalblurOptimization = ^TD2D1DirectionalblurOptimization;
 
   /// <summary>
   /// The enumeration of the Shadow effect's top level properties.
@@ -2500,12 +2827,22 @@ type
     D2D1_SHADOW_PROP_FORCE_DWORD              = Integer($FFFFFFFF)
   );
 
+	PD2D1_SHADOW_PROP = ^D2D1_SHADOW_PROP;
+
+	TD2D1ShadowProp = D2D1_SHADOW_PROP;
+	PD2D1ShadowProp = ^TD2D1ShadowProp;
+
   D2D1_SHADOW_OPTIMIZATION = (
     D2D1_SHADOW_OPTIMIZATION_SPEED        = 0,
     D2D1_SHADOW_OPTIMIZATION_BALANCED     = 1,
     D2D1_SHADOW_OPTIMIZATION_QUALITY      = 2,
     D2D1_SHADOW_OPTIMIZATION_FORCE_DWORD  = Integer($FFFFFFFF)
   );
+
+	PD2D1_SHADOW_OPTIMIZATION = ^D2D1_SHADOW_OPTIMIZATION;
+
+	TD2D1ShadowOptimization = D2D1_SHADOW_OPTIMIZATION;
+	PD2D1ShadowOptimization = ^TD2D1ShadowOptimization;
 
   /// <summary>
   /// The enumeration of the Blend effect's top level properties.
@@ -2521,6 +2858,11 @@ type
     D2D1_BLEND_PROP_MODE        = 0,
     D2D1_BLEND_PROP_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+	PD2D1_BLEND_PROP = ^D2D1_BLEND_PROP;
+
+	TD2D1BlendProp = D2D1_BLEND_PROP;
+	PD2D1BlendProp = ^TD2D1BlendProp;
 
   D2D1_BLEND_MODE = (
 
@@ -2553,6 +2895,11 @@ type
     D2D1_BLEND_MODE_FORCE_DWORD   = Integer($FFFFFFFF)
   );
 
+	PD2D1_BLEND_MODE = ^D2D1_BLEND_MODE;
+
+	TD2D1BlendMode = D2D1_BLEND_MODE;
+	PD2D1BlendMode = ^TD2D1BlendMode;
+
   /// <summary>
   /// The enumeration of the Saturation effect's top level properties.
   /// Effect description: Alters the saturation of the bitmap based on the user
@@ -2568,6 +2915,11 @@ type
     D2D1_SATURATION_PROP_FORCE_DWORD  = Integer($FFFFFFFF)
   );
 
+	PD2D1_SATURATION_PROP = ^D2D1_SATURATION_PROP;
+
+	TD2D1SaturationProp = D2D1_SATURATION_PROP;
+	PD2D1SaturationProp = ^TD2D1SaturationProp;
+
 /// <summary>
   /// The enumeration of the Hue Rotation effect's top level properties.
   /// Effect description: Changes the Hue of a bitmap based on a user specified Hue
@@ -2582,6 +2934,11 @@ type
     D2D1_HUEROTATION_PROP_ANGLE       = 0,
     D2D1_HUEROTATION_PROP_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+	PD2D1_HUEROTATION_PROP = ^D2D1_HUEROTATION_PROP;
+
+	TD2D1HuerotationProp = D2D1_HUEROTATION_PROP;
+	PD2D1HuerotationProp = ^TD2D1HuerotationProp;
 
   /// <summary>
   /// The enumeration of the Color Matrix effect's top level properties.
@@ -2610,12 +2967,22 @@ type
     D2D1_COLORMATRIX_PROP_FORCE_DWORD   = Integer($FFFFFFFF)
   );
 
+	PD2D1_COLORMATRIX_PROP = ^D2D1_COLORMATRIX_PROP;
+
+	TD2D1ColormatrixProp = D2D1_COLORMATRIX_PROP;
+	PD2D1ColormatrixProp = ^TD2D1ColormatrixProp;
+
   D2D1_COLORMATRIX_ALPHA_MODE = (
 
     D2D1_COLORMATRIX_ALPHA_MODE_PREMULTIPLIED = 1,
     D2D1_COLORMATRIX_ALPHA_MODE_STRAIGHT = 2,
     D2D1_COLORMATRIX_ALPHA_MODE_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+	PD2D1_COLORMATRIX_ALPHA_MODE = ^D2D1_COLORMATRIX_ALPHA_MODE;
+
+	TD2D1ColormatrixAlphaMode = D2D1_COLORMATRIX_ALPHA_MODE;
+	PD2D1ColormatrixAlphaMode = ^TD2D1ColormatrixAlphaMode;
 
   /// <summary>
   /// The enumeration of the Bitmap Source effect's top level properties.
@@ -2661,6 +3028,11 @@ type
     D2D1_BITMAPSOURCE_PROP_FORCE_DWORD            = Integer($FFFFFFFF)
   );
 
+	PD2D1_BITMAPSOURCE_PROP = ^D2D1_BITMAPSOURCE_PROP;
+
+	TD2D1BitmapsourceProp = D2D1_BITMAPSOURCE_PROP;
+	PD2D1BitmapsourceProp = ^TD2D1BitmapsourceProp;
+
   D2D1_BITMAPSOURCE_INTERPOLATION_MODE = (
 
     D2D1_BITMAPSOURCE_INTERPOLATION_MODE_NEAREST_NEIGHBOR = 0,
@@ -2671,11 +3043,21 @@ type
     D2D1_BITMAPSOURCE_INTERPOLATION_MODE_FORCE_DWORD      = Integer($FFFFFFFF)
   );
 
+	PD2D1_BITMAPSOURCE_INTERPOLATION_MODE = ^D2D1_BITMAPSOURCE_INTERPOLATION_MODE;
+
+	TD2D1BitmapsourceInterpolationMode = D2D1_BITMAPSOURCE_INTERPOLATION_MODE;
+	PD2D1BitmapsourceInterpolationMode = ^TD2D1BitmapsourceInterpolationMode;
+
   D2D1_BITMAPSOURCE_ALPHA_MODE = (
     D2D1_BITMAPSOURCE_ALPHA_MODE_PREMULTIPLIED  = 1,
     D2D1_BITMAPSOURCE_ALPHA_MODE_STRAIGHT       = 2,
     D2D1_BITMAPSOURCE_ALPHA_MODE_FORCE_DWORD    = Integer($FFFFFFFF)
   );
+
+	PD2D1_BITMAPSOURCE_ALPHA_MODE = ^D2D1_BITMAPSOURCE_ALPHA_MODE;
+
+	TD2D1BitmapsourceAlphaMode = D2D1_BITMAPSOURCE_ALPHA_MODE;
+	PD2D1BitmapsourceAlphaMode = ^TD2D1BitmapsourceAlphaMode;
 
   /// <summary>
   /// The enumeration of the Composite effect's top level properties.
@@ -2691,6 +3073,11 @@ type
     D2D1_COMPOSITE_PROP_MODE        = 0,
     D2D1_COMPOSITE_PROP_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+	PD2D1_COMPOSITE_PROP = ^D2D1_COMPOSITE_PROP;
+
+	TD2D1CompositeProp = D2D1_COMPOSITE_PROP;
+	PD2D1CompositeProp = ^TD2D1CompositeProp;
 
   /// <summary>
   /// The enumeration of the 3D Transform effect's top level properties.
@@ -2718,6 +3105,11 @@ type
     D2D1_3DTRANSFORM_PROP_FORCE_DWORD         = Integer($FFFFFFFF)
   );
 
+	PD2D1_3DTRANSFORM_PROP = ^D2D1_3DTRANSFORM_PROP;
+
+	TD2D13dtransformProp = D2D1_3DTRANSFORM_PROP;
+	PD2D13dtransformProp = ^TD2D13dtransformProp;
+
   D2D1_3DTRANSFORM_INTERPOLATION_MODE = (
 
     D2D1_3DTRANSFORM_INTERPOLATION_MODE_NEAREST_NEIGHBOR    = 0,
@@ -2727,6 +3119,11 @@ type
     D2D1_3DTRANSFORM_INTERPOLATION_MODE_ANISOTROPIC         = 4,
     D2D1_3DTRANSFORM_INTERPOLATION_MODE_FORCE_DWORD         = Integer($FFFFFFFF)
   );
+
+	PD2D1_3DTRANSFORM_INTERPOLATION_MODE = ^D2D1_3DTRANSFORM_INTERPOLATION_MODE;
+
+	TD2D13dtransformInterpolationMode = D2D1_3DTRANSFORM_INTERPOLATION_MODE;
+	PD2D13dtransformInterpolationMode = ^TD2D13dtransformInterpolationMode;
 
   /// <summary>
   /// The enumeration of the 3D Perspective Transform effect's top level properties.
@@ -2784,6 +3181,11 @@ type
     D2D1_3DPERSPECTIVETRANSFORM_PROP_FORCE_DWORD        = Integer($FFFFFFFF)
   );
 
+	PD2D1_3DPERSPECTIVETRANSFORM_PROP = ^D2D1_3DPERSPECTIVETRANSFORM_PROP;
+
+	TD2D13dperspectivetransformProp = D2D1_3DPERSPECTIVETRANSFORM_PROP;
+	PD2D13dperspectivetransformProp = ^TD2D13dperspectivetransformProp;
+
   D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE = (
 
     D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_NEAREST_NEIGHBOR     = 0,
@@ -2793,6 +3195,11 @@ type
     D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_ANISOTROPIC          = 4,
     D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_FORCE_DWORD          = Integer($FFFFFFFF)
   );
+
+	PD2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE = ^D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE;
+
+	TD2D13dperspectivetransformInterpolationMode = D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE;
+	PD2D13dperspectivetransformInterpolationMode = ^TD2D13dperspectivetransformInterpolationMode;
 
   /// <summary>
   /// The enumeration of the 2D Affine Transform effect's top level properties.
@@ -2826,6 +3233,11 @@ type
     D2D1_2DAFFINETRANSFORM_PROP_FORCE_DWORD         = Integer($FFFFFFFF)
   );
 
+	PD2D1_2DAFFINETRANSFORM_PROP = ^D2D1_2DAFFINETRANSFORM_PROP;
+
+	TD2D12DAffinetransformProp = D2D1_2DAFFINETRANSFORM_PROP;
+	PD2D12DAffinetransformProp = ^TD2D12DAffinetransformProp;
+
   D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE = (
 
     D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_NEAREST_NEIGHBOR    = 0,
@@ -2836,6 +3248,11 @@ type
     D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC  = 5,
     D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_FORCE_DWORD         = Integer($FFFFFFFF)
   );
+
+	PD2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE = ^D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE;
+
+	TD2D12DAffinetransformInterpolationMode = D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE;
+	PD2D12DAffinetransformInterpolationMode = ^TD2D12DAffinetransformInterpolationMode;
 
   /// <summary>
   /// The enumeration of the DPI Compensation effect's top level properties.
@@ -2864,6 +3281,11 @@ type
     D2D1_DPICOMPENSATION_PROP_FORCE_DWORD         = Integer($FFFFFFFF)
   );
 
+	PD2D1_DPICOMPENSATION_PROP = ^D2D1_DPICOMPENSATION_PROP;
+
+	TD2D1DpicompensationProp = D2D1_DPICOMPENSATION_PROP;
+	PD2D1DpicompensationProp = ^TD2D1DpicompensationProp;
+
   D2D1_DPICOMPENSATION_INTERPOLATION_MODE = (
 
     D2D1_DPICOMPENSATION_INTERPOLATION_MODE_NEAREST_NEIGHBOR    = 0,
@@ -2874,6 +3296,12 @@ type
     D2D1_DPICOMPENSATION_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC  = 5,
     D2D1_DPICOMPENSATION_INTERPOLATION_MODE_FORCE_DWORD         = Integer($FFFFFFFF)
   );
+
+	PD2D1_DPICOMPENSATION_INTERPOLATION_MODE = ^D2D1_DPICOMPENSATION_INTERPOLATION_MODE;
+
+	TD2D1DpicompensationInterpolationMode = D2D1_DPICOMPENSATION_INTERPOLATION_MODE;
+	PD2D1DpicompensationInterpolationMode = ^TD2D1DpicompensationInterpolationMode;
+
 
   /// <summary>
   /// The enumeration of the Scale effect's top level properties.
@@ -2913,6 +3341,11 @@ type
     D2D1_SCALE_PROP_FORCE_DWORD         = Integer($FFFFFFFF)
   );
 
+	PD2D1_SCALE_PROP = ^D2D1_SCALE_PROP;
+
+	TD2D1ScaleProp = D2D1_SCALE_PROP;
+	PD2D1ScaleProp = ^TD2D1ScaleProp;
+
   D2D1_SCALE_INTERPOLATION_MODE = (
 
     D2D1_SCALE_INTERPOLATION_MODE_NEAREST_NEIGHBOR = 0,
@@ -2923,6 +3356,11 @@ type
     D2D1_SCALE_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC = 5,
     D2D1_SCALE_INTERPOLATION_MODE_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+	PD2D1_SCALE_INTERPOLATION_MODE = ^D2D1_SCALE_INTERPOLATION_MODE;
+
+	TD2D1ScaleInterpolationMode = D2D1_SCALE_INTERPOLATION_MODE;
+	PD2D1ScaleInterpolationMode = ^TD2D1ScaleInterpolationMode;
 
   /// <summary>
   /// The enumeration of the Turbulence effect's top level properties.
@@ -2975,12 +3413,22 @@ type
     D2D1_TURBULENCE_PROP_FORCE_DWORD  = Integer($FFFFFFFF)
   );
 
+	PD2D1_TURBULENCE_PROP = ^D2D1_TURBULENCE_PROP;
+
+	TD2D1TurbulenceProp = D2D1_TURBULENCE_PROP;
+	PD2D1TurbulenceProp = ^TD2D1TurbulenceProp;
+
   D2D1_TURBULENCE_NOISE = (
 
     D2D1_TURBULENCE_NOISE_FRACTAL_SUM = 0,
     D2D1_TURBULENCE_NOISE_TURBULENCE  = 1,
     D2D1_TURBULENCE_NOISE_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+	PD2D1_TURBULENCE_NOISE = ^D2D1_TURBULENCE_NOISE;
+
+	TD2D1TurbulenceNoise = D2D1_TURBULENCE_NOISE;
+	PD2D1TurbulenceNoise = ^TD2D1TurbulenceNoise;
 
   /// <summary>
   /// The enumeration of the Displacement Map effect's top level properties.
@@ -3008,6 +3456,11 @@ type
     D2D1_DISPLACEMENTMAP_PROP_Y_CHANNEL_SELECT  = 2,
     D2D1_DISPLACEMENTMAP_PROP_FORCE_DWORD       = Integer($FFFFFFFF)
   );
+
+	PD2D1_DISPLACEMENTMAP_PROP = ^D2D1_DISPLACEMENTMAP_PROP;
+
+	TD2D1DisplacementmapProp = D2D1_DISPLACEMENTMAP_PROP;
+	PD2D1DisplacementmapProp = ^TD2D1DisplacementmapProp;
 
   /// <summary>
   /// The enumeration of the Color Management effect's top level properties.
@@ -3053,12 +3506,22 @@ type
     D2D1_COLORMANAGEMENT_PROP_FORCE_DWORD                   = Integer($FFFFFFFF)
   );
 
+	PD2D1_COLORMANAGEMENT_PROP = ^D2D1_COLORMANAGEMENT_PROP;
+
+	TD2D1ColormanagementProp = D2D1_COLORMANAGEMENT_PROP;
+	PD2D1ColormanagementProp = ^TD2D1ColormanagementProp;
+
   D2D1_COLORMANAGEMENT_ALPHA_MODE = (
 
     D2D1_COLORMANAGEMENT_ALPHA_MODE_PREMULTIPLIED = 1,
     D2D1_COLORMANAGEMENT_ALPHA_MODE_STRAIGHT      = 2,
     D2D1_COLORMANAGEMENT_ALPHA_MODE_FORCE_DWORD   = Integer($FFFFFFFF)
   );
+
+	PD2D1_COLORMANAGEMENT_ALPHA_MODE = ^D2D1_COLORMANAGEMENT_ALPHA_MODE;
+
+	TD2D1ColormanagementAlphaMode = D2D1_COLORMANAGEMENT_ALPHA_MODE;
+	PD2D1ColormanagementAlphaMode = ^TD2D1ColormanagementAlphaMode;
 
   D2D1_COLORMANAGEMENT_QUALITY = (
 
@@ -3067,6 +3530,11 @@ type
     D2D1_COLORMANAGEMENT_QUALITY_BEST = 2,
     D2D1_COLORMANAGEMENT_QUALITY_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+	PD2D1_COLORMANAGEMENT_QUALITY = ^D2D1_COLORMANAGEMENT_QUALITY;
+
+	TD2D1ColormanagementQuality = D2D1_COLORMANAGEMENT_QUALITY;
+	PD2D1ColormanagementQuality = ^TD2D1ColormanagementQuality;
 
   /// <summary>
   /// Specifies which ICC rendering intent the Color management effect should use.
@@ -3079,6 +3547,11 @@ type
     D2D1_COLORMANAGEMENT_RENDERING_INTENT_ABSOLUTE_COLORIMETRIC = 3,
     D2D1_COLORMANAGEMENT_RENDERING_INTENT_FORCE_DWORD           = Integer($FFFFFFFF)
   );
+
+	PD2D1_COLORMANAGEMENT_RENDERING_INTENT = ^D2D1_COLORMANAGEMENT_RENDERING_INTENT;
+
+	TD2D1ColormanagementRenderingIntent = D2D1_COLORMANAGEMENT_RENDERING_INTENT;
+	PD2D1ColormanagementRenderingIntent = ^TD2D1ColormanagementRenderingIntent;
 
   /// <summary>
   /// The enumeration of the Histogram effect's top level properties.
@@ -3105,6 +3578,11 @@ type
     D2D1_HISTOGRAM_PROP_HISTOGRAM_OUTPUT  = 2,
     D2D1_HISTOGRAM_PROP_FORCE_DWORD       = Integer($FFFFFFFF)
   );
+
+	PD2D1_HISTOGRAM_PROP = ^D2D1_HISTOGRAM_PROP;
+
+	TD2D1HistogramProp = D2D1_HISTOGRAM_PROP;
+	PD2D1HistogramProp = ^TD2D1HistogramProp;
 
   /// <summary>
   /// The enumeration of the Point-Specular effect's top level properties.
@@ -3157,6 +3635,11 @@ type
     D2D1_POINTSPECULAR_PROP_FORCE_DWORD         = Integer($FFFFFFFF)
   );
 
+	PD2D1_POINTSPECULAR_PROP = ^D2D1_POINTSPECULAR_PROP;
+
+	TD2D1PointspecularProp = D2D1_POINTSPECULAR_PROP;
+	PD2D1PointspecularProp = ^TD2D1PointspecularProp;
+
   D2D1_POINTSPECULAR_SCALE_MODE = (
 
     D2D1_POINTSPECULAR_SCALE_MODE_NEAREST_NEIGHBOR    = 0,
@@ -3167,6 +3650,11 @@ type
     D2D1_POINTSPECULAR_SCALE_MODE_HIGH_QUALITY_CUBIC  = 5,
     D2D1_POINTSPECULAR_SCALE_MODE_FORCE_DWORD         = Integer($FFFFFFFF)
   );
+
+	PD2D1_POINTSPECULAR_SCALE_MODE = ^D2D1_POINTSPECULAR_SCALE_MODE;
+
+	TD2D1PointspecularScaleMode = D2D1_POINTSPECULAR_SCALE_MODE;
+	PD2D1PointspecularScaleMode = ^TD2D1PointspecularScaleMode;
 
   /// <summary>
   /// The enumeration of the Spot-Specular effect's top level properties.
@@ -3236,6 +3724,11 @@ type
     D2D1_SPOTSPECULAR_PROP_FORCE_DWORD          = Integer($FFFFFFFF)
   );
 
+	PD2D1_SPOTSPECULAR_PROP = ^D2D1_SPOTSPECULAR_PROP;
+
+	TD2D1SpotspecularProp = D2D1_SPOTSPECULAR_PROP;
+	PD2D1SpotspecularProp = ^TD2D1SpotspecularProp;
+
   D2D1_SPOTSPECULAR_SCALE_MODE = (
 
     D2D1_SPOTSPECULAR_SCALE_MODE_NEAREST_NEIGHBOR = 0,
@@ -3246,6 +3739,11 @@ type
     D2D1_SPOTSPECULAR_SCALE_MODE_HIGH_QUALITY_CUBIC = 5,
     D2D1_SPOTSPECULAR_SCALE_MODE_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+	PD2D1_SPOTSPECULAR_SCALE_MODE = ^D2D1_SPOTSPECULAR_SCALE_MODE;
+
+	TD2D1SpotspecularScaleMode = D2D1_SPOTSPECULAR_SCALE_MODE;
+	PD2D1SpotspecularScaleMode = ^TD2D1SpotspecularScaleMode;
 
   /// <summary>
   /// The enumeration of the Distant-Specular effect's top level properties.
@@ -3304,6 +3802,11 @@ type
     D2D1_DISTANTSPECULAR_PROP_FORCE_DWORD         = Integer($FFFFFFFF)
   );
 
+	PD2D1_DISTANTSPECULAR_PROP = ^D2D1_DISTANTSPECULAR_PROP;
+
+	TD2D1DistantspecularProp = D2D1_DISTANTSPECULAR_PROP;
+	PD2D1DistantspecularProp = ^TD2D1DistantspecularProp;
+
   D2D1_DISTANTSPECULAR_SCALE_MODE = (
 
     D2D1_DISTANTSPECULAR_SCALE_MODE_NEAREST_NEIGHBOR = 0,
@@ -3314,6 +3817,11 @@ type
     D2D1_DISTANTSPECULAR_SCALE_MODE_HIGH_QUALITY_CUBIC = 5,
     D2D1_DISTANTSPECULAR_SCALE_MODE_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+	PD2D1_DISTANTSPECULAR_SCALE_MODE = ^D2D1_DISTANTSPECULAR_SCALE_MODE;
+
+	TD2D1DistantspecularScaleMode = D2D1_DISTANTSPECULAR_SCALE_MODE;
+	PD2D1DistantspecularScaleMode = ^TD2D1DistantspecularScaleMode;
 
   /// <summary>
   /// The enumeration of the Point-Diffuse effect's top level properties.
@@ -3359,6 +3867,11 @@ type
     D2D1_POINTDIFFUSE_PROP_FORCE_DWORD        = Integer($FFFFFFFF)
   );
 
+  PD2D1_POINTDIFFUSE_PROP = ^D2D1_POINTDIFFUSE_PROP;
+
+	TD2D1PointdiffuseProp = D2D1_POINTDIFFUSE_PROP;
+	PD2D1PointdiffuseProp = ^TD2D1PointdiffuseProp;
+
   D2D1_POINTDIFFUSE_SCALE_MODE = (
 
     D2D1_POINTDIFFUSE_SCALE_MODE_NEAREST_NEIGHBOR     = 0,
@@ -3369,6 +3882,11 @@ type
     D2D1_POINTDIFFUSE_SCALE_MODE_HIGH_QUALITY_CUBIC   = 5,
     D2D1_POINTDIFFUSE_SCALE_MODE_FORCE_DWORD          = Integer($FFFFFFFF)
   );
+
+	PD2D1_POINTDIFFUSE_SCALE_MODE = ^D2D1_POINTDIFFUSE_SCALE_MODE;
+
+	TD2D1PointdiffuseScaleMode = D2D1_POINTDIFFUSE_SCALE_MODE;
+	PD2D1PointdiffuseScaleMode = ^TD2D1PointdiffuseScaleMode;
 
   /// <summary>
   /// The enumeration of the Spot-Diffuse effect's top level properties.
@@ -3432,6 +3950,12 @@ type
     D2D1_SPOTDIFFUSE_PROP_FORCE_DWORD         = Integer($FFFFFFFF)
   );
 
+	PD2D1_SPOTDIFFUSE_PROP = ^D2D1_SPOTDIFFUSE_PROP;
+
+	TD2D1SpotdiffuseProp = D2D1_SPOTDIFFUSE_PROP;
+	PD2D1SpotdiffuseProp = ^TD2D1SpotdiffuseProp;
+
+
   D2D1_SPOTDIFFUSE_SCALE_MODE = (
 
     D2D1_SPOTDIFFUSE_SCALE_MODE_NEAREST_NEIGHBOR    = 0,
@@ -3442,6 +3966,11 @@ type
     D2D1_SPOTDIFFUSE_SCALE_MODE_HIGH_QUALITY_CUBIC  = 5,
     D2D1_SPOTDIFFUSE_SCALE_MODE_FORCE_DWORD         = Integer($FFFFFFFF)
   );
+
+	PD2D1_SPOTDIFFUSE_SCALE_MODE = ^D2D1_SPOTDIFFUSE_SCALE_MODE;
+
+	TD2D1SpotdiffuseScaleMode = D2D1_SPOTDIFFUSE_SCALE_MODE;
+	PD2D1SpotdiffuseScaleMode = ^TD2D1SpotdiffuseScaleMode;
 
   /// <summary>
   /// The enumeration of the Distant-Diffuse effect's top level properties.
@@ -3494,6 +4023,11 @@ type
     D2D1_DISTANTDIFFUSE_PROP_FORCE_DWORD        = Integer($FFFFFFFF)
   );
 
+	PD2D1_DISTANTDIFFUSE_PROP = ^D2D1_DISTANTDIFFUSE_PROP;
+
+	TD2D1DistantdiffuseProp = D2D1_DISTANTDIFFUSE_PROP;
+	PD2D1DistantdiffuseProp = ^TD2D1DistantdiffuseProp;
+
   D2D1_DISTANTDIFFUSE_SCALE_MODE = (
 
     D2D1_DISTANTDIFFUSE_SCALE_MODE_NEAREST_NEIGHBOR     = 0,
@@ -3504,6 +4038,11 @@ type
     D2D1_DISTANTDIFFUSE_SCALE_MODE_HIGH_QUALITY_CUBIC   = 5,
     D2D1_DISTANTDIFFUSE_SCALE_MODE_FORCE_DWORD          = Integer($FFFFFFFF)
   );
+
+	PD2D1_DISTANTDIFFUSE_SCALE_MODE = ^D2D1_DISTANTDIFFUSE_SCALE_MODE;
+
+	TD2D1DistantdiffuseScaleMode = D2D1_DISTANTDIFFUSE_SCALE_MODE;
+	PD2D1DistantdiffuseScaleMode = ^TD2D1DistantdiffuseScaleMode;
 
   /// <summary>
   /// The enumeration of the Flood effect's top level properties.
@@ -3518,6 +4057,11 @@ type
     D2D1_FLOOD_PROP_COLOR       = 0,
     D2D1_FLOOD_PROP_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+	PD2D1_FLOOD_PROP = ^D2D1_FLOOD_PROP;
+
+	TD2D1FloodProp = D2D1_FLOOD_PROP;
+	PD2D1FloodProp = ^TD2D1FloodProp;
 
   /// <summary>
   /// The enumeration of the Linear Transfer effect's top level properties.
@@ -3605,6 +4149,11 @@ type
     D2D1_LINEARTRANSFER_PROP_CLAMP_OUTPUT       = 12,
     D2D1_LINEARTRANSFER_PROP_FORCE_DWORD        = Integer($FFFFFFFF)
   );
+
+	PD2D1_LINEARTRANSFER_PROP = ^D2D1_LINEARTRANSFER_PROP;
+
+	TD2D1LineartransferProp = D2D1_LINEARTRANSFER_PROP;
+	PD2D1LineartransferProp = ^TD2D1LineartransferProp;
 
   /// <summary>
   /// The enumeration of the Gamma Transfer effect's top level properties.
@@ -3717,6 +4266,10 @@ type
     D2D1_GAMMATRANSFER_PROP_FORCE_DWORD     = Integer($FFFFFFFF)
   );
 
+	PD2D1_GAMMATRANSFER_PROP = ^D2D1_GAMMATRANSFER_PROP;
+
+	TD2D1GammatransferProp = D2D1_GAMMATRANSFER_PROP;
+	PD2D1GammatransferProp = ^TD2D1GammatransferProp;
 
   /// <summary>
   /// The enumeration of the Table Transfer effect's top level properties.
@@ -3782,6 +4335,11 @@ type
     D2D1_TABLETRANSFER_PROP_FORCE_DWORD   = Integer($FFFFFFFF)
   );
 
+  PD2D1_TABLETRANSFER_PROP = ^D2D1_TABLETRANSFER_PROP;
+
+	TD2D1TabletransferProp = D2D1_TABLETRANSFER_PROP;
+	PD2D1TabletransferProp = ^TD2D1TabletransferProp;
+
   /// <summary>
   /// The enumeration of the Discrete Transfer effect's top level properties.
   /// Effect description: Remaps the color intensities of the input bitmap based on a
@@ -3845,6 +4403,11 @@ type
     D2D1_DISCRETETRANSFER_PROP_CLAMP_OUTPUT   = 8,
     D2D1_DISCRETETRANSFER_PROP_FORCE_DWORD    = Integer($FFFFFFFF)
   );
+
+	PD2D1_DISCRETETRANSFER_PROP = ^D2D1_DISCRETETRANSFER_PROP;
+
+	TD2D1DiscretetransferProp = D2D1_DISCRETETRANSFER_PROP;
+	PD2D1DiscretetransferProp = ^TD2D1DiscretetransferProp;
 
   /// <summary>
   /// The enumeration of the Convolve Matrix effect's top level properties.
@@ -3920,6 +4483,11 @@ type
     D2D1_CONVOLVEMATRIX_PROP_FORCE_DWORD        = Integer($FFFFFFFF)
   );
 
+	PD2D1_CONVOLVEMATRIX_PROP = ^D2D1_CONVOLVEMATRIX_PROP;
+
+	TD2D1ConvolvematrixProp = D2D1_CONVOLVEMATRIX_PROP;
+	PD2D1ConvolvematrixProp = ^TD2D1ConvolvematrixProp;
+
   D2D1_CONVOLVEMATRIX_SCALE_MODE = (
 
     D2D1_CONVOLVEMATRIX_SCALE_MODE_NEAREST_NEIGHBOR     = 0,
@@ -3930,6 +4498,11 @@ type
     D2D1_CONVOLVEMATRIX_SCALE_MODE_HIGH_QUALITY_CUBIC   = 5,
     D2D1_CONVOLVEMATRIX_SCALE_MODE_FORCE_DWORD          = Integer($FFFFFFFF)
   );
+
+	PD2D1_CONVOLVEMATRIX_SCALE_MODE = ^D2D1_CONVOLVEMATRIX_SCALE_MODE;
+
+	TD2D1ConvolvematrixScaleMode = D2D1_CONVOLVEMATRIX_SCALE_MODE;
+	PD2D1ConvolvematrixScaleMode = ^TD2D1ConvolvematrixScaleMode;
 
   /// <summary>
   /// The enumeration of the Brightness effect's top level properties.
@@ -3951,6 +4524,11 @@ type
     D2D1_BRIGHTNESS_PROP_BLACK_POINT = 1,
     D2D1_BRIGHTNESS_PROP_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+	PD2D1_BRIGHTNESS_PROP = ^D2D1_BRIGHTNESS_PROP;
+
+	TD2D1BrightnessProp = D2D1_BRIGHTNESS_PROP;
+	PD2D1BrightnessProp = ^TD2D1BrightnessProp;
 
   /// <summary>
   /// The enumeration of the Arithmetic Composite effect's top level properties.
@@ -3974,6 +4552,11 @@ type
     D2D1_ARITHMETICCOMPOSITE_PROP_FORCE_DWORD   = Integer($FFFFFFFF)
   );
 
+	PD2D1_ARITHMETICCOMPOSITE_PROP = ^D2D1_ARITHMETICCOMPOSITE_PROP;
+
+	TD2D1ArithmeticcompositeProp = D2D1_ARITHMETICCOMPOSITE_PROP;
+	PD2D1ArithmeticcompositeProp = ^TD2D1ArithmeticcompositeProp;
+
   /// <summary>
   /// The enumeration of the Crop effect's top level properties.
   /// Effect description: Crops the input bitmap according to the specified
@@ -3994,6 +4577,11 @@ type
     D2D1_CROP_PROP_BORDER_MODE  = 1,
     D2D1_CROP_PROP_FORCE_DWORD  = Integer($FFFFFFFF)
   );
+
+	PD2D1_CROP_PROP = ^D2D1_CROP_PROP;
+
+	TD2D1CropProp = D2D1_CROP_PROP;
+	PD2D1CropProp = ^TD2D1CropProp;
 
   /// <summary>
   /// The enumeration of the Border effect's top level properties.
@@ -4016,6 +4604,11 @@ type
     D2D1_BORDER_PROP_FORCE_DWORD = Integer($FFFFFFFF)
   );
 
+	PD2D1_BORDER_PROP = ^D2D1_BORDER_PROP;
+
+	TD2D1BorderProp = D2D1_BORDER_PROP;
+	PD2D1BorderProp = ^TD2D1BorderProp;
+
   /// <summary>
   /// The edge mode for the Border effect.
   /// </summary>
@@ -4025,6 +4618,11 @@ type
     D2D1_BORDER_EDGE_MODE_MIRROR      = 2,
     D2D1_BORDER_EDGE_MODE_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+	PD2D1_BORDER_EDGE_MODE = ^D2D1_BORDER_EDGE_MODE;
+
+	TD2D1BorderEdgeMode = D2D1_BORDER_EDGE_MODE;
+	PD2D1BorderEdgeMode = ^TD2D1BorderEdgeMode;
 
   /// <summary>
   /// The enumeration of the Morphology effect's top level properties.
@@ -4052,11 +4650,21 @@ type
     D2D1_MORPHOLOGY_PROP_FORCE_DWORD  = Integer($FFFFFFFF)
   );
 
+	PD2D1_MORPHOLOGY_PROP = ^D2D1_MORPHOLOGY_PROP;
+
+	TD2D1MorphologyProp = D2D1_MORPHOLOGY_PROP;
+	PD2D1MorphologyProp = ^TD2D1MorphologyProp;
+
   D2D1_MORPHOLOGY_MODE = (
     D2D1_MORPHOLOGY_MODE_ERODE        = 0,
     D2D1_MORPHOLOGY_MODE_DILATE       = 1,
     D2D1_MORPHOLOGY_MODE_FORCE_DWORD  = Integer($FFFFFFFF)
   );
+
+	PD2D1_MORPHOLOGY_MODE = ^D2D1_MORPHOLOGY_MODE;
+
+	TD2D1MorphologyMode = D2D1_MORPHOLOGY_MODE;
+	PD2D1MorphologyMode = ^TD2D1MorphologyMode;
 
   /// <summary>
   /// The enumeration of the Tile effect's top level properties.
@@ -4071,6 +4679,11 @@ type
     D2D1_TILE_PROP_RECT = 0,
     D2D1_TILE_PROP_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+	PD2D1_TILE_PROP = ^D2D1_TILE_PROP;
+
+	TD2D1TileProp = D2D1_TILE_PROP;
+	PD2D1TileProp = ^TD2D1TileProp;
 
   /// <summary>
   /// The enumeration of the Atlas effect's top level properties.
@@ -4094,6 +4707,11 @@ type
     D2D1_ATLAS_PROP_FORCE_DWORD         = Integer($FFFFFFFF)
   );
 
+	PD2D1_ATLAS_PROP = ^D2D1_ATLAS_PROP;
+
+	TD2D1AtlasProp = D2D1_ATLAS_PROP;
+	PD2D1AtlasProp = ^TD2D1AtlasProp;
+
   /// <summary>
   /// The enumeration of the Opacity Metadata effect's top level properties.
   /// Effect description: Changes the rectangle which is assumed to be opaque.
@@ -4108,6 +4726,11 @@ type
     D2D1_OPACITYMETADATA_PROP_INPUT_OPAQUE_RECT = 0,
     D2D1_OPACITYMETADATA_PROP_FORCE_DWORD       = Integer($FFFFFFFF)
   );
+
+	PD2D1_OPACITYMETADATA_PROP = ^D2D1_OPACITYMETADATA_PROP;
+
+	TD2D1OpacitymetadataProp = D2D1_OPACITYMETADATA_PROP;
+	PD2D1OpacitymetadataProp = ^TD2D1OpacitymetadataProp;
 
 {$ENDREGION}
 
@@ -4141,6 +4764,11 @@ type
     D2D1_YCBCR_PROP_FORCE_DWORD         = Integer($FFFFFFFF)
   );
 
+	PD2D1_YCBCR_PROP = ^D2D1_YCBCR_PROP;
+
+	TD2D1YcbcrProp = D2D1_YCBCR_PROP;
+	PD2D1YcbcrProp = ^TD2D1YcbcrProp;
+
   D2D1_YCBCR_CHROMA_SUBSAMPLING = (
 
     D2D1_YCBCR_CHROMA_SUBSAMPLING_AUTO        = 0,
@@ -4150,6 +4778,11 @@ type
     D2D1_YCBCR_CHROMA_SUBSAMPLING_440         = 4,
     D2D1_YCBCR_CHROMA_SUBSAMPLING_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+	PD2D1_YCBCR_CHROMA_SUBSAMPLING = ^D2D1_YCBCR_CHROMA_SUBSAMPLING;
+
+	TD2D1YcbcrChromaSubsampling = D2D1_YCBCR_CHROMA_SUBSAMPLING;
+	PD2D1YcbcrChromaSubsampling = ^TD2D1YcbcrChromaSubsampling;
 
   D2D1_YCBCR_INTERPOLATION_MODE = (
 
@@ -4161,6 +4794,11 @@ type
     D2D1_YCBCR_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC  = 5,
     D2D1_YCBCR_INTERPOLATION_MODE_FORCE_DWORD         = Integer($FFFFFFFF)
   );
+
+	PD2D1_YCBCR_INTERPOLATION_MODE = ^D2D1_YCBCR_INTERPOLATION_MODE;
+
+	TD2D1YcbcrInterpolationMode = D2D1_YCBCR_INTERPOLATION_MODE;
+	PD2D1YcbcrInterpolationMode = ^TD2D1YcbcrInterpolationMode;
 
 {$ENDREGION}
 
@@ -4194,6 +4832,10 @@ type
     D2D1_CHANGE_TYPE_FORCE_DWORD  = Integer($FFFFFFFF)
   );
 
+	PD2D1_CHANGE_TYPE = ^D2D1_CHANGE_TYPE;
+
+	TD2D1ChangeType = D2D1_CHANGE_TYPE;
+	PD2D1ChangeType = ^TD2D1ChangeType;
 
   /// <summary>
   /// Indicates options for drawing using a pixel shader.
@@ -4213,6 +4855,12 @@ type
       D2D1_PIXEL_OPTIONS_TRIVIAL_SAMPLING = 1,
       D2D1_PIXEL_OPTIONS_FORCE_DWORD      = Integer($FFFFFFFF)
   );
+
+	PD2D1_PIXEL_OPTIONS = ^D2D1_PIXEL_OPTIONS;
+
+	TD2D1PixelOptions = D2D1_PIXEL_OPTIONS;
+	PD2D1PixelOptions = ^TD2D1PixelOptions;
+
 
   /// <summary>
   /// Indicates options for drawing custom vertices set by transforms.
@@ -4244,6 +4892,11 @@ type
     D2D1_VERTEX_OPTIONS_FORCE_DWORD       = Integer($FFFFFFFF)
   );
 
+	PD2D1_VERTEX_OPTIONS = ^D2D1_VERTEX_OPTIONS;
+
+	TD2D1VertexOptions = D2D1_VERTEX_OPTIONS;
+	PD2D1VertexOptions = ^TD2D1VertexOptions;
+
   /// <summary>
   /// Describes how a vertex buffer is to be managed.
   /// </summary>
@@ -4261,6 +4914,11 @@ type
     D2D1_VERTEX_USAGE_FORCE_DWORD = Integer($FFFFFFFF)
   );
 
+	PD2D1_VERTEX_USAGE = ^D2D1_VERTEX_USAGE;
+
+	TD2D1VertexUsage = D2D1_VERTEX_USAGE;
+	PD2D1VertexUsage = ^TD2D1VertexUsage;
+
   /// <summary>
   /// Describes a particular blend in the D2D1_BLEND_DESCRIPTION structure.
   /// </summary>
@@ -4273,6 +4931,11 @@ type
     D2D1_BLEND_OPERATION_MAX          = 5,
     D2D1_BLEND_OPERATION_FORCE_DWORD  = Integer($FFFFFFFF)
   );
+
+	PD2D1_BLEND_OPERATION = ^D2D1_BLEND_OPERATION;
+
+	TD2D1BlendOperation = D2D1_BLEND_OPERATION;
+	PD2D1BlendOperation = ^TD2D1BlendOperation;
 
   /// <summary>
   /// Describes a particular blend in the D2D1_BLEND_DESCRIPTION structure.
@@ -4295,6 +4958,11 @@ type
     D2D1_BLEND_FORCE_DWORD      = Integer($FFFFFFFF)
   );
 
+	PD2D1_BLEND = ^D2D1_BLEND;
+
+	TD2D1Blend = D2D1_BLEND;
+	PD2D1Blend = ^TD2D1Blend;
+
   /// <summary>
   /// Allows a caller to control the channel depth of a stage in the rendering
   /// pipeline.
@@ -4306,6 +4974,11 @@ type
     D2D1_CHANNEL_DEPTH_4            = 4,
     D2D1_CHANNEL_DEPTH_FORCE_DWORD  = Integer($FFFFFFFF)
   );
+
+	PD2D1_CHANNEL_DEPTH = ^D2D1_CHANNEL_DEPTH;
+
+	TD2D1ChannelDepth = D2D1_CHANNEL_DEPTH;
+	PD2D1ChannelDepth = ^TD2D1ChannelDepth;
 
   /// <summary>
   /// Represents filtering modes transforms may select to use on their input textures.
@@ -4324,6 +4997,11 @@ type
     D2D1_FILTER_FORCE_DWORD                     = Integer($FFFFFFFF)
   );
 
+	PD2D1_FILTER = ^D2D1_FILTER;
+
+	TD2D1Filter = D2D1_FILTER;
+	PD2D1Filter = ^TD2D1Filter;
+
   /// <summary>
   /// Defines capabilities of the underlying D3D device which may be queried using
   /// CheckFeatureSupport.
@@ -4333,6 +5011,11 @@ type
     D2D1_FEATURE_D3D10_X_HARDWARE_OPTIONS = 1,
     D2D1_FEATURE_FORCE_DWORD              = Integer($FFFFFFFF)
   );
+
+	PD2D1_FEATURE = ^D2D1_FEATURE;
+
+	TD2D1Feature = D2D1_FEATURE;
+	PD2D1Feature = ^TD2D1Feature;
 
 {$ENDREGION}
 
@@ -4390,6 +5073,11 @@ type
     D2D1_SVG_PAINT_TYPE_FORCE_DWORD       = Integer($FFFFFFFF)
   );
 
+	PD2D1_SVG_PAINT_TYPE = ^D2D1_SVG_PAINT_TYPE;
+
+	TD2D1SvgPaintType = D2D1_SVG_PAINT_TYPE;
+	PD2D1SvgPaintType = ^TD2D1SvgPaintType;
+
   /// <summary>
   /// Specifies the units for an SVG length.
   /// </summary>
@@ -4406,6 +5094,11 @@ type
     D2D1_SVG_LENGTH_UNITS_PERCENTAGE  = 1,
     D2D1_SVG_LENGTH_UNITS_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+	PD2D1_SVG_LENGTH_UNITS = ^D2D1_SVG_LENGTH_UNITS;
+
+	TD2D1SvgLengthUnits = D2D1_SVG_LENGTH_UNITS;
+	PD2D1SvgLengthUnits = ^TD2D1SvgLengthUnits;
 
   /// <summary>
   /// Specifies a value for the SVG display property.
@@ -4424,6 +5117,11 @@ type
     D2D1_SVG_DISPLAY_FORCE_DWORD  = Integer($FFFFFFFF)
   );
 
+	PD2D1_SVG_DISPLAY = ^D2D1_SVG_DISPLAY;
+
+	TD2D1SvgDisplay = D2D1_SVG_DISPLAY;
+	PD2D1SvgDisplay = ^TD2D1SvgDisplay;
+
   /// <summary>
   /// Specifies a value for the SVG visibility property.
   /// </summary>
@@ -4441,6 +5139,11 @@ type
     D2D1_SVG_VISIBILITY_FORCE_DWORD = Integer($FFFFFFFF)
   );
 
+	PD2D1_SVG_VISIBILITY = ^D2D1_SVG_VISIBILITY;
+
+	TD2D1SvgVisibility = D2D1_SVG_VISIBILITY;
+	PD2D1SvgVisibility = ^TD2D1SvgVisibility;
+
   /// <summary>
   /// Specifies a value for the SVG overflow property.
   /// </summary>
@@ -4457,6 +5160,11 @@ type
     D2D1_SVG_OVERFLOW_HIDDEN      = 1,
     D2D1_SVG_OVERFLOW_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+	PD2D1_SVG_OVERFLOW = ^D2D1_SVG_OVERFLOW;
+
+	TD2D1SvgOverflow = D2D1_SVG_OVERFLOW;
+	PD2D1SvgOverflow = ^TD2D1SvgOverflow;
 
   /// <summary>
   /// Specifies a value for the SVG stroke-linecap property.
@@ -4480,6 +5188,11 @@ type
     D2D1_SVG_LINE_CAP_FORCE_DWORD = Integer($FFFFFFFF)
   );
 
+	PD2D1_SVG_LINE_CAP = ^D2D1_SVG_LINE_CAP;
+
+	TD2D1SvgLineCap = D2D1_SVG_LINE_CAP;
+	PD2D1SvgLineCap = ^TD2D1SvgLineCap;
+
   /// <summary>
   /// Specifies a value for the SVG stroke-linejoin property.
   /// </summary>
@@ -4502,6 +5215,11 @@ type
     D2D1_SVG_LINE_JOIN_ROUND = 2,
     D2D1_SVG_LINE_JOIN_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+	PD2D1_SVG_LINE_JOIN = ^D2D1_SVG_LINE_JOIN;
+
+	TD2D1SvgLineJoin = D2D1_SVG_LINE_JOIN;
+	PD2D1SvgLineJoin = ^TD2D1SvgLineJoin;
 
   /// <summary>
   /// The alignment portion of the SVG preserveAspectRatio attribute.
@@ -4560,6 +5278,11 @@ type
     D2D1_SVG_ASPECT_ALIGN_FORCE_DWORD = Integer($FFFFFFFF)
   );
 
+	PD2D1_SVG_ASPECT_ALIGN = ^D2D1_SVG_ASPECT_ALIGN;
+
+	TD2D1SvgAspectAlign = D2D1_SVG_ASPECT_ALIGN;
+	PD2D1SvgAspectAlign = ^TD2D1SvgAspectAlign;
+
   /// <summary>
   /// The meetOrSlice portion of the SVG preserveAspectRatio attribute.
   /// </summary>
@@ -4577,6 +5300,11 @@ type
     D2D1_SVG_ASPECT_SCALING_SLICE       = 1,
     D2D1_SVG_ASPECT_SCALING_FORCE_DWORD = Integer($FFFFFFFF)
   );
+
+	PD2D1_SVG_ASPECT_SCALING = ^D2D1_SVG_ASPECT_SCALING;
+
+	TD2D1SvgAspectScaling = D2D1_SVG_ASPECT_SCALING;
+	PD2D1SvgAspectScaling = ^TD2D1SvgAspectScaling;
 
   /// <summary>
   /// Represents a path commmand. Each command may reference floats from the segment
@@ -4697,7 +5425,10 @@ type
     D2D1_SVG_PATH_COMMAND_FORCE_DWORD = Integer($FFFFFFFF)
   );
 
-  PD2D1_SVG_PATH_COMMAND = ^D2D1_SVG_PATH_COMMAND;
+	PD2D1_SVG_PATH_COMMAND = ^D2D1_SVG_PATH_COMMAND;
+
+	TD2D1SvgPathCommand = D2D1_SVG_PATH_COMMAND;
+	PD2D1SvgPathCommand = ^TD2D1SvgPathCommand;
 
   /// <summary>
   /// Defines the coordinate system used for SVG gradient or clipPath elements.
@@ -4715,6 +5446,11 @@ type
     D2D1_SVG_UNIT_TYPE_OBJECT_BOUNDING_BOX  = 1,
     D2D1_SVG_UNIT_TYPE_FORCE_DWORD          = Integer($FFFFFFFF)
   );
+
+	PD2D1_SVG_UNIT_TYPE = ^D2D1_SVG_UNIT_TYPE;
+
+	TD2D1SvgUnitType = D2D1_SVG_UNIT_TYPE;
+	PD2D1SvgUnitType = ^TD2D1SvgUnitType;
 
   /// <summary>
   /// Defines the type of SVG string attribute to set or get.
@@ -4736,6 +5472,11 @@ type
     D2D1_SVG_ATTRIBUTE_STRING_TYPE_ID           = 1,
     D2D1_SVG_ATTRIBUTE_STRING_TYPE_FORCE_DWORD  = Integer($FFFFFFFF)
   );
+
+	PD2D1_SVG_ATTRIBUTE_STRING_TYPE = ^D2D1_SVG_ATTRIBUTE_STRING_TYPE;
+
+	TD2D1SvgAttributeStringType = D2D1_SVG_ATTRIBUTE_STRING_TYPE;
+	PD2D1SvgAttributeStringType = ^TD2D1SvgAttributeStringType;
 
   /// <summary>
   /// Defines the type of SVG POD attribute to set or get.
@@ -4813,6 +5554,12 @@ type
     D2D1_SVG_ATTRIBUTE_POD_TYPE_LENGTH                = 13,
     D2D1_SVG_ATTRIBUTE_POD_TYPE_FORCE_DWORD           = Integer($FFFFFFFF)
   );
+
+	PD2D1_SVG_ATTRIBUTE_POD_TYPE = ^D2D1_SVG_ATTRIBUTE_POD_TYPE;
+
+	TD2D1SvgAttributePodType = D2D1_SVG_ATTRIBUTE_POD_TYPE;
+	PD2D1SvgAttributePodType = ^TD2D1SvgAttributePodType;
+
 
 {$ENDREGION}
 
@@ -5193,7 +5940,10 @@ type
     Y: Int32;
   end;
 
-  PD2D1_POINT_2L = ^D2D1_POINT_2L;
+	PD2D1_POINT_2L = ^D2D1_POINT_2L;
+
+	TD2D1Point2l = D2D1_POINT_2L;
+	PD2D1Point2l = ^TD2D1Point2l;
 
   D2D1_RECT_L = record
     Left: Int32;
@@ -5202,7 +5952,10 @@ type
     Bottom: Int32;
   end;
 
-  PD2D1_RECT_L = ^D2D1_RECT_L;
+	PD2D1_RECT_L = ^D2D1_RECT_L;
+
+	TD2D1RectL = D2D1_RECT_L;
+	PD2D1RectL = ^TD2D1RectL;
 
   D2D1_MATRIX_4X3_F = record
     M11, M12, M13: Single;
@@ -5211,7 +5964,10 @@ type
     M41, M42, M43: Single;
   end;
 
-  PD2D1_MATRIX_4X3_F = ^D2D1_MATRIX_4X3_F;
+	PD2D1_MATRIX_4X3_F = ^D2D1_MATRIX_4X3_F;
+
+	TD2D1Matrix4x3F = D2D1_MATRIX_4X3_F;
+	PD2D1Matrix4x3F = ^TD2D1Matrix4x3F;
 
   D2D1_MATRIX_4X4_F = record
     M11, M12, M13, M14: Single;
@@ -5220,7 +5976,10 @@ type
     M41, M42, M43, M44: Single;
   end;
 
-  PD2D1_MATRIX_4X4_F = ^D2D1_MATRIX_4X4_F;
+	PD2D1_MATRIX_4X4_F = ^D2D1_MATRIX_4X4_F;
+
+	TD2D1Matrix4x4F = D2D1_MATRIX_4X4_F;
+	PD2D1Matrix4x4F = ^TD2D1Matrix4x4F;
 
   /// <summary>
   /// Extended bitmap properties.
@@ -5237,7 +5996,10 @@ type
     ColorContext: ID2D1ColorContext;
   end;
 
-  PD2D1_BITMAP_PROPERTIES1 = ^D2D1_BITMAP_PROPERTIES1;
+	PD2D1_BITMAP_PROPERTIES1 = ^D2D1_BITMAP_PROPERTIES1;
+
+	TD2D1BitmapProperties1 = D2D1_BITMAP_PROPERTIES1;
+	PD2D1BitmapProperties1 = ^TD2D1BitmapProperties1;
 
   /// <summary>
   /// Describes mapped memory from the ID2D1Bitmap1::Map API.
@@ -5247,7 +6009,10 @@ type
     Bits: PByte;
   end;
 
-  PD2D1_MAPPED_RECT = ^D2D1_MAPPED_RECT;
+	PD2D1_MAPPED_RECT = ^D2D1_MAPPED_RECT;
+
+	TD2D1MappedRect = D2D1_MAPPED_RECT;
+	PD2D1MappedRect = ^TD2D1MappedRect;
 
   /// <summary>
   /// This controls advanced settings of the Direct2D imaging pipeline.
@@ -5265,7 +6030,10 @@ type
     TileSize: D2D1_SIZE_U;
   end;
 
-  PD2D1_RENDERING_CONTROLS = ^D2D1_RENDERING_CONTROLS;
+	PD2D1_RENDERING_CONTROLS = ^D2D1_RENDERING_CONTROLS;
+
+	TD2D1RenderingControls = D2D1_RENDERING_CONTROLS;
+	PD2D1RenderingControls = ^TD2D1RenderingControls;
 
   /// <summary>
   /// This identifies a certain input connection of a certain effect.
@@ -5289,7 +6057,10 @@ type
     InputRectangle: D2D1_RECT_F;
   end;
 
-  PD2D1_EFFECT_INPUT_DESCRIPTION = ^D2D1_EFFECT_INPUT_DESCRIPTION;
+	PD2D1_EFFECT_INPUT_DESCRIPTION = ^D2D1_EFFECT_INPUT_DESCRIPTION;
+
+	TD2D1EffectInputDescription = D2D1_EFFECT_INPUT_DESCRIPTION;
+	PD2D1EffectInputDescription = ^TD2D1EffectInputDescription;
 
   /// <summary>
   /// Describes a point along a path.
@@ -5302,7 +6073,10 @@ type
     LengthToEndSegment: Single;
   end;
 
-  PD2D1_POINT_DESCRIPTION = ^D2D1_POINT_DESCRIPTION;
+	PD2D1_POINT_DESCRIPTION = ^D2D1_POINT_DESCRIPTION;
+
+	TD2D1PointDescription = D2D1_POINT_DESCRIPTION;
+	PD2D1PointDescription = ^TD2D1PointDescription;
 
   /// <summary>
   /// Creation properties for an image brush.
@@ -5314,7 +6088,10 @@ type
     InterpolationMode: D2D1_INTERPOLATION_MODE;
   end;
 
-  PD2D1_IMAGE_BRUSH_PROPERTIES = ^D2D1_IMAGE_BRUSH_PROPERTIES;
+	PD2D1_IMAGE_BRUSH_PROPERTIES = ^D2D1_IMAGE_BRUSH_PROPERTIES;
+
+	TD2D1ImageBrushProperties = D2D1_IMAGE_BRUSH_PROPERTIES;
+	PD2D1ImageBrushProperties = ^TD2D1ImageBrushProperties;
 
   /// <summary>
   /// Describes the extend modes and the interpolation mode of an ID2D1BitmapBrush.
@@ -5325,7 +6102,10 @@ type
     InterpolationMode: D2D1_INTERPOLATION_MODE;
   end;
 
-  PD2D1_BITMAP_BRUSH_PROPERTIES1 = ^D2D1_BITMAP_BRUSH_PROPERTIES1;
+	PD2D1_BITMAP_BRUSH_PROPERTIES1 = ^D2D1_BITMAP_BRUSH_PROPERTIES1;
+
+	TD2D1BitmapBrushProperties1 = D2D1_BITMAP_BRUSH_PROPERTIES1;
+	PD2D1BitmapBrushProperties1 = ^TD2D1BitmapBrushProperties1;
 
   /// <summary>
   /// This defines how geometries should be drawn and widened.
@@ -5345,7 +6125,10 @@ type
     TransformType: D2D1_STROKE_TRANSFORM_TYPE;
   end;
 
-  PD2D1_STROKE_STYLE_PROPERTIES1 = ^D2D1_STROKE_STYLE_PROPERTIES1;
+	PD2D1_STROKE_STYLE_PROPERTIES1 = ^D2D1_STROKE_STYLE_PROPERTIES1;
+
+	TD2D1StrokeStyleProperties1 = D2D1_STROKE_STYLE_PROPERTIES1;
+	PD2D1StrokeStyleProperties1 = ^TD2D1StrokeStyleProperties1;
 
   /// <summary>
   /// All parameters related to pushing a layer.
@@ -5360,7 +6143,10 @@ type
     LayerOptions: D2D1_LAYER_OPTIONS1;
   end;
 
-  PD2D1_LAYER_PARAMETERS1 = ^D2D1_LAYER_PARAMETERS1;
+	PD2D1_LAYER_PARAMETERS1 = ^D2D1_LAYER_PARAMETERS1;
+
+	TD2D1LayerParameters1 = D2D1_LAYER_PARAMETERS1;
+	PD2D1LayerParameters1 = ^TD2D1LayerParameters1;
 
   /// <summary>
   /// This describes the drawing state.
@@ -5375,7 +6161,10 @@ type
     UnitMode: D2D1_UNIT_MODE;
   end;
 
-  PD2D1_DRAWING_STATE_DESCRIPTION1 = ^D2D1_DRAWING_STATE_DESCRIPTION1;
+	PD2D1_DRAWING_STATE_DESCRIPTION1 = ^D2D1_DRAWING_STATE_DESCRIPTION1;
+
+	TD2D1DrawingStateDescription1 = D2D1_DRAWING_STATE_DESCRIPTION1;
+	PD2D1DrawingStateDescription1 = ^TD2D1DrawingStateDescription1;
 
   /// <summary>
   /// The creation properties for a ID2D1PrintControl object.
@@ -5396,7 +6185,10 @@ type
     ColorSpace: D2D1_COLOR_SPACE;
   end;
 
-  PD2D1_PRINT_CONTROL_PROPERTIES = ^D2D1_PRINT_CONTROL_PROPERTIES;
+	PD2D1_PRINT_CONTROL_PROPERTIES = ^D2D1_PRINT_CONTROL_PROPERTIES;
+
+	TD2D1PrintControlProperties = D2D1_PRINT_CONTROL_PROPERTIES;
+	PD2D1PrintControlProperties = ^TD2D1PrintControlProperties;
 
   /// <summary>
   /// This specifies the options while simultaneously creating the device, factory,
@@ -5412,7 +6204,10 @@ type
     Options: D2D1_DEVICE_CONTEXT_OPTIONS;
   end;
 
-  PD2D1_CREATION_PROPERTIES = ^D2D1_CREATION_PROPERTIES;
+	PD2D1_CREATION_PROPERTIES = ^D2D1_CREATION_PROPERTIES;
+
+	TD2D1CreationProperties = D2D1_CREATION_PROPERTIES;
+	PD2D1CreationProperties = ^TD2D1CreationProperties;
 
 {$ENDREGION}
 
@@ -5456,7 +6251,10 @@ type
     Options: D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS;
   end;
 
-  PD2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES = ^D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES;
+	PD2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES = ^D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES;
+
+	TD2D1TransformedImageSourceProperties = D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES;
+	PD2D1TransformedImageSourceProperties = ^TD2D1TransformedImageSourceProperties;
 
   /// <summary>
   /// Represents a point, radius pair that makes up part of a D2D1_INK_BEZIER_SEGMENT.
@@ -5467,7 +6265,10 @@ type
     Radius: Single
   end;
 
-  PD2D1_INK_POINT = ^D2D1_INK_POINT;
+	PD2D1_INK_POINT = ^D2D1_INK_POINT;
+
+	TD2D1InkPoint = D2D1_INK_POINT;
+	PD2D1InkPoint = ^TD2D1InkPoint;
 
   /// <summary>
   /// Represents a Bezier segment to be used in the creation of an ID2D1Ink object.
@@ -5480,7 +6281,10 @@ type
     Point3: D2D1_INK_POINT;
   end;
 
-  PD2D1_INK_BEZIER_SEGMENT = ^D2D1_INK_BEZIER_SEGMENT;
+	PD2D1_INK_BEZIER_SEGMENT = ^D2D1_INK_BEZIER_SEGMENT;
+
+	TD2D1InkBezierSegment = D2D1_INK_BEZIER_SEGMENT;
+	PD2D1InkBezierSegment = ^TD2D1InkBezierSegment;
 
   /// <summary>
   /// Defines the general pen tip shape and the transform used in an ID2D1InkStyle
@@ -5499,7 +6303,10 @@ type
     NibTransform: D2D1_MATRIX_3X2_F;
   end;
 
-  PD2D1_INK_STYLE_PROPERTIES = ^D2D1_INK_STYLE_PROPERTIES;
+	PD2D1_INK_STYLE_PROPERTIES = ^D2D1_INK_STYLE_PROPERTIES;
+
+	TD2D1InkStyleProperties = D2D1_INK_STYLE_PROPERTIES;
+	PD2D1InkStyleProperties = ^TD2D1InkStyleProperties;
 
   /// <summary>
   /// Represents a tensor patch with 16 control points, 4 corner colors, and boundary
@@ -5629,7 +6436,10 @@ type
     RightEdgeMode: D2D1_PATCH_EDGE_MODE;
   end;
 
-  PD2D1_GRADIENT_MESH_PATCH = ^D2D1_GRADIENT_MESH_PATCH;
+	PD2D1_GRADIENT_MESH_PATCH = ^D2D1_GRADIENT_MESH_PATCH;
+
+	TD2D1GradientMeshPatch = D2D1_GRADIENT_MESH_PATCH;
+	PD2D1GradientMeshPatch = ^TD2D1GradientMeshPatch;
 
   /// <summary>
   /// Simple description of a color space.
@@ -5662,7 +6472,11 @@ type
     Gamma: D2D1_GAMMA1;
   end;
 
-  PD2D1_SIMPLE_COLOR_PROFILE = ^D2D1_SIMPLE_COLOR_PROFILE;
+	PD2D1_SIMPLE_COLOR_PROFILE = ^D2D1_SIMPLE_COLOR_PROFILE;
+
+	TD2D1SimpleColorProfile = D2D1_SIMPLE_COLOR_PROFILE;
+	PD2D1SimpleColorProfile = ^TD2D1SimpleColorProfile;
+
 
 {$ENDREGION}
 
@@ -5741,7 +6555,11 @@ type
     StrikethroughThickness: UInt16;
   end;
 
-  PDWRITE_FONT_METRICS = ^DWRITE_FONT_METRICS;
+	PDWRITE_FONT_METRICS = ^DWRITE_FONT_METRICS;
+
+	TDWriteFontMetrics = DWRITE_FONT_METRICS;
+	PDWriteFontMetrics = ^TDWriteFontMetrics;
+
 
   /// <summary>
   /// The DWRITE_GLYPH_METRICS structure specifies the metrics of an individual glyph.
@@ -5796,18 +6614,25 @@ type
     VerticalOriginY: Int32;
   end;
 
-  PDWRITE_GLYPH_METRICS = ^DWRITE_GLYPH_METRICS;
+	PDWRITE_GLYPH_METRICS = ^DWRITE_GLYPH_METRICS;
+
+	TDWriteGlyphMetrics = DWRITE_GLYPH_METRICS;
+	PDWriteGlyphMetrics = ^TDWriteGlyphMetrics;
 
   /// <summary>
   /// Optional adjustment to a glyph's position. A glyph offset changes the position of a glyph without affecting
   /// the pen position. Offsets are in logical, pre-transform units.
   /// </summary>
   DWRITE_GLYPH_OFFSET = record
+
     AdvanceOffset : Single;
     AscenderOffset: Single;
   end;
 
-  PDWRITE_GLYPH_OFFSET = ^DWRITE_GLYPH_OFFSET;
+	PDWRITE_GLYPH_OFFSET = ^DWRITE_GLYPH_OFFSET;
+
+	TDWriteGlyphOffset = DWRITE_GLYPH_OFFSET;
+	PDWriteGlyphOffset = ^TDWriteGlyphOffset;
 
   /// <summary>
   /// The DWRITE_MATRIX structure specifies the graphics transform to be applied
@@ -5846,7 +6671,10 @@ type
     DY: Single;
   end;
 
-  PDWRITE_MATRIX = ^DWRITE_MATRIX;
+	PDWRITE_MATRIX = ^DWRITE_MATRIX;
+
+	TDWriteMatrix = DWRITE_MATRIX;
+	PDWriteMatrix = ^TDWriteMatrix;
 
   /// <summary>
   /// The DWRITE_TEXT_RANGE structure specifies a range of text positions where format is applied.
@@ -5864,7 +6692,10 @@ type
     Length: UInt32;
   end;
 
-  PDWRITE_TEXT_RANGE = ^DWRITE_TEXT_RANGE;
+	PDWRITE_TEXT_RANGE = ^DWRITE_TEXT_RANGE;
+
+	TDWriteTextRange = DWRITE_TEXT_RANGE;
+	PDWriteTextRange = ^TDWriteTextRange;
 
   /// <summary>
   /// The DWRITE_FONT_FEATURE structure specifies properties used to identify and execute typographic feature in the font.
@@ -5886,7 +6717,10 @@ type
     Parameter: UInt32;
   end;
 
-  PDWRITE_FONT_FEATURE = ^DWRITE_FONT_FEATURE;
+	PDWRITE_FONT_FEATURE = ^DWRITE_FONT_FEATURE;
+
+	TDWriteFontFeature = DWRITE_FONT_FEATURE;
+	PDWriteFontFeature = ^TDWriteFontFeature;
 
   /// <summary>
   /// Defines a set of typographic features to be applied during shaping.
@@ -5906,7 +6740,10 @@ type
     FeatureCount: UInt32;
   end;
 
-  PDWRITE_TYPOGRAPHIC_FEATURES = ^DWRITE_TYPOGRAPHIC_FEATURES;
+	PDWRITE_TYPOGRAPHIC_FEATURES = ^DWRITE_TYPOGRAPHIC_FEATURES;
+
+	TDWriteTypographicFeatures = DWRITE_TYPOGRAPHIC_FEATURES;
+	PDWriteTypographicFeatures = ^TDWriteTypographicFeatures;
 
   /// <summary>
   /// The DWRITE_TRIMMING structure specifies the trimming option for text overflowing the layout box.
@@ -5930,7 +6767,10 @@ type
     DelimiterCount: UInt32;
   end;
 
-  PDWRITE_TRIMMING = ^DWRITE_TRIMMING;
+	PDWRITE_TRIMMING = ^DWRITE_TRIMMING;
+
+	TDWriteTrimming = DWRITE_TRIMMING;
+	PDWriteTrimming = ^TDWriteTrimming;
 
   /// <summary>
   /// Association of text and its writing system script as well as some display attributes.
@@ -5947,7 +6787,10 @@ type
     Shapes: DWRITE_SCRIPT_SHAPES;
   end;
 
-  PDWRITE_SCRIPT_ANALYSIS = ^DWRITE_SCRIPT_ANALYSIS;
+	PDWRITE_SCRIPT_ANALYSIS = ^DWRITE_SCRIPT_ANALYSIS;
+
+	TDWriteScriptAnalysis = DWRITE_SCRIPT_ANALYSIS;
+	PDWriteScriptAnalysis = ^TDWriteScriptAnalysis;
 
   /// <summary>
   /// Line breakpoint characteristics of a character.
@@ -5982,7 +6825,10 @@ type
       property Padding              : UInt8 Index $0603 read GetByte write SetByte; // offset 6, mask $0003, size 2
   end;
 
-  PDWRITE_LINE_BREAKPOINT = ^DWRITE_LINE_BREAKPOINT;
+	PDWRITE_LINE_BREAKPOINT = ^DWRITE_LINE_BREAKPOINT;
+
+	TDWriteLineBreakpoint = DWRITE_LINE_BREAKPOINT;
+	PDWriteLineBreakpoint = ^TDWriteLineBreakpoint;
 
   /// <summary>
   /// Shaping output properties per input character.
@@ -6017,7 +6863,10 @@ type
       property Reserved             : UInt16 Index $00031FFF read GetWord write SetWord; // offset 3, mask $1FFF, size 13
   end;
 
-  PDWRITE_SHAPING_TEXT_PROPERTIES = ^DWRITE_SHAPING_TEXT_PROPERTIES;
+	PDWRITE_SHAPING_TEXT_PROPERTIES = ^DWRITE_SHAPING_TEXT_PROPERTIES;
+
+	TDWriteShapingTextProperties = DWRITE_SHAPING_TEXT_PROPERTIES;
+	PDWriteShapingTextProperties = ^TDWriteShapingTextProperties;
 
   /// <summary>
   /// Shaping output properties per output glyph.
@@ -6057,7 +6906,10 @@ type
       property Reserved         : UInt16 Index $000701FF read GetWord write SetWord; // offset 7, mask $01FF, size 9
   end;
 
-  PDWRITE_SHAPING_GLYPH_PROPERTIES = ^DWRITE_SHAPING_GLYPH_PROPERTIES;
+	PDWRITE_SHAPING_GLYPH_PROPERTIES = ^DWRITE_SHAPING_GLYPH_PROPERTIES;
+
+	TDWriteShapingGlyphProperties = DWRITE_SHAPING_GLYPH_PROPERTIES;
+	PDWriteShapingGlyphProperties = ^TDWriteShapingGlyphProperties;
 
   /// <summary>
   /// The DWRITE_GLYPH_RUN structure contains the information needed by renderers
@@ -6113,7 +6965,10 @@ type
     BidiLevel     : UInt32;
   end;
 
-  PDWRITE_GLYPH_RUN = ^DWRITE_GLYPH_RUN;
+	PDWRITE_GLYPH_RUN = ^DWRITE_GLYPH_RUN;
+
+	TDWriteGlyphRun = DWRITE_GLYPH_RUN;
+	PDWriteGlyphRun = ^TDWriteGlyphRun;
 
   /// <summary>
   /// The DWRITE_GLYPH_RUN_DESCRIPTION structure contains additional properties
@@ -6150,7 +7005,10 @@ type
     TextPosition: UInt32;
   end;
 
-  PDWRITE_GLYPH_RUN_DESCRIPTION = ^DWRITE_GLYPH_RUN_DESCRIPTION;
+	PDWRITE_GLYPH_RUN_DESCRIPTION = ^DWRITE_GLYPH_RUN_DESCRIPTION;
+
+	TDWriteGlyphRunDescription = DWRITE_GLYPH_RUN_DESCRIPTION;
+	PDWriteGlyphRunDescription = ^TDWriteGlyphRunDescription;
 
   /// <summary>
   /// The DWRITE_UNDERLINE structure contains information about the size and
@@ -6213,7 +7071,10 @@ type
     MeasuringMode: DWRITE_MEASURING_MODE;
   end;
 
-  PDWRITE_UNDERLINE = ^DWRITE_UNDERLINE;
+	PDWRITE_UNDERLINE = ^DWRITE_UNDERLINE;
+
+	TDWriteUnderline = DWRITE_UNDERLINE;
+	PDWriteUnderline = ^TDWriteUnderline;
 
   /// <summary>
   /// The DWRITE_STRIKETHROUGH structure contains information about the size and
@@ -6267,7 +7128,10 @@ type
     MeasuringMode: DWRITE_MEASURING_MODE;
   end;
 
-  PDWRITE_STRIKETHROUGH = ^DWRITE_STRIKETHROUGH;
+	PDWRITE_STRIKETHROUGH = ^DWRITE_STRIKETHROUGH;
+
+	TDWriteStrikethrough = DWRITE_STRIKETHROUGH;
+	PDWriteStrikethrough = ^TDWriteStrikethrough;
 
   /// <summary>
   /// The DWRITE_LINE_METRICS structure contains information about a formatted
@@ -6310,7 +7174,10 @@ type
     IsTrimmed: BOOL;
   end;
 
-  PDWRITE_LINE_METRICS = ^DWRITE_LINE_METRICS;
+	PDWRITE_LINE_METRICS = ^DWRITE_LINE_METRICS;
+
+	TDWriteLineMetrics = DWRITE_LINE_METRICS;
+	PDWriteLineMetrics = ^TDWriteLineMetrics;
 
   /// <summary>
   /// The DWRITE_CLUSTER_METRICS structure contains information about a glyph cluster.
@@ -6340,7 +7207,10 @@ type
       property Padding          : UInt16 Index $0005000B read GetWord write SetWord; // offset 5, mask $000B, size 11
   end;
 
-  PDWRITE_CLUSTER_METRICS = ^DWRITE_CLUSTER_METRICS;
+	PDWRITE_CLUSTER_METRICS = ^DWRITE_CLUSTER_METRICS;
+
+	TDWriteClusterMetrics = DWRITE_CLUSTER_METRICS;
+	PDWriteClusterMetrics = ^TDWriteClusterMetrics;
 
   /// <summary>
   /// Overall metrics associated with text after layout.
@@ -6405,7 +7275,10 @@ type
     LineCount: UInt32;
   end;
 
-  PDWRITE_TEXT_METRICS = ^DWRITE_TEXT_METRICS;
+	PDWRITE_TEXT_METRICS = ^DWRITE_TEXT_METRICS;
+
+	TDWriteTextMetrics = DWRITE_TEXT_METRICS;
+	PDWriteTextMetrics = ^TDWriteTextMetrics;
 
   /// <summary>
   /// Properties describing the geometric measurement of an
@@ -6436,7 +7309,10 @@ type
     SupportsSideways: BOOL;
   end;
 
-  PDWRITE_INLINE_OBJECT_METRICS = ^DWRITE_INLINE_OBJECT_METRICS;
+	PDWRITE_INLINE_OBJECT_METRICS = ^DWRITE_INLINE_OBJECT_METRICS;
+
+	TDWriteInlineObjectMetrics = DWRITE_INLINE_OBJECT_METRICS;
+	PDWriteInlineObjectMetrics = ^TDWriteInlineObjectMetrics;
 
   /// <summary>
   /// The DWRITE_OVERHANG_METRICS structure holds how much any visible pixels
@@ -6472,60 +7348,66 @@ type
     Bottom: Single;
   end;
 
-  PDWRITE_OVERHANG_METRICS = ^DWRITE_OVERHANG_METRICS;
+	PDWRITE_OVERHANG_METRICS = ^DWRITE_OVERHANG_METRICS;
+
+	TDWriteOverhangMetrics = DWRITE_OVERHANG_METRICS;
+	PDWriteOverhangMetrics = ^TDWriteOverhangMetrics;
 
   /// <summary>
   /// Geometry enclosing of text positions.
   /// </summary>
   DWRITE_HIT_TEST_METRICS = record
 
-      /// <summary>
-      /// First text position within the geometry.
-      /// </summary>
-      TextPosition: UInt32;
+    /// <summary>
+    /// First text position within the geometry.
+    /// </summary>
+    TextPosition: UInt32;
 
-      /// <summary>
-      /// Number of text positions within the geometry.
-      /// </summary>
-      Length: UInt32;
+    /// <summary>
+    /// Number of text positions within the geometry.
+    /// </summary>
+    Length: UInt32;
 
-      /// <summary>
-      /// Left position of the top-left coordinate of the geometry.
-      /// </summary>
-      Left: Single;
+    /// <summary>
+    /// Left position of the top-left coordinate of the geometry.
+    /// </summary>
+    Left: Single;
 
-      /// <summary>
-      /// Top position of the top-left coordinate of the geometry.
-      /// </summary>
-      Top: Single;
+    /// <summary>
+    /// Top position of the top-left coordinate of the geometry.
+    /// </summary>
+    Top: Single;
 
-      /// <summary>
-      /// Geometry's width.
-      /// </summary>
-      Width: Single;
+    /// <summary>
+    /// Geometry's width.
+    /// </summary>
+    Width: Single;
 
-      /// <summary>
-      /// Geometry's height.
-      /// </summary>
-      Height: Single;
+    /// <summary>
+    /// Geometry's height.
+    /// </summary>
+    Height: Single;
 
-      /// <summary>
-      /// Bidi level of text positions enclosed within the geometry.
-      /// </summary>
-      BidiLevel: UInt32;
+    /// <summary>
+    /// Bidi level of text positions enclosed within the geometry.
+    /// </summary>
+    BidiLevel: UInt32;
 
-      /// <summary>
-      /// Geometry encloses text?
-      /// </summary>
-      IsText: BOOL;
+    /// <summary>
+    /// Geometry encloses text?
+    /// </summary>
+    IsText: BOOL;
 
-      /// <summary>
-      /// Range is trimmed.
-      /// </summary>
-      IsTrimmed: BOOL;
+    /// <summary>
+    /// Range is trimmed.
+    /// </summary>
+    IsTrimmed: BOOL;
   end;
 
   PDWRITE_HIT_TEST_METRICS = ^DWRITE_HIT_TEST_METRICS;
+
+	TDWriteHitTestMetrics = DWRITE_HIT_TEST_METRICS;
+	PDWriteHitTestMetrics = ^TDWriteHitTestMetrics;
 
 {$ENDREGION}
 
@@ -6565,7 +7447,10 @@ type
     GetFunction: PD2D1_PROPERTY_GET_FUNCTION;
   end;
 
-  PD2D1_PROPERTY_BINDING = ^D2D1_PROPERTY_BINDING;
+	PD2D1_PROPERTY_BINDING = ^D2D1_PROPERTY_BINDING;
+
+	TD2D1PropertyBinding = D2D1_PROPERTY_BINDING;
+	PD2D1PropertyBinding = ^TD2D1PropertyBinding;
 
   /// <summary>
   /// This is used to define a resource texture when that resource texture is created.
@@ -6579,7 +7464,10 @@ type
     ExtendModes: PD2D1_EXTEND_MODE;
   end;
 
-  PD2D1_RESOURCE_TEXTURE_PROPERTIES = ^D2D1_RESOURCE_TEXTURE_PROPERTIES;
+	PD2D1_RESOURCE_TEXTURE_PROPERTIES = ^D2D1_RESOURCE_TEXTURE_PROPERTIES;
+
+	TD2D1ResourceTextureProperties = D2D1_RESOURCE_TEXTURE_PROPERTIES;
+	PD2D1ResourceTextureProperties = ^TD2D1ResourceTextureProperties;
 
   /// <summary>
   /// This defines a single element of the vertex layout.
@@ -6593,7 +7481,10 @@ type
     AlignedByteOffset: UInt32;
   end;
 
- PD2D1_INPUT_ELEMENT_DESC = ^D2D1_INPUT_ELEMENT_DESC;
+	PD2D1_INPUT_ELEMENT_DESC = ^D2D1_INPUT_ELEMENT_DESC;
+
+	TD2D1InputElementDesc = D2D1_INPUT_ELEMENT_DESC;
+	PD2D1InputElementDesc = ^TD2D1InputElementDesc;
 
   /// <summary>
   /// This defines the properties of a vertex buffer which uses the default vertex
@@ -6607,7 +7498,10 @@ type
     ByteWidth: UInt32;
   end;
 
-  PD2D1_VERTEX_BUFFER_PROPERTIES = ^D2D1_VERTEX_BUFFER_PROPERTIES;
+	PD2D1_VERTEX_BUFFER_PROPERTIES = ^D2D1_VERTEX_BUFFER_PROPERTIES;
+
+	TD2D1VertexBufferProperties = D2D1_VERTEX_BUFFER_PROPERTIES;
+	PD2D1VertexBufferProperties = ^TD2D1VertexBufferProperties;
 
   /// <summary>
   /// This defines the input layout of vertices and the vertex shader which processes
@@ -6622,17 +7516,24 @@ type
     Stride: UInt32;
   end;
 
-  PD2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES = ^D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES;
+	PD2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES = ^D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES;
+
+	TD2D1CustomVertexBufferProperties = D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES;
+	PD2D1CustomVertexBufferProperties = ^TD2D1CustomVertexBufferProperties;
 
   /// <summary>
   /// This defines the range of vertices from a vertex buffer to draw.
   /// </summary>
   D2D1_VERTEX_RANGE = record
+
     StartVertex: UInt32;
     VertexCount: UInt32;
   end;
 
-  PD2D1_VERTEX_RANGE = ^D2D1_VERTEX_RANGE;
+	PD2D1_VERTEX_RANGE = ^D2D1_VERTEX_RANGE;
+
+	TD2D1VertexRange = D2D1_VERTEX_RANGE;
+	PD2D1VertexRange = ^TD2D1VertexRange;
 
   /// <summary>
   /// Blend description which configures a blend transform object.
@@ -6648,7 +7549,10 @@ type
     BlendFactor: Array[0..3] of Single;
   end;
 
-  PD2D1_BLEND_DESCRIPTION = ^D2D1_BLEND_DESCRIPTION;
+	PD2D1_BLEND_DESCRIPTION = ^D2D1_BLEND_DESCRIPTION;
+
+	TD2D1BlendDescription = D2D1_BLEND_DESCRIPTION;
+	PD2D1BlendDescription = ^TD2D1BlendDescription;
 
   /// <summary>
   /// Describes options transforms may select to use on their input textures.
@@ -6658,7 +7562,10 @@ type
     LevelOfDetailCount: UInt32;
   end;
 
-  PD2D1_INPUT_DESCRIPTION = ^D2D1_INPUT_DESCRIPTION;
+	PD2D1_INPUT_DESCRIPTION = ^D2D1_INPUT_DESCRIPTION;
+
+	TD2D1InputDescription = D2D1_INPUT_DESCRIPTION;
+	PD2D1InputDescription = ^TD2D1InputDescription;
 
   /// <summary>
   /// Indicates whether shader support for doubles is present on the underlying
@@ -6668,7 +7575,10 @@ type
     DoublePrecisionFloatShaderOps: BOOL;
   end;
 
-  PD2D1_FEATURE_DATA_DOUBLES = ^D2D1_FEATURE_DATA_DOUBLES;
+	PD2D1_FEATURE_DATA_DOUBLES = ^D2D1_FEATURE_DATA_DOUBLES;
+
+	TD2D1FeatureDataDoubles = D2D1_FEATURE_DATA_DOUBLES;
+	PD2D1FeatureDataDoubles = ^TD2D1FeatureDataDoubles;
 
   /// <summary>
   /// Indicates support for features which are optional on D3D10 feature levels.  This
@@ -6677,6 +7587,11 @@ type
   D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS = record
     ComputeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x: BOOL;
   end;
+
+	PD2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS = ^D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS;
+
+	TD2D1FeatureDataD3d10XHardwareOptions = D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS;
+	PD2D1FeatureDataD3d10XHardwareOptions = ^TD2D1FeatureDataD3d10XHardwareOptions;
 
 {$ENDREGION}
 
@@ -6697,7 +7612,10 @@ type
     Units: D2D1_SVG_LENGTH_UNITS;
   end;
 
-  PD2D1_SVG_LENGTH = ^D2D1_SVG_LENGTH;
+	PD2D1_SVG_LENGTH = ^D2D1_SVG_LENGTH;
+
+	TD2D1SvgLength = D2D1_SVG_LENGTH;
+	PD2D1SvgLength = ^TD2D1SvgLength;
 
   /// <summary>
   /// Represents all SVG preserveAspectRatio settings.
@@ -6722,7 +7640,10 @@ type
     MeetOrSlice: D2D1_SVG_ASPECT_SCALING;
   end;
 
-  PD2D1_SVG_PRESERVE_ASPECT_RATIO = ^D2D1_SVG_PRESERVE_ASPECT_RATIO;
+	PD2D1_SVG_PRESERVE_ASPECT_RATIO = ^D2D1_SVG_PRESERVE_ASPECT_RATIO;
+
+	TD2D1SvgPreserveAspectRatio = D2D1_SVG_PRESERVE_ASPECT_RATIO;
+	PD2D1SvgPreserveAspectRatio = ^TD2D1SvgPreserveAspectRatio;
 
   /// <summary>
   /// Represents an SVG viewBox.
@@ -6734,8 +7655,10 @@ type
     Height: Single;
   end;
 
-  PD2D1_SVG_VIEWBOX = ^D2D1_SVG_VIEWBOX;
+	PD2D1_SVG_VIEWBOX = ^D2D1_SVG_VIEWBOX;
 
+	TD2D1SvgViewbox = D2D1_SVG_VIEWBOX;
+	PD2D1SvgViewbox = ^TD2D1SvgViewbox;
 
 {$ENDREGION}
 
@@ -8838,7 +9761,7 @@ type
     ['{6d4865fe-0ab8-4d91-8f62-5dd6be34a3e0}']
 
     function ReadFileFragment(
-      out fragmentStart: Pointer;
+      out AFragmentStart: Pointer;
       AFileOffset: UInt64;
       AFragmentSize: UInt64;
       out AFragmentContext: Pointer): HRESULT; stdcall;
@@ -8888,8 +9811,8 @@ type
     function GetType: DWRITE_FONT_FACE_TYPE; stdcall;
 
     function GetFiles(
-      var numberOfFiles: UInt32;
-      out fontFiles: IDWriteFontFile): HRESULT; stdcall;
+      var ANumberOfFiles: UInt32;
+      out AFontFiles: IDWriteFontFile): HRESULT; stdcall;
 
     function GetIndex: UInt32; stdcall;
 
@@ -8910,7 +9833,7 @@ type
     function GetGlyphIndices(
       ACodePoints: PUint32;
       ACodePointCount: UInt32;
-      out glyphIndices: UInt16): HRESULT; stdcall;
+      out AGlyphIndices: UInt16): HRESULT; stdcall;
 
     function TryGetFontTable(
         AOpenTypeTableTag: UInt32;
