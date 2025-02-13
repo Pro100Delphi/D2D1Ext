@@ -7962,9 +7962,9 @@ type
     /// Ends drawing on the render target, error results can be retrieved at this time,
     /// or when calling flush.
     /// </summary>
-    procedure EndDraw(
+    function EndDraw(
       ATag1: PD2D1Tag = nil;
-      ATag2: PD2D1Tag = nil); stdcall;
+      ATag2: PD2D1Tag = nil): HRESULT; stdcall;
 
     function GetPixelFormat: TD2D1PixelFormat; stdcall;
     /// <summary>
@@ -9363,7 +9363,7 @@ type
         out ATableContext: Pointer;
         out AExists: BOOL): HRESULT; stdcall;
 
-    procedure ReleaseFontTable(tableContext: Pointer); stdcall;
+    procedure ReleaseFontTable(ATableContext: Pointer); stdcall;
 
     function GetGlyphRunOutline(
         AEmSize: Single;
