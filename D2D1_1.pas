@@ -5641,8 +5641,8 @@ type
 
   PD2D1_POINT_2F = ^D2D1_POINT_2F;
 
-  TD2D1PointF = D2D1_POINT_2F;
-  PD2D1PointF = ^TD2D1PointF;
+  TD2D1Point2F = D2D1_POINT_2F;
+  PD2D1Point2F = ^TD2D1Point2F;
 
   D2D1_POINT_2U = record
     X: UInt32;
@@ -5651,8 +5651,8 @@ type
 
   PD2D1_POINT_2U = ^D2D1_POINT_2U;
 
-  TD2D1PointU = D2D1_POINT_2U;
-  PD2D1PointU = ^TD2D1PointU;
+  TD2D1Point2U = D2D1_POINT_2U;
+  PD2D1Point2U = ^TD2D1Point2U;
 
   D2D1_SIZE_F = record
     Width:  Single;
@@ -5976,8 +5976,8 @@ type
 
 	PD2D1_POINT_2L = ^D2D1_POINT_2L;
 
-	TD2D1Point2l = D2D1_POINT_2L;
-	PD2D1Point2l = ^TD2D1Point2l;
+	TD2D1Point2L = D2D1_POINT_2L;
+	PD2D1Point2L = ^TD2D1Point2L;
 
   D2D1_RECT_L = record
     Left: Int32;
@@ -9579,7 +9579,7 @@ type
     function CreateSvgGlyphStyle(out ASvgGlyphStyle: ID2D1SvgGlyphStyle): HRESULT; stdcall;
 
     procedure DrawText(
-      const AString: PWChar;
+      const AString: PWideChar;
       AStringLength: UInt32;
       ATextFormat: IDWriteTextFormat;
       const ALayoutRect: PD2D1_RECT_F;
@@ -9936,7 +9936,7 @@ type
     function GetCount: UInt32; stdcall;
 
     function FindLocaleName(
-      const ALocaleName: PWCHAR;
+      const ALocaleName: PWideChar;
       out AIndex: UInt32;
       out AExists: BOOL): HRESULT; stdcall;
 
@@ -9946,7 +9946,7 @@ type
 
     function GetLocaleName(
       AIndex: UInt32;
-      ALocaleName: PWChar;
+      ALocaleName: PWideChar;
       ASize: UInt32
     ): HRESULT; stdcall;
 
@@ -9956,7 +9956,7 @@ type
 
     function GetString(
       AIndex: UInt32;
-      AStringBuffer: PWChar;
+      AStringBuffer: PWideChar;
       ASize: UInt32): HRESULT; stdcall;
   end;
 
@@ -9970,7 +9970,7 @@ type
       out AFontFamily: IDWriteFontFamily): HRESULT; stdcall;
 
     function FindFamilyName(
-      const AFamilyName: PWChar;
+      const AFamilyName: PWideChar;
       out AIndex: UInt32;
       out AExists: BOOL): HRESULT; stdcall;
 
@@ -10129,12 +10129,12 @@ type
     ['{688e1a58-5094-47c8-adc8-fbcea60ae92b}']
     function GetTextAtPosition(
       ATextPosition: UINT32;
-      out ATextString: PWChar;
+      out ATextString: PWideChar;
       out ATextLength: UInt32): HRESULT; stdcall;
 
     function GetTextBeforePosition(
       ATextPosition: UINT32;
-      out ATextString: PWChar;
+      out ATextString: PWideChar;
       out ATextLength: UInt32): HRESULT; stdcall;
 
     function GetParagraphReadingDirection: DWRITE_READING_DIRECTION; stdcall;
@@ -10142,7 +10142,7 @@ type
     function GetLocaleName(
       ATextPosition: UInt32;
       out ATextLength: UInt32;
-      out ALocaleName: PWCHAR): HRESULT; stdcall;
+      out ALocaleName: PWideChar): HRESULT; stdcall;
 
     function GetNumberSubstitution(
       ATextPosition: UInt32;
@@ -10203,13 +10203,13 @@ type
       AAnalysisSink: IDWriteTextAnalysisSink): HRESULT; stdcall;
 
     function GetGlyphs(
-      ATextString: PWCHAR;
+      ATextString: PWideChar;
       ATextLength: UInt32;
       AFontFace: IDWriteFontFace;
       AIsSideways: BOOL;
       AIsRightToLeft: BOOL;
       const AScriptAnalysis: PDWRITE_SCRIPT_ANALYSIS;
-      ALocaleName: PWCHAR;
+      ALocaleName: PWideChar;
       ANumberSubstitution: IDWriteNumberSubstitution;
       AFeatures: PDWRITE_TYPOGRAPHIC_FEATURES;
       AFeatureRangeLengths: PUInt32;
@@ -10222,7 +10222,7 @@ type
       out AActualGlyphCount: UInt32): HRESULT; stdcall;
 
     function GetGlyphPlacements(
-      ATextString: PWCHAR;
+      ATextString: PWideChar;
       AClusterMap: PWORD;
       ATextProps: PDWRITE_SHAPING_TEXT_PROPERTIES;
       ATextLength: UInt32;
@@ -10234,7 +10234,7 @@ type
       AIsSideways: BOOL;
       AIsRightToLeft: BOOL;
       const AScriptAnalysis: PDWRITE_SCRIPT_ANALYSIS;
-      ALocaleName: PWCHAR;
+      ALocaleName: PWideChar;
       const AFeatures: PDWRITE_TYPOGRAPHIC_FEATURES;
       const AFeatureRangeLengths: PUInt32;
       AFeatureRanges: UINT32;
@@ -10242,7 +10242,7 @@ type
       out AGlyphOffsets: DWRITE_GLYPH_OFFSET): HRESULT; stdcall;
 
     function GetGdiCompatibleGlyphPlacements(
-      ATextString: PWCHAR;
+      ATextString: PWideChar;
       AClusterMap: PWORD;
       ATextProps: PDWRITE_SHAPING_TEXT_PROPERTIES;
       ATextLength: UInt32;
@@ -10257,7 +10257,7 @@ type
       AIsSideways: BOOL;
       AIsRightToLeft: BOOL;
       AScriptAnalysis: PDWRITE_SCRIPT_ANALYSIS;
-      ALocaleName: PWCHAR;
+      ALocaleName: PWideChar;
       AFeatures: PDWRITE_TYPOGRAPHIC_FEATURES;
       AFeatureRangeLengths: PUint32;
       AFeatureRanges: UInt32;
@@ -10350,7 +10350,7 @@ type
       ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
 
     function SetFontFamilyName(
-      AFontFamilyName: PWCHAR;
+      AFontFamilyName: PWideChar;
       ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
 
     function SetFontWeight(
@@ -10390,7 +10390,7 @@ type
       ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
 
     function SetLocaleName(
-      ALocaleName: PWCHAR;
+      ALocaleName: PWideChar;
       ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
 
     function GetMaxWidth: Single; stdcall;
@@ -10409,7 +10409,7 @@ type
 
     function GetFontFamilyName(
       ACurrentPosition: UInt32;
-      AFontFamilyName: PWCHAR;
+      AFontFamilyName: PWideChar;
       ANameSize: UInt32;
       out ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
 
@@ -10466,7 +10466,7 @@ type
 
     function GetLocaleName(
       ACurrentPosition: UInt32;
-      ALocaleName: PWCHAR;
+      ALocaleName: PWideChar;
       ANameSize: UInt32;
       out ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
 
@@ -10610,12 +10610,12 @@ type
     function UnregisterFontCollectionLoader(AFontCollectionLoader: IDWriteFontCollectionLoader): HRESULT; stdcall;
 
     function CreateFontFileReference(
-      AFilePath: PWCHAR;
+      AFilePath: PWideChar;
       ALastWriteTime: PFILETIME;
       out AFontFile: IDWriteFontFile): HRESULT; stdcall;
 
     function CreateCustomFontFileReference(
-      AFilePath: PWCHAR;
+      AFilePath: PWideChar;
       ALastWriteTime: PFILETIME;
       out fontFile: IDWriteFontFile): HRESULT; stdcall;
 
@@ -10646,13 +10646,13 @@ type
     function UnregisterFontFileLoader(AFontFileLoader: IDWriteFontFileLoader): HRESULT; stdcall;
 
     function CreateTextFormat(
-      AFontFamilyName: PWCHAR;
+      AFontFamilyName: PWideChar;
       AFontCollection: IDWriteFontCollection;
       AFontWeight: DWRITE_FONT_WEIGHT;
       AFontStyle: DWRITE_FONT_STYLE;
       AFontStretch: DWRITE_FONT_STRETCH;
       AFontSize: Single;
-      ALocaleName: PWCHAR;
+      ALocaleName: PWideChar;
       out ATextFormat: IDWriteTextFormat): HRESULT; stdcall;
 
     function CreateTypography(ATypography: IDWriteTypography): HRESULT; stdcall;
@@ -10660,7 +10660,7 @@ type
     function GetGdiInterop(AGdiInterop: IDWriteGdiInterop): HRESULT; stdcall;
 
     function CreateTextLayout(
-      AString: PWCHAR;
+      AString: PWideChar;
       AStringLength: UInt32;
       ATextFormat: IDWriteTextFormat;
       AMaxWidth: Single;
@@ -10668,7 +10668,7 @@ type
       out ATextLayout: IDWriteTextLayout): HRESULT; stdcall;
 
     function CreateGdiCompatibleTextLayout(
-      AString: PWCHAR;
+      AString: PWideChar;
       AStringLength: UInt32;
       ATextFormat: IDWriteTextFormat;
       ALayoutWidth: Single;
@@ -10686,7 +10686,7 @@ type
 
     function CreateNumberSubstitution(
       ASubstitutionMethod: DWRITE_NUMBER_SUBSTITUTION_METHOD;
-      ALocaleName: PWCHAR;
+      ALocaleName: PWideChar;
       AIgnoreUserOverride: BOOL;
       out ANumberSubstitution: IDWriteNumberSubstitution): HRESULT; stdcall;
 
@@ -11257,11 +11257,11 @@ type
     function RemoveAttribute(AName: LPCWSTR): HRESULT; stdcall;
 
     function SetTextValue(
-      const AName: PWCHAR;
+      const AName: PWideChar;
       ANameCount: UInt32): HRESULT; stdcall;
 
     function GetTextValue(
-      AName: PWCHAR;
+      AName: PWideChar;
       ANameCount: UInt32): HRESULT; stdcall;
 
     function GetTextValueLength: UInt32; stdcall;
@@ -11403,6 +11403,50 @@ function DWriteCreateFactory(
   AFactoryType: DWRITE_FACTORY_TYPE;
   const AIid: TGUID;
   out AFactory: IUnknown): HRESULT; stdcall; external dwritelib;
+
+procedure D2D1MakeRotateMatrix(
+  AAngle: Single;
+  ACenter: TD2D1Point2F;
+  out AMatrix: TD2D1Matrix3x2F); stdcall; external d2d1lib;
+
+procedure D2D1MakeSkewMatrix(
+  AAngleX: Single;
+  AAngleY: Single;
+  ACenter: TD2D1Point2F;
+  out AMatrix: TD2D1Matrix3x2F); stdcall; external d2d1lib;
+
+function D2D1IsMatrixInvertible(
+  const AMatrix: PD2D1Matrix3x2F): BOOL; stdcall; external d2d1lib;
+
+function D2D1InvertMatrix(
+  AMatrix: PD2D1Matrix3x2F): BOOL; stdcall; external d2d1lib;
+
+function D2D1CreateDevice(
+  ADXGIDevice: IDXGIDevice;
+  const ACreationProperties: PD2D1CreationProperties;
+  out AD2DDevice: ID2D1Device): HRESULT; stdcall; external d2d1lib;
+
+function D2D1CreateDeviceContext(
+  ADXGISurface: IDXGISurface;
+  const ACreationProperties: PD2D1CreationProperties;
+  out AD2DDeviceContext: ID2D1DeviceContext): HRESULT; stdcall; external d2d1lib;
+
+function D2D1ConvertColorSpace(
+  ASourceColorSpace: TD2D1ColorSpace;
+  ADestinationColorSpace: TD2D1ColorSpace;
+  const AColor: PD2D1ColorF): TD2D1ColorF; stdcall; external d2d1lib;
+
+procedure D2D1SinCos(
+  AAngle: Single;
+  out ASin: Single;
+  out ACos: Single); stdcall; external d2d1lib;
+
+function D2D1Tan(AAnangle: Single): Single; stdcall; external d2d1lib;
+
+function D2D1Vec3Length(
+  AX: Single;
+  AY: Single;
+  AZ: Single): Single; stdcall; external d2d1lib;
 
 {$REGION 'xxx yyy zzz'}
 
