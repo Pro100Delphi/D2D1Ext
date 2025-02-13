@@ -2934,8 +2934,8 @@ type
     D2D1_3DTRANSFORM_PROP_FORCE_DWORD         = Integer($FFFFFFFF)
   );
 
-	TD2D13dtransformProp = D2D1_3DTRANSFORM_PROP;
-	PD2D13dtransformProp = ^TD2D13dtransformProp;
+	TD2D13DtransformProp = D2D1_3DTRANSFORM_PROP;
+	PD2D13DtransformProp = ^TD2D13DtransformProp;
 
   D2D1_3DTRANSFORM_INTERPOLATION_MODE = (
 
@@ -2947,8 +2947,8 @@ type
     D2D1_3DTRANSFORM_INTERPOLATION_MODE_FORCE_DWORD         = Integer($FFFFFFFF)
   );
 
-	TD2D13dtransformInterpolationMode = D2D1_3DTRANSFORM_INTERPOLATION_MODE;
-	PD2D13dtransformInterpolationMode = ^TD2D13dtransformInterpolationMode;
+	TD2D13DtransformInterpolationMode = D2D1_3DTRANSFORM_INTERPOLATION_MODE;
+	PD2D13DtransformInterpolationMode = ^TD2D13DtransformInterpolationMode;
 
   /// <summary>
   /// The enumeration of the 3D Perspective Transform effect's top level properties.
@@ -3006,8 +3006,8 @@ type
     D2D1_3DPERSPECTIVETRANSFORM_PROP_FORCE_DWORD        = Integer($FFFFFFFF)
   );
 
-	TD2D13dperspectivetransformProp = D2D1_3DPERSPECTIVETRANSFORM_PROP;
-	PD2D13dperspectivetransformProp = ^TD2D13dperspectivetransformProp;
+	TD2D13DperspectivetransformProp = D2D1_3DPERSPECTIVETRANSFORM_PROP;
+	PD2D13DperspectivetransformProp = ^TD2D13DperspectivetransformProp;
 
   D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE = (
 
@@ -3019,8 +3019,8 @@ type
     D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_FORCE_DWORD          = Integer($FFFFFFFF)
   );
 
-	TD2D13dperspectivetransformInterpolationMode = D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE;
-	PD2D13dperspectivetransformInterpolationMode = ^TD2D13dperspectivetransformInterpolationMode;
+	TD2D13DperspectivetransformInterpolationMode = D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE;
+	PD2D13DperspectivetransformInterpolationMode = ^TD2D13DperspectivetransformInterpolationMode;
 
   /// <summary>
   /// The enumeration of the 2D Affine Transform effect's top level properties.
@@ -4499,8 +4499,8 @@ type
     D2D1_YCBCR_PROP_FORCE_DWORD         = Integer($FFFFFFFF)
   );
 
-	TD2D1YcbcrProp = D2D1_YCBCR_PROP;
-	PD2D1YcbcrProp = ^TD2D1YcbcrProp;
+	TD2D1YCbCrProp = D2D1_YCBCR_PROP;
+	PD2D1YCbCrProp = ^TD2D1YCbCrProp;
 
   D2D1_YCBCR_CHROMA_SUBSAMPLING = (
 
@@ -4512,8 +4512,8 @@ type
     D2D1_YCBCR_CHROMA_SUBSAMPLING_FORCE_DWORD = Integer($FFFFFFFF)
   );
 
-	TD2D1YcbcrChromaSubsampling = D2D1_YCBCR_CHROMA_SUBSAMPLING;
-	PD2D1YcbcrChromaSubsampling = ^TD2D1YcbcrChromaSubsampling;
+	TD2D1YCbCrChromaSubsampling = D2D1_YCBCR_CHROMA_SUBSAMPLING;
+	PD2D1YCbCrChromaSubsampling = ^TD2D1YCbCrChromaSubsampling;
 
   D2D1_YCBCR_INTERPOLATION_MODE = (
 
@@ -4526,8 +4526,8 @@ type
     D2D1_YCBCR_INTERPOLATION_MODE_FORCE_DWORD         = Integer($FFFFFFFF)
   );
 
-	TD2D1YcbcrInterpolationMode = D2D1_YCBCR_INTERPOLATION_MODE;
-	PD2D1YcbcrInterpolationMode = ^TD2D1YcbcrInterpolationMode;
+	TD2D1YCbCrInterpolationMode = D2D1_YCBCR_INTERPOLATION_MODE;
+	PD2D1YCbCrInterpolationMode = ^TD2D1YCbCrInterpolationMode;
 
 {$ENDREGION}
 
@@ -5263,7 +5263,7 @@ type
 
   D2D1_PIXEL_FORMAT = record
     DXGIFormat: DXGI_FORMAT;
-    AlphaMode: D2D1_ALPHA_MODE
+    AlphaMode: TD2D1AlphaMode
   end;
 
   TD2D1PixelFormat = D2D1_PIXEL_FORMAT;
@@ -5337,7 +5337,7 @@ type
   /// Contains the dimensions and corner radii of a rounded rectangle.
   /// </summary>
   D2D1_ROUNDED_RECT = record
-    Rect    : D2D1_RECT_F;
+    Rect    : TD2D1RectF;
     RadiusX : Single;
     RadiusY : Single;
   end;
@@ -5361,11 +5361,11 @@ type
   /// Describes an arc that is defined as part of a path.
   /// </summary>
   D2D1_ARC_SEGMENT = record
-    Point         : TD2D1Point2F;
-    Size          : D2D1_SIZE_F;
-    RotationAngle : Single;
-    SweepDirection: D2D1_SWEEP_DIRECTION;
-    ArcSize       : D2D1_ARC_SIZE;
+    Point           : TD2D1Point2F;
+    Size            : TD2D1SizeF;
+    RotationAngle   : Single;
+    SweepDirection  : TD2D1SweepDirection;
+    ArcSize         : TD2D1ArcSize;
   end;
 
   TD2D1ArcSegment = D2D1_ARC_SEGMENT;
@@ -5410,12 +5410,12 @@ type
   /// Properties, aside from the width, that allow geometric penning to be specified.
   /// </summary>
   D2D1_STROKE_STYLE_PROPERTIES = record
-    StartCap  : D2D1_CAP_STYLE;
-    EndCap    : D2D1_CAP_STYLE;
-    DashCap   : D2D1_CAP_STYLE;
-    LineJoin  : D2D1_LINE_JOIN;
+    StartCap  : TD2D1CapStyle;
+    EndCap    : TD2D1CapStyle;
+    DashCap   : TD2D1CapStyle;
+    LineJoin  : TD2D1LineJoin;
     MiterLimit: Single;
-    DashStyle : D2D1_DASH_STYLE;
+    DashStyle : TD2D1DashStyle;
     DashOffset: Single;
   end;
 
@@ -5423,13 +5423,13 @@ type
   PD2D1StrokeStyleProperties = ^TD2D1StrokeStyleProperties;
 
   D2D1_LAYER_PARAMETERS = record
-    ContentBounds     : D2D1_RECT_F;
+    ContentBounds     : TD2D1RectF;
     GeometricMask     : ID2D1Geometry;
-    MaskAntialiasMode : D2D1_ANTIALIAS_MODE;
+    MaskAntialiasMode : TD2D1AntialiasMode;
     MaskTransform     : TD2D1Matrix3x2F;
     Opacity           : Single;
     OpacityBrush      : ID2D1Brush;
-    LayerOptions      : D2D1_LAYER_OPTIONS;
+    LayerOptions      : TD2D1LayerOptions;
   end;
 
   TD2D1LayerParameters = D2D1_LAYER_PARAMETERS;
@@ -5441,12 +5441,12 @@ type
   /// target.
   /// </summary>
   D2D1_RENDER_TARGET_PROPERTIES = record
-    &Type       : D2D1_RENDER_TARGET_TYPE;
-    PixelFormat : D2D1_PIXEL_FORMAT;
+    &Type       : TD2D1RenderTargetType;
+    PixelFormat : TD2D1PixelFormat;
     DpiX        : Single;
     DpiY        : Single;
-    Usage       : D2D1_RENDER_TARGET_USAGE;
-    MinLevel    : D2D1_FEATURE_LEVEL;
+    Usage       : TD2D1RenderTargetUsage;
+    MinLevel    : TD2D1FeatureLevel;
   end;
 
   TD2D1RenderTargetProperties = D2D1_RENDER_TARGET_PROPERTIES;
@@ -5458,8 +5458,8 @@ type
   /// </summary>
   D2D1_HWND_RENDER_TARGET_PROPERTIES = record
     Hwnd          : HWND;
-    PixelSize     : D2D1_SIZE_U;
-    PresentOptions: D2D1_PRESENT_OPTIONS;
+    PixelSize     : TD2D1SizeU;
+    PresentOptions: TD2D1PresentOptions;
   end;
 
   TD2D1HwndRenderTargetProperties = D2D1_HWND_RENDER_TARGET_PROPERTIES;
@@ -5470,10 +5470,10 @@ type
   /// drawing state that is saved into an IDrawingStateBlock object.
   /// </summary>
   D2D1_DRAWING_STATE_DESCRIPTION = record
-    AntialiasMode: D2D1_ANTIALIAS_MODE;
-    TextAntialiasMode: D2D1_TEXT_ANTIALIAS_MODE;
-    Tag1: D2D1_TAG;
-    Tag2: D2D1_TAG;
+    AntialiasMode: TD2D1AntialiasMode;
+    TextAntialiasMode: TD2D1TextAntialiasMode;
+    Tag1: TD2D1Tag;
+    Tag2: TD2D1Tag;
     Transform: TD2D1Matrix3x2F;
   end;
 
@@ -5488,7 +5488,7 @@ type
     /// Requests a certain level of debugging information from the debug layer. This
     /// parameter is ignored if the debug layer DLL is not present.
     /// </summary>
-    DebugLevel: D2D1_DEBUG_LEVEL;
+    DebugLevel: TD2D1DebugLevel;
   end;
 
   TD2D1FactoryOptions = D2D1_FACTORY_OPTIONS;
@@ -5498,7 +5498,7 @@ type
   /// Describes the pixel format and dpi of a bitmap.
   /// </summary>
   D2D1_BITMAP_PROPERTIES = record
-    PixelFormat : D2D1_PIXEL_FORMAT;
+    PixelFormat : TD2D1PixelFormat;
     DpiX        : Single;
     DpiY        : Single;
   end;
@@ -5511,7 +5511,7 @@ type
   /// </summary>
   D2D1_GRADIENT_STOP = record
     Position: Single;
-    Color   : D2D1_COLOR_F;
+    Color   : TD2D1ColorF;
   end;
 
   TD2D1GradientStop = D2D1_GRADIENT_STOP;
@@ -5532,9 +5532,9 @@ type
   /// Describes the extend modes and the interpolation mode of an ID2D1BitmapBrush.
   /// </summary>
   D2D1_BITMAP_BRUSH_PROPERTIES = record
-    ExtendModeX       : D2D1_EXTEND_MODE;
-    ExtendModeY       : D2D1_EXTEND_MODE;
-    InterpolationMode : D2D1_BITMAP_INTERPOLATION_MODE;
+    ExtendModeX       : TD2D1ExtendMode;
+    ExtendModeY       : TD2D1ExtendMode;
+    InterpolationMode : TD2D1BitmapInterpolationMode;
   end;
 
   TD2D1BitmapBrushProperties = D2D1_BITMAP_BRUSH_PROPERTIES;
@@ -5612,14 +5612,14 @@ type
   /// Extended bitmap properties.
   /// </summary>
   D2D1_BITMAP_PROPERTIES1 = record
-    PixelFormat: D2D1_PIXEL_FORMAT;
+    PixelFormat: TD2D1PixelFormat;
     DpiX: Single;
     DpiY: Single;
 
     /// <summary>
     /// Specifies how the bitmap can be used.
     /// </summary>
-    BitmapOptions: D2D1_BITMAP_OPTIONS;
+    BitmapOptions: TD2D1BitmapOptions;
     ColorContext: ID2D1ColorContext;
   end;
 
@@ -5645,12 +5645,12 @@ type
     /// <summary>
     /// The default buffer precision, used if the precision isn't otherwise specified.
     /// </summary>
-    BufferPrecision: D2D1_BUFFER_PRECISION;
+    BufferPrecision: TD2D1BufferPrecision;
 
     /// <summary>
     /// The size of allocated tiles used to render imaging effects.
     /// </summary>
-    TileSize: D2D1_SIZE_U;
+    TileSize: TD2D1SizeU;
   end;
 
 	TD2D1RenderingControls = D2D1_RENDERING_CONTROLS;
@@ -5675,7 +5675,7 @@ type
     /// The rectangle which would be available on the specified input connection during
     /// render operations.
     /// </summary>
-    InputRectangle: D2D1_RECT_F;
+    InputRectangle: TD2D1RectF;
   end;
 
 	TD2D1EffectInputDescription = D2D1_EFFECT_INPUT_DESCRIPTION;
@@ -5699,10 +5699,10 @@ type
   /// Creation properties for an image brush.
   /// </summary>
   D2D1_IMAGE_BRUSH_PROPERTIES = record
-    SourceRectangle: D2D1_RECT_F;
-    ExtendModeX: D2D1_EXTEND_MODE;
-    ExtendModeY: D2D1_EXTEND_MODE;
-    InterpolationMode: D2D1_INTERPOLATION_MODE;
+    SourceRectangle: TD2D1RectF;
+    ExtendModeX: TD2D1ExtendMode;
+    ExtendModeY: TD2D1ExtendMode;
+    InterpolationMode: TD2D1InterpolationMode;
   end;
 
 	TD2D1ImageBrushProperties = D2D1_IMAGE_BRUSH_PROPERTIES;
@@ -5712,9 +5712,9 @@ type
   /// Describes the extend modes and the interpolation mode of an ID2D1BitmapBrush.
   /// </summary>
   D2D1_BITMAP_BRUSH_PROPERTIES1 = record
-    ExtendModeX: D2D1_EXTEND_MODE;
-    ExtendModeY: D2D1_EXTEND_MODE;
-    InterpolationMode: D2D1_INTERPOLATION_MODE;
+    ExtendModeX: TD2D1ExtendMode;
+    ExtendModeY: TD2D1ExtendMode;
+    InterpolationMode: TD2D1InterpolationMode;
   end;
 
 	TD2D1BitmapBrushProperties1 = D2D1_BITMAP_BRUSH_PROPERTIES1;
@@ -5724,18 +5724,18 @@ type
   /// This defines how geometries should be drawn and widened.
   /// </summary>
   D2D1_STROKE_STYLE_PROPERTIES1 = record
-    StartCap    : D2D1_CAP_STYLE;
-    EndCap      : D2D1_CAP_STYLE;
-    DashCap     : D2D1_CAP_STYLE;
-    LineJoin    : D2D1_LINE_JOIN;
+    StartCap    : TD2D1CapStyle;
+    EndCap      : TD2D1CapStyle;
+    DashCap     : TD2D1CapStyle;
+    LineJoin    : TD2D1LineJoin;
     MiterLimit  : Single;
-    DashStyle   :D2D1_DASH_STYLE;
+    DashStyle   : TD2D1DashStyle;
     DashOffset  : Single;
 
     /// <summary>
     /// How the nib of the stroke is influenced by the context properties.
     /// </summary>
-    TransformType: D2D1_STROKE_TRANSFORM_TYPE;
+    TransformType: TD2D1StrokeTransformType;
   end;
 
 	TD2D1StrokeStyleProperties1 = D2D1_STROKE_STYLE_PROPERTIES1;
@@ -5745,13 +5745,13 @@ type
   /// All parameters related to pushing a layer.
   /// </summary>
   D2D1_LAYER_PARAMETERS1 = record
-    ContentBounds: D2D1_RECT_F;
+    ContentBounds: TD2D1RectF;
     GeometricMask: ID2D1Geometry;
-    MaskAntialiasMode: D2D1_ANTIALIAS_MODE;
+    MaskAntialiasMode: TD2D1AntialiasMode;
     MaskTransform: TD2D1Matrix3x2F;
     Opacity: Single;
     OpacityBrush: ID2D1Brush;
-    LayerOptions: D2D1_LAYER_OPTIONS1;
+    LayerOptions: TD2D1LayerOptions1;
   end;
 
 	TD2D1LayerParameters1 = D2D1_LAYER_PARAMETERS1;
@@ -5761,13 +5761,13 @@ type
   /// This describes the drawing state.
   /// </summary>
   D2D1_DRAWING_STATE_DESCRIPTION1 = record
-    AntialiasMode: D2D1_ANTIALIAS_MODE;
-    TextAntialiasMode: D2D1_TEXT_ANTIALIAS_MODE;
-    Tag1: D2D1_TAG;
-    Tag2: D2D1_TAG;
+    AntialiasMode: TD2D1AntialiasMode;
+    TextAntialiasMode: TD2D1TextAntialiasMode;
+    Tag1: TD2D1Tag;
+    Tag2: TD2D1Tag;
     Transform: TD2D1Matrix3x2F;
-    PrimitiveBlend: D2D1_PRIMITIVE_BLEND;
-    UnitMode: D2D1_UNIT_MODE;
+    PrimitiveBlend: TD2D1PrimitiveBlend;
+    UnitMode: TD2D1UnitMode;
   end;
 
 	TD2D1DrawingStateDescription1 = D2D1_DRAWING_STATE_DESCRIPTION1;
@@ -5778,7 +5778,7 @@ type
   /// </summary>
   D2D1_PRINT_CONTROL_PROPERTIES = record
 
-    FontSubset: D2D1_PRINT_FONT_SUBSET_MODE;
+    FontSubset: TD2D1PrintFontSubsetMode;
 
     /// <summary>
     /// DPI for rasterization of all unsupported D2D commands or options, defaults to
@@ -5789,7 +5789,7 @@ type
     /// <summary>
     /// Color space for vector graphics in XPS package
     /// </summary>
-    ColorSpace: D2D1_COLOR_SPACE;
+    ColorSpace: TD2D1ColorSpace;
   end;
 
 	TD2D1PrintControlProperties = D2D1_PRINT_CONTROL_PROPERTIES;
@@ -5804,9 +5804,9 @@ type
     /// <summary>
     /// Describes locking behavior of D2D resources
     /// </summary>
-    ThreadingMode: D2D1_THREADING_MODE;
-    DebugLevel: D2D1_DEBUG_LEVEL;
-    Options: D2D1_DEVICE_CONTEXT_OPTIONS;
+    ThreadingMode: TD2D1ThreadingMode;
+    DebugLevel: TD2D1DebugLevel;
+    Options: TD2D1DeviceContextOptions;
   end;
 
 	TD2D1CreationProperties = D2D1_CREATION_PROPERTIES;
@@ -5830,7 +5830,7 @@ type
     /// <summary>
     /// The orientation at which the image source is drawn.
     /// </summary>
-    Orientation: D2D1_ORIENTATION;
+    Orientation: TD2D1Orientation;
 
     /// <summary>
     /// The horizontal scale factor at which the image source is drawn.
@@ -5846,12 +5846,12 @@ type
     /// The interpolation mode used when the image source is drawn.  This is ignored if
     /// the image source is drawn using the DrawImage method, or using an image brush.
     /// </summary>
-    InterpolationMode: D2D1_INTERPOLATION_MODE;
+    InterpolationMode: TD2D1InterpolationMode;
 
     /// <summary>
     /// Option flags.
     /// </summary>
-    Options: D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS;
+    Options: TD2D1TransformedImageSourceOptions;
   end;
 
 	TD2D1TransformedImageSourceProperties = D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES;
@@ -5875,9 +5875,9 @@ type
   /// D2D1_INK_POINT s, which contain a radius in addition to x- and y-coordinates.
   /// </summary>
   D2D1_INK_BEZIER_SEGMENT = record
-    Point1: D2D1_INK_POINT;
-    Point2: D2D1_INK_POINT;
-    Point3: D2D1_INK_POINT;
+    Point1: TD2D1InkPoint;
+    Point2: TD2D1InkPoint;
+    Point3: TD2D1InkPoint;
   end;
 
 	TD2D1InkBezierSegment = D2D1_INK_BEZIER_SEGMENT;
@@ -5892,7 +5892,7 @@ type
     /// <summary>
     /// The general shape of the nib used to draw a given ink object.
     /// </summary>
-    NibShape: D2D1_INK_NIB_SHAPE;
+    NibShape: TD2D1InkNibShape;
 
     /// <summary>
     /// The transform applied to shape of the nib. _31 and _32 are ignored.
@@ -5993,42 +5993,42 @@ type
     /// <summary>
     /// The color associated with control point at position 00.
     /// </summary>
-    Color00: D2D1_COLOR_F;
+    Color00: TD2D1ColorF;
 
     /// <summary>
     /// The color associated with control point at position 03.
     /// </summary>
-    Color03: D2D1_COLOR_F;
+    Color03: TD2D1ColorF;
 
     /// <summary>
     /// The color associated with control point at position 30.
     /// </summary>
-    Color30: D2D1_COLOR_F;
+    Color30: TD2D1ColorF;
 
     /// <summary>
     /// The color associated with control point at position 33.
     /// </summary>
-    Color33: D2D1_COLOR_F;
+    Color33: TD2D1ColorF;
 
     /// <summary>
     /// The edge mode for the top edge of the patch.
     /// </summary>
-    TopEdgeMode: D2D1_PATCH_EDGE_MODE;
+    TopEdgeMode: TD2D1PatchEdgeMode;
 
     /// <summary>
     /// The edge mode for the left edge of the patch.
     /// </summary>
-    LeftEdgeMode: D2D1_PATCH_EDGE_MODE;
+    LeftEdgeMode: TD2D1PatchEdgeMode;
 
     /// <summary>
     /// The edge mode for the bottom edge of the patch.
     /// </summary>
-    BottomEdgeMode: D2D1_PATCH_EDGE_MODE;
+    BottomEdgeMode: TD2D1PatchEdgeMode;
 
     /// <summary>
     /// The edge mode for the right edge of the patch.
     /// </summary>
-    RightEdgeMode: D2D1_PATCH_EDGE_MODE;
+    RightEdgeMode: TD2D1PatchEdgeMode;
   end;
 
 	TD2D1GradientMeshPatch = D2D1_GRADIENT_MESH_PATCH;
@@ -6062,7 +6062,7 @@ type
     /// <summary>
     /// The gamma encoding to use for this color space.
     /// </summary>
-    Gamma: D2D1_GAMMA1;
+    Gamma: TD2D1Gamma1;
   end;
 
 	TD2D1SimpleColorProfile = D2D1_SIMPLE_COLOR_PROFILE;
@@ -6285,7 +6285,7 @@ type
     /// <summary>
     /// The feature OpenType name identifier.
     /// </summary>
-    NameTag: DWRITE_FONT_FEATURE_TAG;
+    NameTag: TDWriteFontFeatureTag;
 
     /// <summary>
     /// Execution parameter of the feature.
@@ -6310,7 +6310,7 @@ type
     /// <summary>
     /// Array of font features.
     /// </summary>
-    Features: DWRITE_FONT_FEATURE;
+    Features: TDWriteFontFeature;
 
     /// <summary>
     /// The number of features.
@@ -6328,7 +6328,7 @@ type
     /// <summary>
     /// Text granularity of which trimming applies.
     /// </summary>
-    Granularity: DWRITE_TRIMMING_GRANULARITY;
+    Granularity: TDWriteTrimmingGranularity;
 
     /// <summary>
     /// Character code used as the delimiter signaling the beginning of the portion of text to be preserved,
@@ -6358,7 +6358,7 @@ type
     /// <summary>
     /// Additional shaping requirement of text.
     /// </summary>
-    Shapes: DWRITE_SCRIPT_SHAPES;
+    Shapes: TDWriteScriptShapes;
   end;
 
 	TDWriteScriptAnalysis = DWRITE_SCRIPT_ANALYSIS;
@@ -6607,14 +6607,14 @@ type
     /// value is used to interpret whether the width value runs horizontally
     /// or vertically.
     /// </summary>
-    ReadingDirection: DWRITE_READING_DIRECTION;
+    ReadingDirection: TDWriteReadingDirection;
 
     /// <summary>
     /// Flow direction of the text associated with the underline.  This value
     /// is used to interpret whether the thickness value advances top to
     /// bottom, left to right, or right to left.
     /// </summary>
-    FlowDirection: DWRITE_FLOW_DIRECTION;
+    FlowDirection: TDWriteFlowDirection;
 
     /// <summary>
     /// Locale of the text the underline is being drawn under. Can be
@@ -6630,7 +6630,7 @@ type
     /// underlines are rendered, e.g. rounding the thickness to a whole pixel
     /// in GDI-compatible modes.
     /// </summary>
-    MeasuringMode: DWRITE_MEASURING_MODE;
+    MeasuringMode: TDWriteMeasuringMode;
   end;
 
 	TDWriteUnderline = DWRITE_UNDERLINE;
@@ -6666,14 +6666,14 @@ type
     /// value is used to interpret whether the width value runs horizontally
     /// or vertically.
     /// </summary>
-    ReadingDirection: DWRITE_READING_DIRECTION;
+    ReadingDirection: TDWriteReadingDirection;
 
     /// <summary>
     /// Flow direction of the text associated with the strikethrough.  This
     /// value is used to interpret whether the thickness value advances top to
     /// bottom, left to right, or right to left.
     /// </summary>
-    FlowDirection: DWRITE_FLOW_DIRECTION;
+    FlowDirection: TDWriteFlowDirection;
 
     /// <summary>
     /// Locale of the range. Can be pertinent where the locale affects the style.
@@ -6685,7 +6685,7 @@ type
     /// underlines are rendered, e.g. rounding the thickness to a whole pixel
     /// in GDI-compatible modes.
     /// </summary>
-    MeasuringMode: DWRITE_MEASURING_MODE;
+    MeasuringMode: TDWriteMeasuringMode;
   end;
 
 	TDWriteStrikethrough = DWRITE_STRIKETHROUGH;
@@ -7002,9 +7002,9 @@ type
   D2D1_RESOURCE_TEXTURE_PROPERTIES = record
     Extents: PUint32;
     Dimensions: UInt32;
-    BufferPrecision: D2D1_BUFFER_PRECISION;
-    ChannelDepth: D2D1_CHANNEL_DEPTH;
-    Filter: D2D1_FILTER;
+    BufferPrecision: TD2D1BufferPrecision;
+    ChannelDepth: TD2D1ChannelDepth;
+    Filter: TD2D1Filter;
     ExtendModes: PD2D1ExtendMode;
   end;
 
@@ -7033,7 +7033,7 @@ type
   D2D1_VERTEX_BUFFER_PROPERTIES = record
 
     InputCount: UInt32;
-    Usage: D2D1_VERTEX_USAGE;
+    Usage: TD2D1VertexUsage;
     Data: PByte;
     ByteWidth: UInt32;
   end;
@@ -7074,12 +7074,12 @@ type
   /// </summary>
   D2D1_BLEND_DESCRIPTION = record
 
-    SourceBlend: D2D1_BLEND;
-    DestinationBlend: D2D1_BLEND;
-    BlendOperation: D2D1_BLEND_OPERATION;
-    SourceBlendAlpha: D2D1_BLEND;
-    DestinationBlendAlpha: D2D1_BLEND;
-    BlendOperationAlpha: D2D1_BLEND_OPERATION ;
+    SourceBlend: TD2D1Blend;
+    DestinationBlend: TD2D1Blend;
+    BlendOperation: TD2D1BlendOperation;
+    SourceBlendAlpha: TD2D1Blend;
+    DestinationBlendAlpha: TD2D1Blend;
+    BlendOperationAlpha: TD2D1BlendOperation;
     BlendFactor: Array[0..3] of Single;
   end;
 
@@ -7090,7 +7090,8 @@ type
   /// Describes options transforms may select to use on their input textures.
   /// </summary>
   D2D1_INPUT_DESCRIPTION = record
-    Filter: D2D1_FILTER;
+
+    Filter: TD2D1Filter;
     LevelOfDetailCount: UInt32;
   end;
 
@@ -7116,8 +7117,8 @@ type
     ComputeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x: BOOL;
   end;
 
-	TD2D1FeatureDataD3d10XHardwareOptions = D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS;
-	PD2D1FeatureDataD3d10XHardwareOptions = ^TD2D1FeatureDataD3d10XHardwareOptions;
+	TD2D1FeatureDataD3D10XHardwareOptions = D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS;
+	PD2D1FeatureDataD3D10XHardwareOptions = ^TD2D1FeatureDataD3D10XHardwareOptions;
 
 {$ENDREGION}
 
@@ -7135,7 +7136,7 @@ type
   D2D1_SVG_LENGTH = record
 
     Value: Single;
-    Units: D2D1_SVG_LENGTH_UNITS;
+    Units: TD2D1SvgLengthUnits;
   end;
 
 	TD2D1SvgLength = D2D1_SVG_LENGTH;
@@ -7156,12 +7157,12 @@ type
     /// <summary>
     /// Sets the align portion of the preserveAspectRatio settings.
     /// </summary>
-    Align: D2D1_SVG_ASPECT_ALIGN;
+    Align: TD2D1SvgAspectAlign;
 
     /// <summary>
     /// Sets the meetOrSlice portion of the preserveAspectRatio settings.
     /// </summary>
-    MeetOrSlice: D2D1_SVG_ASPECT_SCALING;
+    MeetOrSlice: TD2D1SvgAspectScaling;
   end;
 
 	TD2D1SvgPreserveAspectRatio = D2D1_SVG_PRESERVE_ASPECT_RATIO;
@@ -7212,17 +7213,17 @@ type
     /// <summary>
     /// Returns the size of the bitmap in resolution independent units.
     /// </summary>
-    function GetSize: D2D1_SIZE_F; stdcall;
+    function GetSize: TD2D1SizeF; stdcall;
 
     /// <summary>
     /// Returns the size of the bitmap in resolution dependent units, (pixels).
     /// </summary>
-    function GetPixelSize: D2D1_SIZE_U; stdcall;
+    function GetPixelSize: TD2D1SizeU; stdcall;
 
     /// <summary>
     /// Retrieve the format of the bitmap.
     /// </summary>
-    function GetPixelFormat: D2D1_PIXEL_FORMAT; stdcall;
+    function GetPixelFormat: TD2D1PixelFormat; stdcall;
 
     /// <summary>
     /// Return the DPI of the bitmap.
@@ -7252,9 +7253,9 @@ type
     /// <summary>
     /// Returns whether the interpolation occurs with 1.0 or 2.2 gamma.
     /// </summary>
-    function GetColorInterpolationGamma: D2D1_GAMMA; stdcall;
+    function GetColorInterpolationGamma: TD2D1Gamma; stdcall;
 
-    function GetExtendMode: D2D1_EXTEND_MODE; stdcall;
+    function GetExtendMode: TD2D1ExtendMode; stdcall;
   end;
 
   ID2D1Brush = interface(ID2D1Resource)
@@ -7280,29 +7281,29 @@ type
     /// Sets how the bitmap is to be treated outside of its natural extent on the X
     /// axis.
     /// </summary>
-    procedure SetExtendModeX(AExtendModeX: D2D1_EXTEND_MODE); stdcall;
+    procedure SetExtendModeX(AExtendModeX: TD2D1ExtendMode); stdcall;
 
     /// <summary>
     /// Sets how the bitmap is to be treated outside of its natural extent on the X
     /// axis.
     /// </summary>
-    procedure SetExtendModeY(AExtendModeY: D2D1_EXTEND_MODE); stdcall;
+    procedure SetExtendModeY(AExtendModeY: TD2D1ExtendMode); stdcall;
 
     /// <summary>
     /// Sets the interpolation mode used when this brush is used.
     /// </summary>
-    procedure SetInterpolationMode(AInterpolationMode: D2D1_BITMAP_INTERPOLATION_MODE); stdcall;
+    procedure SetInterpolationMode(AInterpolationMode: TD2D1BitmapInterpolationMode); stdcall;
 
     /// <summary>
     /// Sets the bitmap associated as the source of this brush.
     /// </summary>
     procedure SetBitmap(ABitmap: ID2D1Bitmap); stdcall;
 
-    function GetExtendModeX: D2D1_EXTEND_MODE; stdcall;
+    function GetExtendModeX: TD2D1ExtendMode; stdcall;
 
-    function GetExtendModeY: D2D1_EXTEND_MODE; stdcall;
+    function GetExtendModeY: TD2D1ExtendMode; stdcall;
 
-    function GetInterpolationMode: D2D1_BITMAP_INTERPOLATION_MODE; stdcall;
+    function GetInterpolationMode: TD2D1BitmapInterpolationMode; stdcall;
 
     procedure GetBitmap(out ABitmap: ID2D1Bitmap); stdcall;
   end;
@@ -7310,7 +7311,7 @@ type
   ID2D1SolidColorBrush = interface(ID2D1Brush)
     procedure SetColor(const AColor: PD2D1ColorF); stdcall;
 
-    function GetColor: D2D1_COLOR_F; stdcall;
+    function GetColor: TD2D1ColorF; stdcall;
   end;
 
   ID2D1LinearGradientBrush = interface(ID2D1Brush)
@@ -7360,19 +7361,19 @@ type
 
   ID2D1StrokeStyle = interface(ID2D1Resource)
 
-    function GetStartCap: D2D1_CAP_STYLE; stdcall;
+    function GetStartCap: TD2D1CapStyle; stdcall;
 
-    function GetEndCap: D2D1_CAP_STYLE; stdcall;
+    function GetEndCap: TD2D1CapStyle; stdcall;
 
-    function GetDashCap: D2D1_CAP_STYLE; stdcall;
+    function GetDashCap: TD2D1CapStyle; stdcall;
 
     function GetMiterLimit: Single; stdcall;
 
-    function GetLineJoin: D2D1_LINE_JOIN; stdcall;
+    function GetLineJoin: TD2D1LineJoin; stdcall;
 
     function GetDashOffset: Single; stdcall;
 
-    function GetDashStyle: D2D1_DASH_STYLE; stdcall;
+    function GetDashStyle: TD2D1DashStyle; stdcall;
 
     function GetDashesCount: UInt32; stdcall;
 
@@ -7392,7 +7393,7 @@ type
     /// </summary>
     function GetBounds(
       const AWorldTransform: PD2D1Matrix3x2F;
-      out ABounds: D2D1_RECT_F): HRESULT; stdcall;
+      out ABounds: TD2D1RectF): HRESULT; stdcall;
 
     /// <summary>
     /// Get the bounds of the corresponding geometry after it has been widened or have
@@ -7403,7 +7404,7 @@ type
       AStrokeStyle: ID2D1StrokeStyle;
       const AWorldTransform: PD2D1Matrix3x2F;
       AFlatteningTolerance: Single;
-      out ABounds: D2D1_RECT_F): HRESULT; stdcall;
+      out ABounds: TD2D1RectF): HRESULT; stdcall;
 
     /// <summary>
     /// Checks to see whether the corresponding penned and widened geometry contains the
@@ -7433,14 +7434,14 @@ type
       AInputGeometry: ID2D1Geometry;
       AInputGeometryTransform: PD2D1Matrix3x2F;
       AFlatteningTolerance: Single;
-      out ARelation: D2D1_GEOMETRY_RELATION): HRESULT; stdcall;
+      out ARelation: TD2D1GeometryRelation): HRESULT; stdcall;
 
     /// <summary>
     /// Converts a geometry to a simplified geometry that has arcs and quadratic beziers
     /// removed.
     /// </summary>
     function Simplify(
-      ASimplificationOption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION;
+      ASimplificationOption: TD2D1GeometrySimplificationOption;
       const AWorldTransform: PD2D1Matrix3x2F;
       AFlatteningTolerance: Single;
       AGeometrySink: ID2D1SimplifiedGeometrySink): HRESULT; stdcall;
@@ -7459,7 +7460,7 @@ type
     /// </summary>
     function CombineWithGeometry(
       AInputGeometry: ID2D1Geometry;
-      ACombineMode: D2D1_COMBINE_MODE;
+      ACombineMode: TD2D1CombineMode;
       const AInputGeometryTransform: PD2D1Matrix3x2F;
       AFlatteningTolerance: Single;
       AGeometrySink: ID2D1SimplifiedGeometrySink): HRESULT; stdcall;
@@ -7511,22 +7512,22 @@ type
 
   ID2D1RectangleGeometry = interface(ID2D1Geometry)
 
-    procedure GetRect(out ARect: D2D1_RECT_F); stdcall;
+    procedure GetRect(out ARect: TD2D1RectF); stdcall;
   end;
 
   ID2D1RoundedRectangleGeometry = interface(ID2D1Geometry)
 
-    procedure GetRoundedRect(out ARoundedRect: D2D1_ROUNDED_RECT); stdcall;
+    procedure GetRoundedRect(out ARoundedRect: TD2D1RoundedRect); stdcall;
   end;
 
   ID2D1EllipseGeometry = interface(ID2D1Geometry)
 
-    procedure GetEllipse(out AEllipse: D2D1_ELLIPSE); stdcall;
+    procedure GetEllipse(out AEllipse: TD2D1Ellipse); stdcall;
   end;
 
   ID2D1GeometryGroup = interface(ID2D1Geometry)
 
-    function GetFillMode: D2D1_FILL_MODE; stdcall;
+    function GetFillMode: TD2D1FillMode; stdcall;
 
     function GetSourceGeometryCount: UInt32; stdcall;
 
@@ -7544,13 +7545,13 @@ type
 
   ID2D1SimplifiedGeometrySink = interface(IUnknown)
 
-    procedure SetFillMode(AFillMode: D2D1_FILL_MODE); stdcall;
+    procedure SetFillMode(AFillMode: TD2D1FillMode); stdcall;
 
-    procedure SetSegmentFlags(AVertexFlags: D2D1_PATH_SEGMENT); stdcall;
+    procedure SetSegmentFlags(AVertexFlags: TD2D1PathSegment); stdcall;
 
     procedure BeginFigure(
       AStartPoint: TD2D1Point2F;
-      AFigureBegin: D2D1_FIGURE_BEGIN); stdcall;
+      AFigureBegin: TD2D1FigureBegin); stdcall;
 
     procedure AddLines(
       const APoints: PD2D1Point2F;
@@ -7560,7 +7561,7 @@ type
       const ABeziers: PD2D1BezierSegment;
       ABeziersCount: UInt32); stdcall;
 
-    procedure EndFigure(AFigureEnd: D2D1_FIGURE_END); stdcall;
+    procedure EndFigure(AFigureEnd: TD2D1FigureEnd); stdcall;
 
     function Close: HRESULT; stdcall;
   end;
@@ -7614,7 +7615,7 @@ type
 
   ID2D1Layer = interface(ID2D1Resource)
 
-    function GetSize: D2D1_SIZE_F; stdcall;
+    function GetSize: TD2D1SizeF; stdcall;
   end;
 
   ID2D1DrawingStateBlock = interface(ID2D1Resource)
@@ -7622,12 +7623,12 @@ type
     /// <summary>
     /// Retrieves the state currently contained within this state block resource.
     /// </summary>
-    procedure GetDescription(out AStateDescription: D2D1_DRAWING_STATE_DESCRIPTION); stdcall;
+    procedure GetDescription(out AStateDescription: TD2D1DrawingStateDescription); stdcall;
 
     /// <summary>
     /// Sets the state description of this state block resource.
     /// </summary>
-    procedure SetDescription(AStateDescription: D2D1_DRAWING_STATE_DESCRIPTION); stdcall;
+    procedure SetDescription(AStateDescription: TD2D1DrawingStateDescription); stdcall;
 
     /// <summary>
     /// Sets the text rendering parameters of this state block resource.
@@ -7648,7 +7649,7 @@ type
     /// Create a D2D bitmap by copying from memory, or create uninitialized.
     /// </summary>
     function CreateBitmap(
-      ASize: D2D1_SIZE_U;
+      ASize: TD2D1SizeU;
       const ASrcData: Pointer;
       APitch: UInt32;
       const ABitmapProperties: PD2D1BitmapProperties;
@@ -7700,8 +7701,8 @@ type
     function CreateGradientStopCollection(
       const AGradientStops: PD2D1GradientStop;
       AGradientStopsCount: UInt32;
-      AColorInterpolationGamma: D2D1_GAMMA;
-      AExtendMode: D2D1_EXTEND_MODE;
+      AColorInterpolationGamma: TD2D1Gamma;
+      AExtendMode: TD2D1ExtendMode;
       out AGradientStopCollection: ID2D1GradientStopCollection): HRESULT; stdcall;
 
     function CreateLinearGradientBrush(
@@ -7738,7 +7739,7 @@ type
       const ADesiredSize: PD2D1SizeF;
       const ADesiredPixelSize: PD2D1SizeU;
       const ADesiredFormat: PD2D1PixelFormat;
-      AOptions: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS;
+      AOptions: TD2D1CompatibleRenderTargetOptions;
       out ABitmapRenderTarget: ID2D1BitmapRenderTarget): HRESULT; stdcall;
 
     /// <summary>
@@ -7828,7 +7829,7 @@ type
     procedure FillOpacityMask(
       AOpacityMask: ID2D1Bitmap;
       ABrush: ID2D1Brush;
-      AContent: D2D1_OPACITY_MASK_CONTENT;
+      AContent: TD2D1OpacityMaskContent;
       const ADestinationRectangle: PD2D1RectF = nil;
       const ASourceRectangle: PD2D1RectF = nil); stdcall;
 
@@ -7836,7 +7837,7 @@ type
       ABitmap: ID2D1Bitmap;
       const ADestinationRectangle: PD2D1RectF;
       AOpacity: Single = 1.0;
-      AInterpolationMode: D2D1_BITMAP_INTERPOLATION_MODE = D2D1_BITMAP_INTERPOLATION_MODE_LINEAR;
+      AInterpolationMode: TD2D1BitmapInterpolationMode = D2D1_BITMAP_INTERPOLATION_MODE_LINEAR;
       const ASourceRectangle: PD2D1RectF = nil); stdcall;
 
     /// <summary>
@@ -7864,25 +7865,25 @@ type
       AOrigin: TD2D1Point2F;
       ATextLayout: IDWriteTextLayout;
       ADefaultFillBrush: ID2D1Brush;
-      AOptions: D2D1_DRAW_TEXT_OPTIONS = D2D1_DRAW_TEXT_OPTIONS_NONE); stdcall;
+      AOptions: TD2D1DrawTextOptions = D2D1_DRAW_TEXT_OPTIONS_NONE); stdcall;
 
     procedure DrawGlyphRun(
       ABaselineOrigin: TD2D1Point2F;
       const AGlyphRun: PDWriteGlyphRun;
       AForegroundBrush: ID2D1Brush;
-      AMeasuringMode: DWRITE_MEASURING_MODE = DWRITE_MEASURING_MODE_NATURAL); stdcall;
+      AMeasuringMode: TDWriteMeasuringMode = DWRITE_MEASURING_MODE_NATURAL); stdcall;
 
     procedure SetTransform(const ATransform: PD2D1Matrix3x2F); stdcall;
 
     procedure GetTransform(out ATransform: TD2D1Matrix3x2F); stdcall;
 
-    procedure SetAntialiasMode(AAntialiasMode: D2D1_ANTIALIAS_MODE); stdcall;
+    procedure SetAntialiasMode(AAntialiasMode: TD2D1AntialiasMode); stdcall;
 
-    function GetAntialiasMode: D2D1_ANTIALIAS_MODE; stdcall;
+    function GetAntialiasMode: TD2D1AntialiasMode; stdcall;
 
-    procedure SetTextAntialiasMode(ATextAntialiasMode: D2D1_TEXT_ANTIALIAS_MODE); stdcall;
+    procedure SetTextAntialiasMode(ATextAntialiasMode: TD2D1TextAntialiasMode); stdcall;
 
-    function GetTextAntialiasMode: D2D1_TEXT_ANTIALIAS_MODE; stdcall;
+    function GetTextAntialiasMode: TD2D1TextAntialiasMode; stdcall;
 
     procedure SetTextRenderingParams(ATextRenderingParams: IDWriteRenderingParams = nil); stdcall;
 
@@ -7896,7 +7897,7 @@ type
     /// Set a tag to correspond to the succeeding primitives. If an error occurs
     /// rendering a primitive, the tags can be returned from the Flush or EndDraw call.
     /// </summary>
-    procedure SetTags(ATag1, ATag2: D2D1_TAG); stdcall;
+    procedure SetTags(ATag1, ATag2: TD2D1Tag); stdcall;
 
     /// <summary>
     /// Retrieves the currently set tags. This does not retrieve the tags corresponding
@@ -7945,7 +7946,7 @@ type
     /// </summary>
     procedure PushAxisAlignedClip(
       const AClipRect: PD2D1RectF;
-      AAntialiasMode: D2D1_ANTIALIAS_MODE); stdcall;
+      AAntialiasMode: TD2D1AntialiasMode); stdcall;
 
     procedure PopAxisAlignedClip; stdcall;
 
@@ -7965,7 +7966,7 @@ type
       ATag1: PD2D1Tag = nil;
       ATag2: PD2D1Tag = nil); stdcall;
 
-    function GetPixelFormat: D2D1_PIXEL_FORMAT; stdcall;
+    function GetPixelFormat: TD2D1PixelFormat; stdcall;
     /// <summary>
     /// Sets the DPI on the render target. This results in the render target being
     /// interpreted to a different scale. Neither DPI can be negative. If zero is
@@ -7982,12 +7983,12 @@ type
     /// <summary>
     /// Returns the size of the render target in DIPs.
     /// </summary>
-    function GetSize: D2D1_SIZE_F; stdcall;
+    function GetSize: TD2D1SizeF; stdcall;
 
     /// <summary>
     /// Returns the size of the render target in pixels.
     /// </summary>
-    function GetPixelSize: D2D1_SIZE_U; stdcall;
+    function GetPixelSize: TD2D1SizeU; stdcall;
 
     /// <summary>
     /// Returns the maximum bitmap and render target size that is guaranteed to be
@@ -8010,7 +8011,7 @@ type
 
   ID2D1HwndRenderTarget = interface(ID2D1RenderTarget)
 
-    function CheckWindowState: D2D1_WINDOW_STATE; stdcall;
+    function CheckWindowState: TD2D1WindowState; stdcall;
 
     /// <summary>
     /// Resize the buffer underlying the render target. This operation might fail if
@@ -8027,7 +8028,7 @@ type
 
   ID2D1GdiInteropRenderTarget = interface(IUnknown)
     function GetDC(
-      AMode: D2D1_DC_INITIALIZE_MODE;
+      AMode: TD2D1DCInitializeMode;
       out AHdc: HDC): HRESULT; stdcall;
 
     function ReleaseDC(const AUpdate: PRect): HRESULT; stdcall;
@@ -8066,7 +8067,7 @@ type
     /// Create a geometry which holds other geometries.
     /// </summary>
     function CreateGeometryGroup(
-      AFillMode: D2D1_FILL_MODE;
+      AFillMode: TD2D1FillMode;
       AGeometries: PID2D1Geometry;
       AGeometriesCount: UInt32;
       out AGeometryGroup: ID2D1GeometryGroup): HRESULT; stdcall;
@@ -8087,7 +8088,7 @@ type
     /// time.
     /// </summary>
     function CreateStrokeStyle(
-      const AStrokeStyleProperties: D2D1_STROKE_STYLE_PROPERTIES;
+      const AStrokeStyleProperties: TD2D1StrokeStyleProperties;
       const ADashes: PSingle;
       ADashesCount: UInt32;
       out AStrokeStyle: ID2D1StrokeStyle): HRESULT; stdcall;
@@ -8152,7 +8153,7 @@ type
     ['{2f543dc3-cfc1-4211-864f-cfd91c6f3395}']
 
     function Stream(out ASink: ID2D1GdiMetafileSink): HRESULT; stdcall;
-    function GetBounds(out ABounds: D2D1_RECT_F): HRESULT; stdcall;
+    function GetBounds(out ABounds: TD2D1RectF): HRESULT; stdcall;
   end;
 
   ID2D1CommandSink = interface(IUnknown)
@@ -8162,19 +8163,19 @@ type
 
     function EndDraw: HRESULT; stdcall;
 
-    function SetAntialiasMode(AAntialiasMode: D2D1_ANTIALIAS_MODE): HRESULT; stdcall;
+    function SetAntialiasMode(AAntialiasMode: TD2D1AntialiasMode): HRESULT; stdcall;
 
-    function SetTags(ATag1, ATag2: D2D1_TAG): HRESULT; stdcall;
+    function SetTags(ATag1, ATag2: TD2D1Tag): HRESULT; stdcall;
 
-    function SetTextAntialiasMode(ATextAntialiasMode: D2D1_TEXT_ANTIALIAS_MODE): HRESULT; stdcall;
+    function SetTextAntialiasMode(ATextAntialiasMode: TD2D1TextAntialiasMode): HRESULT; stdcall;
 
     function SetTextRenderingParams(ATextRenderingParams: IDWriteRenderingParams): HRESULT; stdcall;
 
     function SetTransform(const ATtransform: PD2D1Matrix3x2F): HRESULT; stdcall;
 
-    function SetPrimitiveBlend(APrimitiveBlend: D2D1_PRIMITIVE_BLEND): HRESULT; stdcall;
+    function SetPrimitiveBlend(APrimitiveBlend: TD2D1PrimitiveBlend): HRESULT; stdcall;
 
-    function SetUnitMode(AUnitMode: D2D1_UNIT_MODE): HRESULT; stdcall;
+    function SetUnitMode(AUnitMode: TD2D1UnitMode): HRESULT; stdcall;
 
     function Clear(const AColor: PD2D1ColorF): HRESULT; stdcall;
 
@@ -8183,7 +8184,7 @@ type
       const AGlyphRun: PDWriteGlyphRun;
       const AGlyphRunDescription: PDWriteGlyphRunDescription;
       AForegroundBrush: ID2D1Brush;
-      AMeasuringMode: DWRITE_MEASURING_MODE): HRESULT; stdcall;
+      AMeasuringMode: TDWriteMeasuringMode): HRESULT; stdcall;
 
     function DrawLine(
       APoint0: TD2D1Point2F;
@@ -8208,7 +8209,7 @@ type
       ABitmap: ID2D1Bitmap;
       const ADestinationRectangle: PD2D1RectF;
       AOpacity: Single;
-      AInterpolationMode: D2D1_INTERPOLATION_MODE;
+      AInterpolationMode: TD2D1InterpolationMode;
       const ASourceRectangle: PD2D1RectF;
       const APerspectiveTransform: PD2D1Matrix4x4F): HRESULT; stdcall;
 
@@ -8216,8 +8217,8 @@ type
       AImage: ID2D1Image;
       const ATargetOffset: PD2D1Point2F;
       const AImageRectangle: PD2D1RectF;
-      AIinterpolationMode: D2D1_INTERPOLATION_MODE;
-      ACompositeMode: D2D1_COMPOSITE_MODE): HRESULT; stdcall;
+      AIinterpolationMode: TD2D1InterpolationMode;
+      ACompositeMode: TD2D1CompositeMode): HRESULT; stdcall;
 
     function DrawGdiMetafile(
       AGdiMetafile: ID2D1GdiMetafile;
@@ -8244,7 +8245,7 @@ type
 
     function PushAxisAlignedClip(
       const AClipRect: PD2D1RectF;
-      AAntialiasMode: D2D1_ANTIALIAS_MODE): HRESULT; stdcall;
+      AAntialiasMode: TD2D1AntialiasMode): HRESULT; stdcall;
 
     function PushLayer(
       const ALayerParameters1: PD2D1LayerParameters1;
@@ -8267,7 +8268,7 @@ type
     ['{2c1d867d-c290-41c8-ae7e-34a98702e9a5}']
     function AddPage(
       ACommandList: ID2D1CommandList;
-      APageSize: D2D1_SIZE_F;
+      APageSize: TD2D1SizeF;
       APagePrintTicketStream: IStream;
       ATag1: PD2D1Tag = nil;
       ATag2: PD2D1Tag = nil): HRESULT; stdcall;
@@ -8280,38 +8281,38 @@ type
 
     procedure SetImage(AImage: ID2D1Image); stdcall;
 
-    procedure SetExtendModeX(AExtendModeX: D2D1_EXTEND_MODE); stdcall;
+    procedure SetExtendModeX(AExtendModeX: TD2D1ExtendMode); stdcall;
 
-    procedure SetExtendModeY(AExtendModeY: D2D1_EXTEND_MODE); stdcall;
+    procedure SetExtendModeY(AExtendModeY: TD2D1ExtendMode); stdcall;
 
-    procedure SetInterpolationMode(AInterpolationMode: D2D1_INTERPOLATION_MODE); stdcall;
+    procedure SetInterpolationMode(AInterpolationMode: TD2D1InterpolationMode); stdcall;
 
     procedure SetSourceRectangle(const ASourceRectangle: PD2D1RectF); stdcall;
 
     procedure GetImage(out AImage: ID2D1Image); stdcall;
 
-    function GetExtendModeX: D2D1_EXTEND_MODE; stdcall;
+    function GetExtendModeX: TD2D1ExtendMode; stdcall;
 
-    function GetExtendModeY: D2D1_EXTEND_MODE; stdcall;
+    function GetExtendModeY: TD2D1ExtendMode; stdcall;
 
-    function GetInterpolationMode: D2D1_INTERPOLATION_MODE; stdcall;
+    function GetInterpolationMode: TD2D1InterpolationMode; stdcall;
 
-    procedure GetSourceRectangle(out ASourceRectangle: D2D1_RECT_F); stdcall;
+    procedure GetSourceRectangle(out ASourceRectangle: TD2D1RectF); stdcall;
 
   end;
 
   ID2D1BitmapBrush1 = interface(ID2D1BitmapBrush)
     ['{41343a53-e41a-49a2-91cd-21793bbb62e5}']
 
-    procedure SetInterpolationMode1(AInterpolationMode: D2D1_INTERPOLATION_MODE); stdcall;
+    procedure SetInterpolationMode1(AInterpolationMode: TD2D1InterpolationMode); stdcall;
 
-    function GetInterpolationMode1: D2D1_INTERPOLATION_MODE; stdcall;
+    function GetInterpolationMode1: TD2D1InterpolationMode; stdcall;
   end;
 
   ID2D1StrokeStyle1 = interface(ID2D1StrokeStyle)
     ['{10a72a66-e91c-43f4-993f-ddf4b82b0b4a}']
 
-      function GetStrokeTransformType: D2D1_STROKE_TRANSFORM_TYPE; stdcall;
+      function GetStrokeTransformType: TD2D1StrokeTransformType; stdcall;
   end;
 
   ID2D1PathGeometry1 = interface(ID2D1PathGeometry)
@@ -8322,7 +8323,7 @@ type
       AStartSegment: UInt32;
       const AWorldTransform: PD2D1Matrix3x2F;
       AFlatteningTolerance: Single;
-      out APointDescription: D2D1_POINT_DESCRIPTION): HRESULT; stdcall;
+      out APointDescription: TD2D1PointDescription): HRESULT; stdcall;
 
   end;
 
@@ -8338,7 +8339,7 @@ type
 
     function GetPropertyNameLength(AIndex: UInt32): UInt32; stdcall;
 
-    function GetType(AIndex: UInt32): D2D1_PROPERTY_TYPE; stdcall;
+    function GetType(AIndex: UInt32): TD2D1PropertyType; stdcall;
 
     /// <summary>
     /// I'm not sure if this one is correct, the original one is like this: PCWSTR name
@@ -8350,12 +8351,12 @@ type
     /// </summary>
     function SetValueByName(
       AName: LPCWSTR;
-      AType: D2D1_PROPERTY_TYPE;
+      AType: TD2D1PropertyType;
       ADataSize: UInt32): HRESULT; stdcall;
 
     function SetValue(
       AIndex: UInt32;
-      AType: D2D1_PROPERTY_TYPE;
+      AType: TD2D1PropertyType;
       AData: PByte;
       ADataSize: UInt32): HRESULT; stdcall;
 
@@ -8364,13 +8365,13 @@ type
     /// </summary>
     function GetValueByName(
       AName: LPCWSTR;
-      AType: D2D1_PROPERTY_TYPE;
+      AType: TD2D1PropertyType;
       AData: PByte;
       ADataSize: UInt32): HRESULT; stdcall;
 
     function GetValue(
       AIndex: UINT32;
-      AType: D2D1_PROPERTY_TYPE;
+      AType: TD2D1PropertyType;
       AData: PByte;
       ADataSize: UInt32): HRESULT; stdcall;
 
@@ -8406,12 +8407,12 @@ type
 
     procedure GetColorContext(out AColorContext: ID2D1ColorContext); stdcall;
 
-    function GetOptions: D2D1_BITMAP_OPTIONS; stdcall;
+    function GetOptions: TD2D1BitmapOptions; stdcall;
 
     function GetSurface(out ADXGISurface: IDXGISurface): HRESULT; stdcall;
 
     function Map(
-      AOptions: D2D1_MAP_OPTIONS;
+      AOptions: TD2D1MapOptions;
       AMappedRect: PD2D1MappedRect): HRESULT; stdcall;
 
     function Unmap: HRESULT; stdcall;
@@ -8420,7 +8421,7 @@ type
   ID2D1ColorContext = interface(ID2D1Resource)
     ['{1c4820bb-5771-4518-a581-2fe4dd0ec657}']
 
-    function GetColorSpace: D2D1_COLOR_SPACE; stdcall;
+    function GetColorSpace: TD2D1ColorSpace; stdcall;
 
     function GetProfileSize: UInt32; stdcall;
 
@@ -8433,22 +8434,22 @@ type
     ['{ae1572f4-5dd0-4777-998b-9279472ae63b}']
 
     procedure GetGradientStops1(
-      out AGradientStops: D2D1_GRADIENT_STOP;
+      out AGradientStops: TD2D1GradientStop;
       AGradientStopsCount: UInt32); stdcall;
 
-    function GetPreInterpolationSpace: D2D1_COLOR_SPACE; stdcall;
+    function GetPreInterpolationSpace: TD2D1ColorSpace; stdcall;
 
-    function GetPostInterpolationSpace: D2D1_COLOR_SPACE; stdcall;
+    function GetPostInterpolationSpace: TD2D1ColorSpace; stdcall;
 
-    function GetBufferPrecision: D2D1_BUFFER_PRECISION; stdcall;
+    function GetBufferPrecision: TD2D1BufferPrecision; stdcall;
 
-    function GetColorInterpolationMode: D2D1_COLOR_INTERPOLATION_MODE; stdcall;
+    function GetColorInterpolationMode: TD2D1ColorInterpolationMode; stdcall;
   end;
 
   ID2D1DrawingStateBlock1 = interface(ID2D1DrawingStateBlock)
     ['{689f1f85-c72e-4e33-8f19-85754efd5ace}']
 
-    procedure GetDescription(out AStateDescription: D2D1_DRAWING_STATE_DESCRIPTION1); stdcall;
+    procedure GetDescription(out AStateDescription: TD2D1DrawingStateDescription1); stdcall;
 
     procedure SetDescription(AStateDescription: PD2D1DrawingStateDescription1); stdcall;
   end;
@@ -8457,7 +8458,7 @@ type
     ['{e8f7fe7a-191c-466d-ad95-975678bda998}']
 
     function CreateBitmap(
-      ASize: D2D1_SIZE_U;
+      ASize: TD2D1SizeU;
       ASourceData: PByte;
       APitch: UInt32;
       const ABitmapProperties: PD2D1BitmapProperties1;
@@ -8469,7 +8470,7 @@ type
       out ABitmap: ID2D1Bitmap1): HRESULT; stdcall;
 
     function CreateColorContext(
-      ASpace: D2D1_COLOR_SPACE;
+      ASpace: TD2D1ColorSpace;
       AProfile: PByte;
       AProfileSize: UInt32;
       out AColorContext: ID2D1ColorContext): HRESULT; stdcall;
@@ -8494,11 +8495,11 @@ type
     function CreateGradientStopCollection(
       const AStraightAlphaGradientStops: PD2D1GradientStop;
       AStraightAlphaGradientStopsCount: UInt32;
-      APreInterpolationSpace: D2D1_COLOR_SPACE;
-      APostInterpolationSpace: D2D1_COLOR_SPACE;
-      ABufferPrecision: D2D1_BUFFER_PRECISION;
-      AExtendMode: D2D1_EXTEND_MODE;
-      AColorInterpolationMode: D2D1_COLOR_INTERPOLATION_MODE;
+      APreInterpolationSpace: TD2D1ColorSpace;
+      APostInterpolationSpace: TD2D1ColorSpace;
+      ABufferPrecision: TD2D1BufferPrecision;
+      AExtendMode: TD2D1ExtendMode;
+      AColorInterpolationMode: TD2D1ColorInterpolationMode;
       out AGradientStopCollection1: ID2D1GradientStopCollection1): HRESULT; stdcall;
 
     function CreateImageBrush(
@@ -8517,21 +8518,21 @@ type
 
     function IsDxgiFormatSupported(AFormat: DXGI_FORMAT): BOOL; stdcall;
 
-    function IsBufferPrecisionSupported(ABufferPrecision: D2D1_BUFFER_PRECISION): BOOL; stdcall;
+    function IsBufferPrecisionSupported(ABufferPrecision: TD2D1BufferPrecision): BOOL; stdcall;
 
     function GetImageLocalBounds(
       AImage: ID2D1Image;
-      out ALocalBounds: D2D1_RECT_F): HRESULT; stdcall;
+      out ALocalBounds: TD2D1RectF): HRESULT; stdcall;
 
     function GetImageWorldBounds(
       AIimage: ID2D1Image;
-      out AWorldBounds: D2D1_RECT_F): HRESULT; stdcall;
+      out AWorldBounds: TD2D1RectF): HRESULT; stdcall;
 
     function GetGlyphRunWorldBounds(
       ABaselineOrigin: TD2D1Point2F;
       const AGlyphRun: PDWriteGlyphRun;
-      AMeasuringMode: DWRITE_MEASURING_MODE;
-      out ABounds: D2D1_RECT_F): HRESULT; stdcall;
+      AMeasuringMode: TDWriteMeasuringMode;
+      out ABounds: TD2D1RectF): HRESULT; stdcall;
 
     procedure GetDevice(out ADevice: ID2D1Device); stdcall;
 
@@ -8541,29 +8542,29 @@ type
 
     procedure SetRenderingControls(const ARenderingControls: PD2D1RenderingControls); stdcall;
 
-    procedure GetRenderingControls(out ARenderingControls: D2D1_RENDERING_CONTROLS); stdcall;
+    procedure GetRenderingControls(out ARenderingControls: TD2D1RenderingControls); stdcall;
 
-    procedure SetPrimitiveBlend(APrimitiveBlend: D2D1_PRIMITIVE_BLEND); stdcall;
+    procedure SetPrimitiveBlend(APrimitiveBlend: TD2D1PrimitiveBlend); stdcall;
 
-    function GetPrimitiveBlend: D2D1_PRIMITIVE_BLEND; stdcall;
+    function GetPrimitiveBlend: TD2D1PrimitiveBlend; stdcall;
 
-    procedure SetUnitMode(AUnitMode: D2D1_UNIT_MODE); stdcall;
+    procedure SetUnitMode(AUnitMode: TD2D1UnitMode); stdcall;
 
-    function GetUnitMode: D2D1_UNIT_MODE; stdcall;
+    function GetUnitMode: TD2D1UnitMode; stdcall;
 
     procedure DrawGlyphRun(
       ABaselineOrigin: TD2D1Point2F;
       const AGlyphRun: PDWriteGlyphRun;
       const AGlyphRunDescription: PDWriteGlyphRunDescription;
       AForegroundBrush: ID2D1Brush;
-      AMeasuringMode: DWRITE_MEASURING_MODE = DWRITE_MEASURING_MODE_NATURAL); stdcall;
+      AMeasuringMode: TDWriteMeasuringMode = DWRITE_MEASURING_MODE_NATURAL); stdcall;
 
     procedure DrawImage(
       AImage: ID2D1Image;
       const ATargetOffset: PD2D1Point2F = nil;
       const AImageRectangle: PD2D1RectF = nil;
-      AInterpolationMode: D2D1_INTERPOLATION_MODE  = D2D1_INTERPOLATION_MODE_LINEAR;
-      ACompositeMode: D2D1_COMPOSITE_MODE  = D2D1_COMPOSITE_MODE_SOURCE_OVER); stdcall;
+      AInterpolationMode: TD2D1InterpolationMode = D2D1_INTERPOLATION_MODE_LINEAR;
+      ACompositeMode: TD2D1CompositeMode = D2D1_COMPOSITE_MODE_SOURCE_OVER); stdcall;
 
     procedure DrawGdiMetafile(
       AGdiMetafile: ID2D1GdiMetafile;
@@ -8573,7 +8574,7 @@ type
       ABitmap: ID2D1Bitmap;
       const ADestinationRectangle: PD2D1RectF;
       AOpacity: Single;
-      AInterpolationMode: D2D1_INTERPOLATION_MODE;
+      AInterpolationMode: TD2D1InterpolationMode;
       const ASourceRectangle: PD2D1RectF = nil;
       const APerspectiveTransform: PD2D1Matrix4x4F = nil); stdcall;
 
@@ -8592,14 +8593,14 @@ type
 
     function GetEffectInvalidRectangles(
       AEeffect: ID2D1Effect;
-      out ARectangles: D2D1_RECT_F;
+      out ARectangles: TD2D1RectF;
       ARectanglesCount: UInt32): HRESULT; stdcall;
 
     function GetEffectRequiredInputRectangles(
       ARenderEffect: ID2D1Effect;
       const ARenderImageRectangle: PD2D1RectF;
       const AInputDescriptions: PD2D1EffectInputDescription;
-      out ARequiredInputRects: D2D1_RECT_F): HRESULT; stdcall;
+      out ARequiredInputRects: TD2D1RectF): HRESULT; stdcall;
 
     procedure FillOpacityMask(
       AOpacityMask: ID2D1Bitmap;
@@ -8612,7 +8613,7 @@ type
     ['{47dd575d-ac05-4cdd-8049-9b02cd16f44c}']
 
     function CreateDeviceContext(
-      AOptions: D2D1_DEVICE_CONTEXT_OPTIONS;
+      AOptions: TD2D1DeviceContextOptions;
       out ADeviceContext: ID2D1DeviceContext): HRESULT; stdcall;
 
     function CreatePrintControl(
@@ -8714,12 +8715,12 @@ type
   ID2D1Device1 = interface(ID2D1Device)
     ['{d21768e1-23a4-4823-a14b-7c3eba85d658}']
 
-    function GetRenderingPriority: D2D1_RENDERING_PRIORITY; stdcall;
+    function GetRenderingPriority: TD2D1RenderingPriority; stdcall;
 
-    procedure SetRenderingPriority(ARenderingPriority: D2D1_RENDERING_PRIORITY); stdcall;
+    procedure SetRenderingPriority(ARenderingPriority: TD2D1RenderingPriority); stdcall;
 
     function CreateDeviceContext(
-      AOptions: D2D1_DEVICE_CONTEXT_OPTIONS;
+      AOptions: TD2D1DeviceContextOptions;
       out ADeviceContext1: ID2D1DeviceContext1): HRESULT; stdcall;
   end;
 
@@ -8733,7 +8734,7 @@ type
 
   ID2D1CommandSink1 = interface(ID2D1CommandSink)
     ['{9eb767fd-4269-4467-b8c2-eb30cb305743}']
-    function SetPrimitiveBlend1(APrimitiveBlend: D2D1_PRIMITIVE_BLEND): HRESULT; stdcall;
+    function SetPrimitiveBlend1(APrimitiveBlend: TD2D1PrimitiveBlend): HRESULT; stdcall;
   end;
 
 {$ENDREGION}
@@ -8745,9 +8746,9 @@ type
 
     procedure GetNibTransform(out ATransform: TD2D1Matrix3x2F); stdcall;
 
-    procedure SetNibShape(ANibShape: D2D1_INK_NIB_SHAPE); stdcall;
+    procedure SetNibShape(ANibShape: TD2D1InkNibShape); stdcall;
 
-    function GetNibShape: D2D1_INK_NIB_SHAPE; stdcall;
+    function GetNibShape: TD2D1InkNibShape; stdcall;
   end;
 
   ID2D1Ink = interface(ID2D1Resource)
@@ -8755,7 +8756,7 @@ type
 
     procedure SetStartPoint(const AStartPoint: PD2D1InkPoint); stdcall;
 
-    function GetStartPoint: D2D1_INK_POINT; stdcall;
+    function GetStartPoint: TD2D1InkPoint; stdcall;
 
     function AddSegments(
       const ASegments: PD2D1InkBezierSegment;
@@ -8786,7 +8787,7 @@ type
     function GetBounds(
       AInkStyle: ID2D1InkStyle;
       const AWorldTransform: PD2D1Matrix3x2F;
-      out ABounds: D2D1_RECT_F): HRESULT; stdcall;
+      out ABounds: TD2D1RectF): HRESULT; stdcall;
   end;
 
   ID2D1GradientMesh = interface(ID2D1Resource)
@@ -8796,7 +8797,7 @@ type
 
     function GetPatches(
       AStartIndex: UInt32;
-      out APatches: D2D1_GRADIENT_MESH_PATCH;
+      out APatches: TD2D1GradientMeshPatch;
       APatchesCount: UInt32): HRESULT; stdcall;
   end;
 
@@ -8824,7 +8825,7 @@ type
     ['{7f1f79e5-2796-416c-8f55-700f911445e5}']
     procedure GetSource(out AImageSource: ID2D1ImageSource); stdcall;
 
-    procedure GetProperties(out AProperties: D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES); stdcall;
+    procedure GetProperties(out AProperties: TD2D1TransformedImageSourceProperties); stdcall;
 
   end;
 
@@ -8840,7 +8841,7 @@ type
       out AInk: ID2D1Ink): HRESULT; stdcall;
 
     function CreateInkStyle(
-      const AInkStyleProperties: D2D1_INK_STYLE_PROPERTIES;
+      const AInkStyleProperties: TD2D1InkStyleProperties;
       out AInkStyle: ID2D1InkStyle): HRESULT; stdcall;
 
     function CreateGradientMesh(
@@ -8850,12 +8851,12 @@ type
 
     function CreateImageSourceFromWic(
       AWicBitmapSource: IWICBitmapSource;
-      ALoadingOptions: D2D1_IMAGE_SOURCE_LOADING_OPTIONS;
-      AAlphaMode: D2D1_ALPHA_MODE;
+      ALoadingOptions: TD2D1ImageSourceLoadingOptions;
+      AAlphaMode: TD2D1AlphaMode;
       out AImageSource: ID2D1ImageSourceFromWic): HRESULT; stdcall;
 
     function CreateLookupTable3D(
-      APrecision: D2D1_BUFFER_PRECISION;
+      APrecision: TD2D1BufferPrecision;
       const AExtents: PUint32;
       const AData: PByte;
       ADataCount: UINT32;
@@ -8870,12 +8871,12 @@ type
       var ASurfaces: IDXGISurface;
       ASurfaceCount: UINT32;
       AColorSpace: DXGI_COLOR_SPACE_TYPE;
-      AOptions: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS;
+      AOptions: TD2D1ImageSourceFromDxgiOptions;
       out AImageSource:ID2D1ImageSource): HRESULT; stdcall;
 
     function GetGradientMeshWorldBounds(
       AGradientMesh: ID2D1GradientMesh;
-      out ABounds: D2D1_RECT_F): HRESULT; stdcall;
+      out ABounds: TD2D1RectF): HRESULT; stdcall;
 
     procedure DrawInk(
       AInk: ID2D1Ink;
@@ -8899,7 +8900,7 @@ type
     ['{a44472e1-8dfb-4e60-8492-6e2861c9ca8b}']
 
     function CreateDeviceContext(
-      AOptions: D2D1_DEVICE_CONTEXT_OPTIONS;
+      AOptions: TD2D1DeviceContextOptions;
       out ADeviceContext2: ID2D1DeviceContext2): HRESULT; stdcall;
 
     procedure FlushDeviceContexts(ABitmap: ID2D1Bitmap); stdcall;
@@ -8937,7 +8938,7 @@ type
       out ADpiX: Single;
       out ADpiY: Single): HRESULT; stdcall;
 
-    function GetSourceBounds(out ABounds: D2D1_RECT_F): HRESULT; stdcall;
+    function GetSourceBounds(out ABounds: TD2D1RectF): HRESULT; stdcall;
 
   end;
 
@@ -8959,9 +8960,9 @@ type
       const ASourceRectangles: PD2D1RectU = nil;
       const AColors: PD2D1ColorF = nil;
       const ATransforms: PD2D1Matrix3x2F = nil;
-      ADestinationRectanglesStride: UInt32 = SizeOf(D2D1_RECT_F);
-      ASourceRectanglesStride: UInt32 = SizeOf(D2D1_RECT_U);
-      AColorsStride: UInt32 = SizeOf(D2D1_COLOR_F);
+      ADestinationRectanglesStride: UInt32 = SizeOf(TD2D1RectF);
+      ASourceRectanglesStride: UInt32 = SizeOf(TD2D1RectU);
+      AColorsStride: UInt32 = SizeOf(TD2D1ColorF);
       ATransformsStride: UInt32 = SizeOf(TD2D1Matrix3x2F)): HRESULT; stdcall;
 
     function SetSprites(
@@ -8971,17 +8972,17 @@ type
       const ASourceRectangles: PD2D1RectU = nil;
       const AColors: PD2D1ColorF = nil;
       const ATransforms: PD2D1Matrix3x2F = nil;
-      ADestinationRectanglesStride: UInt32 = SizeOf(D2D1_RECT_F);
-      ASourceRectanglesStride: UInt32 = SizeOf(D2D1_RECT_U);
-      AColorsStride: UInt32 = SizeOf(D2D1_COLOR_F);
+      ADestinationRectanglesStride: UInt32 = SizeOf(TD2D1RectF);
+      ASourceRectanglesStride: UInt32 = SizeOf(TD2D1RectU);
+      AColorsStride: UInt32 = SizeOf(TD2D1ColorF);
       ATransformsStride: UInt32 = SizeOf(TD2D1Matrix3x2F)): HRESULT; stdcall;
 
     function GetSprites(
       AStartIndex: UINT32;
       ASpriteCount: UINT32;
-      out ADestinationRectangles: D2D1_RECT_F;
-      out ASourceRectangles: D2D1_RECT_U;
-      out AColors: D2D1_COLOR_F;
+      out ADestinationRectangles: TD2D1RectF;
+      out ASourceRectangles: TD2D1RectU;
+      out AColors: TD2D1ColorF;
       out ATransforms: TD2D1Matrix3x2F): HRESULT; stdcall;
 
     function GetSpriteCount: UInt32; stdcall;
@@ -9000,15 +9001,15 @@ type
       AStartIndex: UInt32;
       ASpriteCount: UInt32;
       ABitmap: ID2D1Bitmap;
-      AInterpolationMode: D2D1_BITMAP_INTERPOLATION_MODE = D2D1_BITMAP_INTERPOLATION_MODE_LINEAR;
-      ASpriteOptions: D2D1_SPRITE_OPTIONS = D2D1_SPRITE_OPTIONS_NONE); stdcall;
+      AInterpolationMode: TD2D1BitmapInterpolationMode = D2D1_BITMAP_INTERPOLATION_MODE_LINEAR;
+      ASpriteOptions: TD2D1SpriteOptions = D2D1_SPRITE_OPTIONS_NONE); stdcall;
   end;
 
   ID2D1Device3 = interface(ID2D1Device2)
     ['{852f2087-802c-4037-ab60-ff2e7ee6fc01}']
 
     function CreateDeviceContext(
-      AOptions: D2D1_DEVICE_CONTEXT_OPTIONS;
+      AOptions: TD2D1DeviceContextOptions;
       out ADeviceContext3: ID2D1DeviceContext3): HRESULT; stdcall;
 
   end;
@@ -9030,8 +9031,8 @@ type
       AStartIndex: UInt32;
       ASpriteCount: UInt32;
       ABitmap: ID2D1Bitmap;
-      AInterpolationMode: D2D1_BITMAP_INTERPOLATION_MODE;
-      ASpriteOptions: D2D1_SPRITE_OPTIONS): HRESULT; stdcall;
+      AInterpolationMode: TD2D1BitmapInterpolationMode;
+      ASpriteOptions: TD2D1SpriteOptions): HRESULT; stdcall;
 
   end;
 
@@ -9072,8 +9073,8 @@ type
       ADefaultFillBrush: ID2D1Brush;
       ASvgGlyphStyle: ID2D1SvgGlyphStyle;
       AColorPaletteIndex: UInt32  = 0;
-      AOptions: D2D1_DRAW_TEXT_OPTIONS = D2D1_DRAW_TEXT_OPTIONS_ENABLE_COLOR_FONT;
-      AMeasuringMode: DWRITE_MEASURING_MODE = DWRITE_MEASURING_MODE_NATURAL); stdcall;
+      AOptions: TD2D1DrawTextOptions = D2D1_DRAW_TEXT_OPTIONS_ENABLE_COLOR_FONT;
+      AMeasuringMode: TDWriteMeasuringMode = DWRITE_MEASURING_MODE_NATURAL); stdcall;
 
     procedure DrawTextLayout(
       AOrigin: TD2D1Point2F;
@@ -9081,14 +9082,14 @@ type
       ADefaultFillBrush: ID2D1Brush;
       ASvgGlyphStyle: ID2D1SvgGlyphStyle;
       AColorPaletteIndex: UINT32 = 0;
-      AOptions: D2D1_DRAW_TEXT_OPTIONS = D2D1_DRAW_TEXT_OPTIONS_ENABLE_COLOR_FONT); stdcall;
+      AOptions: TD2D1DrawTextOptions = D2D1_DRAW_TEXT_OPTIONS_ENABLE_COLOR_FONT); stdcall;
 
     procedure DrawColorBitmapGlyphRun(
-      AGlyphImageFormat: DWRITE_GLYPH_IMAGE_FORMATS;
+      AGlyphImageFormat: TDWriteGlyphImageFormats;
       ABaselineOrigin: TD2D1Point2F;
       const AGlyphRun: PDWriteGlyphRun;
-      AMeasuringMode: DWRITE_MEASURING_MODE = DWRITE_MEASURING_MODE_NATURAL;
-      ABitmapSnapOption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION = D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION_DEFAULT); stdcall;
+      AMeasuringMode: TDWriteMeasuringMode = DWRITE_MEASURING_MODE_NATURAL;
+      ABitmapSnapOption: TD2D1ColorBitmapGlyphSnapOption = D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION_DEFAULT); stdcall;
 
     procedure DrawSvgGlyphRun(
       ABaselineOrigin: TD2D1Point2F;
@@ -9096,10 +9097,10 @@ type
       ADefaultFillBrush: ID2D1Brush = nil;
       ASvgGlyphStyle: ID2D1SvgGlyphStyle = nil;
       AColorPaletteIndex: UInt32 = 0;
-      AMeasuringMode:DWRITE_MEASURING_MODE = DWRITE_MEASURING_MODE_NATURAL); stdcall;
+      AMeasuringMode: TDWriteMeasuringMode = DWRITE_MEASURING_MODE_NATURAL); stdcall;
 
     function GetColorBitmapGlyphImage(
-      AGlyphImageFormat: DWRITE_GLYPH_IMAGE_FORMATS;
+      AGlyphImageFormat: TDWriteGlyphImageFormats;
       AGlyphOrigin: TD2D1Point2F;
       AFontFace: IDWriteFontFace;
       AFontEmSize: Single;
@@ -9130,7 +9131,7 @@ type
     ['{d7bdb159-5683-4a46-bc9c-72dc720b858b}']
 
     function CreateDeviceContext(
-      AOptions: D2D1_DEVICE_CONTEXT_OPTIONS;
+      AOptions: TD2D1DeviceContextOptions;
       out ADeviceContext4: ID2D1DeviceContext4): HRESULT; stdcall;
 
     procedure SetMaximumColorGlyphCacheMemory(AMaximumInBytes: UInt64); stdcall;
@@ -9151,18 +9152,18 @@ type
   ID2D1CommandSink4 = interface(ID2D1CommandSink3)
     ['{c78a6519-40d6-4218-b2de-beeeb744bb3e}']
 
-    function SetPrimitiveBlend2(APrimitiveBlend: D2D1_PRIMITIVE_BLEND): HRESULT; stdcall;
+    function SetPrimitiveBlend2(APrimitiveBlend: TD2D1PrimitiveBlend): HRESULT; stdcall;
 
   end;
 
   ID2D1ColorContext1 = interface(ID2D1ColorContext)
     ['{1ab42875-c57f-4be9-bd85-9cd78d6f55ee}']
 
-    function GetColorContextType: D2D1_COLOR_CONTEXT_TYPE; stdcall;
+    function GetColorContextType: TD2D1ColorContextType; stdcall;
 
     function GetDXGIColorSpace: DXGI_COLOR_SPACE_TYPE; stdcall;
 
-    function GetSimpleColorProfile(out ASimpleProfile: D2D1_SIMPLE_COLOR_PROFILE): HRESULT; stdcall;
+    function GetSimpleColorProfile(out ASimpleProfile: TD2D1SimpleColorProfile): HRESULT; stdcall;
 
   end;
 
@@ -9171,7 +9172,7 @@ type
 
     function CreateSvgDocument(
       AInputXmlStream: IStream;
-      AViewportSize: D2D1_SIZE_F;
+      AViewportSize: TD2D1SizeF;
       out ASvgDocument: ID2D1SvgDocument): HRESULT; stdcall;
 
     procedure DrawSvgDocument(ASvgDocument: ID2D1SvgDocument); stdcall;
@@ -9190,7 +9191,7 @@ type
     ['{d55ba0a4-6405-4694-aef5-08ee1a4358b4}']
 
     function CreateDeviceContext(
-      AOptions: D2D1_DEVICE_CONTEXT_OPTIONS;
+      AOptions: TD2D1DeviceContextOptions;
       out ADeviceContext5: ID2D1DeviceContext5): HRESULT; stdcall;
 
   end;
@@ -9209,10 +9210,10 @@ type
 
     function BlendImage(
       AImage: ID2D1Image;
-      ABlendMode: D2D1_BLEND_MODE;
+      ABlendMode: TD2D1BlendMode;
       const ATargetOffset: PD2D1Point2F;
       const AImageRectangle: PD2D1RectF;
-      AInterpolationMode: D2D1_INTERPOLATION_MODE): HRESULT; stdcall;
+      AInterpolationMode: TD2D1InterpolationMode): HRESULT; stdcall;
 
   end;
 
@@ -9221,10 +9222,10 @@ type
 
     procedure BlendImage(
       AImage: ID2D1Image;
-      ABlendMode: D2D1_BLEND_MODE;
+      ABlendMode: TD2D1BlendMode;
       const ATargetOffset: PD2D1Point2F = nil;
       const AImageRectangle: PD2D1RectF = nil;
-      AInterpolationMode: D2D1_INTERPOLATION_MODE = D2D1_INTERPOLATION_MODE_LINEAR); stdcall;
+      AInterpolationMode: TD2D1InterpolationMode = D2D1_INTERPOLATION_MODE_LINEAR); stdcall;
 
   end;
 
@@ -9232,7 +9233,7 @@ type
     ['{7bfef914-2d75-4bad-be87-e18ddb077b6d}']
 
     function CreateDeviceContext(
-      AOptions: D2D1_DEVICE_CONTEXT_OPTIONS;
+      AOptions: TD2D1DeviceContextOptions;
       out ADeviceContext6: ID2D1DeviceContext6): HRESULT; stdcall;
 
   end;
@@ -9305,8 +9306,8 @@ type
 
     function Analyze(
       out AIsSupportedFontType: BOOL;
-      out AFontFileType: DWRITE_FONT_FILE_TYPE;
-      out AFontFaceType: DWRITE_FONT_FACE_TYPE;
+      out AFontFileType: TDWriteFontFileType;
+      out AFontFaceType: TDWriteFontFaceType;
       out ANumberOfFaces: UINT32): HRESULT; stdcall;
   end;
 
@@ -9319,16 +9320,16 @@ type
 
     function GetClearTypeLevel: Single; stdcall;
 
-    function GetPixelGeometry: DWRITE_PIXEL_GEOMETRY; stdcall;
+    function GetPixelGeometry: TDWritePixelGeometry; stdcall;
 
-    function GetRenderingMode: DWRITE_RENDERING_MODE; stdcall;
+    function GetRenderingMode: TDWriteRenderingMode; stdcall;
 
   end;
 
   IDWriteFontFace = interface(IUnknown)
     ['{5f49804d-7024-4d43-bfa9-d25984f53849}']
 
-    function GetType: DWRITE_FONT_FACE_TYPE; stdcall;
+    function GetType: TDWriteFontFaceType; stdcall;
 
     function GetFiles(
       var ANumberOfFiles: UInt32;
@@ -9336,11 +9337,11 @@ type
 
     function GetIndex: UInt32; stdcall;
 
-    function GetSimulations: DWRITE_FONT_SIMULATIONS; stdcall;
+    function GetSimulations: TDWriteFontSimulations; stdcall;
 
     function IsSymbolFont: BOOL; stdcall;
 
-    procedure GetMetrics(out AFontFaceMetrics: DWRITE_FONT_METRICS); stdcall;
+    procedure GetMetrics(out AFontFaceMetrics: TDWriteFontMetrics); stdcall;
 
     function GetGlyphCount: UInt16; stdcall;
 
@@ -9377,15 +9378,15 @@ type
     function GetRecommendedRenderingMode(
       AEmSize: Single;
       APixelsPerDip: Single;
-      AMeasuringMode: DWRITE_MEASURING_MODE;
+      AMeasuringMode: TDWriteMeasuringMode;
       ARenderingParams: IDWriteRenderingParams;
-      out ARenderingMode: DWRITE_RENDERING_MODE): HRESULT; stdcall;
+      out ARenderingMode: TDWriteRenderingMode): HRESULT; stdcall;
 
     function GetGdiCompatibleMetrics(
       AEmSize: Single;
       APixelsPerDip: Single;
       const ATransform: PDWriteMatrix;
-      out AFontFaceMetrics: DWRITE_FONT_METRICS): HRESULT; stdcall;
+      out AFontFaceMetrics: TDWriteFontMetrics): HRESULT; stdcall;
 
     function GetGdiCompatibleGlyphMetrics(
       AEmSize: Single;
@@ -9483,15 +9484,15 @@ type
     function GetFamilyNames(ANames: IDWriteLocalizedStrings): HRESULT; stdcall;
 
     function GetFirstMatchingFont(
-      AWeight: DWRITE_FONT_WEIGHT;
-      AStretch: DWRITE_FONT_STRETCH;
-      AStyle: DWRITE_FONT_STYLE;
+      AWeight: TDWriteFontWeight;
+      AStretch: TDWriteFontStretch;
+      AStyle: TDWriteFontStyle;
       out AMatchingFont: IDWriteFont): HRESULT; stdcall;
 
     function GetMatchingFonts(
-      AWeight: DWRITE_FONT_WEIGHT;
-      AStretch: DWRITE_FONT_STRETCH;
-      AStyle: DWRITE_FONT_STYLE;
+      AWeight: TDWriteFontWeight;
+      AStretch: TDWriteFontStretch;
+      AStyle: TDWriteFontStyle;
       out AMatchingFonts: IDWriteFontList): HRESULT; stdcall;
   end;
 
@@ -9500,24 +9501,24 @@ type
 
     function GetFontFamily(out AFontFamily: IDWriteFontFamily): HRESULT; stdcall;
 
-    function GetWeight: DWRITE_FONT_WEIGHT; stdcall;
+    function GetWeight: TDWriteFontWeight; stdcall;
 
-    function GetStretch: DWRITE_FONT_STRETCH; stdcall;
+    function GetStretch: TDWriteFontStretch; stdcall;
 
-    function GetStyle: DWRITE_FONT_STYLE; stdcall;
+    function GetStyle: TDWriteFontStyle; stdcall;
 
     function IsSymbolFont: BOOL; stdcall;
 
     function GetFaceNames(ANames: IDWriteLocalizedStrings): HRESULT; stdcall;
 
     function GetInformationalStrings(
-      AInformationalStringID: DWRITE_INFORMATIONAL_STRING_ID;
+      AInformationalStringID: TDWriteInformationalStringId;
       out AInformationalStrings: IDWriteLocalizedStrings;
       out AExists: BOOL): HRESULT; stdcall;
 
-    function GetSimulations: DWRITE_FONT_SIMULATIONS; stdcall;
+    function GetSimulations: TDWriteFontSimulations; stdcall;
 
-    procedure GetMetrics(out AFontMetrics: DWRITE_FONT_METRICS); stdcall;
+    procedure GetMetrics(out AFontMetrics: TDWriteFontMetrics); stdcall;
 
     function HasCharacter(
       AUnicodeValue: UInt32;
@@ -9529,15 +9530,15 @@ type
   IDWriteTextFormat = interface(IUnknown)
     ['{9c906818-31d7-4fd3-a151-7c5e225db55a}']
 
-    function SetTextAlignment(ATextAlignment: DWRITE_TEXT_ALIGNMENT): HRESULT; stdcall;
+    function SetTextAlignment(ATextAlignment: TDWriteTextAlignment): HRESULT; stdcall;
 
-    function SetParagraphAlignment(AParagraphAlignment: DWRITE_PARAGRAPH_ALIGNMENT): HRESULT; stdcall;
+    function SetParagraphAlignment(AParagraphAlignment: TDWriteParagraphAlignment): HRESULT; stdcall;
 
-    function SetWordWrapping(AWordWrapping: DWRITE_WORD_WRAPPING): HRESULT; stdcall;
+    function SetWordWrapping(AWordWrapping: TDWriteWordWrapping): HRESULT; stdcall;
 
-    function SetReadingDirection(AReadingDirection: DWRITE_READING_DIRECTION): HRESULT; stdcall;
+    function SetReadingDirection(AReadingDirection: TDWriteReadingDirection): HRESULT; stdcall;
 
-    function SetFlowDirection(AFlowDirection: DWRITE_FLOW_DIRECTION): HRESULT; stdcall;
+    function SetFlowDirection(AFlowDirection: TDWriteFlowDirection): HRESULT; stdcall;
 
     function SetIncrementalTabStop(AIncrementalTabStop: Single): HRESULT; stdcall;
 
@@ -9546,28 +9547,28 @@ type
       ATrimmingSign: IDWriteInlineObject): HRESULT; stdcall;
 
     function SetLineSpacing(
-      ALlineSpacingMethod: DWRITE_LINE_SPACING_METHOD;
+      ALlineSpacingMethod: TDWriteLineSpacingMethod;
       ALineSpacing: Single;
       ABaseline: Single): HRESULT; stdcall;
 
-    function GetTextAlignment: DWRITE_TEXT_ALIGNMENT; stdcall;
+    function GetTextAlignment: TDWriteTextAlignment; stdcall;
 
-    function GetParagraphAlignment: DWRITE_PARAGRAPH_ALIGNMENT; stdcall;
+    function GetParagraphAlignment: TDWriteParagraphAlignment; stdcall;
 
-    function GetWordWrapping: DWRITE_WORD_WRAPPING; stdcall;
+    function GetWordWrapping: TDWriteWordWrapping; stdcall;
 
-    function GetReadingDirection: DWRITE_READING_DIRECTION; stdcall;
+    function GetReadingDirection: TDWriteReadingDirection; stdcall;
 
-    function GetFlowDirection: DWRITE_FLOW_DIRECTION; stdcall;
+    function GetFlowDirection: TDWriteFlowDirection; stdcall;
 
     function GetIncrementalTabStop: Single; stdcall;
 
     function GetTrimming(
-      out ATrimmingOptions: DWRITE_TRIMMING;
+      out ATrimmingOptions: TDWriteTrimming;
       out ATrimmingSign: IDWriteInlineObject): HRESULT; stdcall;
 
     function GetLineSpacing(
-      out ALineSpacingMethod: DWRITE_LINE_SPACING_METHOD;
+      out ALineSpacingMethod: TDWriteLineSpacingMethod;
       out ALineSpacing: PSingle;
       out ABaseline: PSingle): HRESULT; stdcall;
 
@@ -9579,11 +9580,11 @@ type
       out AFontFamilyName: WChar;
       ANameSize: UInt32): HRESULT; stdcall;
 
-    function GetFontWeight: DWRITE_FONT_WEIGHT; stdcall;
+    function GetFontWeight: TDWriteFontWeight; stdcall;
 
-    function GetFontStyle: DWRITE_FONT_STYLE; stdcall;
+    function GetFontStyle: TDWriteFontStyle; stdcall;
 
-    function GetFontStretch: DWRITE_FONT_STRETCH; stdcall;
+    function GetFontStretch: TDWriteFontStretch; stdcall;
 
     function GetFontSize: Single; stdcall;
 
@@ -9597,13 +9598,13 @@ type
   IDWriteTypography = interface(IUnknown)
     ['{55f1112b-1dc2-4b3c-9541-f46894ed85b6}']
 
-    function AddFontFeature(AFontFeature: DWRITE_FONT_FEATURE): HRESULT; stdcall;
+    function AddFontFeature(AFontFeature: TDWriteFontFeature): HRESULT; stdcall;
 
     function GetFontFeatureCount: UInt32; stdcall;
 
     function GetFontFeature(
       AFontFeatureIndex: UInt32;
-      out AFontFeature: DWRITE_FONT_FEATURE): HRESULT; stdcall;
+      out AFontFeature: TDWriteFontFeature): HRESULT; stdcall;
   end;
 
   IDWriteNumberSubstitution = interface(IUnknown)
@@ -9623,7 +9624,7 @@ type
       out ATextString: PWideChar;
       out ATextLength: UInt32): HRESULT; stdcall;
 
-    function GetParagraphReadingDirection: DWRITE_READING_DIRECTION; stdcall;
+    function GetParagraphReadingDirection: TDWriteReadingDirection; stdcall;
 
     function GetLocaleName(
       ATextPosition: UInt32;
@@ -9647,7 +9648,7 @@ type
     function SetLineBreakpoints(
       ATextPosition: UINT32;
       ATextLength: UINT32;
-      const ALineBreakpoints: DWRITE_LINE_BREAKPOINT): HRESULT; stdcall;
+      const ALineBreakpoints: TDWriteLineBreakpoint): HRESULT; stdcall;
 
     function SetBidiLevel(
       ATextPosition: UInt32;
@@ -9702,9 +9703,9 @@ type
       AFeatureRanges: UInt32;
       AMaxGlyphCount: UInt32;
       out AClusterMap: UInt16;
-      out ATextProps: DWRITE_SHAPING_TEXT_PROPERTIES;
+      out ATextProps: TDWriteShapingTextProperties;
       out AGlyphIndices: UInt16;
-      out AGlyphProps: DWRITE_SHAPING_GLYPH_PROPERTIES;
+      out AGlyphProps: TDWriteShapingGlyphProperties;
       out AActualGlyphCount: UInt32): HRESULT; stdcall;
 
     function GetGlyphPlacements(
@@ -9725,7 +9726,7 @@ type
       const AFeatureRangeLengths: PUInt32;
       AFeatureRanges: UINT32;
       out AGlyphAdvances: Single;
-      out AGlyphOffsets: DWRITE_GLYPH_OFFSET): HRESULT; stdcall;
+      out AGlyphOffsets: TDWriteGlyphOffset): HRESULT; stdcall;
 
     function GetGdiCompatibleGlyphPlacements(
       ATextString: PWideChar;
@@ -9748,7 +9749,7 @@ type
       AFeatureRangeLengths: PUint32;
       AFeatureRanges: UInt32;
       out AGlyphAdvances: Single;
-      out AGlyphOffsets: DWRITE_GLYPH_OFFSET): HRESULT; stdcall;
+      out AGlyphOffsets: TDWriteGlyphOffset): HRESULT; stdcall;
   end;
 
   IDWriteInlineObject = interface(IUnknown)
@@ -9763,13 +9764,13 @@ type
       AIsRightToLeft: BOOL;
       AClientDrawingEffect: IUnknown): HRESULT; stdcall;
 
-  function GetMetrics(out AMetrics: DWRITE_INLINE_OBJECT_METRICS): HRESULT; stdcall;
+  function GetMetrics(out AMetrics: TDWriteInlineObjectMetrics): HRESULT; stdcall;
 
-  function GetOverhangMetrics(out AOverhangs: DWRITE_OVERHANG_METRICS): HRESULT; stdcall;
+  function GetOverhangMetrics(out AOverhangs: TDWriteOverhangMetrics): HRESULT; stdcall;
 
   function GetBreakConditions(
-    out ABreakConditionBefore: DWRITE_BREAK_CONDITION;
-    out ABreakConditionAfter: DWRITE_BREAK_CONDITION): HRESULT; stdcall;
+    out ABreakConditionBefore: TDWriteBreakCondition;
+    out ABreakConditionAfter: TDWriteBreakCondition): HRESULT; stdcall;
   end;
 
   IDWritePixelSnapping = interface(IUnknown)
@@ -9781,7 +9782,7 @@ type
 
     function GetCurrentTransform(
       AClientDrawingContext: Pointer;
-      out ATransform: DWRITE_MATRIX): HRESULT; stdcall;
+      out ATransform: TDWriteMatrix): HRESULT; stdcall;
 
     function GetPixelsPerDip(
       AClientDrawingContext: Pointer;
@@ -9795,7 +9796,7 @@ type
       AClientDrawingContext: Pointer;
       ABaselineOriginX: Single;
       ABaselineOriginY: Single;
-      AMeasuringMode: DWRITE_MEASURING_MODE;
+      AMeasuringMode: TDWriteMeasuringMode;
       const AGlyphRun: PDWriteGlyphRun;
       const AGlyphRunDescription: PDWriteGlyphRunDescription;
       AClientDrawingEffect: IUnknown): HRESULT; stdcall;
@@ -9833,51 +9834,51 @@ type
 
     function SetFontCollection(
       AFontCollection: IDWriteFontCollection;
-      ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function SetFontFamilyName(
       AFontFamilyName: PWideChar;
-      ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function SetFontWeight(
-      AFontWeight: DWRITE_FONT_WEIGHT;
-      ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      AFontWeight: TDWriteFontWeight;
+      ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function SetFontStyle(
-      AFontStyle: DWRITE_FONT_STYLE;
-      ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      AFontStyle: TDWriteFontStyle;
+      ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function SetFontStretch(
-      AFontStretch: DWRITE_FONT_STRETCH;
-      ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      AFontStretch: TDWriteFontStretch;
+      ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function SetFontSize(
       AFontSize: Single;
-      ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function SetUnderline(
       AHasUnderline: BOOL;
-      ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function SetStrikethrough(
       AHasStrikethrough: BOOL;
-      ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function SetDrawingEffect(
       ADrawingEffect: IUnknown;
-      ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function SetInlineObject(
       AInlineObject: IDWriteInlineObject;
-      ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function SetTypography(
       ATypography: IDWriteTypography;
-      ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function SetLocaleName(
       ALocaleName: PWideChar;
-      ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function GetMaxWidth: Single; stdcall;
 
@@ -9886,75 +9887,75 @@ type
     function GetFontCollection(
       ACurrentPosition: UInt32;
       out AFontCollection: IDWriteFontCollection;
-      out ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      out ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function GetFontFamilyNameLength(
       ACurrentPosition: UInt32;
       out ANameLength: UInt32;
-      out ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      out ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function GetFontFamilyName(
       ACurrentPosition: UInt32;
       AFontFamilyName: PWideChar;
       ANameSize: UInt32;
-      out ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      out ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function GetFontWeight(
       ACurrentPosition: UInt32;
-      out AFontWeight: DWRITE_FONT_WEIGHT;
-      out ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      out AFontWeight: TDWriteFontWeight;
+      out ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function GetFontStyle(
       ACurrentPosition: UInt32;
-      out AFontStyle: DWRITE_FONT_STYLE;
-      out ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      out AFontStyle: TDWriteFontStyle;
+      out ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function GetFontStretch(
       ACurrentPosition: UInt32;
-      out AFontStretch: DWRITE_FONT_STRETCH;
-      out ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      out AFontStretch: TDWriteFontStretch;
+      out ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function GetFontSize(
       ACurrentPosition: UInt32;
       out AFontSize: Single;
-      out ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      out ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function GetUnderline(
       ACurrentPosition: UInt32;
       out AHasUnderline: BOOL;
-      out ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      out ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function GetStrikethrough(
       ACurrentPosition: UInt32;
       out AHasStrikethrough: BOOL;
-      out ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      out ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function GetDrawingEffect(
       ACurrentPosition: UInt32;
       out ADrawingEffect: IUnknown;
-      out ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      out ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function GetInlineObject(
       ACurrentPosition: UInt32;
       out AInlineObject: IDWriteInlineObject;
-      out ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      out ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function GetTypography(
       ACurrentPosition: UInt32;
       out ATtypography: IDWriteTypography;
-      out ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      out ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function GetLocaleNameLength(
       ACurrentPosition: UINT32;
       out ANameLength: UINT32;
-      out ATextRange: DWRITE_TEXT_RANGE
+      out ATextRange: TDWriteTextRange
     ): HRESULT; stdcall;
 
     function GetLocaleName(
       ACurrentPosition: UInt32;
       ALocaleName: PWideChar;
       ANameSize: UInt32;
-      out ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      out ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function Draw(
       AClientDrawingContext: Pointer;
@@ -9963,16 +9964,16 @@ type
       AOriginY: Single): HRESULT; stdcall;
 
     function GetLineMetrics(
-      out ALineMetrics: DWRITE_LINE_METRICS;
+      out ALineMetrics: TDWriteLineMetrics;
       AMaxLineCount: UInt32;
       out AActualLineCount: UInt32): HRESULT; stdcall;
 
     function GetMetrics(out ATextMetrics: DWRITE_TEXT_METRICS): HRESULT; stdcall;
 
-    function GetOverhangMetrics(AOverhangs: DWRITE_OVERHANG_METRICS): HRESULT; stdcall;
+    function GetOverhangMetrics(AOverhangs: TDWriteOverhangMetrics): HRESULT; stdcall;
 
     function GetClusterMetrics(
-      out AClusterMetrics: DWRITE_CLUSTER_METRICS;
+      out AClusterMetrics: TDWriteClusterMetrics;
       AMaxClusterCount: UInt32;
       out AActualClusterCount: UInt32): HRESULT; stdcall;
 
@@ -9983,21 +9984,21 @@ type
       APointY: Single;
       out AIsTrailingHit: BOOL;
       out AIsInside: BOOL;
-      out AHitTestMetrics: DWRITE_HIT_TEST_METRICS): HRESULT; stdcall;
+      out AHitTestMetrics: TDWriteHitTestMetrics): HRESULT; stdcall;
 
     function HitTestTextPosition(
       ATextPosition: UInt32;
       AIsTrailingHit: BOOL;
       out APointX: Single;
       out APointY: Single;
-      out AHitTestMetrics: DWRITE_HIT_TEST_METRICS): HRESULT; stdcall;
+      out AHitTestMetrics: TDWriteHitTestMetrics): HRESULT; stdcall;
 
     function HitTestTextRange(
       ATextPosition: UInt32;
       ATextLength: UInt32;
       AOriginX: Single;
       AOriginY: Single;
-      out AHitTestMetrics: DWRITE_HIT_TEST_METRICS;
+      out AHitTestMetrics: TDWriteHitTestMetrics;
       AMaxHitTestMetricsCount: UInt32;
       AOutactualHitTestMetricsCount: UInt32): HRESULT; stdcall;
   end;
@@ -10008,7 +10009,7 @@ type
     function DrawGlyphRun(
       ABaselineOriginX: Single;
       ABaselineOriginY: Single;
-      AMeasuringMode: DWRITE_MEASURING_MODE;
+      AMeasuringMode: TDWriteMeasuringMode;
       const AGlyphRun: PDWriteGlyphRun;
       ARenderingParams: IDWriteRenderingParams;
       ATextColor: COLORREF;
@@ -10020,7 +10021,7 @@ type
 
     function SetPixelsPerDip(APixelsPerDip: Single): HRESULT; stdcall;
 
-    function GetCurrentTransform(out ATransform: DWRITE_MATRIX): HRESULT; stdcall;
+    function GetCurrentTransform(out ATransform: TDWriteMatrix): HRESULT; stdcall;
 
     function SetCurrentTransform(const ATransform: PDWriteMatrix): HRESULT; stdcall;
 
@@ -10062,11 +10063,11 @@ type
     ['{7d97dbf7-e085-42d4-81e3-6a883bded118}']
 
     function GetAlphaTextureBounds(
-      ATextureType: DWRITE_TEXTURE_TYPE;
+      ATextureType: TDWriteTextureType;
       out ATextureBounds: TRect): HRESULT; stdcall;
 
     function CreateAlphaTexture(
-      ATextureType: DWRITE_TEXTURE_TYPE;
+      ATextureType: TDWriteTextureType;
       ATextureBounds:  PRect;
       AAlphaValues: PByte;
       ABufferSize: UInt32): HRESULT; stdcall;
@@ -10106,11 +10107,11 @@ type
       out fontFile: IDWriteFontFile): HRESULT; stdcall;
 
     function CreateFontFace(
-      AFontFaceType: DWRITE_FONT_FACE_TYPE;
+      AFontFaceType: TDWriteFontFaceType;
       ANumberOfFiles: UInt32;
       AFontFiles: PIDWriteFontFile;
       AFaceIndex: UInt32;
-      AFontFaceSimulationFlags: DWRITE_FONT_SIMULATIONS;
+      AFontFaceSimulationFlags: TDWriteFontSimulations;
       out AFontFace: IDWriteFontFace): HRESULT; stdcall;
 
     function CreateRenderingParams(out ARenderingParams: IDWriteRenderingParams): HRESULT; stdcall;
@@ -10123,8 +10124,8 @@ type
       AGamma: Single;
       AEnhancedContrast: Single;
       AClearTypeLevel: Single;
-      APixelGeometry: DWRITE_PIXEL_GEOMETRY;
-      ARenderingMode: DWRITE_RENDERING_MODE;
+      APixelGeometry: TDWritePixelGeometry;
+      ARenderingMode: TDWriteRenderingMode;
       out ARenderingParams: IDWriteRenderingParams): HRESULT; stdcall;
 
     function RegisterFontFileLoader(AFontFileLoader: IDWriteFontFileLoader): HRESULT; stdcall;
@@ -10134,9 +10135,9 @@ type
     function CreateTextFormat(
       AFontFamilyName: PWideChar;
       AFontCollection: IDWriteFontCollection;
-      AFontWeight: DWRITE_FONT_WEIGHT;
-      AFontStyle: DWRITE_FONT_STYLE;
-      AFontStretch: DWRITE_FONT_STRETCH;
+      AFontWeight: TDWriteFontWeight;
+      AFontStyle: TDWriteFontStyle;
+      AFontStretch: TDWriteFontStretch;
       AFontSize: Single;
       ALocaleName: PWideChar;
       out ATextFormat: IDWriteTextFormat): HRESULT; stdcall;
@@ -10171,7 +10172,7 @@ type
     function CreateTextAnalyzer(out ATextAnalyzer: IDWriteTextAnalyzer): HRESULT; stdcall;
 
     function CreateNumberSubstitution(
-      ASubstitutionMethod: DWRITE_NUMBER_SUBSTITUTION_METHOD;
+      ASubstitutionMethod: TDWriteNumberSubstitutionMethod;
       ALocaleName: PWideChar;
       AIgnoreUserOverride: BOOL;
       out ANumberSubstitution: IDWriteNumberSubstitution): HRESULT; stdcall;
@@ -10180,8 +10181,8 @@ type
       AGlyphRun: PDWriteGlyphRun;
       APixelsPerDip: Single;
       ATransform: PDWriteMatrix;
-      ARenderingMode: DWRITE_RENDERING_MODE;
-      AMeasuringMode: DWRITE_MEASURING_MODE;
+      ARenderingMode: TDWriteRenderingMode;
+      AMeasuringMode: TDWriteMeasuringMode;
       ABaselineOriginX: Single;
       ABaselineOriginY: Single;
       out AGlyphRunAnalysis: IDWriteGlyphRunAnalysis): HRESULT; stdcall;
@@ -10217,11 +10218,11 @@ type
 
     function SetInputDescription(
       AInputIndex: UINT32;
-      AInputDescription: D2D1_INPUT_DESCRIPTION): HRESULT; stdcall;
+      AInputDescription: TD2D1InputDescription): HRESULT; stdcall;
 
     function SetOutputBuffer(
-      ABufferPrecision: D2D1_BUFFER_PRECISION;
-      AChannelDepth: D2D1_CHANNEL_DEPTH): HRESULT; stdcall;
+      ABufferPrecision: TD2D1BufferPrecision;
+      AChannelDepth: TD2D1ChannelDepth): HRESULT; stdcall;
 
     procedure SetCached(AIsCached: BOOL); stdcall;
 
@@ -10245,11 +10246,11 @@ type
 
     function SetPixelShader(
       AShaderId: TGUID;
-      APixelOptions: D2D1_PIXEL_OPTIONS = D2D1_PIXEL_OPTIONS_NONE): HRESULT; stdcall;
+      APixelOptions: TD2D1PixelOptions = D2D1_PIXEL_OPTIONS_NONE): HRESULT; stdcall;
 
     function SetVertexProcessing(
       AVertexBuffer: ID2D1VertexBuffer;
-      AVertexOptions: D2D1_VERTEX_OPTIONS;
+      AVertexOptions: TD2D1VertexOptions;
       const ABlendDescription: PD2D1BlendDescription = nil;
       const AVertexRangeNULL: PD2D1VertexRange = nil;
       const AVertexShaderNULL: PGUID = nil): HRESULT; stdcall;
@@ -10312,20 +10313,20 @@ type
 
     function MapOutputRectToInputRects(
       const AOutputRect: PD2D1RectL;
-      out AInputRects: D2D1_RECT_L;
+      out AInputRects: TD2D1RectL;
       AInputRectsCount: UInt32): HRESULT; stdcall;
 
     function MapInputRectsToOutputRect(
       const AInputRects: PD2D1RectL;
       const AInputOpaqueSubRects: PD2D1RectL;
       AInputRectCount: UInt32;
-      out AOutputRect: D2D1_RECT_L;
-      out AOutputOpaqueSubRect: D2D1_RECT_L): HRESULT; stdcall;
+      out AOutputRect: TD2D1RectL;
+      out AOutputOpaqueSubRect: TD2D1RectL): HRESULT; stdcall;
 
     function MapInvalidRect(
       AInputIndex: UInt32;
-      AInvalidInputRect: D2D1_RECT_L;
-      out AInvalidOutputRect: D2D1_RECT_L): HRESULT; stdcall;
+      AInvalidInputRect: TD2D1RectL;
+      out AInvalidOutputRect: TD2D1RectL): HRESULT; stdcall;
 
   end;
 
@@ -10366,7 +10367,7 @@ type
     function Draw(
       ATarget: ID2D1Bitmap1;
       const ADrawRect: PD2D1RectL;
-      ATargetOrigin: D2D1_POINT_2U): HRESULT; stdcall;
+      ATargetOrigin: TD2D1Point2U): HRESULT; stdcall;
 
   end;
 
@@ -10374,8 +10375,8 @@ type
     ['{1a799d8a-69f7-4e4c-9fed-437ccc6684cc}']
 
     function SetOutputBuffer(
-      ABufferPrecision: D2D1_BUFFER_PRECISION;
-      AChannelDepth: D2D1_CHANNEL_DEPTH): HRESULT; stdcall;
+      ABufferPrecision: TD2D1BufferPrecision;
+      AChannelDepth: TD2D1ChannelDepth): HRESULT; stdcall;
 
     procedure SetCached(AIsCached: BOOL); stdcall;
 
@@ -10384,39 +10385,39 @@ type
   ID2D1BlendTransform = interface(ID2D1ConcreteTransform)
     ['{63ac0b32-ba44-450f-8806-7f4ca1ff2f1b}']
 
-    procedure SetDescription(const ADescription: D2D1_BLEND_DESCRIPTION); stdcall;
+    procedure SetDescription(const ADescription: TD2D1BlendDescription); stdcall;
 
-    procedure GetDescription(out ADescription: D2D1_BLEND_DESCRIPTION); stdcall;
+    procedure GetDescription(out ADescription: TD2D1BlendDescription); stdcall;
 
   end;
 
   ID2D1BorderTransform = interface(ID2D1ConcreteTransform)
     ['{4998735c-3a19-473c-9781-656847e3a347}']
 
-    procedure SetExtendModeX(AExtendMode: D2D1_EXTEND_MODE); stdcall;
+    procedure SetExtendModeX(AExtendMode: TD2D1ExtendMode); stdcall;
 
-    procedure SetExtendModeY(AExtendMode: D2D1_EXTEND_MODE); stdcall;
+    procedure SetExtendModeY(AExtendMode: TD2D1ExtendMode); stdcall;
 
-    function GetExtendModeX: D2D1_EXTEND_MODE; stdcall;
+    function GetExtendModeX: TD2D1ExtendMode; stdcall;
 
-    function GetExtendModeY: D2D1_EXTEND_MODE; stdcall;
+    function GetExtendModeY: TD2D1ExtendMode; stdcall;
 
   end;
 
   ID2D1OffsetTransform = interface(ID2D1TransformNode)
     ['{3fe6adea-7643-4f53-bd14-a0ce63f24042}']
 
-    procedure SetOffset(AOffset: D2D1_POINT_2L); stdcall;
+    procedure SetOffset(AOffset: TD2D1Point2L); stdcall;
 
-    function GetOffset: D2D1_POINT_2L; stdcall;
+    function GetOffset: TD2D1Point2L; stdcall;
   end;
 
   ID2D1BoundsAdjustmentTransform = interface(ID2D1TransformNode)
     ['{90f732e2-5092-4606-a819-8651970baccd}']
 
-    procedure SetOutputBounds(const AOutputBounds: D2D1_RECT_L); stdcall;
+    procedure SetOutputBounds(const AOutputBounds: TD2D1RectL); stdcall;
 
-    procedure GetOutputBounds(out AOutputBounds: D2D1_RECT_L); stdcall;
+    procedure GetOutputBounds(out AOutputBounds: TD2D1RectL); stdcall;
 
   end;
 
@@ -10427,7 +10428,7 @@ type
       AEffectContext: ID2D1EffectContext;
       ATransformGraph: ID2D1TransformGraph): HRESULT; stdcall;
 
-    function PrepareForRender(AChangeType: D2D1_CHANGE_TYPE): HRESULT; stdcall;
+    function PrepareForRender(AChangeType: TD2D1ChangeType): HRESULT; stdcall;
 
     function SetGraph(ATransformGraph: ID2D1TransformGraph): HRESULT; stdcall;
 
@@ -10459,12 +10460,12 @@ type
       out ATransform: ID2D1BlendTransform): HRESULT; stdcall;
 
     function CreateBorderTransform(
-      AExtendModeX: D2D1_EXTEND_MODE;
-      AExtendModeY: D2D1_EXTEND_MODE;
+      AExtendModeX: TD2D1ExtendMode;
+      AExtendModeY: TD2D1ExtendMode;
       out ATransform: ID2D1BorderTransform): HRESULT; stdcall;
 
     function CreateOffsetTransform(
-      AOffset: D2D1_POINT_2L;
+      AOffset: TD2D1Point2L;
       out ATransform: ID2D1OffsetTransform): HRESULT; stdcall;
 
     function CreateBoundsAdjustmentTransform(
@@ -10511,7 +10512,7 @@ type
       out ABuffer: ID2D1VertexBuffer): HRESULT; stdcall;
 
     function CreateColorContext(
-      ASpace: D2D1_COLOR_SPACE;
+      ASpace: TD2D1ColorSpace;
       const AProfile: PByte;
       AProfileSize: UInt32;
       out AColorContext: ID2D1ColorContext): HRESULT; stdcall;
@@ -10525,11 +10526,11 @@ type
       out AColorContext: ID2D1ColorContext): HRESULT; stdcall;
 
     function CheckFeatureSupport(
-      AFeature: D2D1_FEATURE;
+      AFeature: TD2D1Feature;
       AFeatureSupportData: Pointer;
       AFeatureSupportDataSize: UInt32): HRESULT; stdcall;
 
-    function IsBufferPrecisionSupported(ABufferPrecision: D2D1_BUFFER_PRECISION): BOOL; stdcall;
+    function IsBufferPrecisionSupported(ABufferPrecision: TD2D1BufferPrecision): BOOL; stdcall;
 
   end;
 {$ENDREGION}
@@ -10540,7 +10541,7 @@ type
     ['{84ab595a-fc81-4546-bacd-e8ef4d8abe7a}']
 
     function CreateLookupTable3D(
-      APrecision: D2D1_BUFFER_PRECISION;
+      APrecision: TD2D1BufferPrecision;
       const AExtents: PUint32;
       const AData: PByte;
       ADataCount: UInt32;
@@ -10576,13 +10577,13 @@ type
   ID2D1SvgPaint = interface(ID2D1SvgAttribute)
     ['{d59bab0a-68a2-455b-a5dc-9eb2854e2490}']
 
-    function SetPaintType(APaintType: D2D1_SVG_PAINT_TYPE): HRESULT; stdcall;
+    function SetPaintType(APaintType: TD2D1SvgPaintType): HRESULT; stdcall;
 
-    function GetPaintType: D2D1_SVG_PAINT_TYPE; stdcall;
+    function GetPaintType: TD2D1SvgPaintType; stdcall;
 
     function SetColor(const AColor: PD2D1ColorF): HRESULT; stdcall;
 
-    procedure GetColor(AColor: D2D1_COLOR_F); stdcall;
+    procedure GetColor(AColor: TD2D1ColorF); stdcall;
 
     function SetId(AId: LPCWSTR): HRESULT; stdcall;
 
@@ -10674,7 +10675,7 @@ type
     function GetCommandsCount: UInt32; stdcall;
 
     function CreatePathGeometry(
-      AFillMode: D2D1_FILL_MODE;
+      AFillMode: TD2D1FillMode;
       out APathGeometry: ID2D1PathGeometry1): HRESULT; stdcall;
   end;
 
@@ -10754,29 +10755,29 @@ type
 
     function SetAttributeValue(
       AName: LPCWSTR;
-      AType: D2D1_SVG_ATTRIBUTE_STRING_TYPE;
+      AType: TD2D1SvgAttributeStringType;
       AValue: LPCWSTR): HRESULT; stdcall; overload;
 
     function GetAttributeValue(
       AName: LPCWSTR;
-      ATtype: D2D1_SVG_ATTRIBUTE_STRING_TYPE;
+      ATtype: TD2D1SvgAttributeStringType;
       AValue: LPWSTR;
       AValueCount: UInt32): HRESULT; stdcall; overload;
 
     function GetAttributeValueLength(
       AName: LPCWSTR;
-      AType: D2D1_SVG_ATTRIBUTE_STRING_TYPE;
+      AType: TD2D1SvgAttributeStringType;
       out AValueLength: UInt32): HRESULT; stdcall;
 
     function SetAttributeValue(
       AName: LPCWSTR;
-      AType: D2D1_SVG_ATTRIBUTE_POD_TYPE;
+      AType: TD2D1SvgAttributePodType;
       const AValue: Pointer;
       AValueSizeInBytes: UInt32): HRESULT; stdcall; overload;
 
     function GetAttributeValue(
       AName: LPCWSTR;
-      Atype: D2D1_SVG_ATTRIBUTE_POD_TYPE;
+      Atype: TD2D1SvgAttributePodType;
       AValue: Pointer;
       AValueSizeInBytes: UInt32): HRESULT; stdcall; overload;
 
@@ -10794,9 +10795,9 @@ type
   ID2D1SvgDocument = interface(ID2D1Resource)
     ['{86b88e4d-afa4-4d7b-88e4-68a51c4a0aec}']
 
-    function SetViewportSize(AViewportSize: D2D1_SIZE_F): HRESULT; stdcall;
+    function SetViewportSize(AViewportSize: TD2D1SizeF): HRESULT; stdcall;
 
-    function GetViewportSize: D2D1_SIZE_F; stdcall;
+    function GetViewportSize: TD2D1SizeF; stdcall;
 
     function SetRoot(ARoot: ID2D1SvgElement): HRESULT; stdcall;
 
@@ -10815,7 +10816,7 @@ type
       out ASubtree: ID2D1SvgElement): HRESULT; stdcall;
 
     function CreatePaint(
-      APaintType: D2D1_SVG_PAINT_TYPE;
+      APaintType: TD2D1SvgPaintType;
       const AColor: PD2D1ColorF;
       AId: LPCWSTR;
       out APaint: ID2D1SvgPaint): HRESULT; stdcall;
@@ -10880,13 +10881,13 @@ const
   d2d1lib = 'd2d1.dll';
 
 function D2D1CreateFactory(
-  AFactoryType: D2D1_FACTORY_TYPE;
+  AFactoryType: TD2D1FactoryType;
   const ARiid: TGUID;
   const AFactoryOptions: PD2D1FactoryOptions;
   out AIFactory): HRESULT; stdcall; external d2d1lib;
 
 function DWriteCreateFactory(
-  AFactoryType: DWRITE_FACTORY_TYPE;
+  AFactoryType: TDWriteFactoryType;
   const AIid: TGUID;
   out AFactory: IUnknown): HRESULT; stdcall; external dwritelib;
 
