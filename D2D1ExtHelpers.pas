@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.DxgiFormat, Winapi.Windows, Winapi.Wincodec, Winapi.DXGI, Winapi.DxgiType, System.Math, Graphics,
-  D2D1_1;
+  D2D1Ext;
 
 type
 
@@ -42,7 +42,7 @@ type
     class function Infinite: TD2D1RectF; static;
   end;
 
-
+{$REGION 'd2d1helper.h definition'}
 function D2D1ColorF(ARed, AGreen, ABlue, AAlpha: Single): TD2D1ColorF; overload; inline;
 function D2D1ColorF(AColor: TColor): TD2D1ColorF; overload; inline;
 function D2D1RandomColorF(AAlpha: Single = 1): TD2D1ColorF; inline;
@@ -160,8 +160,60 @@ function D2D1HwndRenderTargetProperties(
 function D2D1HwndRenderTargetProperties(
   AHwnd: HWND): TD2D1HwndRenderTargetProperties; overload;
 
+{$ENDREGION}
+
+{$REGION 'd2d1_1helper.h definition'}
+
+function D2D1ConvertColorSpace(
+  ASourceColorSpace,
+  ADestinationColorSpace: TD2D1ColorSpace;
+  AColor: TD2D1ColorF): TD2D1ColorF;
+
+function D2D1DrawingStateDescription1(
+  AAntialiasMode: TD2D1AntialiasMode;
+  ATextAntialiasMode: TD2D1TextAntialiasMode;
+  ATag1: TD2D1Tag;
+  ATag2: TD2D1Tag;
+  ATransform: TD2D1Matrix3x2F;
+  APrimitiveBlend: D2D1_PRIMITIVE_BLEND;
+  AUnitMode: D2D1_UNIT_MODE): TD2D1DrawingStateDescription1; overload;
+function D2D1DrawingStateDescription1: TD2D1DrawingStateDescription1; overload;
+
+function D2D1BitmapProperties1(
+  ABitmapOptions: TD2D1BitmapOptions;
+  APixelFormat: TD2D1PixelFormat;
+  ADpiX: Single;
+  ADpiY: Single;
+  AColorContext: ID2D1ColorContext): TD2D1BitmapProperties1; overload;
+
+function D2D1BitmapProperties1: TD2D1BitmapProperties1; overload;
+
+function D2D1LayerParameters1(
+  AContentBounds: TD2D1RectF;
+  AGeometricMask: ID2D1Geometry;
+  AMaskAntialiasMode: TD2D1AntialiasMode;
+  AMaskTransform: TD2D1Matrix3x2F;
+  AOpacity: Single;
+  AOpacityBrush: ID2D1Brush;
+  ALayerOptions: TD2D1LayerOptions1): TD2D1LayerParameters1; overload;
+
+function D2D1LayerParameters1: TD2D1LayerParameters1; overload;
+
+function D2D1StrokeStyleProperties1(
+  AStartCap: TD2D1CapStyle = D2D1_CAP_STYLE_FLAT;
+  AEndCap: TD2D1CapStyle = D2D1_CAP_STYLE_FLAT;
+  ADashCap: TD2D1CapStyle = D2D1_CAP_STYLE_FLAT;
+  ALineJoin: TD2D1LineJoin = D2D1_LINE_JOIN_MITER;
+  AMiterLimit: Single = 10;
+  ADashStyle: TD2D1DashStyle = D2D1_DASH_STYLE_SOLID;
+  ADashOffset: Single = 0.0;
+  ATransformType: D2D1_STROKE_TRANSFORM_TYPE  = D2D1_STROKE_TRANSFORM_TYPE_NORMAL): TD2D1StrokeStyleProperties1;
+
+{$ENDREGION}
+
 implementation
 
+{$REGION 'd2d1helper.h implemetation'}
 {=========================================================================================================================================}
 function D2D1ColorF(ARed, AGreen, ABlue, AAlpha: Single): TD2D1ColorF;
 begin
@@ -204,22 +256,8 @@ end;
 
 function D2D1RandomPoint2F(ABoundLeft, ABoundTop, ABoundRight, ABoundBottom: Single): TD2D1Point2F;
 begin
-
   Result.X := (ABoundRight - ABoundLeft) * Random + ABoundLeft;
   Result.Y := (ABoundBottom - ABoundTop) * Random + ABoundTop;
-
-//
-//  if ABoundLeft > ABoundLeft then
-//    Result.X := (ABoundLeft - ABoundRight) * Random + ABoundRight
-//
-//  else
-//    Result.X := (ABoundRight - ABoundLeft) * Random + ABoundLeft;
-//
-//  if ABoundBottom > ABoundTop then
-//    Result.Y := (ABoundTop - ABoundBottom) * Random + ABoundBottom
-//
-//  else
-//    Result.Y := (ABoundBottom - ABoundTop) * Random + ABoundTop;
 end;
 
 function D2D1RandomPoint2F(ARandomRadius: Single = 100): TD2D1Point2F;
@@ -517,14 +555,132 @@ begin
   Result.PresentOptions := APresentOptions;
 end;
 
-function D2D1HwndRenderTargetProperties(
-  AHwnd: HWND): TD2D1HwndRenderTargetProperties;
+function D2D1HwndRenderTargetProperties(AHwnd: HWND): TD2D1HwndRenderTargetProperties;
 var U: TD2D1SizeU;
 begin
   U.Width := 0;
   U.Height := 0;
   Result := D2D1HwndRenderTargetProperties(AHwnd, U)
 end;
+
+{$ENDREGION}
+
+{$REGION 'd2d1_1helper.h implemetation'}
+function D2D1ConvertColorSpace(
+  ASourceColorSpace,
+  ADestinationColorSpace: TD2D1ColorSpace;
+  AColor: TD2D1ColorF): TD2D1ColorF;
+begin
+  Result := D2D1Ext.D2D1ConvertColorSpace(ASourceColorSpace, ADestinationColorSpace, @AColor)
+end;
+
+function D2D1DrawingStateDescription1(
+  AAntialiasMode: TD2D1AntialiasMode;
+  ATextAntialiasMode: TD2D1TextAntialiasMode;
+  ATag1: TD2D1Tag;
+  ATag2: TD2D1Tag;
+  ATransform: TD2D1Matrix3x2F;
+  APrimitiveBlend: D2D1_PRIMITIVE_BLEND;
+  AUnitMode: D2D1_UNIT_MODE): TD2D1DrawingStateDescription1;
+begin
+  Result.AntialiasMode := AAntialiasMode;
+  Result.TextAntialiasMode := ATextAntialiasMode;
+  Result.Tag1 := ATag1;
+  Result.Tag2 := ATag2;
+  Result.Transform := ATransform;
+  Result.PrimitiveBlend := APrimitiveBlend;
+  Result.UnitMode := AUnitMode;
+end;
+
+function D2D1DrawingStateDescription1: TD2D1DrawingStateDescription1;
+begin
+  Result := D2D1DrawingStateDescription1(
+    D2D1_ANTIALIAS_MODE_PER_PRIMITIVE,
+    D2D1_TEXT_ANTIALIAS_MODE_DEFAULT,
+    0,
+    0,
+    TD2D1Matrix3x2F.Identity,
+    D2D1_PRIMITIVE_BLEND_SOURCE_OVER,
+    D2D1_UNIT_MODE_DIPS);
+end;
+
+function D2D1BitmapProperties1(
+  ABitmapOptions: TD2D1BitmapOptions;
+  APixelFormat: TD2D1PixelFormat;
+  ADpiX: Single;
+  ADpiY: Single;
+  AColorContext: ID2D1ColorContext): TD2D1BitmapProperties1;
+begin
+  Result.PixelFormat := APixelFormat;
+  Result.DpiX := 96;
+  Result.DpiY := 96;
+  Result.BitmapOptions := ABitmapOptions;
+  Result.ColorContext := AColorContext;
+end;
+
+function D2D1BitmapProperties1: TD2D1BitmapProperties1;
+begin
+  Result := D2D1BitmapProperties1(
+  D2D1_BITMAP_OPTIONS_NONE,
+  D2D1PixelFormat,
+  96,
+  96,
+  nil);
+end;
+
+function D2D1LayerParameters1(
+  AContentBounds: TD2D1RectF;
+  AGeometricMask: ID2D1Geometry;
+  AMaskAntialiasMode: TD2D1AntialiasMode;
+  AMaskTransform: TD2D1Matrix3x2F;
+  AOpacity: Single;
+  AOpacityBrush: ID2D1Brush;
+  ALayerOptions: TD2D1LayerOptions1): TD2D1LayerParameters1;
+begin
+  Result.ContentBounds := AContentBounds;
+  Result.GeometricMask := AGeometricMask;
+  Result.MaskAntialiasMode := AMaskAntialiasMode;
+  Result.MaskTransform := AMaskTransform;
+  Result.Opacity := AOpacity;
+  Result.OpacityBrush := AOpacityBrush;
+  Result.LayerOptions := ALayerOptions;
+end;
+
+function D2D1LayerParameters1: TD2D1LayerParameters1;
+begin
+  Result := D2D1LayerParameters1(
+    D2D1InfiniteRectF,
+    nil,
+    D2D1_ANTIALIAS_MODE_PER_PRIMITIVE,
+    TD2D1Matrix3x2F.Identity,
+    1,
+    nil,
+    D2D1_LAYER_OPTIONS1_NONE);
+end;
+
+function D2D1StrokeStyleProperties1(
+  AStartCap: TD2D1CapStyle = D2D1_CAP_STYLE_FLAT;
+  AEndCap: TD2D1CapStyle = D2D1_CAP_STYLE_FLAT;
+  ADashCap: TD2D1CapStyle = D2D1_CAP_STYLE_FLAT;
+  ALineJoin: TD2D1LineJoin = D2D1_LINE_JOIN_MITER;
+  AMiterLimit: Single = 10;
+  ADashStyle: TD2D1DashStyle = D2D1_DASH_STYLE_SOLID;
+  ADashOffset: Single = 0.0;
+  ATransformType: D2D1_STROKE_TRANSFORM_TYPE  = D2D1_STROKE_TRANSFORM_TYPE_NORMAL): TD2D1StrokeStyleProperties1;
+begin
+  Result.StartCap := AStartCap;
+  Result.EndCap := AEndCap;
+  Result.DashCap := ADashCap;
+  Result.LineJoin := ALineJoin;
+  Result.MiterLimit := AMiterLimit;
+  Result.DashStyle := ADashStyle;
+  Result.DashOffset := ADashOffset;
+  Result.TransformType := ATransformType;
+end;
+
+{$ENDREGION}
+
+{$REGION 'd2d1helper.h implementation records'}
 
 {=========================================================================================================================================}
 { TD2D1ColorFHelper }
@@ -651,5 +807,7 @@ class function TD2D1RectFHelper.Infinite: TD2D1RectF;
 begin
   Result := D2D1InfiniteRectF;
 end;
+
+{$ENDREGION}
 
 end.

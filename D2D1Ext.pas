@@ -38,7 +38,7 @@
   Pustowalow W.
 }
 
-unit D2D1_1;
+unit D2D1Ext;
 
 interface
 
@@ -6021,7 +6021,7 @@ type
   /// Extended bitmap properties.
   /// </summary>
   D2D1_BITMAP_PROPERTIES1 = record
-   PixelFormat: D2D1_PIXEL_FORMAT;
+    PixelFormat: D2D1_PIXEL_FORMAT;
     DpiX: Single;
     DpiY: Single;
 
