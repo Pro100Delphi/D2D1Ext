@@ -25,6 +25,8 @@ type
     class function Infinite: TD2D1Point2F; static;
   end;
 
+function D2D1Point2F(AX, AY: Single): TD2D1Point2F;
+
 function D2D1PixelFormat(
   ADXGIFormat: DXGI_FORMAT = DXGI_FORMAT_UNKNOWN;
   AAlphaMode: TD2D1AlphaMode = D2D1_ALPHA_MODE_UNKNOWN): TD2D1PixelFormat;
@@ -49,6 +51,12 @@ function D2D1HwndRenderTargetProperties(
   AHwnd: HWND): TD2D1HwndRenderTargetProperties; overload;
 
 implementation
+
+function D2D1Point2F(AX, AY: Single): TD2D1Point2F; inline;
+begin
+  Result.X := AX;
+  Result.Y := AY;
+end;
 
 function FloatMax: Single; inline;
 begin
@@ -134,7 +142,7 @@ end;
 
 class function TD2D1Matrix3x2FHelper.Rotation(AAngle, AX, AY: Single): TD2D1Matrix3x2F;
 begin
-  Result := Rotation(AAngle, TD2D1Point2F.Create(AX, AY));
+  Result := Rotation(AAngle, D2D1Point2F(AX, AY));
 end;
 
 class function TD2D1Matrix3x2FHelper.Translation(APos: TD2D1Point2F): TD2D1Matrix3x2F;
