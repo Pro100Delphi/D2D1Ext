@@ -5807,7 +5807,7 @@ type
     MaskAntialiasMode : D2D1_ANTIALIAS_MODE;
     MaskTransform     : D2D1_MATRIX_3X2_F;
     Opacity           : Single;
-    PpacityBrush      : ID2D1Brush;
+    OpacityBrush      : ID2D1Brush;
     LayerOptions      : D2D1_LAYER_OPTIONS;
   end;
 
@@ -5957,7 +5957,9 @@ type
   /// </summary>
   D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES = record
     Center              : D2D1_POINT_2F;
-    GradientOriginOffset: D2D1_POINT_2F
+    GradientOriginOffset: D2D1_POINT_2F;
+    RadiusX             : Single;
+    RadiusY             : Single
   end;
 
   PD2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES = ^D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES;
