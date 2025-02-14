@@ -69,6 +69,11 @@ type
   TD2D1ColorF = D2D1_COLOR_F;
   PD2D1ColorF = ^TD2D1ColorF;
 
+  DWRITE_COLOR_F = D2D1_COLOR_F;
+
+  TDWriteColorF = DWRITE_COLOR_F;
+  PDWriteColorF = ^TDWriteColorF;
+
 {$ENDREGION}
 
 {$REGION 'interface defenitions'}
@@ -418,6 +423,74 @@ type
   IDWriteGlyphRunAnalysis         = interface;
   IDWriteFactory                  = interface;
   IDWriteGeometrySink             = ID2D1SimplifiedGeometrySink;
+
+  // dwrite_1.h
+  IDWriteFactory1                 = interface;
+  IDWriteFontFace1                = interface;
+  IDWriteFont1                    = interface;
+  IDWriteRenderingParams1         = interface;
+  IDWriteTextAnalyzer1            = interface;
+  IDWriteTextAnalysisSource1      = interface;
+  IDWriteTextAnalysisSink1        = interface;
+  IDWriteTextLayout1              = interface;
+  IDWriteBitmapRenderTarget1      = interface;
+
+  // dwrite_2.h
+  IDWriteTextRenderer1            = interface;
+  IDWriteTextFormat1              = interface;
+  IDWriteTextLayout2              = interface;
+  IDWriteTextAnalyzer2            = interface;
+  IDWriteFontFallback             = interface;
+  IDWriteFontFallbackBuilder      = interface;
+  IDWriteFont2                    = interface;
+  IDWriteFontFace2                = interface;
+  IDWriteColorGlyphRunEnumerator  = interface;
+  IDWriteRenderingParams2         = interface;
+  IDWriteFactory2                 = interface;
+
+  // dwrite_3.h
+  IDWriteRenderingParams3         = interface;
+  IDWriteFactory3                 = interface;
+  IDWriteFontSet                  = interface;
+  IDWriteFontSetBuilder           = interface;
+  IDWriteFontCollection1          = interface;
+  IDWriteFontFamily1              = interface;
+  IDWriteFontList1                = interface;
+  IDWriteFontFaceReference        = interface;
+  IDWriteFont3                    = interface;
+  IDWriteFontFace3                = interface;
+  IDWriteStringList               = interface;
+  IDWriteFontDownloadListener     = interface;
+  IDWriteFontDownloadQueue        = interface;
+  IDWriteGdiInterop1              = interface;
+  IDWriteTextFormat2              = interface;
+  IDWriteTextLayout3              = interface;
+  IDWriteColorGlyphRunEnumerator1 = interface;
+  IDWriteFontFace4                = interface;
+  IDWriteFactory4                 = interface;
+  IDWriteFontSetBuilder1          = interface;
+  IDWriteAsyncResult              = interface;
+  IDWriteRemoteFontFileStream     = interface;
+  IDWriteRemoteFontFileLoader     = interface;
+  IDWriteInMemoryFontFileLoader   = interface;
+  IDWriteFactory5                 = interface;
+  IDWriteFactory6                 = interface;
+  IDWriteFontFace5                = interface;
+  IDWriteFontResource             = interface;
+  IDWriteFontFaceReference1       = interface;
+  IDWriteFontSetBuilder2          = interface;
+  IDWriteFontSet1                 = interface;
+  IDWriteFontList2                = interface;
+  IDWriteFontFamily2              = interface;
+  IDWriteFontCollection2          = interface;
+  IDWriteTextLayout4              = interface;
+  IDWriteTextFormat3              = interface;
+  IDWriteFontFallback1            = interface;
+  IDWriteFontSet2                 = interface;
+  IDWriteFontCollection3          = interface;
+  IDWriteFactory7                 = interface;
+  IDWriteFontSet3                 = interface;
+  IDWriteFontFace6                = interface;
 
   // d2d1effectauthor.h
   ID2D1VertexBuffer               = interface;
@@ -2512,6 +2585,538 @@ type
 
 	TDWriteTextureType = DWRITE_TEXTURE_TYPE;
 	PDWriteTextureType = ^TDWriteTextureType;
+
+{$ENDREGION}
+
+{$REGION 'dwrite_1 enums'}
+
+  DWRITE_PANOSE_FAMILY = (
+    DWRITE_PANOSE_FAMILY_ANY          = 0,
+    DWRITE_PANOSE_FAMILY_NO_FIT       = 1,
+    DWRITE_PANOSE_FAMILY_TEXT_DISPLAY = 2,
+    DWRITE_PANOSE_FAMILY_SCRIPT       = 3, // or hand written
+    DWRITE_PANOSE_FAMILY_DECORATIVE   = 4,
+    DWRITE_PANOSE_FAMILY_SYMBOL       = 5, // or symbol
+    DWRITE_PANOSE_FAMILY_PICTORIAL    = DWRITE_PANOSE_FAMILY_SYMBOL
+  );
+
+  DWRITE_PANOSE_SERIF_STYLE = (
+
+    DWRITE_PANOSE_SERIF_STYLE_ANY                 = 0,
+    DWRITE_PANOSE_SERIF_STYLE_NO_FIT              = 1,
+    DWRITE_PANOSE_SERIF_STYLE_COVE                = 2,
+    DWRITE_PANOSE_SERIF_STYLE_OBTUSE_COVE         = 3,
+    DWRITE_PANOSE_SERIF_STYLE_SQUARE_COVE         = 4,
+    DWRITE_PANOSE_SERIF_STYLE_OBTUSE_SQUARE_COVE  = 5,
+    DWRITE_PANOSE_SERIF_STYLE_SQUARE              = 6,
+    DWRITE_PANOSE_SERIF_STYLE_THIN                = 7,
+    DWRITE_PANOSE_SERIF_STYLE_OVAL                = 8,
+    DWRITE_PANOSE_SERIF_STYLE_EXAGGERATED         = 9,
+    DWRITE_PANOSE_SERIF_STYLE_TRIANGLE            = 10,
+    DWRITE_PANOSE_SERIF_STYLE_NORMAL_SANS         = 11,
+    DWRITE_PANOSE_SERIF_STYLE_OBTUSE_SANS         = 12,
+    DWRITE_PANOSE_SERIF_STYLE_PERPENDICULAR_SANS  = 13,
+    DWRITE_PANOSE_SERIF_STYLE_FLARED              = 14,
+    DWRITE_PANOSE_SERIF_STYLE_ROUNDED             = 15,
+    DWRITE_PANOSE_SERIF_STYLE_SCRIPT              = 16,
+    DWRITE_PANOSE_SERIF_STYLE_PERP_SANS           = DWRITE_PANOSE_SERIF_STYLE_PERPENDICULAR_SANS,
+    DWRITE_PANOSE_SERIF_STYLE_BONE                = DWRITE_PANOSE_SERIF_STYLE_OVAL
+  );
+
+  DWRITE_PANOSE_WEIGHT = (
+
+    DWRITE_PANOSE_WEIGHT_ANY          = 0,
+    DWRITE_PANOSE_WEIGHT_NO_FIT       = 1,
+    DWRITE_PANOSE_WEIGHT_VERY_LIGHT   = 2,
+    DWRITE_PANOSE_WEIGHT_LIGHT        = 3,
+    DWRITE_PANOSE_WEIGHT_THIN         = 4,
+    DWRITE_PANOSE_WEIGHT_BOOK         = 5,
+    DWRITE_PANOSE_WEIGHT_MEDIUM       = 6,
+    DWRITE_PANOSE_WEIGHT_DEMI         = 7,
+    DWRITE_PANOSE_WEIGHT_BOLD         = 8,
+    DWRITE_PANOSE_WEIGHT_HEAVY        = 9,
+    DWRITE_PANOSE_WEIGHT_BLACK        = 10,
+    DWRITE_PANOSE_WEIGHT_EXTRA_BLACK  = 11,
+    DWRITE_PANOSE_WEIGHT_NORD         = DWRITE_PANOSE_WEIGHT_EXTRA_BLACK
+  );
+
+  DWRITE_PANOSE_PROPORTION = (
+
+    DWRITE_PANOSE_PROPORTION_ANY            = 0,
+    DWRITE_PANOSE_PROPORTION_NO_FIT         = 1,
+    DWRITE_PANOSE_PROPORTION_OLD_STYLE      = 2,
+    DWRITE_PANOSE_PROPORTION_MODERN         = 3,
+    DWRITE_PANOSE_PROPORTION_EVEN_WIDTH     = 4,
+    DWRITE_PANOSE_PROPORTION_EXPANDED       = 5,
+    DWRITE_PANOSE_PROPORTION_CONDENSED      = 6,
+    DWRITE_PANOSE_PROPORTION_VERY_EXPANDED  = 7,
+    DWRITE_PANOSE_PROPORTION_VERY_CONDENSED = 8,
+    DWRITE_PANOSE_PROPORTION_MONOSPACED     = 9
+  );
+
+  DWRITE_PANOSE_CONTRAST = (
+    DWRITE_PANOSE_CONTRAST_ANY                = 0,
+    DWRITE_PANOSE_CONTRAST_NO_FIT             = 1,
+    DWRITE_PANOSE_CONTRAST_NONE               = 2,
+    DWRITE_PANOSE_CONTRAST_VERY_LOW           = 3,
+    DWRITE_PANOSE_CONTRAST_LOW                = 4,
+    DWRITE_PANOSE_CONTRAST_MEDIUM_LOW         = 5,
+    DWRITE_PANOSE_CONTRAST_MEDIUM             = 6,
+    DWRITE_PANOSE_CONTRAST_MEDIUM_HIGH        = 7,
+    DWRITE_PANOSE_CONTRAST_HIGH               = 8,
+    DWRITE_PANOSE_CONTRAST_VERY_HIGH          = 9,
+    DWRITE_PANOSE_CONTRAST_HORIZONTAL_LOW     = 10,
+    DWRITE_PANOSE_CONTRAST_HORIZONTAL_MEDIUM  = 11,
+    DWRITE_PANOSE_CONTRAST_HORIZONTAL_HIGH    = 12,
+    DWRITE_PANOSE_CONTRAST_BROKEN             = 13
+  );
+
+  DWRITE_PANOSE_STROKE_VARIATION = (
+
+    DWRITE_PANOSE_STROKE_VARIATION_ANY                  = 0,
+    DWRITE_PANOSE_STROKE_VARIATION_NO_FIT               = 1,
+    DWRITE_PANOSE_STROKE_VARIATION_NO_VARIATION         = 2,
+    DWRITE_PANOSE_STROKE_VARIATION_GRADUAL_DIAGONAL     = 3,
+    DWRITE_PANOSE_STROKE_VARIATION_GRADUAL_TRANSITIONAL = 4,
+    DWRITE_PANOSE_STROKE_VARIATION_GRADUAL_VERTICAL     = 5,
+    DWRITE_PANOSE_STROKE_VARIATION_GRADUAL_HORIZONTAL   = 6,
+    DWRITE_PANOSE_STROKE_VARIATION_RAPID_VERTICAL       = 7,
+    DWRITE_PANOSE_STROKE_VARIATION_RAPID_HORIZONTAL     = 8,
+    DWRITE_PANOSE_STROKE_VARIATION_INSTANT_VERTICAL     = 9,
+    DWRITE_PANOSE_STROKE_VARIATION_INSTANT_HORIZONTAL   = 10
+  );
+
+  DWRITE_PANOSE_ARM_STYLE = (
+
+    DWRITE_PANOSE_ARM_STYLE_ANY                           = 0,
+    DWRITE_PANOSE_ARM_STYLE_NO_FIT                        = 1,
+    DWRITE_PANOSE_ARM_STYLE_STRAIGHT_ARMS_HORIZONTAL      = 2,
+    DWRITE_PANOSE_ARM_STYLE_STRAIGHT_ARMS_WEDGE           = 3,
+    DWRITE_PANOSE_ARM_STYLE_STRAIGHT_ARMS_VERTICAL        = 4,
+    DWRITE_PANOSE_ARM_STYLE_STRAIGHT_ARMS_SINGLE_SERIF    = 5,
+    DWRITE_PANOSE_ARM_STYLE_STRAIGHT_ARMS_DOUBLE_SERIF    = 6,
+    DWRITE_PANOSE_ARM_STYLE_NONSTRAIGHT_ARMS_HORIZONTAL   = 7,
+    DWRITE_PANOSE_ARM_STYLE_NONSTRAIGHT_ARMS_WEDGE        = 8,
+    DWRITE_PANOSE_ARM_STYLE_NONSTRAIGHT_ARMS_VERTICAL     = 9,
+    DWRITE_PANOSE_ARM_STYLE_NONSTRAIGHT_ARMS_SINGLE_SERIF = 10,
+    DWRITE_PANOSE_ARM_STYLE_NONSTRAIGHT_ARMS_DOUBLE_SERIF = 11,
+    DWRITE_PANOSE_ARM_STYLE_STRAIGHT_ARMS_HORZ            = DWRITE_PANOSE_ARM_STYLE_STRAIGHT_ARMS_HORIZONTAL,
+    DWRITE_PANOSE_ARM_STYLE_STRAIGHT_ARMS_VERT            = DWRITE_PANOSE_ARM_STYLE_STRAIGHT_ARMS_VERTICAL,
+    DWRITE_PANOSE_ARM_STYLE_BENT_ARMS_HORZ                = DWRITE_PANOSE_ARM_STYLE_NONSTRAIGHT_ARMS_HORIZONTAL,
+    DWRITE_PANOSE_ARM_STYLE_BENT_ARMS_WEDGE               = DWRITE_PANOSE_ARM_STYLE_NONSTRAIGHT_ARMS_WEDGE,
+    DWRITE_PANOSE_ARM_STYLE_BENT_ARMS_VERT                = DWRITE_PANOSE_ARM_STYLE_NONSTRAIGHT_ARMS_VERTICAL,
+    DWRITE_PANOSE_ARM_STYLE_BENT_ARMS_SINGLE_SERIF        = DWRITE_PANOSE_ARM_STYLE_NONSTRAIGHT_ARMS_SINGLE_SERIF,
+    DWRITE_PANOSE_ARM_STYLE_BENT_ARMS_DOUBLE_SERIF        = DWRITE_PANOSE_ARM_STYLE_NONSTRAIGHT_ARMS_DOUBLE_SERIF
+  );
+
+  DWRITE_PANOSE_LETTERFORM = (
+
+    DWRITE_PANOSE_LETTERFORM_ANY                = 0,
+    DWRITE_PANOSE_LETTERFORM_NO_FIT             = 1,
+    DWRITE_PANOSE_LETTERFORM_NORMAL_CONTACT     = 2,
+    DWRITE_PANOSE_LETTERFORM_NORMAL_WEIGHTED    = 3,
+    DWRITE_PANOSE_LETTERFORM_NORMAL_BOXED       = 4,
+    DWRITE_PANOSE_LETTERFORM_NORMAL_FLATTENED   = 5,
+    DWRITE_PANOSE_LETTERFORM_NORMAL_ROUNDED     = 6,
+    DWRITE_PANOSE_LETTERFORM_NORMAL_OFF_CENTER  = 7,
+    DWRITE_PANOSE_LETTERFORM_NORMAL_SQUARE      = 8,
+    DWRITE_PANOSE_LETTERFORM_OBLIQUE_CONTACT    = 9,
+    DWRITE_PANOSE_LETTERFORM_OBLIQUE_WEIGHTED   = 10,
+    DWRITE_PANOSE_LETTERFORM_OBLIQUE_BOXED      = 11,
+    DWRITE_PANOSE_LETTERFORM_OBLIQUE_FLATTENED  = 12,
+    DWRITE_PANOSE_LETTERFORM_OBLIQUE_ROUNDED    = 13,
+    DWRITE_PANOSE_LETTERFORM_OBLIQUE_OFF_CENTER = 14,
+    DWRITE_PANOSE_LETTERFORM_OBLIQUE_SQUARE     = 15
+  );
+
+  DWRITE_PANOSE_MIDLINE = (
+
+    DWRITE_PANOSE_MIDLINE_ANY               = 0,
+    DWRITE_PANOSE_MIDLINE_NO_FIT            = 1,
+    DWRITE_PANOSE_MIDLINE_STANDARD_TRIMMED  = 2,
+    DWRITE_PANOSE_MIDLINE_STANDARD_POINTED  = 3,
+    DWRITE_PANOSE_MIDLINE_STANDARD_SERIFED  = 4,
+    DWRITE_PANOSE_MIDLINE_HIGH_TRIMMED      = 5,
+    DWRITE_PANOSE_MIDLINE_HIGH_POINTED      = 6,
+    DWRITE_PANOSE_MIDLINE_HIGH_SERIFED      = 7,
+    DWRITE_PANOSE_MIDLINE_CONSTANT_TRIMMED  = 8,
+    DWRITE_PANOSE_MIDLINE_CONSTANT_POINTED  = 9,
+    DWRITE_PANOSE_MIDLINE_CONSTANT_SERIFED  = 10,
+    DWRITE_PANOSE_MIDLINE_LOW_TRIMMED       = 11,
+    DWRITE_PANOSE_MIDLINE_LOW_POINTED       = 12,
+    DWRITE_PANOSE_MIDLINE_LOW_SERIFED       = 13
+  );
+
+  DWRITE_PANOSE_XHEIGHT = (
+
+    DWRITE_PANOSE_XHEIGHT_ANY               = 0,
+    DWRITE_PANOSE_XHEIGHT_NO_FIT            = 1,
+    DWRITE_PANOSE_XHEIGHT_CONSTANT_SMALL    = 2,
+    DWRITE_PANOSE_XHEIGHT_CONSTANT_STANDARD = 3,
+    DWRITE_PANOSE_XHEIGHT_CONSTANT_LARGE    = 4,
+    DWRITE_PANOSE_XHEIGHT_DUCKING_SMALL     = 5,
+    DWRITE_PANOSE_XHEIGHT_DUCKING_STANDARD  = 6,
+    DWRITE_PANOSE_XHEIGHT_DUCKING_LARGE     = 7,
+    DWRITE_PANOSE_XHEIGHT_CONSTANT_STD      = DWRITE_PANOSE_XHEIGHT_CONSTANT_STANDARD,
+    DWRITE_PANOSE_XHEIGHT_DUCKING_STD       = DWRITE_PANOSE_XHEIGHT_DUCKING_STANDARD
+  );
+
+  DWRITE_PANOSE_TOOL_KIND = (
+
+    DWRITE_PANOSE_TOOL_KIND_ANY                 = 0,
+    DWRITE_PANOSE_TOOL_KIND_NO_FIT              = 1,
+    DWRITE_PANOSE_TOOL_KIND_FLAT_NIB            = 2,
+    DWRITE_PANOSE_TOOL_KIND_PRESSURE_POINT      = 3,
+    DWRITE_PANOSE_TOOL_KIND_ENGRAVED            = 4,
+    DWRITE_PANOSE_TOOL_KIND_BALL                = 5,
+    DWRITE_PANOSE_TOOL_KIND_BRUSH               = 6,
+    DWRITE_PANOSE_TOOL_KIND_ROUGH               = 7,
+    DWRITE_PANOSE_TOOL_KIND_FELT_PEN_BRUSH_TIP  = 8,
+    DWRITE_PANOSE_TOOL_KIND_WILD_BRUSH          = 9
+  );
+
+  DWRITE_PANOSE_SPACING = (
+
+    DWRITE_PANOSE_SPACING_ANY                 = 0,
+    DWRITE_PANOSE_SPACING_NO_FIT              = 1,
+    DWRITE_PANOSE_SPACING_PROPORTIONAL_SPACED = 2,
+    DWRITE_PANOSE_SPACING_MONOSPACED          = 3
+  );
+
+  DWRITE_PANOSE_ASPECT_RATIO = (
+
+    DWRITE_PANOSE_ASPECT_RATIO_ANY            = 0,
+    DWRITE_PANOSE_ASPECT_RATIO_NO_FIT         = 1,
+    DWRITE_PANOSE_ASPECT_RATIO_VERY_CONDENSED = 2,
+    DWRITE_PANOSE_ASPECT_RATIO_CONDENSED      = 3,
+    DWRITE_PANOSE_ASPECT_RATIO_NORMAL         = 4,
+    DWRITE_PANOSE_ASPECT_RATIO_EXPANDED       = 5,
+    DWRITE_PANOSE_ASPECT_RATIO_VERY_EXPANDED  = 6
+  );
+
+  DWRITE_PANOSE_SCRIPT_TOPOLOGY = (
+
+    DWRITE_PANOSE_SCRIPT_TOPOLOGY_ANY                       = 0,
+    DWRITE_PANOSE_SCRIPT_TOPOLOGY_NO_FIT                    = 1,
+    DWRITE_PANOSE_SCRIPT_TOPOLOGY_ROMAN_DISCONNECTED        = 2,
+    DWRITE_PANOSE_SCRIPT_TOPOLOGY_ROMAN_TRAILING            = 3,
+    DWRITE_PANOSE_SCRIPT_TOPOLOGY_ROMAN_CONNECTED           = 4,
+    DWRITE_PANOSE_SCRIPT_TOPOLOGY_CURSIVE_DISCONNECTED      = 5,
+    DWRITE_PANOSE_SCRIPT_TOPOLOGY_CURSIVE_TRAILING          = 6,
+    DWRITE_PANOSE_SCRIPT_TOPOLOGY_CURSIVE_CONNECTED         = 7,
+    DWRITE_PANOSE_SCRIPT_TOPOLOGY_BLACKLETTER_DISCONNECTED  = 8,
+    DWRITE_PANOSE_SCRIPT_TOPOLOGY_BLACKLETTER_TRAILING      = 9,
+    DWRITE_PANOSE_SCRIPT_TOPOLOGY_BLACKLETTER_CONNECTED     = 10
+  );
+
+  DWRITE_PANOSE_SCRIPT_FORM = (
+
+    DWRITE_PANOSE_SCRIPT_FORM_ANY = 0,
+    DWRITE_PANOSE_SCRIPT_FORM_NO_FIT = 1,
+    DWRITE_PANOSE_SCRIPT_FORM_UPRIGHT_NO_WRAPPING           = 2,
+    DWRITE_PANOSE_SCRIPT_FORM_UPRIGHT_SOME_WRAPPING         = 3,
+    DWRITE_PANOSE_SCRIPT_FORM_UPRIGHT_MORE_WRAPPING         = 4,
+    DWRITE_PANOSE_SCRIPT_FORM_UPRIGHT_EXTREME_WRAPPING      = 5,
+    DWRITE_PANOSE_SCRIPT_FORM_OBLIQUE_NO_WRAPPING           = 6,
+    DWRITE_PANOSE_SCRIPT_FORM_OBLIQUE_SOME_WRAPPING         = 7,
+    DWRITE_PANOSE_SCRIPT_FORM_OBLIQUE_MORE_WRAPPING         = 8,
+    DWRITE_PANOSE_SCRIPT_FORM_OBLIQUE_EXTREME_WRAPPING      = 9,
+    DWRITE_PANOSE_SCRIPT_FORM_EXAGGERATED_NO_WRAPPING       = 10,
+    DWRITE_PANOSE_SCRIPT_FORM_EXAGGERATED_SOME_WRAPPING     = 11,
+    DWRITE_PANOSE_SCRIPT_FORM_EXAGGERATED_MORE_WRAPPING     = 12,
+    DWRITE_PANOSE_SCRIPT_FORM_EXAGGERATED_EXTREME_WRAPPING  = 13
+  );
+
+  DWRITE_PANOSE_FINIALS = (
+
+    DWRITE_PANOSE_FINIALS_ANY                   = 0,
+    DWRITE_PANOSE_FINIALS_NO_FIT                = 1,
+    DWRITE_PANOSE_FINIALS_NONE_NO_LOOPS         = 2,
+    DWRITE_PANOSE_FINIALS_NONE_CLOSED_LOOPS     = 3,
+    DWRITE_PANOSE_FINIALS_NONE_OPEN_LOOPS       = 4,
+    DWRITE_PANOSE_FINIALS_SHARP_NO_LOOPS        = 5,
+    DWRITE_PANOSE_FINIALS_SHARP_CLOSED_LOOPS    = 6,
+    DWRITE_PANOSE_FINIALS_SHARP_OPEN_LOOPS      = 7,
+    DWRITE_PANOSE_FINIALS_TAPERED_NO_LOOPS      = 8,
+    DWRITE_PANOSE_FINIALS_TAPERED_CLOSED_LOOPS  = 9,
+    DWRITE_PANOSE_FINIALS_TAPERED_OPEN_LOOPS    = 10,
+    DWRITE_PANOSE_FINIALS_ROUND_NO_LOOPS        = 11,
+    DWRITE_PANOSE_FINIALS_ROUND_CLOSED_LOOPS    = 12,
+    DWRITE_PANOSE_FINIALS_ROUND_OPEN_LOOPS      = 13
+  );
+
+  DWRITE_PANOSE_XASCENT = (
+
+    DWRITE_PANOSE_XASCENT_ANY       = 0,
+    DWRITE_PANOSE_XASCENT_NO_FIT    = 1,
+    DWRITE_PANOSE_XASCENT_VERY_LOW  = 2,
+    DWRITE_PANOSE_XASCENT_LOW       = 3,
+    DWRITE_PANOSE_XASCENT_MEDIUM    = 4,
+    DWRITE_PANOSE_XASCENT_HIGH      = 5,
+    DWRITE_PANOSE_XASCENT_VERY_HIGH = 6
+  );
+
+  DWRITE_PANOSE_DECORATIVE_CLASS = (
+
+    DWRITE_PANOSE_DECORATIVE_CLASS_ANY                  = 0,
+    DWRITE_PANOSE_DECORATIVE_CLASS_NO_FIT               = 1,
+    DWRITE_PANOSE_DECORATIVE_CLASS_DERIVATIVE           = 2,
+    DWRITE_PANOSE_DECORATIVE_CLASS_NONSTANDARD_TOPOLOGY = 3,
+    DWRITE_PANOSE_DECORATIVE_CLASS_NONSTANDARD_ELEMENTS = 4,
+    DWRITE_PANOSE_DECORATIVE_CLASS_NONSTANDARD_ASPECT   = 5,
+    DWRITE_PANOSE_DECORATIVE_CLASS_INITIALS             = 6,
+    DWRITE_PANOSE_DECORATIVE_CLASS_CARTOON              = 7,
+    DWRITE_PANOSE_DECORATIVE_CLASS_PICTURE_STEMS        = 8,
+    DWRITE_PANOSE_DECORATIVE_CLASS_ORNAMENTED           = 9,
+    DWRITE_PANOSE_DECORATIVE_CLASS_TEXT_AND_BACKGROUND  = 10,
+    DWRITE_PANOSE_DECORATIVE_CLASS_COLLAGE              = 11,
+    DWRITE_PANOSE_DECORATIVE_CLASS_MONTAGE              = 12
+  );
+
+  DWRITE_PANOSE_ASPECT = (
+
+    DWRITE_PANOSE_ASPECT_ANY              = 0,
+    DWRITE_PANOSE_ASPECT_NO_FIT           = 1,
+    DWRITE_PANOSE_ASPECT_SUPER_CONDENSED  = 2,
+    DWRITE_PANOSE_ASPECT_VERY_CONDENSED   = 3,
+    DWRITE_PANOSE_ASPECT_CONDENSED        = 4,
+    DWRITE_PANOSE_ASPECT_NORMAL           = 5,
+    DWRITE_PANOSE_ASPECT_EXTENDED         = 6,
+    DWRITE_PANOSE_ASPECT_VERY_EXTENDED    = 7,
+    DWRITE_PANOSE_ASPECT_SUPER_EXTENDED   = 8,
+    DWRITE_PANOSE_ASPECT_MONOSPACED       = 9
+  );
+
+  DWRITE_PANOSE_FILL = (
+
+    DWRITE_PANOSE_FILL_ANY                  = 0,
+    DWRITE_PANOSE_FILL_NO_FIT               = 1,
+    DWRITE_PANOSE_FILL_STANDARD_SOLID_FILL  = 2,
+    DWRITE_PANOSE_FILL_NO_FILL              = 3,
+    DWRITE_PANOSE_FILL_PATTERNED_FILL       = 4,
+    DWRITE_PANOSE_FILL_COMPLEX_FILL         = 5,
+    DWRITE_PANOSE_FILL_SHAPED_FILL          = 6,
+    DWRITE_PANOSE_FILL_DRAWN_DISTRESSED     = 7
+  );
+
+  DWRITE_PANOSE_LINING = (
+
+    DWRITE_PANOSE_LINING_ANY      = 0,
+    DWRITE_PANOSE_LINING_NO_FIT   = 1,
+    DWRITE_PANOSE_LINING_NONE     = 2,
+    DWRITE_PANOSE_LINING_INLINE   = 3,
+    DWRITE_PANOSE_LINING_OUTLINE  = 4,
+    DWRITE_PANOSE_LINING_ENGRAVED = 5,
+    DWRITE_PANOSE_LINING_SHADOW   = 6,
+    DWRITE_PANOSE_LINING_RELIEF   = 7,
+    DWRITE_PANOSE_LINING_BACKDROP = 8
+  );
+
+  DWRITE_PANOSE_DECORATIVE_TOPOLOGY = (
+
+    DWRITE_PANOSE_DECORATIVE_TOPOLOGY_ANY                       = 0,
+    DWRITE_PANOSE_DECORATIVE_TOPOLOGY_NO_FIT                    = 1,
+    DWRITE_PANOSE_DECORATIVE_TOPOLOGY_STANDARD                  = 2,
+    DWRITE_PANOSE_DECORATIVE_TOPOLOGY_SQUARE                    = 3,
+    DWRITE_PANOSE_DECORATIVE_TOPOLOGY_MULTIPLE_SEGMENT          = 4,
+    DWRITE_PANOSE_DECORATIVE_TOPOLOGY_ART_DECO                  = 5,
+    DWRITE_PANOSE_DECORATIVE_TOPOLOGY_UNEVEN_WEIGHTING          = 6,
+    DWRITE_PANOSE_DECORATIVE_TOPOLOGY_DIVERSE_ARMS              = 7,
+    DWRITE_PANOSE_DECORATIVE_TOPOLOGY_DIVERSE_FORMS             = 8,
+    DWRITE_PANOSE_DECORATIVE_TOPOLOGY_LOMBARDIC_FORMS           = 9,
+    DWRITE_PANOSE_DECORATIVE_TOPOLOGY_UPPER_CASE_IN_LOWER_CASE  = 10,
+    DWRITE_PANOSE_DECORATIVE_TOPOLOGY_IMPLIED_TOPOLOGY          = 11,
+    DWRITE_PANOSE_DECORATIVE_TOPOLOGY_HORSESHOE_E_AND_A         = 12,
+    DWRITE_PANOSE_DECORATIVE_TOPOLOGY_CURSIVE                   = 13,
+    DWRITE_PANOSE_DECORATIVE_TOPOLOGY_BLACKLETTER               = 14,
+    DWRITE_PANOSE_DECORATIVE_TOPOLOGY_SWASH_VARIANCE            = 15
+  );
+
+  DWRITE_PANOSE_CHARACTER_RANGES = (
+
+    DWRITE_PANOSE_CHARACTER_RANGES_ANY                  = 0,
+    DWRITE_PANOSE_CHARACTER_RANGES_NO_FIT               = 1,
+    DWRITE_PANOSE_CHARACTER_RANGES_EXTENDED_COLLECTION  = 2,
+    DWRITE_PANOSE_CHARACTER_RANGES_LITERALS             = 3,
+    DWRITE_PANOSE_CHARACTER_RANGES_NO_LOWER_CASE        = 4,
+    DWRITE_PANOSE_CHARACTER_RANGES_SMALL_CAPS           = 5
+  );
+
+  DWRITE_PANOSE_SYMBOL_KIND = (
+
+    DWRITE_PANOSE_SYMBOL_KIND_ANY               = 0,
+    DWRITE_PANOSE_SYMBOL_KIND_NO_FIT            = 1,
+    DWRITE_PANOSE_SYMBOL_KIND_MONTAGES          = 2,
+    DWRITE_PANOSE_SYMBOL_KIND_PICTURES          = 3,
+    DWRITE_PANOSE_SYMBOL_KIND_SHAPES            = 4,
+    DWRITE_PANOSE_SYMBOL_KIND_SCIENTIFIC        = 5,
+    DWRITE_PANOSE_SYMBOL_KIND_MUSIC             = 6,
+    DWRITE_PANOSE_SYMBOL_KIND_EXPERT            = 7,
+    DWRITE_PANOSE_SYMBOL_KIND_PATTERNS          = 8,
+    DWRITE_PANOSE_SYMBOL_KIND_BOARDERS          = 9,
+    DWRITE_PANOSE_SYMBOL_KIND_ICONS             = 10,
+    DWRITE_PANOSE_SYMBOL_KIND_LOGOS             = 11,
+    DWRITE_PANOSE_SYMBOL_KIND_INDUSTRY_SPECIFIC = 12
+  );
+
+  DWRITE_PANOSE_SYMBOL_ASPECT_RATIO = (
+
+    DWRITE_PANOSE_SYMBOL_ASPECT_RATIO_ANY                 = 0,
+    DWRITE_PANOSE_SYMBOL_ASPECT_RATIO_NO_FIT              = 1,
+    DWRITE_PANOSE_SYMBOL_ASPECT_RATIO_NO_WIDTH            = 2,
+    DWRITE_PANOSE_SYMBOL_ASPECT_RATIO_EXCEPTIONALLY_WIDE  = 3,
+    DWRITE_PANOSE_SYMBOL_ASPECT_RATIO_SUPER_WIDE          = 4,
+    DWRITE_PANOSE_SYMBOL_ASPECT_RATIO_VERY_WIDE           = 5,
+    DWRITE_PANOSE_SYMBOL_ASPECT_RATIO_WIDE                = 6,
+    DWRITE_PANOSE_SYMBOL_ASPECT_RATIO_NORMAL              = 7,
+    DWRITE_PANOSE_SYMBOL_ASPECT_RATIO_NARROW              = 8,
+    DWRITE_PANOSE_SYMBOL_ASPECT_RATIO_VERY_NARROW         = 9
+  );
+
+  DWRITE_OUTLINE_THRESHOLD = (
+
+    DWRITE_OUTLINE_THRESHOLD_ANTIALIASED,
+    DWRITE_OUTLINE_THRESHOLD_ALIASED
+  );
+
+  DWRITE_BASELINE = (
+    DWRITE_BASELINE_DEFAULT,
+    DWRITE_BASELINE_ROMAN,
+    DWRITE_BASELINE_CENTRAL,
+    DWRITE_BASELINE_MATH,
+    DWRITE_BASELINE_HANGING,
+    DWRITE_BASELINE_IDEOGRAPHIC_BOTTOM,
+    DWRITE_BASELINE_IDEOGRAPHIC_TOP,
+    DWRITE_BASELINE_MINIMUM,
+    DWRITE_BASELINE_MAXIMUM
+  );
+
+  DWRITE_VERTICAL_GLYPH_ORIENTATION = (
+    DWRITE_VERTICAL_GLYPH_ORIENTATION_DEFAULT,
+    DWRITE_VERTICAL_GLYPH_ORIENTATION_STACKED
+  );
+
+  DWRITE_GLYPH_ORIENTATION_ANGLE = (
+    DWRITE_GLYPH_ORIENTATION_ANGLE_0_DEGREES,
+    DWRITE_GLYPH_ORIENTATION_ANGLE_90_DEGREES,
+    DWRITE_GLYPH_ORIENTATION_ANGLE_180_DEGREES,
+    DWRITE_GLYPH_ORIENTATION_ANGLE_270_DEGREES
+  );
+
+  DWRITE_TEXT_ANTIALIAS_MODE = (
+
+    DWRITE_TEXT_ANTIALIAS_MODE_CLEARTYPE,
+    DWRITE_TEXT_ANTIALIAS_MODE_GRAYSCALE
+  );
+
+{$ENDREGION}
+
+{$REGION 'dwrite_2 enums'}
+  DWRITE_OPTICAL_ALIGNMENT = (
+    DWRITE_OPTICAL_ALIGNMENT_NONE,
+    DWRITE_OPTICAL_ALIGNMENT_NO_SIDE_BEARINGS
+  );
+
+ DWRITE_GRID_FIT_MODE = (
+
+    DWRITE_GRID_FIT_MODE_DEFAULT,
+    DWRITE_GRID_FIT_MODE_DISABLED,
+    DWRITE_GRID_FIT_MODE_ENABLED
+  );
+{$ENDREGION}
+
+{$REGION 'dwrite_3 enums'}
+
+  DWRITE_FONT_PROPERTY_ID = (
+
+    DWRITE_FONT_PROPERTY_ID_NONE,
+    DWRITE_FONT_PROPERTY_ID_WEIGHT_STRETCH_STYLE_FAMILY_NAME,
+    DWRITE_FONT_PROPERTY_ID_TYPOGRAPHIC_FAMILY_NAME,
+    DWRITE_FONT_PROPERTY_ID_WEIGHT_STRETCH_STYLE_FACE_NAME,
+    DWRITE_FONT_PROPERTY_ID_FULL_NAME,
+    DWRITE_FONT_PROPERTY_ID_WIN32_FAMILY_NAME,
+    DWRITE_FONT_PROPERTY_ID_POSTSCRIPT_NAME,
+    DWRITE_FONT_PROPERTY_ID_DESIGN_SCRIPT_LANGUAGE_TAG,
+    DWRITE_FONT_PROPERTY_ID_SUPPORTED_SCRIPT_LANGUAGE_TAG,
+    DWRITE_FONT_PROPERTY_ID_SEMANTIC_TAG,
+    DWRITE_FONT_PROPERTY_ID_WEIGHT,
+    DWRITE_FONT_PROPERTY_ID_STRETCH,
+    DWRITE_FONT_PROPERTY_ID_STYLE,
+    DWRITE_FONT_PROPERTY_ID_TYPOGRAPHIC_FACE_NAME,
+    DWRITE_FONT_PROPERTY_ID_TOTAL                 = DWRITE_FONT_PROPERTY_ID_STYLE + 1,
+    DWRITE_FONT_PROPERTY_ID_TOTAL_RS3             = DWRITE_FONT_PROPERTY_ID_TYPOGRAPHIC_FACE_NAME + 1,
+
+    // Obsolete aliases kept to avoid breaking existing code.
+    DWRITE_FONT_PROPERTY_ID_PREFERRED_FAMILY_NAME = DWRITE_FONT_PROPERTY_ID_TYPOGRAPHIC_FAMILY_NAME,
+    DWRITE_FONT_PROPERTY_ID_FAMILY_NAME           = DWRITE_FONT_PROPERTY_ID_WEIGHT_STRETCH_STYLE_FAMILY_NAME,
+    DWRITE_FONT_PROPERTY_ID_FACE_NAME             = DWRITE_FONT_PROPERTY_ID_WEIGHT_STRETCH_STYLE_FACE_NAME
+  );
+
+  DWRITE_LOCALITY = (
+
+    DWRITE_LOCALITY_REMOTE,
+    DWRITE_LOCALITY_PARTIAL,
+    DWRITE_LOCALITY_LOCAL
+  );
+
+  DWRITE_RENDERING_MODE1 = (
+    DWRITE_RENDERING_MODE1_DEFAULT = 0,
+    DWRITE_RENDERING_MODE1_ALIASED = 1,
+    DWRITE_RENDERING_MODE1_GDI_CLASSIC = 2,
+    DWRITE_RENDERING_MODE1_GDI_NATURAL = 3,
+    DWRITE_RENDERING_MODE1_NATURAL = 4,
+    DWRITE_RENDERING_MODE1_NATURAL_SYMMETRIC = 5,
+    DWRITE_RENDERING_MODE1_OUTLINE = 6,
+    DWRITE_RENDERING_MODE1_NATURAL_SYMMETRIC_DOWNSAMPLED
+  );
+
+  DWRITE_FONT_LINE_GAP_USAGE = (
+    DWRITE_FONT_LINE_GAP_USAGE_DEFAULT,
+    DWRITE_FONT_LINE_GAP_USAGE_DISABLED,
+    DWRITE_FONT_LINE_GAP_USAGE_ENABLED
+  );
+
+  DWRITE_CONTAINER_TYPE = (
+
+    DWRITE_CONTAINER_TYPE_UNKNOWN,
+    DWRITE_CONTAINER_TYPE_WOFF,
+    DWRITE_CONTAINER_TYPE_WOFF2
+  );
+
+  DWRITE_FONT_AXIS_TAG = (
+
+    DWRITE_FONT_AXIS_TAG_WEIGHT         = $74686777,
+    DWRITE_FONT_AXIS_TAG_WIDTH          = $68746477,
+    DWRITE_FONT_AXIS_TAG_SLANT          = $746E6C73,
+    DWRITE_FONT_AXIS_TAG_OPTICAL_SIZE   = $7A73706F,
+    DWRITE_FONT_AXIS_TAG_ITALIC         = $6C617469
+  );
+
+  DWRITE_FONT_FAMILY_MODEL = (
+    DWRITE_FONT_FAMILY_MODEL_TYPOGRAPHIC,
+    DWRITE_FONT_FAMILY_MODEL_WEIGHT_STRETCH_STYLE
+  );
+
+  DWRITE_AUTOMATIC_FONT_AXES = (
+
+    DWRITE_AUTOMATIC_FONT_AXES_NONE         = $0000,
+    DWRITE_AUTOMATIC_FONT_AXES_OPTICAL_SIZE = $0001
+  );
+
+  DWRITE_FONT_AXIS_ATTRIBUTES = (
+
+    DWRITE_FONT_AXIS_ATTRIBUTES_NONE     = $0000,
+    DWRITE_FONT_AXIS_ATTRIBUTES_VARIABLE = $0001,
+    DWRITE_FONT_AXIS_ATTRIBUTES_HIDDEN   = $0002
+  );
+
+  DWRITE_FONT_SOURCE_TYPE = (
+    DWRITE_FONT_SOURCE_TYPE_UNKNOWN,
+    DWRITE_FONT_SOURCE_TYPE_PER_MACHINE,
+    DWRITE_FONT_SOURCE_TYPE_PER_USER,
+    DWRITE_FONT_SOURCE_TYPE_APPX_PACKAGE,
+    DWRITE_FONT_SOURCE_TYPE_REMOTE_FONT_PROVIDER
+  );
 
 {$ENDREGION}
 
@@ -6957,6 +7562,756 @@ type
 
 {$ENDREGION}
 
+{$REGION 'dwrite_1.h records'}
+
+  DWRITE_FONT_METRICS1 = record
+    /// <summary>
+    /// The number of font design units per em unit.
+    /// Font files use their own coordinate system of font design units.
+    /// A font design unit is the smallest measurable unit in the em square,
+    /// an imaginary square that is used to size and align glyphs.
+    /// The concept of em square is used as a reference scale factor when defining font size and device transformation semantics.
+    /// The size of one em square is also commonly used to compute the paragraph indentation value.
+    /// </summary>
+    DesignUnitsPerEm: UInt16;
+
+    /// <summary>
+    /// Ascent value of the font face in font design units.
+    /// Ascent is the distance from the top of font character alignment box to English baseline.
+    /// </summary>
+    Ascent: UInt16;
+
+    /// <summary>
+    /// Descent value of the font face in font design units.
+    /// Descent is the distance from the bottom of font character alignment box to English baseline.
+    /// </summary>
+    Descent: UInt16;
+
+    /// <summary>
+    /// Line gap in font design units.
+    /// Recommended additional white space to add between lines to improve legibility. The recommended line spacing
+    /// (baseline-to-baseline distance) is thus the sum of ascent, descent, and lineGap. The line gap is usually
+    /// positive or zero but can be negative, in which case the recommended line spacing is less than the height
+    /// of the character alignment box.
+    /// </summary>
+    LineGap: UInt16;
+
+    /// <summary>
+    /// Cap height value of the font face in font design units.
+    /// Cap height is the distance from English baseline to the top of a typical English capital.
+    /// Capital "H" is often used as a reference character for the purpose of calculating the cap height value.
+    /// </summary>
+    CapHeight: UInt16;
+
+    /// <summary>
+    /// x-height value of the font face in font design units.
+    /// x-height is the distance from English baseline to the top of lowercase letter "x", or a similar lowercase character.
+    /// </summary>
+    XHeight: UInt16;
+
+    /// <summary>
+    /// The underline position value of the font face in font design units.
+    /// Underline position is the position of underline relative to the English baseline.
+    /// The value is usually made negative in order to place the underline below the baseline.
+    /// </summary>
+    UnderlinePosition: Int16;
+
+    /// <summary>
+    /// The suggested underline thickness value of the font face in font design units.
+    /// </summary>
+    UnderlineThickness: UInt16;
+
+    /// <summary>
+    /// The strikethrough position value of the font face in font design units.
+    /// Strikethrough position is the position of strikethrough relative to the English baseline.
+    /// The value is usually made positive in order to place the strikethrough above the baseline.
+    /// </summary>
+    StrikethroughPosition: Int16;
+
+    /// <summary>
+    /// The suggested strikethrough thickness value of the font face in font design units.
+    /// </summary>
+    StrikethroughThickness: UInt16;
+
+    //
+    // dwrite_1
+    //
+
+    /// <summary>
+    /// Left edge of accumulated bounding blackbox of all glyphs in the font.
+    /// </summary>
+    GlyphBoxLeft: Int16;
+
+    /// <summary>
+    /// Top edge of accumulated bounding blackbox of all glyphs in the font.
+    /// </summary>
+    GlyphBoxTop: Int16;
+
+    /// <summary>
+    /// Right edge of accumulated bounding blackbox of all glyphs in the font.
+    /// </summary>
+    GlyphBoxRight: Int16;
+
+    /// <summary>
+    /// Bottom edge of accumulated bounding blackbox of all glyphs in the font.
+    /// </summary>
+    GlyphBoxBottom: Int16;
+
+    /// <summary>
+    /// Horizontal position of the subscript relative to the baseline origin.
+    /// This is typically negative (to the left) in italic/oblique fonts, and
+    /// zero in regular fonts.
+    /// </summary>
+    SubscriptPositionX: Int16;
+
+    /// <summary>
+    /// Vertical position of the subscript relative to the baseline.
+    /// This is typically negative.
+    /// </summary>
+    SubscriptPositionY: Int16;
+
+    /// <summary>
+    /// Horizontal size of the subscript em box in design units, used to
+    /// scale the simulated subscript relative to the full em box size.
+    /// This the numerator of the scaling ratio where denominator is the
+    /// design units per em. If this member is zero, the font does not specify
+    /// a scale factor, and the client should use its own policy.
+    /// </summary>
+    SubscriptSizeX: Int16;
+
+    /// <summary>
+    /// Vertical size of the subscript em box in design units, used to
+    /// scale the simulated subscript relative to the full em box size.
+    /// This the numerator of the scaling ratio where denominator is the
+    /// design units per em. If this member is zero, the font does not specify
+    /// a scale factor, and the client should use its own policy.
+    /// </summary>
+    SubscriptSizeY: Int16;
+
+    /// <summary>
+    /// Horizontal position of the superscript relative to the baseline origin.
+    /// This is typically positive (to the right) in italic/oblique fonts, and
+    /// zero in regular fonts.
+    /// </summary>
+    SuperscriptPositionX: Int16;
+
+    /// <summary>
+    /// Vertical position of the superscript relative to the baseline.
+    /// This is typically positive.
+    /// </summary>
+    SuperscriptPositionY: Int16;
+
+    /// <summary>
+    /// Horizontal size of the superscript em box in design units, used to
+    /// scale the simulated superscript relative to the full em box size.
+    /// This the numerator of the scaling ratio where denominator is the
+    /// design units per em. If this member is zero, the font does not specify
+    /// a scale factor, and the client should use its own policy.
+    /// </summary>
+    SuperscriptSizeX: Int16;
+
+    /// <summary>
+    /// Vertical size of the superscript em box in design units, used to
+    /// scale the simulated superscript relative to the full em box size.
+    /// This the numerator of the scaling ratio where denominator is the
+    /// design units per em. If this member is zero, the font does not specify
+    /// a scale factor, and the client should use its own policy.
+    /// </summary>
+    SuperscriptSizeY: Int16;
+
+    /// <summary>
+    /// Indicates that the ascent, descent, and lineGap are based on newer
+    /// 'typographic' values in the font, rather than legacy values.
+    /// </summary>
+    HasTypographicMetrics: BOOL;
+
+  end;
+
+  /// <summary>
+  /// Metrics for caret placement in a font.
+  /// </summary>
+  DWRITE_CARET_METRICS = record
+
+    /// <summary>
+    /// Vertical rise of the caret. Rise / Run yields the caret angle.
+    /// Rise = 1 for perfectly upright fonts (non-italic).
+    /// </summary>
+    SlopeRise: Int16;
+
+    /// <summary>
+    /// Horizontal run of th caret. Rise / Run yields the caret angle.
+    /// Run = 0 for perfectly upright fonts (non-italic).
+    /// </summary>
+    SlopeRun: Int16;
+
+    /// <summary>
+    /// Horizontal offset of the caret along the baseline for good appearance.
+    /// Offset = 0 for perfectly upright fonts (non-italic).
+    /// </summary>
+    Offset: Int16;
+  end;
+
+  DWRITE_PANOSE = record
+
+    case Integer of
+      0: (Values: Array [0..9] of UInt8);
+      1: (familyKind: UInt8);               // this is the only field that never changes meaning
+      2: (Text:
+        record
+          FamilyKind: UInt8; // = 2 for text
+          SerifStyle: UInt8;
+          Weight: UInt8;
+          Proportion: UInt8;
+          Contrast: UInt8;
+          StrokeVariation: UInt8;
+          ArmStyle: UInt8;
+          Letterform: UInt8;
+          Midline: UInt8;
+          XHeight: UInt8;
+          end);
+
+      3: (Script:
+        record
+          FamilyKind: UInt8; // = 3 for script
+          ToolKind: UInt8;
+          Weight: UInt8;
+          Spacing: UInt8;
+          AspectRatio: UInt8;
+          Contrast: UInt8;
+          ScriptTopology: UInt8;
+          ScriptForm: UInt8;
+          Finials: UInt8;
+          XAscent: UInt8;
+        end);
+
+      4: (Decorative:
+        record
+          FamilyKind: UInt8; // = 4 for decorative
+          DecorativeClass: UInt8;
+          Weight: UInt8;
+          Aspect: UInt8;
+          Contrast: UInt8;
+          SerifVariant: UInt8;
+          Fill: UInt8; // treatment
+          Lining: UInt8;
+          DecorativeTopology: UInt8;
+          CharacterRange: UInt8;
+        end);
+
+      5: (Symbol:
+        record
+          FamilyKind: UInt8; // = 5 for symbol
+          SymbolKind: UInt8;
+          Weight: UInt8;
+          Spacing: UInt8;
+          AspectRatioAndContrast: UInt8; // hard coded to no-fit (1)
+          AspectRatio94: UInt8;
+          AspectRatio119: UInt8;
+          AspectRatio157: UInt8;
+          AspectRatio163: UInt8;
+          AspectRatio211: UInt8;
+        end);
+      end;
+
+  /// <summary>
+  /// Range of Unicode codepoints.
+  /// </summary>
+  DWRITE_UNICODE_RANGE = record
+    /// <summary>
+    /// The first codepoint in the Unicode range.
+    /// </summary>
+    First: UInt32;
+
+    /// <summary>
+    /// The last codepoint in the Unicode range.
+    /// </summary>
+    Last: UInt32;
+  end;
+
+  PDWRITE_UNICODE_RANGE = ^DWRITE_UNICODE_RANGE;
+
+  /// <summary>
+  /// Script-specific properties for caret navigation and justification.
+  /// </summary>
+  DWRITE_SCRIPT_PROPERTIES = record
+    private
+      Data: UInt32;
+
+      function  GetDWord(const AIndex: Integer): UInt32;
+      procedure SetDWord(const AIndex: Integer; AValue: UInt32);
+
+      procedure SetReserved(AVal: UInt32);
+      function GetReserved: UInt32;
+    public
+      IsoScriptCode: UInt32;
+      IsoScriptNumber: UInt32;
+      ClusterLookahead: UInt32;
+      JustificationCharacter: UInt32;
+
+      property RestrictCaretToClusters    : UInt32 Index $00000001 read GetDWord write SetDWord;  // offset 0, mask $0001, size 1
+      property UsesWordDividers           : UInt32 Index $00010001 read GetDWord write SetDWord;  // offset 1, mask $0001, size 1
+      property IsDiscreteWriting          : UInt32 Index $00020001 read GetDWord write SetDWord;  // offset 2, mask $0001, size 1
+      property IsBlockWriting             : UInt32 Index $00030001 read GetDWord write SetDWord;  // offset 3, mask $0001, size 1
+      property IsDistributedWithinCluster : UInt32 Index $00040001 read GetDWord write SetDWord;  // offset 4, mask $0001, size 1
+      property IsConnectedWriting         : UInt32 Index $00050001 read GetDWord write SetDWord;  // offset 5, mask $0001, size 1
+      property IsCursiveWriting           : UInt32 Index $00060001 read GetDWord write SetDWord;  // offset 6, mask $0001, size 1
+      property Reserved                   : UInt32 read GetReserved write SetReserved;
+  end;
+
+  /// <summary>
+  /// Justification information per glyph.
+  /// </summary>
+  DWRITE_JUSTIFICATION_OPPORTUNITY = record
+    private
+      Data: UInt32;
+
+      function  GetDWord(const AIndex: Integer): UInt32;
+      procedure SetDWord(const AIndex: Integer; AValue: UInt32);
+    public
+
+      ExpansionMinimum: Single;
+      ExpansionMaximum: Single;
+      CompressionMaximum: Single;
+
+      property ExpansionPriority        : UInt32 Index $0000000F read GetDWord write SetDWord; // offset  0, mask $0001, size 8
+      property CompressionPriority      : UInt32 Index $0008000F read GetDWord write SetDWord; // offset  8, mask $0001, size 8
+      property AllowResidualExpansion   : UInt32 Index $00100001 read GetDWord write SetDWord; // offset 16, mask $0001, size 1
+      property AllowResidualCompression : UInt32 Index $00110001 read GetDWord write SetDWord; // offset 17, mask $0001, size 1
+      property ApplyToLeadingEdge       : UInt32 Index $00120001 read GetDWord write SetDWord; // offset 18, mask $0001, size 1
+      property ApplyToTrailingEdge      : UInt32 Index $00130001 read GetDWord write SetDWord; // offset 19, mask $0001, size 1
+      property Reserved                 : UInt32 Index $00140FFF read GetDWord write SetDWord; // offset 20, mask $0001, size 12
+  end;
+
+  PDWRITE_JUSTIFICATION_OPPORTUNITY = ^DWRITE_JUSTIFICATION_OPPORTUNITY;
+
+
+{$ENDREGION}
+
+{$REGION 'dwrite_2.h records'}
+
+/// <summary>
+/// Overall metrics associated with text after layout.
+/// All coordinates are in device independent pixels (DIPs).
+/// </summary>
+  DWRITE_TEXT_METRICS1 = record
+
+    /// <summary>
+    /// Left-most point of formatted text relative to layout box
+    /// (excluding any glyph overhang).
+    /// </summary>
+    Left: Single;
+
+    /// <summary>
+    /// Top-most point of formatted text relative to layout box
+    /// (excluding any glyph overhang).
+    /// </summary>
+    Top: Single;
+
+    /// <summary>
+    /// The width of the formatted text ignoring trailing whitespace
+    /// at the end of each line.
+    /// </summary>
+    Width: Single;
+
+    /// <summary>
+    /// The width of the formatted text taking into account the
+    /// trailing whitespace at the end of each line.
+    /// </summary>
+    WidthIncludingTrailingWhitespace: Single;
+
+    /// <summary>
+    /// The height of the formatted text. The height of an empty string
+    /// is determined by the size of the default font's line height.
+    /// </summary>
+    Height: Single;
+
+    /// <summary>
+    /// Initial width given to the layout. Depending on whether the text
+    /// was wrapped or not, it can be either larger or smaller than the
+    /// text content width.
+    /// </summary>
+    LayoutWidth: Single;
+
+    /// <summary>
+    /// Initial height given to the layout. Depending on the length of the
+    /// text, it may be larger or smaller than the text content height.
+    /// </summary>
+    LayoutHeight: Single;
+
+    /// <summary>
+    /// The maximum reordering count of any line of text, used
+    /// to calculate the most number of hit-testing boxes needed.
+    /// If the layout has no bidirectional text or no text at all,
+    /// the minimum level is 1.
+    /// </summary>
+    MaxBidiReorderingDepth: UInt32;
+
+    /// <summary>
+    /// Total number of lines.
+    /// </summary>
+    LineCount: UInt32;
+
+    //
+    // dwrite_2.h
+    //
+
+    /// <summary>
+    /// The height of the formatted text taking into account the
+    /// trailing whitespace at the end of each line, which will
+    /// matter for vertical reading directions.
+    /// </summary>
+    HeightIncludingTrailingWhitespace: Single;
+  end;
+
+  /// <summary>
+  /// Represents a color glyph run. The IDWriteFactory2::TranslateColorGlyphRun
+  /// method returns an ordered collection of color glyph runs, which can be
+  /// layered on top of each other to produce a color representation of the
+  /// given base glyph run.
+  /// </summary>
+  DWRITE_COLOR_GLYPH_RUN = record
+
+    /// <summary>
+    /// Glyph run to render.
+    /// </summary>
+    GlyphRun: TDWriteGlyphRun;
+
+    /// <summary>
+    /// Optional glyph run description.
+    /// </summary>
+    GlyphRunDescription: PDWriteGlyphRunDescription;
+
+    /// <summary>
+    /// Location at which to draw this glyph run.
+    /// </summary>
+    BaselineOriginX: Single;
+    BaselineOriginY: Single;
+
+    /// <summary>
+    /// Color to use for this layer, if any. This is the same color that
+    /// IDWriteFontFace2::GetPaletteEntries would return for the current
+    /// palette index if the paletteIndex member is less than 0xFFFF. If
+    /// the paletteIndex member is 0xFFFF then there is no associated
+    /// palette entry, this member is set to { 0, 0, 0, 0 }, and the client
+    /// should use the current foreground brush.
+    /// </summary>
+    RunColor: TDWriteColorF;
+
+    /// <summary>
+    /// Zero-based index of this layer's color entry in the current color
+    /// palette, or 0xFFFF if this layer is to be rendered using
+    /// the current foreground brush.
+    /// </summary>
+    PaletteIndex: UInt16;
+  end;
+
+  PDWRITE_COLOR_GLYPH_RUN = ^DWRITE_COLOR_GLYPH_RUN;
+
+{$ENDREGION}
+
+{$REGION 'dwrite_3.h records'}
+
+  /// <summary>
+  /// Font property used for filtering font sets and
+  /// building a font set with explicit properties.
+  /// </summary>
+  DWRITE_FONT_PROPERTY = record
+
+    /// <summary>
+    /// Specifies the requested font property, such as DWRITE_FONT_PROPERTY_ID_FAMILY_NAME.
+    /// </summary>
+    PropertyId: DWRITE_FONT_PROPERTY_ID ;
+
+    /// <summary>
+    /// Specifies the property value, such as "Segoe UI".
+    /// </summary>
+    PropertyValue: PWCHAR;
+
+    /// <summary>
+    /// Specifies the language / locale to use, such as "en-US".
+    /// </summary>
+    /// <remarks>
+    /// When passing property information to AddFontFaceReference, localeName indicates
+    /// the language of the property value. BCP 47 language tags should be used. If a
+    /// property value is inherently non-linguistic, this can be left empty.
+    ///
+    /// When used for font set filtering, leave this empty: a match will be found
+    /// regardless of language associated with property values.
+    /// </remarks>
+    LocaleName: PWCHAR;
+  end;
+
+  /// <summary>
+  /// Information about a formatted line of text.
+  /// </summary>
+  DWRITE_LINE_METRICS1 = record
+    /// <summary>
+    /// The number of total text positions in the line.
+    /// This includes any trailing whitespace and newline characters.
+    /// </summary>
+    Length: UInt32;
+
+    /// <summary>
+    /// The number of whitespace positions at the end of the line.  Newline
+    /// sequences are considered whitespace.
+    /// </summary>
+    TrailingWhitespaceLength: UInt32;
+
+    /// <summary>
+    /// The number of characters in the newline sequence at the end of the line.
+    /// If the count is zero, then the line was either wrapped or it is the
+    /// end of the text.
+    /// </summary>
+    NewlineLength: UInt32;
+
+    /// <summary>
+    /// Height of the line as measured from top to bottom.
+    /// </summary>
+    Height: Single;
+
+    /// <summary>
+    /// Distance from the top of the line to its baseline.
+    /// </summary>
+    Baseline: Single;
+
+    /// <summary>
+    /// The line is trimmed.
+    /// </summary>
+    IsTrimmed: BOOL;
+
+    //
+    // dwrite_3.h
+    //
+
+    /// <summary>
+    /// White space before the content of the line. This is included in the line height and baseline distances.
+    /// If the line is formatted horizontally either with a uniform line spacing or with proportional
+    /// line spacing, this value represents the extra space above the content.
+    /// </summary>
+    LeadingBefore: Single;
+
+    /// <summary>
+    /// White space after the content of the line. This is included in the height of the line.
+    /// If the line is formatted horizontally either with a uniform line spacing or with proportional
+    /// line spacing, this value represents the extra space below the content.
+    /// </summary>
+    LeadingAfter: Single;
+  end;
+
+  /// <summary>
+  /// The DWRITE_LINE_SPACING structure specifies the parameters used to specify how to manage space between lines.
+  /// </summary>
+  DWRITE_LINE_SPACING = record
+
+    /// <summary>
+    /// Method used to determine line spacing.
+    /// </summary>
+    Method: DWRITE_LINE_SPACING_METHOD;
+
+    /// <summary>
+    /// Spacing between lines.
+    /// The interpretation of this parameter depends upon the line spacing method, as follows:
+    /// - default line spacing: ignored
+    /// - uniform line spacing: explicit distance in DIPs between lines
+    /// - proportional line spacing: a scaling factor to be applied to the computed line height;
+    ///   for each line, the height of the line is computed as for default line spacing, and the scaling factor is applied to that value.
+    /// </summary>
+    Height: Single;
+
+    /// <summary>
+    /// Distance from top of line to baseline.
+    /// The interpretation of this parameter depends upon the line spacing method, as follows:
+    /// - default line spacing: ignored
+    /// - uniform line spacing: explicit distance in DIPs from the top of the line to the baseline
+    /// - proportional line spacing: a scaling factor applied to the computed baseline; for each line,
+    ///   the baseline distance is computed as for default line spacing, and the scaling factor is applied to that value.
+    /// </summary>
+    Baseline: Single;
+
+    /// <summary>
+    /// Proportion of the entire leading distributed before the line. The allowed value is between 0 and 1.0. The remaining
+    /// leading is distributed after the line. It is ignored for the default and uniform line spacing methods.
+    /// The leading that is available to distribute before or after the line depends on the values of the height and
+    /// baseline parameters.
+    /// </summary>
+    LeadingBefore: Single;
+
+    /// <summary>
+    /// Specify whether DWRITE_FONT_METRICS::lineGap value should be part of the line metrics.
+    /// </summary>
+    FontLineGapUsage: DWRITE_FONT_LINE_GAP_USAGE;
+  end;
+
+/// <summary>
+/// Represents a color glyph run. The IDWriteFactory4::TranslateColorGlyphRun
+/// method returns an ordered collection of color glyph runs of varying types
+/// depending on what the font supports.
+/// </summary>
+/// <summary>
+/// For runs without any specific color, such as PNG data, the runColor field will be zero.
+/// </summary>
+  DWRITE_COLOR_GLYPH_RUN1 = record
+    /// <summary>
+    /// Glyph run to render.
+    /// </summary>
+    GlyphRun: TDWriteGlyphRun;
+
+    /// <summary>
+    /// Optional glyph run description.
+    /// </summary>
+    GlyphRunDescription: PDWriteGlyphRunDescription;
+
+    /// <summary>
+    /// Location at which to draw this glyph run.
+    /// </summary>
+    BaselineOriginX: Single;
+    BaselineOriginY: Single;
+
+    /// <summary>
+    /// Color to use for this layer, if any. This is the same color that
+    /// IDWriteFontFace2::GetPaletteEntries would return for the current
+    /// palette index if the paletteIndex member is less than 0xFFFF. If
+    /// the paletteIndex member is 0xFFFF then there is no associated
+    /// palette entry, this member is set to { 0, 0, 0, 0 }, and the client
+    /// should use the current foreground brush.
+    /// </summary>
+    RunColor: TDWriteColorF;
+
+    /// <summary>
+    /// Zero-based index of this layer's color entry in the current color
+    /// palette, or 0xFFFF if this layer is to be rendered using
+    /// the current foreground brush.
+    /// </summary>
+    PaletteIndex: UInt16;
+
+    //
+    // dwrite_3.h
+    //
+
+    /// <summary>
+    /// Type of glyph image format for this color run. Exactly one type will be set since
+    /// TranslateColorGlyphRun has already broken down the run into separate parts.
+    /// </summary>
+    GlyphImageFormat: TDWriteGlyphImageFormats;
+
+    /// <summary>
+    /// Measuring mode to use for this glyph run.
+    /// </summary>
+    MeasuringMode: TDWriteMeasuringMode;
+
+  end;
+
+  /// <summary>
+  /// Data for a single glyph from GetGlyphImageData.
+  /// </summary>
+  DWRITE_GLYPH_IMAGE_DATA = record
+
+    /// <summary>
+    /// Pointer to the glyph data, be it SVG, PNG, JPEG, TIFF.
+    /// </summary>
+    ImageData: Pointer;
+
+    /// <summary>
+    /// Size of glyph data in bytes.
+    /// </summary>
+    ImageDataSize: UInt32;
+
+    /// <summary>
+    /// Unique identifier for the glyph data. Clients may use this to cache a parsed/decompressed
+    /// version and tell whether a repeated call to the same font returns the same data.
+    /// </summary>
+    UniqueDataId: UInt32;
+
+    /// <summary>
+    /// Pixels per em of the returned data. For non-scalable raster data (PNG/TIFF/JPG), this can be larger
+    /// or smaller than requested from GetGlyphImageData when there isn't an exact match.
+    /// For scaling intermediate sizes, use: desired pixels per em * font em size / actual pixels per em.
+    /// </summary>
+    PixelsPerEm: UInt32;
+
+    /// <summary>
+    /// Size of image when the format is pixel data.
+    /// </summary>
+    PixelSize: TD2D1SizeU;
+
+    /// <summary>
+    /// Left origin along the horizontal Roman baseline.
+    /// </summary>
+    HorizontalLeftOrigin: TD2D1Point2L;
+
+    /// <summary>
+    /// Right origin along the horizontal Roman baseline.
+    /// </summary>
+    HorizontalRightOrigin: TD2D1Point2L;
+
+    /// <summary>
+    /// Top origin along the vertical central baseline.
+    /// </summary>
+    VerticalTopOrigin: TD2D1Point2L;
+
+    /// <summary>
+    /// Bottom origin along vertical central baseline.
+    /// </summary>
+    VerticalBottomOrigin: TD2D1Point2L;
+end;
+
+/// <summary>
+/// DWRITE_FILE_FRAGMENT represents a range of bytes in a font file.
+/// </summary>
+  DWRITE_FILE_FRAGMENT = record
+
+    /// <summary>
+    /// Starting offset of the fragment from the beginning of the file.
+    /// </summary>
+    FileOffset: UInt64;
+
+    /// <summary>
+    /// Size of the file fragment, in bytes.
+    /// </summary>
+    FragmentSize: UInt64;
+  end;
+
+  /// <summary>
+  /// Value for a font axis, used when querying and creating font instances.
+  /// </summary>
+  DWRITE_FONT_AXIS_VALUE = record
+
+    /// <summary>
+    /// Four character identifier of the font axis (weight, width, slant, italic...).
+    /// </summary>
+    AxisTag: DWRITE_FONT_AXIS_TAG;
+
+    /// <summary>
+    /// Value for the given axis, with the meaning and range depending on the axis semantics.
+    /// Certain well known axes have standard ranges and defaults, such as weight (1..1000, default=400),
+    /// width (>0, default=100), slant (-90..90, default=-20), and italic (0 or 1).
+    /// </summary>
+    Value: Single;
+  end;
+
+  /// <summary>
+  /// Minimum and maximum range of a font axis.
+  /// </summary>
+  DWRITE_FONT_AXIS_RANGE = record
+
+    /// <summary>
+    /// Four character identifier of the font axis (weight, width, slant, italic...).
+    /// </summary>
+    AxisTag: DWRITE_FONT_AXIS_TAG;
+
+    /// <summary>
+    /// Minimum value supported by this axis.
+    /// </summary>
+    MinValue: Single;
+
+    /// <summary>
+    /// Maximum value supported by this axis. The maximum can equal the minimum.
+    /// </summary>
+    MaxValue: Single;
+  end;
+
+{$ENDREGION}
+
 {$REGION 'd2d1effects.h records'}
 
 //
@@ -9248,7 +10603,7 @@ type
 
 {$ENDREGION}
 
-{$REGION 'dwrite interfaces'}
+{$REGION 'dwrite.h interfaces'}
   IDWriteFontFileLoader = interface(IUnknown)
     ['{727cad4e-d6af-4c9e-8a08-d695b11caa49}']
 
@@ -10190,6 +11545,707 @@ type
 
 {$ENDREGION}
 
+{$REGION 'dwrite_1.h interfaces'}
+  IDWriteFactory1 = interface(IDWriteFactory)
+    ['{30572f99-dac6-41db-a16e-0486307e606a}']
+
+    function GetEudcFontCollection(
+      out AFontCollection: IDWriteFontCollection;
+      ACheckForUpdates: BOOL = False): HRESULT; stdcall;
+
+    function CreateCustomRenderingParams(
+      AGamma: Single;
+      AEnhancedContrast: Single;
+      AEnhancedContrastGrayscale: Single;
+      AClearTypeLevel: Single;
+      APixelGeometry: TDWritePixelGeometry;
+      ARenderingMode: TDWriteRenderingMode;
+      out ARenderingParams: IDWriteRenderingParams1): HRESULT; stdcall;
+  end;
+
+  IDWriteFontFace1 = interface(IDWriteFontFace)
+    ['{a71efdb4-9fdb-4838-ad90-cfc3be8c3daf}']
+
+    procedure GetMetrics(out AFontMetrics: TDWriteFontMetrics); stdcall;
+
+    function GetGdiCompatibleMetrics(
+      AEmSize: Single;
+      APixelsPerDip: Single;
+      ATransform: PDWriteMatrix;
+      out AFontMetrics: DWRITE_FONT_METRICS1): HRESULT; stdcall;
+
+    procedure GetCaretMetrics(out ACaretMetrics: DWRITE_CARET_METRICS); stdcall;
+
+    function GetUnicodeRanges(
+      AMaxRangeCount: Uint32;
+      out AUnicodeRanges: DWRITE_UNICODE_RANGE;
+      out AActualRangeCount: Uint32): HRESULT; stdcall;
+
+    function IsMonospacedFont: BOOL; stdcall;
+
+    function GetDesignGlyphAdvances(
+      AGlyphCount: UInt32;
+      const AGlyphIndices: PWord;
+      out AGlyphAdvances: PInteger;
+      AIsSideways: BOOL = False): HRESULT; stdcall;
+
+    function GetGdiCompatibleGlyphAdvances(
+      AEmSize: Single;
+      APixelsPerDip: Single;
+      const ATransform: PDWriteMatrix;
+      AUseGdiNatural: BOOL;
+      AIsSideways: BOOL;
+      AGlyphCount: UInt32;
+      const AGlyphIndices: PWord;
+      AGlyphAdvances: PInteger): HRESULT; stdcall;
+
+    function GetKerningPairAdjustments(
+      AGlyphCount: UInt32;
+      const AGlyphIndices: PWord;
+      AGlyphAdvanceAdjustments: PInteger): HRESULT; stdcall;
+
+    function HasKerningPairs: BOOL; stdcall;
+
+    function GetRecommendedRenderingMode(
+      AFontEmSize: Single;
+      ADpiX: Single;
+      ADpiY: Single;
+      const ATransform: PDWriteMatrix;
+      AIsSideways: BOOL;
+      AOutlineThreshold: DWRITE_OUTLINE_THRESHOLD;
+      AMeasuringMode: TDWriteMeasuringMode;
+      out ARenderingMode: TDWriteRenderingMode): HRESULT; stdcall;
+
+    function GetVerticalGlyphVariants(
+      AGlyphCount: UINT32;
+      const nominalGlyphIndices: PWord;
+      out AVerticalGlyphIndices: PWord): HRESULT; stdcall;
+
+    function HasVerticalGlyphVariants: BOOL; stdcall;
+
+  end;
+
+  IDWriteFont1 = interface(IDWriteFont)
+    ['{acd16696-8c14-4f5d-877e-fe3fc1d32738}']
+
+    procedure GetMetrics(out AFontMetrics: DWRITE_FONT_METRICS1); stdcall;
+
+    procedure GetPanose(out APanose: DWRITE_PANOSE); stdcall;
+
+    function GetUnicodeRanges(
+      AMaxRangeCount: UInt32;
+      AUnicodeRanges: DWRITE_UNICODE_RANGE;
+      out AActualRangeCount: UInt32): HRESULT; stdcall;
+
+    function IsMonospacedFont: BOOL; stdcall;
+  end;
+
+  IDWriteRenderingParams1 = interface(IDWriteRenderingParams)
+    ['{94413cf4-a6fc-4248-8b50-6674348fcad3}']
+
+    function GetGrayscaleEnhancedContrast: Single; stdcall;
+
+  end;
+
+  IDWriteTextAnalyzer1 = interface(IDWriteTextAnalyzer)
+    ['{80dad800-e21f-4e83-96ce-bfcce500db7c}']
+
+    function ApplyCharacterSpacing(
+      ALeadingSpacing: Single;
+      ATrailingSpacing: Single;
+      AMinimumAdvanceWidth: Single;
+      ATextLength: UInt32;
+      AGlyphCount: UInt32;
+      const AClusterMap: PWord;
+      const AGlyphAdvances: PSingle;
+      const AGlyphOffsets: PDWriteGlyphOffset;
+      const AGlyphProperties: PDWriteShapingGlyphProperties;
+      out modifiedGlyphAdvances: Single;
+      out modifiedGlyphOffsets: PDWriteGlyphOffset): HRESULT; stdcall;
+
+    function GetBaseline(
+      AFontFace: IDWriteFontFace;
+      ABaseline: DWRITE_BASELINE;
+      AIsVertical: BOOL;
+      AIsSimulationAllowed: BOOL;
+      AScriptAnalysis: DWRITE_SCRIPT_ANALYSIS;
+      const ALocaleName: PWCHAR;
+      out ABaselineCoordinate: PInteger;
+      out AExists: BOOL): HRESULT; stdcall;
+
+    function AnalyzeVerticalGlyphOrientation(
+      AAnalysisSource: IDWriteTextAnalysisSource1;
+      ATextPosition: UInt32;
+      ATextLength: UInt32;
+      AAnalysisSink: IDWriteTextAnalysisSink1): HRESULT; stdcall;
+
+    function GetGlyphOrientationTransform(
+      AGlyphOrientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE;
+      AIsSideways: BOOL;
+      out ATransform: TDWriteMatrix): HRESULT; stdcall;
+
+    function GetScriptProperties(
+      AScriptAnalysis: DWRITE_SCRIPT_ANALYSIS;
+      out AScriptProperties: DWRITE_SCRIPT_PROPERTIES): HRESULT; stdcall;
+
+    function GetTextComplexity(
+      const ATextString: PWCHAR;
+      ATextLength: UInt32;
+      AFontFace: IDWriteFontFace;
+      out AIsTextSimple: BOOL;
+      out ATextLengthRead: PUint32;
+      out AGlyphIndices: PWord): HRESULT; stdcall;
+
+    function GetJustificationOpportunities(
+      AFontFace: IDWriteFontFace;
+      AFontEmSize: Single;
+      AScriptAnalysis: DWRITE_SCRIPT_ANALYSIS;
+      ATextLength: UInt32;
+      AGlyphCount: UInt32;
+      const ATextString: PWCHAR;
+      const AClusterMap: PWord;
+      const AGlyphProperties: PDWriteShapingGlyphProperties;
+      out AJustificationOpportunities: DWRITE_JUSTIFICATION_OPPORTUNITY): HRESULT; stdcall;
+
+    function JustifyGlyphAdvances(
+      ALineWidth: Single;
+      AGlyphCount: UInt32;
+      const AJustificationOpportunities: PDWRITE_JUSTIFICATION_OPPORTUNITY;
+      const AGlyphAdvances: PSingle;
+      const AGlyphOffsets: PDWriteGlyphOffset;
+      out AJustifiedGlyphAdvances: Single;
+      out AJustifiedGlyphOffsets: DWRITE_GLYPH_OFFSET): HRESULT; stdcall;
+
+    function GetJustifiedGlyphs(
+      AFontFace: IDWriteFontFace;
+      AFontEmSize: Single;
+      AScriptAnalysis: DWRITE_SCRIPT_ANALYSIS;
+      ATextLength: UInt32;
+      AGlyphCount: UInt32;
+      AMaxGlyphCount: UInt32;
+      const AClusterMap: PWord;
+      const AGlyphIndices: PWord;
+      const AGlyphAdvances: PSingle;
+      const AJustifiedGlyphAdvances: PSingle;
+      const AJustifiedGlyphOffsets: PDWriteGlyphOffset;
+      const AGlyphProperties: TDWriteShapingGlyphProperties;
+      out AActualGlyphCount: UInt32;
+      out AModifiedClusterMap: UInt16;
+      out AModifiedGlyphIndices: UInt16;
+      out AModifiedGlyphAdvances: Single;
+      out AModifiedGlyphOffsets: TDWriteGlyphOffset): HRESULT; stdcall;
+  end;
+
+  IDWriteTextAnalysisSource1 = interface(IDWriteTextAnalysisSource)
+    ['{639cfad8-0fb4-4b21-a58a-067920120009}']
+
+    function GetVerticalGlyphOrientation(
+      ATextPosition: UInt32;
+      out ATextLength: UInt32;
+      out AGlyphOrientation: DWRITE_VERTICAL_GLYPH_ORIENTATION;
+      out ABidiLevel: UInt8): HRESULT; stdcall;
+
+  end;
+
+  IDWriteTextAnalysisSink1 = interface(IDWriteTextAnalysisSink)
+    ['{b0d941a0-85e7-4d8b-9fd3-5ced9934482a}']
+
+    function SetGlyphOrientation(
+      ATextPosition: UInt32;
+      ATextLength: UInt32;
+      AGlyphOrientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE;
+      AAdjustedBidiLevel: UInt8;
+      AIsSideways: BOOL;
+      AIsRightToLeft: BOOL): HRESULT; stdcall;
+  end;
+
+  IDWriteTextLayout1 = interface(IDWriteTextLayout)
+    ['{9064d822-80a7-465c-a986-df65f78b8feb}']
+
+    function SetPairKerning(
+      AIsPairKerningEnabled: BOOL;
+      ATtextRange: TDWriteTextRange): HRESULT; stdcall;
+
+    function GetPairKerning(
+      ACurrentPosition: UINT32;
+      out AIsPairKerningEnabled: BOOL;
+      out ATextRange: TDWriteTextRange): HRESULT; stdcall;
+
+    function SetCharacterSpacing(
+      ALeadingSpacing: Single;
+      ATrailingSpacing: Single;
+      AMinimumAdvanceWidth: Single;
+      ATextRange: TDWriteTextRange): HRESULT; stdcall;
+
+    function GetCharacterSpacing(
+      ACurrentPosition: UInt32;
+      ALeadingSpacing: Single;
+      ATrailingSpacing: Single;
+      AMinimumAdvanceWidth: Single;
+      ATtextRange: TDWriteTextRange): HRESULT; stdcall;
+  end;
+
+  IDWriteBitmapRenderTarget1 = interface(IDWriteBitmapRenderTarget)
+    ['{791e8298-3ef3-4230-9880-c9bdecc42064}']
+
+    function GetTextAntialiasMode: DWRITE_TEXT_ANTIALIAS_MODE; stdcall;
+
+    function SetTextAntialiasMode(AAntialiasMode: DWRITE_TEXT_ANTIALIAS_MODE): HRESULT; stdcall;
+  end;
+
+{$ENDREGION}
+
+{$REGION 'dwrite_2.h interfaces'}
+  IDWriteTextRenderer1 = interface(IDWriteTextRenderer)
+    ['{d3e0e934-22a0-427e-aae4-7d9574b59db1}']
+
+    function DrawGlyphRun(
+      ACclientDrawingContext: Pointer;
+      ABaselineOriginX: Single;
+      ABaselineOriginY: Single;
+      AOrientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE;
+      AMeasuringMode: DWRITE_MEASURING_MODE;
+      const AGlyphRun: TDWriteGlyphRun;
+      const AGlyphRunDescription: PDWriteGlyphRunDescription;
+      AClientDrawingEffect: IUnknown): HRESULT; stdcall;
+
+    function DrawUnderline(
+      AClientDrawingContext: Pointer;
+      ABaselineOriginX: Single;
+      ABaselineOriginY: Single;
+      AOrientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE;
+      const AUnderline: PDWriteUnderline;
+      AClientDrawingEffect: IUnknown): HRESULT; stdcall;
+
+    function DrawStrikethrough(
+      AClientDrawingContext: Pointer;
+      ABaselineOriginX: Single;
+      ABaselineOriginY: Single;
+      AOrientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE;
+      const AStrikethrough: PDWriteStrikethrough;
+      AClientDrawingEffect: IUnknown): HRESULT; stdcall;
+
+    function DrawInlineObject(
+      AClientDrawingContext: Pointer;
+      AOriginX: Single;
+      AOriginY: Single;
+      AOrientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE;
+      AInlineObject: IDWriteInlineObject;
+      AIsSideways: BOOL;
+      AIsRightToLeft: BOOL;
+      AClientDrawingEffect: IUnknown): HRESULT; stdcall;
+  end;
+
+  IDWriteTextFormat1 = interface(IDWriteTextFormat)
+    ['{5f174b49-0d8b-4cfb-8bca-f1cce9d06c67}']
+
+    function SetVerticalGlyphOrientation(AGlyphOrientation: DWRITE_VERTICAL_GLYPH_ORIENTATION): HRESULT; stdcall;
+
+    function GetVerticalGlyphOrientation: DWRITE_VERTICAL_GLYPH_ORIENTATION; stdcall;
+
+    function SetLastLineWrapping(AIsLastLineWrappingEnabled: BOOL): HRESULT; stdcall;
+
+    function GetLastLineWrapping: BOOL; stdcall;
+
+    function SetOpticalAlignment(AOpticalAlignment: DWRITE_OPTICAL_ALIGNMENT): HRESULT; stdcall;
+
+    function GetOpticalAlignment: DWRITE_OPTICAL_ALIGNMENT; stdcall;
+
+    function SetFontFallback(AFontFallback: IDWriteFontFallback): HRESULT; stdcall;
+
+    function GetFontFallback(out AFontFallback: IDWriteFontFallback): HRESULT; stdcall;
+  end;
+
+  IDWriteTextLayout2 = interface(IDWriteTextLayout1)
+    ['{1093c18f-8d5e-43f0-b064-0917311b525e}']
+
+    function GetMetrics(out ATextMetrics: DWRITE_TEXT_METRICS1): HRESULT; stdcall;
+
+    function SetVerticalGlyphOrientation(AGlyphOrientation: DWRITE_VERTICAL_GLYPH_ORIENTATION): HRESULT; stdcall;
+
+    function GetVerticalGlyphOrientation: DWRITE_VERTICAL_GLYPH_ORIENTATION; stdcall;
+
+    function SetLastLineWrapping(AIsLastLineWrappingEnabled: BOOL): HRESULT; stdcall;
+
+    function GetLastLineWrapping: BOOL; stdcall;
+
+    function SetOpticalAlignment(AOpticalAlignment: DWRITE_OPTICAL_ALIGNMENT): HRESULT; stdcall;
+
+    function GetOpticalAlignment: DWRITE_OPTICAL_ALIGNMENT; stdcall;
+
+    function SetFontFallback(AFontFallback: IDWriteFontFallback): HRESULT; stdcall;
+
+    function GetFontFallback(out AFontFallback: IDWriteFontFallback): HRESULT; stdcall;
+  end;
+
+  IDWriteTextAnalyzer2 = interface(IDWriteTextAnalyzer1)
+    ['{553a9ff3-5693-4df7-b52b-74806f7f2eb9}']
+
+    function GetGlyphOrientationTransform(
+      AGlyphOrientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE;
+      AIsSideways: BOOL;
+      AOriginX: Single;
+      AOriginY: Single;
+      out ATransform: TDWriteMatrix): HRESULT; stdcall;
+
+    function GetTypographicFeatures(
+      AFontFace: IDWriteFontFace;
+      AScriptAnalysis: TDWriteScriptAnalysis;
+      const ALocaleName: PWCHAR;
+      AMaxTagCount: UInt32;
+      out AActualTagCount: UInt32;
+      out ATags: TDWriteFontFeatureTag): HRESULT; stdcall;
+
+    function CheckTypographicFeature(
+      AFontFace: IDWriteFontFace;
+      AScriptAnalysis: TDWriteScriptAnalysis;
+      const ALocaleName: PWCHAR;
+      AFeatureTag: TDWriteFontFeatureTag;
+      AGlyphCount: UINT32;
+      const AGlyphIndices: PWord;
+      out AFeatureApplies: UInt8): HRESULT; stdcall;
+  end;
+
+  IDWriteFontFallback = interface(IUnknown)
+    ['{efa008f9-f7a1-48bf-b05c-f224713cc0ff}']
+
+    function MapCharacters(
+      AAnalysisSource: IDWriteTextAnalysisSource;
+      ATextPosition: UInt32;
+      ATextLength: UInt32;
+      ABaseFontCollection: IDWriteFontCollection;
+      const ABaseFamilyName: PWChar;
+      ABaseWeight: TDWriteFontWeight;
+      ABaseStyle: TDWriteFontStyle;
+      ABaseStretch: TDWriteFontStretch;
+      out AMappedLength: UInt32;
+      out AMappedFont: IDWriteFont;
+      out AScale: Single): HRESULT; stdcall;
+  end;
+
+  IDWriteFontFallbackBuilder = interface(IUnknown)
+    ['{fd882d06-8aba-4fb8-b849-8be8b73e14de}']
+
+    function AddMapping(
+      ARanges: PDWRITE_UNICODE_RANGE;
+      ARangesCount: UInt32;
+      var ATargetFamilyNames: PWCHAR;
+      ATargetFamilyNamesCount: UInt32;
+      AFontCollection: IDWriteFontCollection = nil;
+      ALocaleName: PWCHAR = nil;
+      ABaseFamilyName: PWCHAR = nil;
+      AScale: Single = 1): HRESULT; stdcall;
+
+    function AddMappings(AFontFallback: IDWriteFontFallback): HRESULT; stdcall;
+
+    function CreateFontFallback(out AFontFallback: IDWriteFontFallback): HRESULT; stdcall;
+  end;
+
+  IDWriteFont2 = interface(IDWriteFont1)
+    ['{29748ed6-8c9c-4a6a-be0b-d912e8538944}']
+
+    function IsColorFont: BOOL; stdcall;
+
+  end;
+
+  IDWriteFontFace2 = interface(IDWriteFontFace1)
+    ['{d8b768ff-64bc-4e66-982b-ec8e87f693f7}']
+
+    function IsColorFont: BOOL; stdcall;
+
+    function GetColorPaletteCount: UInt32; stdcall;
+
+    function GetPaletteEntryCount: UInt32; stdcall;
+
+    function GetPaletteEntries(
+      AColorPaletteIndex: UInt32;
+      AFirstEntryIndex: UInt32;
+      AEntryCount: UInt32;
+      APaletteEntries: PDWriteColorF): HRESULT; stdcall;
+
+    function GetRecommendedRenderingMode(
+      AFontEmSize: Single;
+      ADpiX: Single;
+      ADpiY: Single;
+      ATransform: PDWriteMatrix;
+      AIsSideways: BOOL;
+      AOutlineThreshold: DWRITE_OUTLINE_THRESHOLD;
+      AMeasuringMode: TDWriteMeasuringMode;
+      ARenderingParams: IDWriteRenderingParams;
+      out ARenderingMode: TDWriteRenderingMode;
+      out AGridFitMode: DWRITE_GRID_FIT_MODE): HRESULT; stdcall;
+
+  end;
+
+  IDWriteColorGlyphRunEnumerator = interface(IUnknown)
+    ['{d31fbe17-f157-41a2-8d24-cb779e0560e8}']
+
+    function MoveNext(out AHasRun: BOOL): HRESULT; stdcall;
+
+    function GetCurrentRun(out AColorGlyphRun: PDWRITE_COLOR_GLYPH_RUN): HRESULT; stdcall;
+  end;
+
+  IDWriteRenderingParams2 = interface(IDWriteRenderingParams1)
+    ['{f9d711c3-9777-40ae-87e8-3e5af9bf0948}']
+
+    function GetGridFitMode: DWRITE_GRID_FIT_MODE; stdcall;
+
+  end;
+
+  IDWriteFactory2 = interface(IDWriteFactory1)
+    ['{0439fc60-ca44-4994-8dee-3a9af7b732ec}']
+
+    function GetSystemFontFallback(out AFontFallback: IDWriteFontFallback): HRESULT; stdcall;
+
+    function CreateFontFallbackBuilder(out AFontFallbackBuilder: IDWriteFontFallbackBuilder): HRESULT; stdcall;
+
+    function TranslateColorGlyphRun(
+      ABaselineOriginX: Single;
+      ABaselineOriginY: Single;
+      const AGlyphRun: PDWriteGlyphRun;
+      const AGlyphRunDescription: PDWriteGlyphRunDescription;
+      AMeasuringMode: TDWriteMeasuringMode;
+      const AWworldToDeviceTransform: PDWriteMatrix;
+      AColorPaletteIndex: UInt32;
+      out AColorLayers: IDWriteColorGlyphRunEnumerator): HRESULT; stdcall;
+
+    function CreateCustomRenderingParams(
+      AGamma: Single;
+      AEnhancedContrast: Single;
+      AGrayscaleEnhancedContrast: Single;
+      AClearTypeLevel: Single;
+      APixelGeometry: TDWritePixelGeometry;
+      ARenderingMode: TDWriteRenderingMode;
+      AGridFitMode: DWRITE_GRID_FIT_MODE;
+      out ARenderingParams: IDWriteRenderingParams2): HRESULT; stdcall;
+
+    function CreateGlyphRunAnalysis(
+      const glyphRun: PDWriteGlyphRun;
+      const transform: PDWriteMatrix;
+      renderingMode: TDWriteRenderingMode;
+      measuringMode: TDWriteMeasuringMode;
+      gridFitMode: DWRITE_GRID_FIT_MODE;
+      antialiasMode: DWRITE_TEXT_ANTIALIAS_MODE;
+      baselineOriginX: Single;
+      baselineOriginY: Single;
+      out glyphRunAnalysis: IDWriteGlyphRunAnalysis): HRESULT; stdcall;
+  end;
+
+{$ENDREGION}
+
+{$REGION 'dwrite_3.h interfaces'}
+  IDWriteRenderingParams3 = interface(IDWriteRenderingParams2)
+    ['{b7924baa-391b-412a-8c5c-e44cc2d867dc}']
+
+  end;
+
+  IDWriteFactory3 = interface(IDWriteFactory2)
+    ['{9a1b41c3-d3bb-466a-87fc-fe67556a3b65}']
+
+  end;
+
+  IDWriteFontSet = interface(IUnknown)
+    ['{53585141-d9f8-4095-8321-d73cf6bd116b}']
+
+  end;
+
+  IDWriteFontSetBuilder = interface(IUnknown)
+    ['{2f642afe-9c68-4f40-b8be-457401afcb3d}']
+
+  end;
+
+  IDWriteFontCollection1 = interface(IDWriteFontCollection)
+    ['{53585141-d9f8-4095-8321-d73cf6bd116c}']
+
+  end;
+
+  IDWriteFontFamily1 = interface(IDWriteFontFamily)
+    ['{da20d8ef-812a-4c43-9802-62ec4abd7adf}']
+
+  end;
+
+  IDWriteFontList1 = interface(IDWriteFontList)
+    ['{da20d8ef-812a-4c43-9802-62ec4abd7ade}']
+
+  end;
+
+  IDWriteFontFaceReference = interface(IUnknown)
+    ['{5e7fa7ca-dde3-424c-89f0-9fcd6fed58cd}']
+
+  end;
+
+  IDWriteFont3 = interface(IDWriteFont2)
+    ['{29748ed6-8c9c-4a6a-be0b-d912e8538944}']
+
+  end;
+
+  IDWriteFontFace3 = interface(IDWriteFontFace2)
+    ['{d37d7598-09be-4222-a236-2081341cc1f2}']
+
+  end;
+
+  IDWriteStringList = interface(IUnknown)
+    ['{cfee3140-1157-47ca-8b85-31bfcf3f2d0e}']
+
+  end;
+
+  IDWriteFontDownloadListener = interface(IUnknown)
+    ['{b06fe5b9-43ec-4393-881b-dbe4dc72fda7}']
+
+  end;
+
+  IDWriteFontDownloadQueue = interface(IUnknown)
+    ['{b71e6052-5aea-4fa3-832e-f60d431f7e91}']
+
+  end;
+
+  IDWriteGdiInterop1 = interface(IDWriteGdiInterop)
+    ['{4556be70-3abd-4f70-90be-421780a6f515}']
+
+  end;
+
+  IDWriteTextFormat2 = interface(IDWriteTextFormat1)
+    ['{f67e0edd-9e3d-4ecc-8c32-4183253dfe70}']
+
+  end;
+
+  IDWriteTextLayout3 = interface(IDWriteTextLayout2)
+    ['{07ddcd52-020e-4de8-ac33-6c953d83f92d}']
+
+  end;
+
+  IDWriteColorGlyphRunEnumerator1 = interface(IDWriteColorGlyphRunEnumerator)
+    ['{7c5f86da-c7a1-4f05-b8e1-55a179fe5a35}']
+
+  end;
+
+  IDWriteFontFace4 = interface(IDWriteFontFace3)
+    ['{27f2a904-4eb8-441d-9678-0563f53e3e2f}']
+
+  end;
+
+  IDWriteFactory4 = interface(IDWriteFactory3)
+    ['{4b0b5bd3-0797-4549-8ac5-fe915cc53856}']
+
+  end;
+
+  IDWriteFontSetBuilder1 = interface(IDWriteFontSetBuilder)
+    ['{3ff7715f-3cdc-4dc6-9b72-ec5621dccafd}']
+
+  end;
+
+  IDWriteAsyncResult = interface(IUnknown)
+    ['{ce25f8fd-863b-4d13-9651-c1f88dc73fe2}']
+
+  end;
+
+  IDWriteRemoteFontFileStream = interface(IDWriteFontFileStream)
+    ['{4db3757a-2c72-4ed9-b2b6-1ababe1aff9c}']
+
+  end;
+
+  IDWriteRemoteFontFileLoader = interface(IDWriteFontFileLoader)
+    ['{68648c83-6ede-46c0-ab46-20083a887fde}']
+
+  end;
+
+  IDWriteInMemoryFontFileLoader = interface(IDWriteFontFileLoader)
+    ['{dc102f47-a12d-4b1c-822d-9e117e33043f}']
+
+  end;
+
+  IDWriteFactory5 = interface(IDWriteFactory4)
+    ['{958db99a-be2a-4f09-af7d-65189803d1d3}']
+
+  end;
+
+  IDWriteFactory6 = interface(IDWriteFactory5)
+    ['{f3744d80-21f7-42eb-b35d-995bc72fc223}']
+
+  end;
+
+  IDWriteFontFace5 = interface(IDWriteFontFace4)
+    ['{98eff3a5-b667-479a-b145-e2fa5b9fdc29}']
+
+  end;
+
+  IDWriteFontResource = interface(IUnknown)
+    ['{1f803a76-6871-48e8-987f-b975551c50f2}']
+
+  end;
+
+  IDWriteFontFaceReference1 = interface(IDWriteFontFaceReference)
+    ['{c081fe77-2fd1-41ac-a5a3-34983c4ba61a}']
+
+  end;
+
+  IDWriteFontSetBuilder2 = interface(IDWriteFontSetBuilder1)
+    ['{ee5ba612-b131-463c-8f4f-3189b9401e45}']
+
+  end;
+
+  IDWriteFontSet1 = interface(IDWriteFontSet)
+    ['{7e9fda85-6c92-4053-bc47-7ae3530db4d3}']
+
+  end;
+
+  IDWriteFontList2 = interface(IDWriteFontList1)
+    ['{c0763a34-77af-445a-b735-08c37b0a5bf5}']
+
+  end;
+
+  IDWriteFontFamily2 = interface(IDWriteFontFamily1)
+    ['{3ed49e77-a398-4261-b9cf-c126c2131ef3}']
+
+  end;
+
+  IDWriteFontCollection2 = interface(IDWriteFontCollection1)
+    ['{514039c6-4617-4064-bf8b-92ea83e506e0}']
+
+  end;
+
+  IDWriteTextLayout4 = interface(IDWriteTextLayout3)
+    ['{05a9bf42-223f-4441-b5fb-8263685f55e9}']
+
+  end;
+
+  IDWriteTextFormat3 = interface(IDWriteTextFormat2)
+    ['{6d3b5641-e550-430d-a85b-b7bf48a93427}']
+
+  end;
+
+  IDWriteFontFallback1 = interface(IDWriteFontFallback)
+    ['{2397599d-dd0d-4681-bd6a-f4f31eaade77}']
+
+  end;
+
+  IDWriteFontSet2 = interface(IDWriteFontSet1)
+    ['{dc7ead19-e54c-43af-b2da-4e2b79ba3f7f}']
+
+  end;
+
+  IDWriteFontCollection3 = interface(IDWriteFontCollection2)
+    ['{a4d055a6-f9e3-4e25-93b7-9e309f3af8e9}']
+
+  end;
+
+  IDWriteFactory7 = interface(IDWriteFactory6)
+    ['{35d0e0b3-9076-4d2e-a016-a91b568a06b4}']
+
+  end;
+
+  IDWriteFontSet3 = interface(IDWriteFontSet2)
+    ['{7c073ef2-a7f4-4045-8c32-8ab8ae640f90}']
+
+  end;
+
+  IDWriteFontFace6 = interface(IDWriteFontFace5)
+    ['{c4b1fe1b-6e84-47d5-b54c-a597981b06ad}']
+
+  end;
+
+{$ENDREGION}
+
 {$REGION 'd2d1effectauthor.h interfaces'}
   ID2D1VertexBuffer = interface(IUnknown)
     ['{9b8b1336-00a5-4668-92b7-ced5d8bf9b7b}']
@@ -10923,6 +12979,8 @@ const
   DWRITE_E_ALREADYREGISTERED                  = HRESULT($88985006);
 {$ENDREGION}
 
+{$REGION 'imported functions (d2d1, dwrite)'}
+
 function D2D1CreateFactory(
   AFactoryType: TD2D1FactoryType;
   const ARiid: TGUID;
@@ -10977,6 +13035,7 @@ function D2D1Vec3Length(
   AX: Single;
   AY: Single;
   AZ: Single): Single; stdcall; external d2d1lib;
+{$ENDREGION}
 
 {$REGION 'xxx yyy zzz'}
 
@@ -10992,6 +13051,14 @@ implementation
 procedure SetBits8(var ABits: Byte; AIndex: Integer; AValue: Byte);
 var O, M: Integer;
 begin
+  {
+     max x and max y => 16 bit
+
+     xxxx xxxx yyyy yyyy
+     x - offset
+     y - value
+  }
+
   O := AIndex shr 8;
   M := AIndex and $FF;
 
@@ -11008,6 +13075,14 @@ end;
 procedure SetBits16(var ABits: Word; AIndex: Integer; AValue: Word);
 var O, M: Integer;
 begin
+  {
+     max x and max y => 16 bit
+
+     xxxx xxxx yyyy yyyy
+     x - offset
+     y - value
+  }
+
   O := AIndex shr 16;
   M := AIndex and $FFFF;
 
@@ -11021,6 +13096,32 @@ begin
 end;
 
 {=========================================================================================================================================}
+procedure SetBits32(var ABits: UInt32; AIndex: Integer; AValue: UInt32);
+var O, M: Integer;
+begin
+  {
+     max x and max y => 16 bit
+
+     xxxx xxxx yyyy yyyy
+     x - offset
+     y - value
+  }
+
+  O := AIndex shr 16;
+  M := AIndex and $FFFF;
+
+  ABits := (ABits and not (M shl O)) or ((AValue and M) shl O);
+end;
+
+{=========================================================================================================================================}
+function GetBits32(ABits: UInt32; AIndex: Integer): UInt32;
+begin
+  Result := (ABits shr (AIndex shr 16)) and (AIndex and $FFFF);
+end;
+
+{=========================================================================================================================================}
+{ DWRITE_LINE_BREAKPOINT }
+{=========================================================================================================================================}
 procedure DWRITE_LINE_BREAKPOINT.SetByte(const AIndex: Integer; AValue: Byte);
 begin
   SetBits8(Data, AIndex, AValue)
@@ -11032,6 +13133,8 @@ begin
   Result := GetBits8(Data, AIndex);
 end;
 
+{=========================================================================================================================================}
+{ DWRITE_SHAPING_TEXT_PROPERTIES }
 {=========================================================================================================================================}
 procedure DWRITE_SHAPING_TEXT_PROPERTIES.SetWord(const AIndex: Integer; AValue: WORD);
 begin
@@ -11045,6 +13148,8 @@ begin
 end;
 
 {=========================================================================================================================================}
+{ DWRITE_SHAPING_GLYPH_PROPERTIES }
+{=========================================================================================================================================}
 procedure DWRITE_SHAPING_GLYPH_PROPERTIES.SetWord(const AIndex: Integer; AValue: WORD);
 begin
   SetBits16(Data, AIndex, AValue);
@@ -11057,6 +13162,8 @@ begin
 end;
 
 {=========================================================================================================================================}
+{ DWRITE_CLUSTER_METRICS }
+{=========================================================================================================================================}
 procedure DWRITE_CLUSTER_METRICS.SetWord(const AIndex: Integer; AValue: WORD);
 begin
   SetBits16(Data, AIndex, AValue)
@@ -11067,6 +13174,47 @@ function DWRITE_CLUSTER_METRICS.GetWord(const AIndex: Integer): WORD;
 begin
   Result := GetBits16(Data, AIndex);
 end;
+
+{=========================================================================================================================================}
+{ DWRITE_SCRIPT_PROPERTIES }
+{=========================================================================================================================================}
+procedure DWRITE_SCRIPT_PROPERTIES.SetDWord(const AIndex: Integer; AValue: UInt32);
+begin
+  SetBits32(Data, AIndex, AValue);
+end;
+
+{=========================================================================================================================================}
+function DWRITE_SCRIPT_PROPERTIES.GetDWord(const AIndex: Integer): UInt32;
+begin
+  Result := GetBits32(Data, AIndex);
+end;
+
+{=========================================================================================================================================}
+procedure DWRITE_SCRIPT_PROPERTIES.SetReserved(AVal: UInt32);
+begin
+  Data := (Data and (not $FFFFFF80)) or ((AVal and $01FFFFFF) shl 7);
+end;
+
+{=========================================================================================================================================}
+function DWRITE_SCRIPT_PROPERTIES.GetReserved: UInt32;
+begin
+  Result := (Data and $FFFFFF80) shr 7;
+end;
+
+{=========================================================================================================================================}
+{ DWRITE_JUSTIFICATION_OPPORTUNITY }
+{=========================================================================================================================================}
+procedure DWRITE_JUSTIFICATION_OPPORTUNITY.SetDWord(const AIndex: Integer; AValue: UInt32);
+begin
+  SetBits32(Data, AIndex, AValue);
+end;
+
+{=========================================================================================================================================}
+function DWRITE_JUSTIFICATION_OPPORTUNITY.GetDWord(const AIndex: Integer): UInt32;
+begin
+  Result := GetBits32(Data, AIndex);
+end;
+{=========================================================================================================================================}
 
 {$REGION 'user functions'}
 function D2D1CreateBitmap(ARenderTarget: ID2D1RenderTarget; ASrcBitmap: TBitmap; out AD2D1Bitmap: ID2D1Bitmap): HRESULT;
@@ -11116,5 +13264,6 @@ end;
 {$ENDREGION}
 
 {=========================================================================================================================================}
+
 
 end.
