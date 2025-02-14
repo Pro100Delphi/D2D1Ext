@@ -42,7 +42,7 @@ unit D2D1Ext;
 
 interface
 
-uses Winapi.DxgiFormat, Winapi.Windows, Winapi.Wincodec, Winapi.DXGI, Winapi.DxgiType, Winapi.D3DCommon, ActiveX;
+uses Winapi.DxgiFormat, Winapi.Windows, Winapi.Wincodec, Winapi.DXGI, Winapi.DxgiType, Winapi.D3DCommon, ActiveX, Graphics;
 
 
 // Determines whether data is aligned or packed
@@ -9333,7 +9333,7 @@ type
 
     function GetFiles(
       var ANumberOfFiles: UInt32;
-      out AFontFiles: IDWriteFontFile): HRESULT; stdcall;
+      AFontFiles: PIDWriteFontFile): HRESULT; stdcall;
 
     function GetIndex: UInt32; stdcall;
 
@@ -10939,6 +10939,10 @@ function D2D1Vec3Length(
 
 {$ENDREGION}
 
+{$REGION 'user functions'}
+function D2D1CreateBitmap(ARenderTarget: ID2D1RenderTarget; ASrcBitmap: TBitmap; out AD2D1Bitmap: ID2D1Bitmap): HRESULT;
+{$ENDREGION}
+
 implementation
 
 {=========================================================================================================================================}
@@ -11020,6 +11024,53 @@ function DWRITE_CLUSTER_METRICS.GetWord(const AIndex: Integer): WORD;
 begin
   Result := GetBits16(Data, AIndex);
 end;
+
+{$REGION 'user functions'}
+function D2D1CreateBitmap(ARenderTarget: ID2D1RenderTarget; ASrcBitmap: TBitmap; out AD2D1Bitmap: ID2D1Bitmap): HRESULT;
+var
+  BMPInfo: TBitmapInfo;
+  BMPProp: TD2D1BitmapProperties;
+  BMPHandle: HBitmap;
+
+  BuffArr: Array of Byte;
+
+  ImgSize: TD2D1SizeU;
+begin
+
+  // Original realization from Direct2D
+
+  FillChar(BMPInfo, SizeOf(BMPInfo), 0);
+  BMPInfo.bmiHeader.biSize := Sizeof(BMPInfo.bmiHeader);
+  BMPInfo.bmiHeader.biHeight := -ASrcBitmap.Height;
+  BMPInfo.bmiHeader.biWidth := ASrcBitmap.Width;
+  BMPInfo.bmiHeader.biPlanes := 1;
+  BMPInfo.bmiHeader.biBitCount := 32;
+
+  SetLength(BuffArr, ASrcBitmap.Height * ASrcBitmap.Width * 4);
+  // Forces evaluation of ASrcBitmap.Handle before ASrcBitmap.Canvas.Handle
+  BMPHandle := ASrcBitmap.Handle;
+  GetDIBits(ASrcBitmap.Canvas.Handle, BMPHandle, 0, ASrcBitmap.Height, @BuffArr[0], BMPInfo, DIB_RGB_COLORS);
+
+  BMPProp.DpiX := 0;
+  BMPProp.DpiY := 0;
+  BMPProp.PixelFormat.DXGIFormat := DXGI_FORMAT_B8G8R8A8_UNORM;
+  BMPProp.PixelFormat.AlphaMode := D2D1_ALPHA_MODE_PREMULTIPLIED;
+
+  if (ASrcBitmap.PixelFormat <> pf32bit) or (ASrcBitmap.AlphaFormat = afIgnored) then
+    BMPProp.PixelFormat.AlphaMode := D2D1_ALPHA_MODE_IGNORE;
+
+  ImgSize.Width := ASrcBitmap.Width;
+  ImgSize.Height := ASrcBitmap.Height;
+
+  Result := ARenderTarget.CreateBitmap(
+    ImgSize,
+    @BuffArr[0],
+    ASrcBitmap.Width * 4,
+    @BMPProp,
+    AD2D1Bitmap);
+end;
+
+{$ENDREGION}
 
 {=========================================================================================================================================}
 
