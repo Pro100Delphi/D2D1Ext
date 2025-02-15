@@ -12821,7 +12821,7 @@ type
     function GetSystemFontCollection(
       AIncludeDownloadableFonts: BOOL;
       AFontFamilyModel: TDWriteFontFamilyModel;
-      out fontCollection: IDWriteFontCollection2): HRESULT; stdcall;
+      out AFontCollection: IDWriteFontCollection2): HRESULT; stdcall;
 
     function CreateFontCollectionFromFontSet(
       AFontSet: IDWriteFontSet;
@@ -12831,13 +12831,13 @@ type
     function CreateFontSetBuilder(out AFontSetBuilder: IDWriteFontSetBuilder2): HRESULT; stdcall;
 
     function CreateTextFormat(
-      const fontFamilyName: PWCHAR;
-      fontCollection: IDWriteFontCollection;
-      const fontAxisValues: PDWriteFontAxisValue;
-      fontAxisValueCount: UInt32;
-      fontSize: Single;
-      const localeName: PWCHAR;
-      out textFormat: IDWriteTextFormat3): HRESULT; stdcall;
+      const AFontFamilyName: PWCHAR;
+      AFontCollection: IDWriteFontCollection;
+      const AFontAxisValues: PDWriteFontAxisValue;
+      AFontAxisValueCount: UInt32;
+      AFontSize: Single;
+      const ALocaleName: PWCHAR;
+      out ATextFormat: IDWriteTextFormat3): HRESULT; stdcall;
   end;
 
   IDWriteFontFace5 = interface(IDWriteFontFace4)
@@ -12846,8 +12846,8 @@ type
     function GetFontAxisValueCount: UInt32; stdcall;
 
     function GetFontAxisValues(
-      out fontAxisValues: TDWriteFontAxisValue;
-      fontAxisValueCount: UInt32): HRESULT; stdcall;
+      out AFontAxisValues: TDWriteFontAxisValue;
+      AFontAxisValueCount: UInt32): HRESULT; stdcall;
 
     function HasVariations: BOOL; stdcall;
 
