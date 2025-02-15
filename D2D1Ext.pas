@@ -10111,7 +10111,7 @@ end;
       ADashesCount: UInt32;
       out AStrokeStyle: ID2D1StrokeStyle1): HRESULT; stdcall;
 
-    function CreatePathGeometry(APathGeometry: ID2D1PathGeometry1): HRESULT; stdcall;
+    function CreatePathGeometry(out APathGeometry: ID2D1PathGeometry1): HRESULT; stdcall;
 
     function CreateDrawingStateBlock(
       const ADrawingStateDescription: PD2D1DrawingStateDescription1;
@@ -12183,13 +12183,13 @@ end;
       const ALastWriteTime: PFILETIME;
       AFaceIndex: UInt32;
       AFontSimulations: TDWriteFontSimulations;
-      out AFontFaceReference: IDWriteFontFaceReference): HRESULT; stdcall;
+      out AFontFaceReference: IDWriteFontFaceReference): HRESULT; overload; stdcall;
 
     function CreateFontFaceReference(
       AFontFile: IDWriteFontFile;
       AFaceIndex: UInt32;
       AFontSimulations: DWRITE_FONT_SIMULATIONS;
-      out AFontFaceReference: IDWriteFontFaceReference): HRESULT; stdcall;
+      out AFontFaceReference: IDWriteFontFaceReference): HRESULT; overload; stdcall;
 
     function GetSystemFontSet(out AFontSet: IDWriteFontSet): HRESULT; stdcall;
 
@@ -12229,16 +12229,16 @@ end;
       AListIndex: UInt32;
       APropertyId: DWRITE_FONT_PROPERTY_ID;
       out AExists: BOOL;
-      out AValues: IDWriteLocalizedStrings): HRESULT; stdcall;
+      out AValues: IDWriteLocalizedStrings): HRESULT; overload; stdcall;
 
     function GetPropertyValues(
       APropertyID: DWRITE_FONT_PROPERTY_ID;
       APreferredLocaleNames: PWCHAR;
-      out AValues: IDWriteStringList): HRESULT; stdcall;
+      out AValues: IDWriteStringList): HRESULT; overload; stdcall;
 
     function GetPropertyValues(
       APropertyID: DWRITE_FONT_PROPERTY_ID;
-      out AValues: IDWriteStringList): HRESULT; stdcall;
+      out AValues: IDWriteStringList): HRESULT; overload; stdcall;
 
     function GetPropertyOccurrenceCount(
       const AProperty: PDWRITE_FONT_PROPERTY;
@@ -12247,25 +12247,25 @@ end;
     function GetMatchingFonts(
       const AProperties: PDWRITE_FONT_PROPERTY;
       APropertyCount: UInt32;
-      out AFilteredSet: IDWriteFontSet): HRESULT; stdcall;
+      out AFilteredSet: IDWriteFontSet): HRESULT; overload; stdcall;
 
     function GetMatchingFonts(
       const AFamilyName: PWCHAR;
       AFontWeight: TDWriteFontWeight;
       AFontStretch: TDWriteFontStretch;
       AFontStyle: TDWriteFontStyle;
-      out AFilteredSet: IDWriteFontSet): HRESULT; stdcall;
+      out AFilteredSet: IDWriteFontSet): HRESULT; overload; stdcall;
   end;
 
   IDWriteFontSetBuilder = interface(IUnknown)
     ['{2f642afe-9c68-4f40-b8be-457401afcb3d}']
 
-    function AddFontFaceReference(AFontFaceReference: IDWriteFontFaceReference): HRESULT; stdcall;
+    function AddFontFaceReference(AFontFaceReference: IDWriteFontFaceReference): HRESULT; overload; stdcall;
 
     function AddFontFaceReference(
       AFontFaceReference: IDWriteFontFaceReference;
       const AProperties: PDWRITE_FONT_PROPERTY;
-      APropertyCount: UInt32): HRESULT; stdcall;
+      APropertyCount: UInt32): HRESULT; overload; stdcall;
 
     function AddFontSet(AFontSet: IDWriteFontSet): HRESULT; stdcall;
 
@@ -12481,11 +12481,11 @@ end;
 
     function GetFontSignature(
       AFont: IDWriteFont;
-      out AFontSignature: FONTSIGNATURE): HRESULT; stdcall;
+      out AFontSignature: FONTSIGNATURE): HRESULT; overload; stdcall;
 
     function GetFontSignature(
       AFontFace: IDWriteFontFace;
-      out AFontSignature: FONTSIGNATURE): HRESULT; stdcall;
+      out AFontSignature: FONTSIGNATURE): HRESULT; overload; stdcall;
 
     function GetMatchingFontsByLOGFONT(
       const ALogFont: PLOGFONT;
@@ -12526,13 +12526,13 @@ end;
   IDWriteFontFace4 = interface(IDWriteFontFace3)
     ['{27f2a904-4eb8-441d-9678-0563f53e3e2f}']
 
-    function GetGlyphImageFormats: DWRITE_GLYPH_IMAGE_FORMATS; stdcall;
+    function GetGlyphImageFormats: DWRITE_GLYPH_IMAGE_FORMATS; overload; stdcall;
 
     function GetGlyphImageFormats(
       AGlyphId: UInt16;
       APixelsPerEmFirst: UInt32;
       APixelsPerEmLast: UInt32;
-      out AGlyphImageFormats: DWRITE_GLYPH_IMAGE_FORMATS): HRESULT; stdcall;
+      out AGlyphImageFormats: DWRITE_GLYPH_IMAGE_FORMATS): HRESULT; overload; stdcall;
 
     function GetGlyphImageData(
       AGlyphId: UInt16;
@@ -12562,12 +12562,12 @@ end;
       AMeasuringMode: TDWriteMeasuringMode;
       ABaselineOrigin: TD2D1Point2F;
       const AWorldAndDpiTransform: PDWriteMatrix;
-      out AGlyphOrigins: TD2D1Point2F): HRESULT; stdcall;
+      out AGlyphOrigins: TD2D1Point2F): HRESULT; overload; stdcall;
 
     function ComputeGlyphOrigins(
       const AGlyphRun: PDWriteGlyphRun;
       ABaselineOrigin: TD2D1Point2F;
-      out AGlyphOrigins: TD2D1Point2F): HRESULT; stdcall;
+      out AGlyphOrigins: TD2D1Point2F): HRESULT; overload; stdcall;
   end;
 
   IDWriteFontSetBuilder1 = interface(IDWriteFontSetBuilder)
@@ -12809,18 +12809,18 @@ end;
     function GetFilteredFonts(
       APropertyCount: UInt32;
       ASelectAnyProperty: BOOL;
-      out AFilteredFontSet: IDWriteFontSet1): HRESULT; stdcall;
+      out AFilteredFontSet: IDWriteFontSet1): HRESULT; overload; stdcall;
 
     function GetFilteredFonts(
       const AFontAxisRanges: PDWRITE_FONT_AXIS_RANGE;
       AFontAxisRangeCount: UInt32;
       ASelectAnyRange: BOOL;
-      out AFilteredFontSet: IDWriteFontSet1): HRESULT; stdcall;
+      out AFilteredFontSet: IDWriteFontSet1): HRESULT; overload; stdcall;
 
     function GetFilteredFonts(
       const AIndices: PUint32;
       AIndexCount: UInt32;
-      out AFilteredFontSet: IDWriteFontSet1): HRESULT; stdcall;
+      out AFilteredFontSet: IDWriteFontSet1): HRESULT; overload; stdcall;
 
     function GetFilteredFontIndices(
      const properties: PDWRITE_FONT_PROPERTY;
@@ -12828,25 +12828,25 @@ end;
      selectAnyProperty: BOOL;
      out indices: PUint32;
      maxIndexCount: UInt32;
-     out actualIndexCount: UINT32): HRESULT; stdcall;
+     out actualIndexCount: UINT32): HRESULT; overload; stdcall;
 
     function GetFilteredFontIndices(
       const AFontAxisRanges: PDWRITE_FONT_AXIS_RANGE;
       AFontAxisRangeCount: UINT32;
       ASelectAnyRange: BOOL;
       out AIndices: PUint32;
-      AMaxIndexCount: UInt32): HRESULT; stdcall;
+      AMaxIndexCount: UInt32): HRESULT; overload; stdcall;
 
     function GetFontAxisRanges(
       out AFontAxisRanges: DWRITE_FONT_AXIS_RANGE;
       AMaxFontAxisRangeCount: UInt32;
-      out AActualFontAxisRangeCount: UInt32): HRESULT; stdcall;
+      out AActualFontAxisRangeCount: UInt32): HRESULT; overload; stdcall;
 
     function GetFontAxisRanges(
       AListIndex: UInt32;
       out AFontAxisRanges: PDWRITE_FONT_AXIS_RANGE;
       AMaxFontAxisRangeCount: UInt32;
-      out AActualFontAxisRangeCount: UInt32): HRESULT; stdcall;
+      out AActualFontAxisRangeCount: UInt32): HRESULT; overload; stdcall;
 
     function GetFontFaceReference(
       AListIndex: UInt32;
@@ -14020,6 +14020,4 @@ end;
 {$ENDREGION}
 
 {=========================================================================================================================================}
-
-
 end.
