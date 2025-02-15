@@ -8109,6 +8109,8 @@ type
     LocaleName: PWCHAR;
   end;
 
+  PDWRITE_FONT_PROPERTY = ^DWRITE_FONT_PROPERTY;
+
   /// <summary>
   /// Information about a formatted line of text.
   /// </summary>
@@ -8210,6 +8212,8 @@ type
     FontLineGapUsage: DWRITE_FONT_LINE_GAP_USAGE;
   end;
 
+  PDWRITE_LINE_SPACING = ^DWRITE_LINE_SPACING;
+
 /// <summary>
 /// Represents a color glyph run. The IDWriteFactory4::TranslateColorGlyphRun
 /// method returns an ordered collection of color glyph runs of varying types
@@ -8268,6 +8272,8 @@ type
     MeasuringMode: TDWriteMeasuringMode;
 
   end;
+
+  PDWRITE_COLOR_GLYPH_RUN1 = ^DWRITE_COLOR_GLYPH_RUN1;
 
   /// <summary>
   /// Data for a single glyph from GetGlyphImageData.
@@ -8339,6 +8345,8 @@ end;
     FragmentSize: UInt64;
   end;
 
+  PDWRITE_FILE_FRAGMENT = ^DWRITE_FILE_FRAGMENT;
+
   /// <summary>
   /// Value for a font axis, used when querying and creating font instances.
   /// </summary>
@@ -8356,6 +8364,8 @@ end;
     /// </summary>
     Value: Single;
   end;
+
+  PDWRITE_FONT_AXIS_VALUE = ^DWRITE_FONT_AXIS_VALUE;
 
   /// <summary>
   /// Minimum and maximum range of a font axis.
@@ -8377,6 +8387,8 @@ end;
     /// </summary>
     MaxValue: Single;
   end;
+
+  PDWRITE_FONT_AXIS_RANGE = ^DWRITE_FONT_AXIS_RANGE;
 
 {$ENDREGION}
 
@@ -8620,6 +8632,7 @@ end;
 
 {$REGION 'd2d1.h interfaces'}
   ID2D1Resource = interface(IUnknown)
+    ['{2cd90691-12e2-11dc-9fed-001143a055f9}']
 
     /// <summary>
     /// Retrieve the factory associated with this resource.
@@ -8628,10 +8641,11 @@ end;
   end;
 
   ID2D1Image = interface(ID2D1Resource)
-
+    ['{65019f75-8da2-497c-b32c-dfa34e48ede6}']
   end;
 
   ID2D1Bitmap = interface(ID2D1Image)
+    ['{a2296057-ea42-4099-983b-539fb6505426}']
 
     /// <summary>
     /// Returns the size of the bitmap in resolution independent units.
@@ -8661,6 +8675,7 @@ end;
   end;
 
   ID2D1GradientStopCollection = interface(ID2D1Resource)
+    ['{2cd906a7-12e2-11dc-9fed-001143a055f9}']
 
     /// <summary>
     /// Returns the number of stops in the gradient.
@@ -8682,6 +8697,7 @@ end;
   end;
 
   ID2D1Brush = interface(ID2D1Resource)
+    ['{2cd906a8-12e2-11dc-9fed-001143a055f9}']
 
     /// <summary>
     /// Sets the opacity for when the brush is drawn over the entire fill of the brush.
@@ -8699,6 +8715,7 @@ end;
   end;
 
   ID2D1BitmapBrush = interface(ID2D1Brush)
+    ['{2cd906aa-12e2-11dc-9fed-001143a055f9}']
 
     /// <summary>
     /// Sets how the bitmap is to be treated outside of its natural extent on the X
@@ -8732,12 +8749,15 @@ end;
   end;
 
   ID2D1SolidColorBrush = interface(ID2D1Brush)
+    ['{2cd906a9-12e2-11dc-9fed-001143a055f9}']
+
     procedure SetColor(const AColor: PD2D1ColorF); stdcall;
 
     function GetColor: TD2D1ColorF; stdcall;
   end;
 
   ID2D1LinearGradientBrush = interface(ID2D1Brush)
+    ['{2cd906ab-12e2-11dc-9fed-001143a055f9}']
 
     procedure SetStartPoint(AStartPoint: TD2D1Point2F); stdcall;
 
@@ -8755,6 +8775,7 @@ end;
   end;
 
   ID2D1RadialGradientBrush = interface(ID2D1Brush)
+    ['{2cd906ac-12e2-11dc-9fed-001143a055f9}']
 
     /// <summary>
     /// Sets the center of the radial gradient. This will be in local coordinates and
@@ -8783,6 +8804,7 @@ end;
   end;
 
   ID2D1StrokeStyle = interface(ID2D1Resource)
+    ['{2cd9069d-12e2-11dc-9fed-001143a055f9}']
 
     function GetStartCap: TD2D1CapStyle; stdcall;
 
@@ -8810,6 +8832,7 @@ end;
   end;
 
   ID2D1Geometry = interface(ID2D1Resource)
+    ['{2cd906a1-12e2-11dc-9fed-001143a055f9}']
 
     /// <summary>
     /// Retrieve the bounds of the geometry, with an optional applied transform.
@@ -8934,21 +8957,25 @@ end;
   end;
 
   ID2D1RectangleGeometry = interface(ID2D1Geometry)
+    ['{2cd906a2-12e2-11dc-9fed-001143a055f9}']
 
     procedure GetRect(out ARect: TD2D1RectF); stdcall;
   end;
 
   ID2D1RoundedRectangleGeometry = interface(ID2D1Geometry)
+    ['{2cd906a3-12e2-11dc-9fed-001143a055f9}']
 
     procedure GetRoundedRect(out ARoundedRect: TD2D1RoundedRect); stdcall;
   end;
 
   ID2D1EllipseGeometry = interface(ID2D1Geometry)
+    ['{2cd906a4-12e2-11dc-9fed-001143a055f9}']
 
     procedure GetEllipse(out AEllipse: TD2D1Ellipse); stdcall;
   end;
 
   ID2D1GeometryGroup = interface(ID2D1Geometry)
+    ['{2cd906a6-12e2-11dc-9fed-001143a055f9}']
 
     function GetFillMode: TD2D1FillMode; stdcall;
 
@@ -8960,6 +8987,7 @@ end;
   end;
 
   ID2D1TransformedGeometry = interface(ID2D1Geometry)
+    ['{2cd906bb-12e2-11dc-9fed-001143a055f9}']
 
     procedure GetSourceGeometry(out ASourceGeometry: ID2D1Geometry); stdcall;
 
@@ -8967,6 +8995,7 @@ end;
   end;
 
   ID2D1SimplifiedGeometrySink = interface(IUnknown)
+    ['{2cd9069e-12e2-11dc-9fed-001143a055f9}']
 
     procedure SetFillMode(AFillMode: TD2D1FillMode); stdcall;
 
@@ -8990,6 +9019,7 @@ end;
   end;
 
   ID2D1GeometrySink = interface(ID2D1SimplifiedGeometrySink)
+    ['{2cd9069f-12e2-11dc-9fed-001143a055f9}']
 
     procedure AddLine(APoint: TD2D1Point2F); stdcall;
 
@@ -9005,6 +9035,7 @@ end;
   end;
 
   ID2D1TessellationSink = interface(IUnknown)
+    ['{2cd906c1-12e2-11dc-9fed-001143a055f9}']
 
     procedure AddTriangles(
       const ATriangles: PD2D1Triangle;
@@ -9014,6 +9045,7 @@ end;
   end;
 
   ID2D1PathGeometry = interface(ID2D1Geometry)
+    ['{2cd906a5-12e2-11dc-9fed-001143a055f9}']
 
     /// <summary>
     /// Opens a geometry sink that will be used to create this path geometry.
@@ -9032,16 +9064,19 @@ end;
   end;
 
   ID2D1Mesh = interface(ID2D1Resource)
+    ['{2cd906c2-12e2-11dc-9fed-001143a055f9}']
 
     function Open(out ATessellationSink: ID2D1TessellationSink): HRESULT; stdcall;
   end;
 
   ID2D1Layer = interface(ID2D1Resource)
+    ['{2cd9069b-12e2-11dc-9fed-001143a055f9}']
 
     function GetSize: TD2D1SizeF; stdcall;
   end;
 
   ID2D1DrawingStateBlock = interface(ID2D1Resource)
+    ['{28506e39-ebf6-46a1-bb47-fd85565ab957}']
 
     /// <summary>
     /// Retrieves the state currently contained within this state block resource.
@@ -9067,6 +9102,7 @@ end;
   end;
 
   ID2D1RenderTarget = interface(ID2D1Resource)
+    ['{2cd90694-12e2-11dc-9fed-001143a055f9}']
 
     /// <summary>
     /// Create a D2D bitmap by copying from memory, or create uninitialized.
@@ -9429,10 +9465,13 @@ end;
   end;
 
   ID2D1BitmapRenderTarget = interface(ID2D1RenderTarget)
+    ['{2cd90695-12e2-11dc-9fed-001143a055f9}']
+
     function GetBitmap(out ABitmap: ID2D1Bitmap): HRESULT; stdcall;
   end;
 
   ID2D1HwndRenderTarget = interface(ID2D1RenderTarget)
+    ['{2cd90698-12e2-11dc-9fed-001143a055f9}']
 
     function CheckWindowState: TD2D1WindowState; stdcall;
 
@@ -9450,6 +9489,9 @@ end;
   end;
 
   ID2D1GdiInteropRenderTarget = interface(IUnknown)
+
+    ['{e0db51c3-6f77-4bae-b3d5-e47509b35838}']
+
     function GetDC(
       AMode: TD2D1DCInitializeMode;
       out AHdc: HDC): HRESULT; stdcall;
@@ -9458,6 +9500,9 @@ end;
   end;
 
   ID2D1DCRenderTarget = interface(ID2D1RenderTarget)
+
+    ['{1c51bc64-de61-46fd-9899-63a5d8f03950}']
+
     function BindDC(const AHdc: HDC; const ASubRect: PRect): HRESULT; stdcall;
   end;
 
@@ -12105,211 +12150,857 @@ end;
   IDWriteRenderingParams3 = interface(IDWriteRenderingParams2)
     ['{b7924baa-391b-412a-8c5c-e44cc2d867dc}']
 
+    function GetRenderingMode1: DWRITE_RENDERING_MODE1; stdcall;
+
   end;
 
   IDWriteFactory3 = interface(IDWriteFactory2)
     ['{9a1b41c3-d3bb-466a-87fc-fe67556a3b65}']
 
+    function CreateGlyphRunAnalysis(
+      const AGlyphRun: PDWriteGlyphRun;
+      const ATransform: PDWriteMatrix;
+      ARenderingMode: DWRITE_RENDERING_MODE1;
+      AMeasuringMode: TDWriteMeasuringMode;
+      AGridFitMode: DWRITE_GRID_FIT_MODE;
+      AAntialiasMode: DWRITE_TEXT_ANTIALIAS_MODE;
+      ABaselineOriginX: Single;
+      ABaselineOriginY: Single;
+      out AGlyphRunAnalysis: IDWriteGlyphRunAnalysis): HRESULT; stdcall;
+
+    function CreateCustomRenderingParams(
+      AGamma: Single;
+      AEnhancedContrast: Single;
+      AGrayscaleEnhancedContrast: Single;
+      AClearTypeLevel: Single;
+      APixelGeometry: DWRITE_PIXEL_GEOMETRY;
+      ARenderingMode: DWRITE_RENDERING_MODE1;
+      AGridFitMode: DWRITE_GRID_FIT_MODE;
+      out ARenderingParams: IDWriteRenderingParams3): HRESULT; stdcall;
+
+    function CreateFontFaceReference(
+      const AFilePath: PWCHAR;
+      const ALastWriteTime: PFILETIME;
+      AFaceIndex: UInt32;
+      AFontSimulations: TDWriteFontSimulations;
+      out AFontFaceReference: IDWriteFontFaceReference): HRESULT; stdcall;
+
+    function CreateFontFaceReference(
+      AFontFile: IDWriteFontFile;
+      AFaceIndex: UInt32;
+      AFontSimulations: DWRITE_FONT_SIMULATIONS;
+      out AFontFaceReference: IDWriteFontFaceReference): HRESULT; stdcall;
+
+    function GetSystemFontSet(out AFontSet: IDWriteFontSet): HRESULT; stdcall;
+
+    function CreateFontSetBuilder(out AFontSetBuilder: IDWriteFontSetBuilder): HRESULT; stdcall;
+
+    function CreateFontCollectionFromFontSet(
+      AFontSet: IDWriteFontSet;
+      out AFontCollection: IDWriteFontCollection1): HRESULT; stdcall;
+
+    function GetSystemFontCollection(
+      AIncludeDownloadableFonts: BOOL;
+      out AFontCollection: IDWriteFontCollection1;
+      ACheckForUpdates: BOOL = False): HRESULT; stdcall;
+
+    function GetFontDownloadQueue(out AFontDownloadQueue: IDWriteFontDownloadQueue): HRESULT; stdcall;
   end;
 
   IDWriteFontSet = interface(IUnknown)
     ['{53585141-d9f8-4095-8321-d73cf6bd116b}']
+    function GetFontCount: UInt32; stdcall;
 
+    function GetFontFaceReference(
+      AListIndex: UINT32;
+      out AFontFaceReference: IDWriteFontFaceReference): HRESULT; stdcall;
+
+    function FindFontFaceReference(
+      AFontFaceReference: IDWriteFontFaceReference;
+      out AListIndex: UInt32;
+      out AExists: BOOL): HRESULT; stdcall;
+
+    function FindFontFace(
+      AFontFace: IDWriteFontFace;
+      out AListIndex: UInt32;
+      out AExists: BOOL): HRESULT; stdcall;
+
+    function GetPropertyValues(
+      AListIndex: UInt32;
+      APropertyId: DWRITE_FONT_PROPERTY_ID;
+      out AExists: BOOL;
+      out AValues: IDWriteLocalizedStrings): HRESULT; stdcall;
+
+    function GetPropertyValues(
+      APropertyID: DWRITE_FONT_PROPERTY_ID;
+      APreferredLocaleNames: PWCHAR;
+      out AValues: IDWriteStringList): HRESULT; stdcall;
+
+    function GetPropertyValues(
+      APropertyID: DWRITE_FONT_PROPERTY_ID;
+      out AValues: IDWriteStringList): HRESULT; stdcall;
+
+    function GetPropertyOccurrenceCount(
+      const AProperty: PDWRITE_FONT_PROPERTY;
+      out propertyOccurrenceCount: UINT32): HRESULT; stdcall;
+
+    function GetMatchingFonts(
+      const AProperties: PDWRITE_FONT_PROPERTY;
+      APropertyCount: UInt32;
+      out AFilteredSet: IDWriteFontSet): HRESULT; stdcall;
+
+    function GetMatchingFonts(
+      const AFamilyName: PWCHAR;
+      AFontWeight: TDWriteFontWeight;
+      AFontStretch: TDWriteFontStretch;
+      AFontStyle: TDWriteFontStyle;
+      out AFilteredSet: IDWriteFontSet): HRESULT; stdcall;
   end;
 
   IDWriteFontSetBuilder = interface(IUnknown)
     ['{2f642afe-9c68-4f40-b8be-457401afcb3d}']
 
+    function AddFontFaceReference(AFontFaceReference: IDWriteFontFaceReference): HRESULT; stdcall;
+
+    function AddFontFaceReference(
+      AFontFaceReference: IDWriteFontFaceReference;
+      const AProperties: PDWRITE_FONT_PROPERTY;
+      APropertyCount: UInt32): HRESULT; stdcall;
+
+    function AddFontSet(AFontSet: IDWriteFontSet): HRESULT; stdcall;
+
+    function CreateFontSet(out AFontSet: IDWriteFontSet): HRESULT; stdcall;
   end;
 
   IDWriteFontCollection1 = interface(IDWriteFontCollection)
     ['{53585141-d9f8-4095-8321-d73cf6bd116c}']
 
+    function GetFontSet(out AFontSet: IDWriteFontSet): HRESULT; stdcall;
+
+    function GetFontFamily(
+      AIndex: UINT32;
+      out AFontFamily: IDWriteFontFamily1): HRESULT; stdcall;
   end;
 
   IDWriteFontFamily1 = interface(IDWriteFontFamily)
     ['{da20d8ef-812a-4c43-9802-62ec4abd7adf}']
 
+    function GetFontLocality(AListIndex: UInt32): DWRITE_LOCALITY; stdcall;
+
+    function GetFont(
+      AListIndex: UInt32;
+      out AFont: IDWriteFont3): HRESULT; stdcall;
+
+    function GetFontFaceReference(
+      AListIndex: UInt32;
+      out AFontFaceReference: IDWriteFontFaceReference): HRESULT; stdcall;
   end;
 
   IDWriteFontList1 = interface(IDWriteFontList)
     ['{da20d8ef-812a-4c43-9802-62ec4abd7ade}']
 
+    function GetFontLocality(AListIndex: UInt32): DWRITE_LOCALITY; stdcall;
+
+    function GetFont(
+      AListIndex: UInt32;
+      out font: IDWriteFont3): HRESULT; stdcall;
+
+    function GetFontFaceReference(
+      AListIndex: UInt32;
+      out fontFaceReference: IDWriteFontFaceReference): HRESULT; stdcall;
   end;
 
   IDWriteFontFaceReference = interface(IUnknown)
     ['{5e7fa7ca-dde3-424c-89f0-9fcd6fed58cd}']
 
+    function CreateFontFace(out AFontFace: IDWriteFontFace3): HRESULT; stdcall;
+
+    function CreateFontFaceWithSimulations(
+      AFontFaceSimulationFlags: DWRITE_FONT_SIMULATIONS;
+      out AFontFace: IDWriteFontFace3): HRESULT; stdcall;
+
+    function Equals(AFontFaceReference: IDWriteFontFaceReference): BOOL; stdcall;
+
+    function GetFontFaceIndex: UInt32; stdcall;
+
+    function GetSimulations: DWRITE_FONT_SIMULATIONS; stdcall;
+
+    function GetFontFile(out AFontFile: IDWriteFontFile): HRESULT; stdcall;
+
+    function GetLocalFileSize: UInt64; stdcall;
+
+    function GetFileSize: UInt64; stdcall;
+
+    function GetFileTime(out ALastWriteTime: PFILETIME): HRESULT; stdcall;
+
+    function GetLocality: DWRITE_LOCALITY; stdcall;
+
+    function EnqueueFontDownloadRequest: HRESULT; stdcall;
+
+    function EnqueueCharacterDownloadRequest(
+      const ACharacters: PWCHAR;
+      ACharacterCount: UInt32): HRESULT; stdcall;
+
+    function EnqueueGlyphDownloadRequest(
+      AGlyphIndices: PWord;
+      AGlyphCount: UInt32): HRESULT; stdcall;
+
+    function EnqueueFileFragmentDownloadRequest(
+      AFileOffset: UInt64;
+      AFragmentSize: UInt64): HRESULT; stdcall;
   end;
 
   IDWriteFont3 = interface(IDWriteFont2)
     ['{29748ed6-8c9c-4a6a-be0b-d912e8538944}']
 
+    function CreateFontFace(out AFontFace: IDWriteFontFace3): HRESULT; stdcall;
+
+    function Equals(AFont: IDWriteFont): BOOL; stdcall;
+
+    function GetFontFaceReference(out AFontFaceReference: IDWriteFontFaceReference): HRESULT; stdcall;
+
+    function HasCharacter(AUnicodeValue: UINT32): BOOL; stdcall;
+
+    function GetLocality: DWRITE_LOCALITY; stdcall;
   end;
 
   IDWriteFontFace3 = interface(IDWriteFontFace2)
     ['{d37d7598-09be-4222-a236-2081341cc1f2}']
 
+    function GetFontFaceReference(out AFontFaceReference: IDWriteFontFaceReference): HRESULT; stdcall;
+
+    procedure GetPanose(out APanose: DWRITE_PANOSE); stdcall;
+
+    function GetWeight: TDWriteFontWeight; stdcall;
+
+    function GetStretch: TDWriteFontStretch; stdcall;
+
+    function GetStyle: TDWriteFontStyle; stdcall;
+
+    function GetFamilyNames(out ANames: IDWriteLocalizedStrings): HRESULT; stdcall;
+
+    function GetFaceNames(out ANnames: IDWriteLocalizedStrings): HRESULT; stdcall;
+
+    function GetInformationalStrings(
+      AInformationalStringID: DWRITE_INFORMATIONAL_STRING_ID;
+      out AInformationalStrings: IDWriteLocalizedStrings;
+      out AExists: BOOL): HRESULT; stdcall;
+
+    function HasCharacter(AUnicodeValue: UINT32): BOOL; stdcall;
+
+    function GetRecommendedRenderingMode(
+      AFontEmSize: Single;
+      ADpiX: Single;
+      ADpiY: Single;
+      const ATransform: PDWriteMatrix;
+      AIsSideways: BOOL;
+      AOutlineThreshold: DWRITE_OUTLINE_THRESHOLD;
+      AMeasuringMode: TDWriteMeasuringMode;
+      ARenderingParams: IDWriteRenderingParams;
+      out ARenderingMode: DWRITE_RENDERING_MODE1;
+      out AGridFitMode: DWRITE_GRID_FIT_MODE): HRESULT; stdcall;
+
+    function IsCharacterLocal(AUnicodeValue: UInt32): BOOL; stdcall;
+
+    function IsGlyphLocal(AGlyphId: UInt16): BOOL; stdcall;
+
+    function AreCharactersLocal(
+      const ACharacters: PWCHAR;
+      ACharacterCount: UInt32;
+      AEnqueueIfNotLocal: BOOL;
+      out AIsLocal: BOOL): HRESULT; stdcall;
+
+    function AreGlyphsLocal(
+      const AGlyphIndices: PWord;
+      AGlyphCount: UInt32;
+      AEnqueueIfNotLocal: BOOL;
+      out AIsLocal: BOOL): HRESULT; stdcall;
   end;
 
   IDWriteStringList = interface(IUnknown)
     ['{cfee3140-1157-47ca-8b85-31bfcf3f2d0e}']
+
+    function GetCount: UInt32; stdcall;
+
+    function GetLocaleNameLength(
+      AListIndex: UInt32;
+      out ALength: UInt32): HRESULT; stdcall;
+
+    function GetLocaleName(
+      AListIndex: UInt32;
+      out ALocaleName: WCHAR;
+      ASize: UInt32): HRESULT; stdcall;
+
+    function GetStringLength(
+      ALlistIndex: UInt32;
+      out ALength: UInt32): HRESULT; stdcall;
+
+    function GetString(
+      AListIndex: UInt32;
+      out AStringBuffer: WCHAR;
+      AStringBufferSize: UInt32): HRESULT; stdcall;
 
   end;
 
   IDWriteFontDownloadListener = interface(IUnknown)
     ['{b06fe5b9-43ec-4393-881b-dbe4dc72fda7}']
 
+    procedure DownloadCompleted(
+      ADownloadQueue: IDWriteFontDownloadQueue;
+      AContext: IUnknown;
+      ADownloadResult: HRESULT); stdcall;
+
   end;
 
   IDWriteFontDownloadQueue = interface(IUnknown)
     ['{b71e6052-5aea-4fa3-832e-f60d431f7e91}']
+
+    function AddListener(
+      AListener: IDWriteFontDownloadListener;
+      out AToken: UInt32): HRESULT; stdcall;
+
+    function RemoveListener(AToken: UInt32): HRESULT; stdcall;
+
+    function IsEmpty: BOOL; stdcall;
+
+    function BeginDownload(AContext: IUnknown = nil): HRESULT; stdcall;
+
+    function CancelDownload: HRESULT; stdcall;
+
+    function GetGenerationCount: UInt64; stdcall;
 
   end;
 
   IDWriteGdiInterop1 = interface(IDWriteGdiInterop)
     ['{4556be70-3abd-4f70-90be-421780a6f515}']
 
+    function CreateFontFromLOGFONT(
+      const ALogFont: PLOGFONTW;
+      AFontCollection: IDWriteFontCollection;
+      out AFont: IDWriteFont): HRESULT; stdcall;
+
+    function GetFontSignature(
+      AFont: IDWriteFont;
+      out AFontSignature: FONTSIGNATURE): HRESULT; stdcall;
+
+    function GetFontSignature(
+      AFontFace: IDWriteFontFace;
+      out AFontSignature: FONTSIGNATURE): HRESULT; stdcall;
+
+    function GetMatchingFontsByLOGFONT(
+      const ALogFont: PLOGFONT;
+      AFontSet: IDWriteFontSet;
+      out AFilteredSet: IDWriteFontSet): HRESULT; stdcall;
   end;
 
   IDWriteTextFormat2 = interface(IDWriteTextFormat1)
     ['{f67e0edd-9e3d-4ecc-8c32-4183253dfe70}']
 
+    function SetLineSpacing(const ALineSpacingOptions: PDWRITE_LINE_SPACING): HRESULT; stdcall;
+
+    function GetLineSpacing(out ALineSpacingOptions: DWRITE_LINE_SPACING): HRESULT; stdcall;
   end;
 
   IDWriteTextLayout3 = interface(IDWriteTextLayout2)
     ['{07ddcd52-020e-4de8-ac33-6c953d83f92d}']
 
+    function InvalidateLayout: HRESULT; stdcall;
+
+    function SetLineSpacing(ALineSpacingOptions: PDWRITE_LINE_SPACING): HRESULT; stdcall;
+
+    function GetLineSpacing(out ALineSpacingOptions: DWRITE_LINE_SPACING): HRESULT; stdcall;
+
+    function GetLineMetrics(
+      out ALineMetrics: DWRITE_LINE_METRICS1;
+      AMaxLineCount: UInt32;
+      out AActualLineCount: UInt32): HRESULT; stdcall;
   end;
 
   IDWriteColorGlyphRunEnumerator1 = interface(IDWriteColorGlyphRunEnumerator)
     ['{7c5f86da-c7a1-4f05-b8e1-55a179fe5a35}']
+
+    function GetCurrentRun(out AColorGlyphRun: DWRITE_COLOR_GLYPH_RUN1 ): HRESULT; stdcall;
 
   end;
 
   IDWriteFontFace4 = interface(IDWriteFontFace3)
     ['{27f2a904-4eb8-441d-9678-0563f53e3e2f}']
 
+    function GetGlyphImageFormats: DWRITE_GLYPH_IMAGE_FORMATS; stdcall;
+
+    function GetGlyphImageFormats(
+      AGlyphId: UInt16;
+      APixelsPerEmFirst: UInt32;
+      APixelsPerEmLast: UInt32;
+      out AGlyphImageFormats: DWRITE_GLYPH_IMAGE_FORMATS): HRESULT; stdcall;
+
+    function GetGlyphImageData(
+      AGlyphId: UInt16;
+      APixelsPerEm: UINT32;
+      AGlyphImageFormat: DWRITE_GLYPH_IMAGE_FORMATS;
+      out AGlyphData: DWRITE_GLYPH_IMAGE_DATA;
+      out AGlyphDataContext: Pointer): HRESULT; stdcall;
+
+    procedure ReleaseGlyphImageData(glyphDataContext: Pointer); stdcall;
   end;
 
   IDWriteFactory4 = interface(IDWriteFactory3)
     ['{4b0b5bd3-0797-4549-8ac5-fe915cc53856}']
 
+    function TranslateColorGlyphRun(
+      ABaselineOrigin: TD2D1Point2F;
+      const AGlyphRun: PDWriteGlyphRun;
+      const AGlyphRunDescription: PDWriteGlyphRunDescription;
+      ADesiredGlyphImageFormats: TDWriteGlyphImageFormats;
+      AMeasuringMode: TDWriteMeasuringMode;
+      const AWorldAndDpiTransform: PDWriteMatrix;
+      AColorPaletteIndex: UInt32;
+      out AColorLayers: IDWriteColorGlyphRunEnumerator1): HRESULT; stdcall;
+
+    function ComputeGlyphOrigins(
+      const AGlyphRun: PDWriteGlyphRun;
+      AMeasuringMode: TDWriteMeasuringMode;
+      ABaselineOrigin: TD2D1Point2F;
+      const AWorldAndDpiTransform: PDWriteMatrix;
+      out AGlyphOrigins: TD2D1Point2F): HRESULT; stdcall;
+
+    function ComputeGlyphOrigins(
+      const AGlyphRun: PDWriteGlyphRun;
+      ABaselineOrigin: TD2D1Point2F;
+      out AGlyphOrigins: TD2D1Point2F): HRESULT; stdcall;
   end;
 
   IDWriteFontSetBuilder1 = interface(IDWriteFontSetBuilder)
     ['{3ff7715f-3cdc-4dc6-9b72-ec5621dccafd}']
 
+    function AddFontFile(AFontFile: IDWriteFontFile): HRESULT; stdcall;
   end;
 
   IDWriteAsyncResult = interface(IUnknown)
     ['{ce25f8fd-863b-4d13-9651-c1f88dc73fe2}']
+
+    function GetWaitHandle: THandle; stdcall;
+
+    function GetResult: HRESULT; stdcall;
 
   end;
 
   IDWriteRemoteFontFileStream = interface(IDWriteFontFileStream)
     ['{4db3757a-2c72-4ed9-b2b6-1ababe1aff9c}']
 
+    function GetLocalFileSize(out ALocalFileSize: UInt64): HRESULT; stdcall;
+
+    function GetFileFragmentLocality(
+      AFileOffset: UInt64;
+      AFragmentSize: UInt64;
+      out AIsLocal: BOOL;
+      out APartialSize: UInt64): HRESULT; stdcall;
+
+    function GetLocality: DWRITE_LOCALITY; stdcall;
+
+    function BeginDownload(
+      ADownloadOperationID: PGUID;
+      const AFileFragments: PDWRITE_FILE_FRAGMENT;
+      AFragmentCount: UInt32;
+      out AAsyncResult: IDWriteAsyncResult): HRESULT; stdcall;
   end;
 
   IDWriteRemoteFontFileLoader = interface(IDWriteFontFileLoader)
     ['{68648c83-6ede-46c0-ab46-20083a887fde}']
 
+    function CreateRemoteStreamFromKey(
+      const AFontFileReferenceKey: Pointer;
+      AFontFileReferenceKeySize: UInt32;
+      out AFontFileStream: IDWriteRemoteFontFileStream): HRESULT; stdcall;
+
+    function GetLocalityFromKey(
+      const AFontFileReferenceKey: Pointer;
+      AFontFileReferenceKeySize: UInt32;
+      out ALocality: DWRITE_LOCALITY): HRESULT; stdcall;
+
+    function CreateFontFileReferenceFromUrl(
+      AFactory: IDWriteFactory;
+      const ABaseUrl: PWCHAR;
+      const AFontFileUrl: PWCHAR;
+      out AFontFile: IDWriteFontFile): HRESULT; stdcall;
   end;
 
   IDWriteInMemoryFontFileLoader = interface(IDWriteFontFileLoader)
     ['{dc102f47-a12d-4b1c-822d-9e117e33043f}']
+
+    function CreateInMemoryFontFileReference(
+      AFactory: IDWriteFactory;
+      const AFontData: Pointer;
+      AFontDataSize: UInt32;
+      AOwnerObject: IUnknown;
+      out AFontFile: IDWriteFontFile): HRESULT; stdcall;
+
+    function GetFileCount: UInt32; stdcall;
 
   end;
 
   IDWriteFactory5 = interface(IDWriteFactory4)
     ['{958db99a-be2a-4f09-af7d-65189803d1d3}']
 
+    function CreateFontSetBuilder(out AFontSetBuilder: IDWriteFontSetBuilder1): HRESULT; stdcall;
+
+    function CreateInMemoryFontFileLoader(out ANewLoader: IDWriteInMemoryFontFileLoader): HRESULT; stdcall;
+
+    function CreateHttpFontFileLoader(
+      const AReferrerUrl: PWChar;
+      const AExtraHeaders: PWChar;
+      out ANewLoader: IDWriteRemoteFontFileLoader): HRESULT; stdcall;
+
+    function AnalyzeContainerType(
+      const AFileData: Pointer;
+      AFileDataSize: UInt32): HRESULT; stdcall;
+
+    function UnpackFontFile(
+      AContainerType: DWRITE_CONTAINER_TYPE;
+      const AFileData: Pointer;
+      AFileDataSize: UInt32;
+      out AUnpackedFontStream: IDWriteFontFileStream): HRESULT; stdcall;
   end;
 
   IDWriteFactory6 = interface(IDWriteFactory5)
     ['{f3744d80-21f7-42eb-b35d-995bc72fc223}']
 
+    function CreateFontFaceReference(
+      AFontFile: IDWriteFontFile;
+      AFaceIndex: UINT32;
+      AFontSimulations: DWRITE_FONT_SIMULATIONS;
+      const AFontAxisValues: Pointer;
+      AFontAxisValueCount: UInt32;
+      out AFontFaceReference: IDWriteFontFaceReference1): HRESULT; stdcall;
+
+    function CreateFontResource(
+      AFontFile: IDWriteFontFile;
+      AFaceIndex: UInt32;
+      out AFontResource: IDWriteFontResource): HRESULT; stdcall;
+
+    function GetSystemFontSet(
+      AIncludeDownloadableFonts: BOOL;
+      out AFontSet: IDWriteFontSet1): HRESULT; stdcall;
+
+    function GetSystemFontCollection(
+      AIncludeDownloadableFonts: BOOL;
+      AFontFamilyModel: DWRITE_FONT_FAMILY_MODEL;
+      out fontCollection: IDWriteFontCollection2): HRESULT; stdcall;
+
+    function CreateFontCollectionFromFontSet(
+      AFontSet: IDWriteFontSet;
+      AFontFamilyModel: DWRITE_FONT_FAMILY_MODEL;
+      out AFontCollection: IDWriteFontCollection2): HRESULT; stdcall;
+
+    function CreateFontSetBuilder(out AFontSetBuilder: IDWriteFontSetBuilder2): HRESULT; stdcall;
+
+    function CreateTextFormat(
+      const fontFamilyName: PWCHAR;
+      fontCollection: IDWriteFontCollection;
+      const fontAxisValues: PDWRITE_FONT_AXIS_VALUE;
+      fontAxisValueCount: UInt32;
+      fontSize: Single;
+      const localeName: PWCHAR;
+      out textFormat: IDWriteTextFormat3): HRESULT; stdcall;
   end;
 
   IDWriteFontFace5 = interface(IDWriteFontFace4)
     ['{98eff3a5-b667-479a-b145-e2fa5b9fdc29}']
 
+    function GetFontAxisValueCount: UInt32; stdcall;
+
+    function GetFontAxisValues(
+      out fontAxisValues: DWRITE_FONT_AXIS_VALUE;
+      fontAxisValueCount: UInt32): HRESULT; stdcall;
+
+    function HasVariations: BOOL; stdcall;
+
+    function GetFontResource(out AFontResource: IDWriteFontResource): HRESULT; stdcall;
+
+    function Equals(out AFontFace: IDWriteFontFace): BOOL; stdcall;
   end;
 
   IDWriteFontResource = interface(IUnknown)
     ['{1f803a76-6871-48e8-987f-b975551c50f2}']
 
+    function GetFontFile(out AFontFile: IDWriteFontFile): HRESULT; stdcall;
+
+    function GetFontFaceIndex: UInt32; stdcall;
+
+    function GetFontAxisCount: UInt32; stdcall;
+
+    function GetDefaultFontAxisValues(
+      out AFontAxisValues: DWRITE_FONT_AXIS_VALUE;
+      AFontAxisValueCount: UInt32): HRESULT; stdcall;
+
+    function GetFontAxisRanges(
+      out AFontAxisRanges: DWRITE_FONT_AXIS_RANGE;
+      AFontAxisRangeCount: UInt32): HRESULT; stdcall;
+
+    function GetFontAxisAttributes(AAxisIndex: UInt32): DWRITE_FONT_AXIS_ATTRIBUTES; stdcall;
+
+    function GetAxisNames(
+      AAxisIndex: UInt32;
+      out ANames: IDWriteLocalizedStrings): HRESULT; stdcall;
+
+    function GetAxisValueNameCount(AAxisIndex: UInt32): UInt32; stdcall;
+
+    function GetAxisValueNames(
+      AAxisIndex: UINT32;
+      AAxisValueIndex: UINT32;
+      out AFontAxisRange: DWRITE_FONT_AXIS_RANGE;
+      out ANames: IDWriteLocalizedStrings): HRESULT; stdcall;
+
+    function HasVariations: BOOL; stdcall;
+
+    function CreateFontFace(
+      AFontSimulations: DWRITE_FONT_SIMULATIONS;
+      const AFontAxisValues: PDWRITE_FONT_AXIS_VALUE;
+      AFontAxisValueCount: UInt32;
+      out AFontFace: IDWriteFontFace5): HRESULT; stdcall;
+
+    function CreateFontFaceReference(
+      AFontSimulations: DWRITE_FONT_SIMULATIONS;
+      const AFontAxisValues: PDWRITE_FONT_AXIS_VALUE;
+      AFontAxisValueCount: UInt32;
+      out AFontFaceReference: IDWriteFontFaceReference1): HRESULT; stdcall;
   end;
 
   IDWriteFontFaceReference1 = interface(IDWriteFontFaceReference)
     ['{c081fe77-2fd1-41ac-a5a3-34983c4ba61a}']
 
+    function CreateFontFace(out AFontFace: IDWriteFontFace5): HRESULT; stdcall;
+
+    function GetFontAxisValueCount: UInt32; stdcall;
+
+    function GetFontAxisValues(
+      out AFontAxisValues: DWRITE_FONT_AXIS_VALUE;
+      AFontAxisValueCount: UInt32): HRESULT; stdcall;
   end;
 
   IDWriteFontSetBuilder2 = interface(IDWriteFontSetBuilder1)
     ['{ee5ba612-b131-463c-8f4f-3189b9401e45}']
 
+    function AddFont(
+      AFontFile: IDWriteFontFile;
+      AFontFaceIndex: UINT32;
+      AFontSimulations: DWRITE_FONT_SIMULATIONS;
+      const AFontAxisValues: PDWRITE_FONT_AXIS_VALUE;
+      AFontAxisValueCount: UInt32;
+      const AFontAxisRanges: PDWRITE_FONT_AXIS_RANGE;
+      AFontAxisRangeCount: UInt32;
+      const AProperties: PDWRITE_FONT_PROPERTY;
+      APropertyCount: UInt32): HRESULT; stdcall;
+
+    function AddFontFile(AFilePath: PWCHAR): HRESULT; stdcall;
   end;
 
   IDWriteFontSet1 = interface(IDWriteFontSet)
     ['{7e9fda85-6c92-4053-bc47-7ae3530db4d3}']
 
+    function GetMatchingFonts(
+      const AFontProperty: PDWRITE_FONT_PROPERTY;
+      AFontAxisValues: PDWRITE_FONT_AXIS_VALUE;
+      AFontAxisValueCount: UInt32;
+      out AMatchingFonts: IDWriteFontSet1): HRESULT; stdcall;
+
+    function GetFirstFontResources(out AFilteredFontSet: IDWriteFontSet1): HRESULT; stdcall;
+
+    function GetFilteredFonts(
+      APropertyCount: UInt32;
+      ASelectAnyProperty: BOOL;
+      out AFilteredFontSet: IDWriteFontSet1): HRESULT; stdcall;
+
+    function GetFilteredFonts(
+      const AFontAxisRanges: PDWRITE_FONT_AXIS_RANGE;
+      AFontAxisRangeCount: UInt32;
+      ASelectAnyRange: BOOL;
+      out AFilteredFontSet: IDWriteFontSet1): HRESULT; stdcall;
+
+    function GetFilteredFonts(
+      const AIndices: PUint32;
+      AIndexCount: UInt32;
+      out AFilteredFontSet: IDWriteFontSet1): HRESULT; stdcall;
+
+    function GetFilteredFontIndices(
+     const properties: PDWRITE_FONT_PROPERTY;
+     propertyCount: UInt32;
+     selectAnyProperty: BOOL;
+     out indices: PUint32;
+     maxIndexCount: UInt32;
+     out actualIndexCount: UINT32): HRESULT; stdcall;
+
+    function GetFilteredFontIndices(
+      const AFontAxisRanges: PDWRITE_FONT_AXIS_RANGE;
+      AFontAxisRangeCount: UINT32;
+      ASelectAnyRange: BOOL;
+      out AIndices: PUint32;
+      AMaxIndexCount: UInt32): HRESULT; stdcall;
+
+    function GetFontAxisRanges(
+      out AFontAxisRanges: DWRITE_FONT_AXIS_RANGE;
+      AMaxFontAxisRangeCount: UInt32;
+      out AActualFontAxisRangeCount: UInt32): HRESULT; stdcall;
+
+    function GetFontAxisRanges(
+      AListIndex: UInt32;
+      out AFontAxisRanges: PDWRITE_FONT_AXIS_RANGE;
+      AMaxFontAxisRangeCount: UInt32;
+      out AActualFontAxisRangeCount: UInt32): HRESULT; stdcall;
+
+    function GetFontFaceReference(
+      AListIndex: UInt32;
+      out AFontFaceReference: IDWriteFontFaceReference1): HRESULT; stdcall;
+
+    function CreateFontResource(
+      AListIndex: UInt32;
+      out AFontResource: IDWriteFontResource): HRESULT; stdcall;
+
+    function CreateFontFace(
+      AListIndex: UInt32;
+      AFontFace: IDWriteFontFace5): HRESULT; stdcall;
+
+    function GetFontLocality(AListIndex: UInt32): DWRITE_LOCALITY; stdcall;
   end;
 
   IDWriteFontList2 = interface(IDWriteFontList1)
     ['{c0763a34-77af-445a-b735-08c37b0a5bf5}']
 
+    function GetFontSet(out AFontSet: IDWriteFontSet1): HRESULT; stdcall;
   end;
 
   IDWriteFontFamily2 = interface(IDWriteFontFamily1)
     ['{3ed49e77-a398-4261-b9cf-c126c2131ef3}']
 
+    function GetMatchingFonts(
+      const AFontAxisValues: PDWRITE_FONT_AXIS_VALUE;
+      AFontAxisValueCount: UInt32;
+      out AMatchingFonts: IDWriteFontList2): HRESULT; stdcall;
+
+    function GetFontSet(out AFontSet: IDWriteFontSet1): HRESULT; stdcall;
   end;
 
   IDWriteFontCollection2 = interface(IDWriteFontCollection1)
     ['{514039c6-4617-4064-bf8b-92ea83e506e0}']
 
+    function GetFontFamily(
+      AIndex: UINT32;
+      out AFontFamily: IDWriteFontFamily2): HRESULT; stdcall;
+
+    function GetMatchingFonts(
+      const AFamilyName: PWCHAR;
+      const AFontAxisValues: PDWRITE_FONT_AXIS_VALUE;
+      AFontAxisValueCount: UINT32;
+      out AFontList: IDWriteFontList2): HRESULT; stdcall;
+
+    function GetFontFamilyModel: DWRITE_FONT_FAMILY_MODEL; stdcall;
+
+    function GetFontSet(out AFontSet: IDWriteFontSet1): HRESULT; stdcall;
   end;
 
   IDWriteTextLayout4 = interface(IDWriteTextLayout3)
     ['{05a9bf42-223f-4441-b5fb-8263685f55e9}']
 
+    function SetFontAxisValues(
+      const AFontAxisValues: PDWRITE_FONT_AXIS_VALUE;
+      AFontAxisValueCount: UInt32;
+      ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+
+    function GetFontAxisValueCount(ACurrentPosition: UInt32): UInt32; stdcall;
+
+    function GetFontAxisValues(
+      ACurrentPosition: UInt32;
+      out AFontAxisValues: PDWRITE_FONT_AXIS_VALUE;
+      AFontAxisValueCount: UInt32;
+      out ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+
+    function GetAutomaticFontAxes: DWRITE_AUTOMATIC_FONT_AXES; stdcall;
+
+    function SetAutomaticFontAxes(AAutomaticFontAxes: DWRITE_AUTOMATIC_FONT_AXES): HRESULT; stdcall;
   end;
 
   IDWriteTextFormat3 = interface(IDWriteTextFormat2)
     ['{6d3b5641-e550-430d-a85b-b7bf48a93427}']
 
+    function SetFontAxisValues(
+      const AFontAxisValues: PDWRITE_FONT_AXIS_VALUE;
+      AFontAxisValueCount: UInt32): HRESULT; stdcall;
+
+    function GetFontAxisValueCount: UInt32; stdcall;
+
+    function GetFontAxisValues(
+      out AFontAxisValues: PDWRITE_FONT_AXIS_VALUE;
+      AFontAxisValueCount: UInt32): HRESULT; stdcall;
+
+    function GetAutomaticFontAxes: DWRITE_AUTOMATIC_FONT_AXES; stdcall;
+
+    function SetAutomaticFontAxes(AAutomaticFontAxes: DWRITE_AUTOMATIC_FONT_AXES): HRESULT; stdcall;
   end;
 
   IDWriteFontFallback1 = interface(IDWriteFontFallback)
     ['{2397599d-dd0d-4681-bd6a-f4f31eaade77}']
 
+    function MapCharacters(
+      AAnalysisSource: IDWriteTextAnalysisSource;
+      ATextPosition: UInt32;
+      ATextLength: UInt32;
+      ABaseFontCollection: IDWriteFontCollection;
+      const ABaseFamilyName: PWCHAR;
+      const AFontAxisValues: PDWRITE_FONT_AXIS_VALUE;
+      AFontAxisValueCount: UInt32;
+      out AMappedLength: UInt32;
+      out AScale: Single;
+      out AMappedFontFace: IDWriteFontFace5): HRESULT; stdcall;
   end;
 
   IDWriteFontSet2 = interface(IDWriteFontSet1)
     ['{dc7ead19-e54c-43af-b2da-4e2b79ba3f7f}']
 
+    function GetExpirationEvent: THandle; stdcall;
   end;
 
   IDWriteFontCollection3 = interface(IDWriteFontCollection2)
     ['{a4d055a6-f9e3-4e25-93b7-9e309f3af8e9}']
 
+    function GetExpirationEvent: THandle; stdcall;
   end;
 
   IDWriteFactory7 = interface(IDWriteFactory6)
     ['{35d0e0b3-9076-4d2e-a016-a91b568a06b4}']
 
+    function GetSystemFontSet(
+      AIncludeDownloadableFonts: BOOL;
+      out AFontSet: IDWriteFontSet2): HRESULT; stdcall;
+
+    function GetSystemFontCollection(
+      AIncludeDownloadableFonts: BOOL;
+      AFontFamilyModel: DWRITE_FONT_FAMILY_MODEL;
+      out fontCollection: IDWriteFontCollection3): HRESULT; stdcall;
   end;
 
   IDWriteFontSet3 = interface(IDWriteFontSet2)
     ['{7c073ef2-a7f4-4045-8c32-8ab8ae640f90}']
 
+    function GetFontSourceType(AFontIndex: UInt32): DWRITE_FONT_SOURCE_TYPE; stdcall;
+
+    function GetFontSourceNameLength(AListIndex: UInt32): UInt32; stdcall;
+
+    function GetFontSourceName(
+      AListIndex: UInt32;
+      out AStringBuffer: PWCHAR;
+      AStringBufferSize: UInt32): HRESULT; stdcall;
   end;
 
   IDWriteFontFace6 = interface(IDWriteFontFace5)
     ['{c4b1fe1b-6e84-47d5-b54c-a597981b06ad}']
 
+    function GetFamilyNames(
+      AFontFamilyModel: DWRITE_FONT_FAMILY_MODEL;
+      out ANames: IDWriteLocalizedStrings): HRESULT; stdcall;
+
+    function GetFaceNames(
+      AFontFamilyModel: DWRITE_FONT_FAMILY_MODEL;
+      out ANames: IDWriteLocalizedStrings): HRESULT; stdcall;
   end;
 
 {$ENDREGION}
@@ -13105,9 +13796,6 @@ function D2D1Vec3Length(
   AZ: Single): Single; stdcall; external d2d1lib;
 {$ENDREGION}
 
-{$REGION 'xxx yyy zzz'}
-
-{$ENDREGION}
 
 {$REGION 'user functions'}
 function D2D1CreateBitmap(ARenderTarget: ID2D1RenderTarget; ASrcBitmap: TBitmap; out AD2D1Bitmap: ID2D1Bitmap): HRESULT;
