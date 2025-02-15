@@ -2668,6 +2668,9 @@ type
     DWRITE_PANOSE_FAMILY_PICTORIAL    = DWRITE_PANOSE_FAMILY_SYMBOL
   );
 
+	TDWritePanoseFamily = DWRITE_PANOSE_FAMILY;
+	PDWritePanoseFamily = ^TDWritePanoseFamily;
+
   DWRITE_PANOSE_SERIF_STYLE = (
 
     DWRITE_PANOSE_SERIF_STYLE_ANY                 = 0,
@@ -2691,6 +2694,9 @@ type
     DWRITE_PANOSE_SERIF_STYLE_BONE                = DWRITE_PANOSE_SERIF_STYLE_OVAL
   );
 
+  TDWritePanoseSerifStyle = DWRITE_PANOSE_SERIF_STYLE;
+	PDWritePanoseSerifStyle = ^TDWritePanoseSerifStyle;
+
   DWRITE_PANOSE_WEIGHT = (
 
     DWRITE_PANOSE_WEIGHT_ANY          = 0,
@@ -2708,6 +2714,9 @@ type
     DWRITE_PANOSE_WEIGHT_NORD         = DWRITE_PANOSE_WEIGHT_EXTRA_BLACK
   );
 
+	TDWritePanoseWeight = DWRITE_PANOSE_WEIGHT;
+	PDWritePanoseWeight = ^TDWritePanoseWeight;
+
   DWRITE_PANOSE_PROPORTION = (
 
     DWRITE_PANOSE_PROPORTION_ANY            = 0,
@@ -2721,6 +2730,9 @@ type
     DWRITE_PANOSE_PROPORTION_VERY_CONDENSED = 8,
     DWRITE_PANOSE_PROPORTION_MONOSPACED     = 9
   );
+
+	TDWritePanoseProportion = DWRITE_PANOSE_PROPORTION;
+	PDWritePanoseProportion = ^TDWritePanoseProportion;
 
   DWRITE_PANOSE_CONTRAST = (
     DWRITE_PANOSE_CONTRAST_ANY                = 0,
@@ -2739,6 +2751,9 @@ type
     DWRITE_PANOSE_CONTRAST_BROKEN             = 13
   );
 
+	TDWritePanoseContrast = DWRITE_PANOSE_CONTRAST;
+	PDWritePanoseContrast = ^TDWritePanoseContrast;
+
   DWRITE_PANOSE_STROKE_VARIATION = (
 
     DWRITE_PANOSE_STROKE_VARIATION_ANY                  = 0,
@@ -2753,6 +2768,9 @@ type
     DWRITE_PANOSE_STROKE_VARIATION_INSTANT_VERTICAL     = 9,
     DWRITE_PANOSE_STROKE_VARIATION_INSTANT_HORIZONTAL   = 10
   );
+
+	TDWritePanoseStrokeVariation = DWRITE_PANOSE_STROKE_VARIATION;
+	PDWritePanoseStrokeVariation = ^TDWritePanoseStrokeVariation;
 
   DWRITE_PANOSE_ARM_STYLE = (
 
@@ -2777,6 +2795,9 @@ type
     DWRITE_PANOSE_ARM_STYLE_BENT_ARMS_DOUBLE_SERIF        = DWRITE_PANOSE_ARM_STYLE_NONSTRAIGHT_ARMS_DOUBLE_SERIF
   );
 
+	TDWritePanoseArmStyle = DWRITE_PANOSE_ARM_STYLE;
+	PDWritePanoseArmStyle = ^TDWritePanoseArmStyle;
+
   DWRITE_PANOSE_LETTERFORM = (
 
     DWRITE_PANOSE_LETTERFORM_ANY                = 0,
@@ -2797,6 +2818,9 @@ type
     DWRITE_PANOSE_LETTERFORM_OBLIQUE_SQUARE     = 15
   );
 
+	TDWritePanoseLetterform = DWRITE_PANOSE_LETTERFORM;
+	PDWritePanoseLetterform = ^TDWritePanoseLetterform;
+
   DWRITE_PANOSE_MIDLINE = (
 
     DWRITE_PANOSE_MIDLINE_ANY               = 0,
@@ -2815,6 +2839,9 @@ type
     DWRITE_PANOSE_MIDLINE_LOW_SERIFED       = 13
   );
 
+	TDWritePanoseMidline = DWRITE_PANOSE_MIDLINE;
+	PDWritePanoseMidline = ^TDWritePanoseMidline;
+
   DWRITE_PANOSE_XHEIGHT = (
 
     DWRITE_PANOSE_XHEIGHT_ANY               = 0,
@@ -2828,6 +2855,9 @@ type
     DWRITE_PANOSE_XHEIGHT_CONSTANT_STD      = DWRITE_PANOSE_XHEIGHT_CONSTANT_STANDARD,
     DWRITE_PANOSE_XHEIGHT_DUCKING_STD       = DWRITE_PANOSE_XHEIGHT_DUCKING_STANDARD
   );
+
+	TDWritePanoseXheight = DWRITE_PANOSE_XHEIGHT;
+	PDWritePanoseXheight = ^TDWritePanoseXheight;
 
   DWRITE_PANOSE_TOOL_KIND = (
 
@@ -2843,6 +2873,9 @@ type
     DWRITE_PANOSE_TOOL_KIND_WILD_BRUSH          = 9
   );
 
+	TDWritePanoseToolKind = DWRITE_PANOSE_TOOL_KIND;
+	PDWritePanoseToolKind = ^TDWritePanoseToolKind;
+
   DWRITE_PANOSE_SPACING = (
 
     DWRITE_PANOSE_SPACING_ANY                 = 0,
@@ -2850,6 +2883,9 @@ type
     DWRITE_PANOSE_SPACING_PROPORTIONAL_SPACED = 2,
     DWRITE_PANOSE_SPACING_MONOSPACED          = 3
   );
+
+	TDWritePanoseSpacing = DWRITE_PANOSE_SPACING;
+	PDWritePanoseSpacing = ^TDWritePanoseSpacing;
 
   DWRITE_PANOSE_ASPECT_RATIO = (
 
@@ -2861,6 +2897,9 @@ type
     DWRITE_PANOSE_ASPECT_RATIO_EXPANDED       = 5,
     DWRITE_PANOSE_ASPECT_RATIO_VERY_EXPANDED  = 6
   );
+
+	TDWritePanoseAspectRatio = DWRITE_PANOSE_ASPECT_RATIO;
+	PDWritePanoseAspectRatio = ^TDWritePanoseAspectRatio;
 
   DWRITE_PANOSE_SCRIPT_TOPOLOGY = (
 
@@ -2876,6 +2915,9 @@ type
     DWRITE_PANOSE_SCRIPT_TOPOLOGY_BLACKLETTER_TRAILING      = 9,
     DWRITE_PANOSE_SCRIPT_TOPOLOGY_BLACKLETTER_CONNECTED     = 10
   );
+
+	TDWritePanoseScriptTopology = DWRITE_PANOSE_SCRIPT_TOPOLOGY;
+	PDWritePanoseScriptTopology = ^TDWritePanoseScriptTopology;
 
   DWRITE_PANOSE_SCRIPT_FORM = (
 
@@ -2895,6 +2937,9 @@ type
     DWRITE_PANOSE_SCRIPT_FORM_EXAGGERATED_EXTREME_WRAPPING  = 13
   );
 
+	TDWritePanoseScriptForm = DWRITE_PANOSE_SCRIPT_FORM;
+	PDWritePanoseScriptForm = ^TDWritePanoseScriptForm;
+
   DWRITE_PANOSE_FINIALS = (
 
     DWRITE_PANOSE_FINIALS_ANY                   = 0,
@@ -2913,6 +2958,9 @@ type
     DWRITE_PANOSE_FINIALS_ROUND_OPEN_LOOPS      = 13
   );
 
+	TDWritePanoseFinials = DWRITE_PANOSE_FINIALS;
+	PDWritePanoseFinials = ^TDWritePanoseFinials;
+
   DWRITE_PANOSE_XASCENT = (
 
     DWRITE_PANOSE_XASCENT_ANY       = 0,
@@ -2923,6 +2971,9 @@ type
     DWRITE_PANOSE_XASCENT_HIGH      = 5,
     DWRITE_PANOSE_XASCENT_VERY_HIGH = 6
   );
+
+	TDWritePanoseXascent = DWRITE_PANOSE_XASCENT;
+	PDWritePanoseXascent = ^TDWritePanoseXascent;
 
   DWRITE_PANOSE_DECORATIVE_CLASS = (
 
@@ -2941,6 +2992,9 @@ type
     DWRITE_PANOSE_DECORATIVE_CLASS_MONTAGE              = 12
   );
 
+	TDWritePanoseDecorativeClass = DWRITE_PANOSE_DECORATIVE_CLASS;
+	PDWritePanoseDecorativeClass = ^TDWritePanoseDecorativeClass;
+
   DWRITE_PANOSE_ASPECT = (
 
     DWRITE_PANOSE_ASPECT_ANY              = 0,
@@ -2955,6 +3009,9 @@ type
     DWRITE_PANOSE_ASPECT_MONOSPACED       = 9
   );
 
+	TDWritePanoseAspect = DWRITE_PANOSE_ASPECT;
+	PDWritePanoseAspect = ^TDWritePanoseAspect;
+
   DWRITE_PANOSE_FILL = (
 
     DWRITE_PANOSE_FILL_ANY                  = 0,
@@ -2966,6 +3023,9 @@ type
     DWRITE_PANOSE_FILL_SHAPED_FILL          = 6,
     DWRITE_PANOSE_FILL_DRAWN_DISTRESSED     = 7
   );
+
+  TDWritePanoseFill = DWRITE_PANOSE_FILL;
+	PDWritePanoseFill = ^TDWritePanoseFill;
 
   DWRITE_PANOSE_LINING = (
 
@@ -2979,6 +3039,9 @@ type
     DWRITE_PANOSE_LINING_RELIEF   = 7,
     DWRITE_PANOSE_LINING_BACKDROP = 8
   );
+
+	TDWritePanoseLining = DWRITE_PANOSE_LINING;
+	PDWritePanoseLining = ^TDWritePanoseLining;
 
   DWRITE_PANOSE_DECORATIVE_TOPOLOGY = (
 
@@ -3000,6 +3063,9 @@ type
     DWRITE_PANOSE_DECORATIVE_TOPOLOGY_SWASH_VARIANCE            = 15
   );
 
+	TDWritePanoseDecorativeTopology = DWRITE_PANOSE_DECORATIVE_TOPOLOGY;
+	PDWritePanoseDecorativeTopology = ^TDWritePanoseDecorativeTopology;
+
   DWRITE_PANOSE_CHARACTER_RANGES = (
 
     DWRITE_PANOSE_CHARACTER_RANGES_ANY                  = 0,
@@ -3009,6 +3075,9 @@ type
     DWRITE_PANOSE_CHARACTER_RANGES_NO_LOWER_CASE        = 4,
     DWRITE_PANOSE_CHARACTER_RANGES_SMALL_CAPS           = 5
   );
+
+	TDWritePanoseCharacterRanges = DWRITE_PANOSE_CHARACTER_RANGES;
+	PDWritePanoseCharacterRanges = ^TDWritePanoseCharacterRanges;
 
   DWRITE_PANOSE_SYMBOL_KIND = (
 
@@ -3027,6 +3096,9 @@ type
     DWRITE_PANOSE_SYMBOL_KIND_INDUSTRY_SPECIFIC = 12
   );
 
+	TDWritePanoseSymbolKind = DWRITE_PANOSE_SYMBOL_KIND;
+	PDWritePanoseSymbolKind = ^TDWritePanoseSymbolKind;
+
   DWRITE_PANOSE_SYMBOL_ASPECT_RATIO = (
 
     DWRITE_PANOSE_SYMBOL_ASPECT_RATIO_ANY                 = 0,
@@ -3041,11 +3113,17 @@ type
     DWRITE_PANOSE_SYMBOL_ASPECT_RATIO_VERY_NARROW         = 9
   );
 
+	TDWritePanoseSymbolAspectRatio = DWRITE_PANOSE_SYMBOL_ASPECT_RATIO;
+	PDWritePanoseSymbolAspectRatio = ^TDWritePanoseSymbolAspectRatio;
+
   DWRITE_OUTLINE_THRESHOLD = (
 
     DWRITE_OUTLINE_THRESHOLD_ANTIALIASED,
     DWRITE_OUTLINE_THRESHOLD_ALIASED
   );
+
+	TDWriteOutlineThreshold = DWRITE_OUTLINE_THRESHOLD;
+	PDWriteOutlineThreshold = ^TDWriteOutlineThreshold;
 
   DWRITE_BASELINE = (
     DWRITE_BASELINE_DEFAULT,
@@ -3059,10 +3137,16 @@ type
     DWRITE_BASELINE_MAXIMUM
   );
 
+	TDWriteBaseline = DWRITE_BASELINE;
+	PDWriteBaseline = ^TDWriteBaseline;
+
   DWRITE_VERTICAL_GLYPH_ORIENTATION = (
     DWRITE_VERTICAL_GLYPH_ORIENTATION_DEFAULT,
     DWRITE_VERTICAL_GLYPH_ORIENTATION_STACKED
   );
+
+	TDWriteVerticalGlyphOrientation = DWRITE_VERTICAL_GLYPH_ORIENTATION;
+	PDWriteVerticalGlyphOrientation = ^TDWriteVerticalGlyphOrientation;
 
   DWRITE_GLYPH_ORIENTATION_ANGLE = (
     DWRITE_GLYPH_ORIENTATION_ANGLE_0_DEGREES,
@@ -3071,26 +3155,40 @@ type
     DWRITE_GLYPH_ORIENTATION_ANGLE_270_DEGREES
   );
 
+	TDWriteGlyphOrientationAngle = DWRITE_GLYPH_ORIENTATION_ANGLE;
+	PDWriteGlyphOrientationAngle = ^TDWriteGlyphOrientationAngle;
+
   DWRITE_TEXT_ANTIALIAS_MODE = (
 
     DWRITE_TEXT_ANTIALIAS_MODE_CLEARTYPE,
     DWRITE_TEXT_ANTIALIAS_MODE_GRAYSCALE
   );
 
+	TDWriteTextAntialiasMode = DWRITE_TEXT_ANTIALIAS_MODE;
+	PDWriteTextAntialiasMode = ^TDWriteTextAntialiasMode;
+
 {$ENDREGION}
 
 {$REGION 'dwrite_2 enums'}
+
   DWRITE_OPTICAL_ALIGNMENT = (
     DWRITE_OPTICAL_ALIGNMENT_NONE,
     DWRITE_OPTICAL_ALIGNMENT_NO_SIDE_BEARINGS
   );
 
- DWRITE_GRID_FIT_MODE = (
+	TDWriteOpticalAlignment = DWRITE_OPTICAL_ALIGNMENT;
+	PDWriteOpticalAlignment = ^TDWriteOpticalAlignment;
+
+  DWRITE_GRID_FIT_MODE = (
 
     DWRITE_GRID_FIT_MODE_DEFAULT,
     DWRITE_GRID_FIT_MODE_DISABLED,
     DWRITE_GRID_FIT_MODE_ENABLED
   );
+
+	TDWriteGridFitMode = DWRITE_GRID_FIT_MODE;
+	PDWriteGridFitMode = ^TDWriteGridFitMode;
+
 {$ENDREGION}
 
 {$REGION 'dwrite_3 enums'}
@@ -3120,12 +3218,18 @@ type
     DWRITE_FONT_PROPERTY_ID_FACE_NAME             = DWRITE_FONT_PROPERTY_ID_WEIGHT_STRETCH_STYLE_FACE_NAME
   );
 
+  TDWriteFontPropertyId = DWRITE_FONT_PROPERTY_ID;
+	PDWriteFontPropertyId = ^TDWriteFontPropertyId;
+
   DWRITE_LOCALITY = (
 
     DWRITE_LOCALITY_REMOTE,
     DWRITE_LOCALITY_PARTIAL,
     DWRITE_LOCALITY_LOCAL
   );
+
+	TDWriteLocality = DWRITE_LOCALITY;
+	PDWriteLocality = ^TDWriteLocality;
 
   DWRITE_RENDERING_MODE1 = (
     DWRITE_RENDERING_MODE1_DEFAULT = 0,
@@ -3138,11 +3242,17 @@ type
     DWRITE_RENDERING_MODE1_NATURAL_SYMMETRIC_DOWNSAMPLED
   );
 
+	TDWriteRenderingMode1 = DWRITE_RENDERING_MODE1;
+	PDWriteRenderingMode1 = ^TDWriteRenderingMode1;
+
   DWRITE_FONT_LINE_GAP_USAGE = (
     DWRITE_FONT_LINE_GAP_USAGE_DEFAULT,
     DWRITE_FONT_LINE_GAP_USAGE_DISABLED,
     DWRITE_FONT_LINE_GAP_USAGE_ENABLED
   );
+
+	TDWriteFontLineGapUsage = DWRITE_FONT_LINE_GAP_USAGE;
+	PDWriteFontLineGapUsage = ^TDWriteFontLineGapUsage;
 
   DWRITE_CONTAINER_TYPE = (
 
@@ -3150,6 +3260,9 @@ type
     DWRITE_CONTAINER_TYPE_WOFF,
     DWRITE_CONTAINER_TYPE_WOFF2
   );
+
+	TDWriteContainerType = DWRITE_CONTAINER_TYPE;
+	PDWriteContainerType = ^TDWriteContainerType;
 
   DWRITE_FONT_AXIS_TAG = (
 
@@ -3160,16 +3273,25 @@ type
     DWRITE_FONT_AXIS_TAG_ITALIC         = $6C617469
   );
 
+	TDWriteFontAxisTag = DWRITE_FONT_AXIS_TAG;
+	PDWriteFontAxisTag = ^TDWriteFontAxisTag;
+
   DWRITE_FONT_FAMILY_MODEL = (
     DWRITE_FONT_FAMILY_MODEL_TYPOGRAPHIC,
     DWRITE_FONT_FAMILY_MODEL_WEIGHT_STRETCH_STYLE
   );
+
+	TDWriteFontFamilyModel = DWRITE_FONT_FAMILY_MODEL;
+	PDWriteFontFamilyModel = ^TDWriteFontFamilyModel;
 
   DWRITE_AUTOMATIC_FONT_AXES = (
 
     DWRITE_AUTOMATIC_FONT_AXES_NONE         = $0000,
     DWRITE_AUTOMATIC_FONT_AXES_OPTICAL_SIZE = $0001
   );
+
+	TDWriteAutomaticFontAxes = DWRITE_AUTOMATIC_FONT_AXES;
+	PDWriteAutomaticFontAxes = ^TDWriteAutomaticFontAxes;
 
   DWRITE_FONT_AXIS_ATTRIBUTES = (
 
@@ -3178,6 +3300,9 @@ type
     DWRITE_FONT_AXIS_ATTRIBUTES_HIDDEN   = $0002
   );
 
+	TDWriteFontAxisAttributes = DWRITE_FONT_AXIS_ATTRIBUTES;
+	PDWriteFontAxisAttributes = ^TDWriteFontAxisAttributes;
+
   DWRITE_FONT_SOURCE_TYPE = (
     DWRITE_FONT_SOURCE_TYPE_UNKNOWN,
     DWRITE_FONT_SOURCE_TYPE_PER_MACHINE,
@@ -3185,6 +3310,9 @@ type
     DWRITE_FONT_SOURCE_TYPE_APPX_PACKAGE,
     DWRITE_FONT_SOURCE_TYPE_REMOTE_FONT_PROVIDER
   );
+
+	TDWriteFontSourceType = DWRITE_FONT_SOURCE_TYPE;
+	PDWriteFontSourceType = ^TDWriteFontSourceType;
 
 {$ENDREGION}
 
@@ -6303,7 +6431,7 @@ type
   /// Describes mapped memory from the ID2D1Bitmap1::Map API.
   /// </summary>
   D2D1_MAPPED_RECT = record
-    Pitch: UINT32;
+    Pitch: UInt32;
     Bits: PByte;
   end;
 
@@ -7792,8 +7920,10 @@ type
     /// 'typographic' values in the font, rather than legacy values.
     /// </summary>
     HasTypographicMetrics: BOOL;
-
   end;
+
+	TDWriteFontMetrics1 = DWRITE_FONT_METRICS1;
+	PDWriteFontMetrics1 = ^TDWriteFontMetrics1;
 
   /// <summary>
   /// Metrics for caret placement in a font.
@@ -7819,6 +7949,9 @@ type
     Offset: Int16;
   end;
 
+	TDWriteCaretMetrics = DWRITE_CARET_METRICS;
+	PDWriteCaretMetrics = ^TDWriteCaretMetrics;
+
   DWRITE_PANOSE = record
 
     case Integer of
@@ -7836,7 +7969,7 @@ type
           Letterform: UInt8;
           Midline: UInt8;
           XHeight: UInt8;
-          end);
+        end);
 
       3: (Script:
         record
@@ -7879,7 +8012,10 @@ type
           AspectRatio163: UInt8;
           AspectRatio211: UInt8;
         end);
-      end;
+    end;
+
+	TDWritePanose = DWRITE_PANOSE;
+	PDWritePanose = ^TDWritePanose;
 
   /// <summary>
   /// Range of Unicode codepoints.
@@ -7896,7 +8032,8 @@ type
     Last: UInt32;
   end;
 
-  PDWRITE_UNICODE_RANGE = ^DWRITE_UNICODE_RANGE;
+	TDWriteUnicodeRange = DWRITE_UNICODE_RANGE;
+	PDWriteUnicodeRange = ^TDWriteUnicodeRange;
 
   /// <summary>
   /// Script-specific properties for caret navigation and justification.
@@ -7926,6 +8063,9 @@ type
       property Reserved                   : UInt32 read GetReserved write SetReserved;
   end;
 
+	TDWriteScriptProperties = DWRITE_SCRIPT_PROPERTIES;
+	PDWriteScriptProperties = ^TDWriteScriptProperties;
+
   /// <summary>
   /// Justification information per glyph.
   /// </summary>
@@ -7950,8 +8090,8 @@ type
       property Reserved                 : UInt32 Index $00140FFF read GetDWord write SetDWord; // offset 20, mask $0001, size 12
   end;
 
-  PDWRITE_JUSTIFICATION_OPPORTUNITY = ^DWRITE_JUSTIFICATION_OPPORTUNITY;
-
+	TDWriteJustificationOpportunity = DWRITE_JUSTIFICATION_OPPORTUNITY;
+	PDWriteJustificationOpportunity = ^TDWriteJustificationOpportunity;
 
 {$ENDREGION}
 
@@ -8031,6 +8171,9 @@ type
     HeightIncludingTrailingWhitespace: Single;
   end;
 
+	TDWriteTextMetrics1 = DWRITE_TEXT_METRICS1;
+	PDWriteTextMetrics1 = ^TDWriteTextMetrics1;
+
   /// <summary>
   /// Represents a color glyph run. The IDWriteFactory2::TranslateColorGlyphRun
   /// method returns an ordered collection of color glyph runs, which can be
@@ -8073,7 +8216,8 @@ type
     PaletteIndex: UInt16;
   end;
 
-  PDWRITE_COLOR_GLYPH_RUN = ^DWRITE_COLOR_GLYPH_RUN;
+	TDWriteColorGlyphRun = DWRITE_COLOR_GLYPH_RUN;
+	PDWriteColorGlyphRun = ^TDWriteColorGlyphRun;
 
 {$ENDREGION}
 
@@ -8088,7 +8232,7 @@ type
     /// <summary>
     /// Specifies the requested font property, such as DWRITE_FONT_PROPERTY_ID_FAMILY_NAME.
     /// </summary>
-    PropertyId: DWRITE_FONT_PROPERTY_ID ;
+    PropertyId: TDWriteFontPropertyId;
 
     /// <summary>
     /// Specifies the property value, such as "Segoe UI".
@@ -8109,7 +8253,8 @@ type
     LocaleName: PWCHAR;
   end;
 
-  PDWRITE_FONT_PROPERTY = ^DWRITE_FONT_PROPERTY;
+	TDWriteFontProperty = DWRITE_FONT_PROPERTY;
+	PDWriteFontProperty = ^TDWriteFontProperty;
 
   /// <summary>
   /// Information about a formatted line of text.
@@ -8168,6 +8313,9 @@ type
     LeadingAfter: Single;
   end;
 
+	TDWriteLineMetrics1 = DWRITE_LINE_METRICS1;
+	PDWriteLineMetrics1 = ^TDWriteLineMetrics1;
+
   /// <summary>
   /// The DWRITE_LINE_SPACING structure specifies the parameters used to specify how to manage space between lines.
   /// </summary>
@@ -8176,7 +8324,7 @@ type
     /// <summary>
     /// Method used to determine line spacing.
     /// </summary>
-    Method: DWRITE_LINE_SPACING_METHOD;
+    Method: TDWriteLineSpacingMethod;
 
     /// <summary>
     /// Spacing between lines.
@@ -8209,10 +8357,11 @@ type
     /// <summary>
     /// Specify whether DWRITE_FONT_METRICS::lineGap value should be part of the line metrics.
     /// </summary>
-    FontLineGapUsage: DWRITE_FONT_LINE_GAP_USAGE;
+    FontLineGapUsage: TDWriteFontLineGapUsage;
   end;
 
-  PDWRITE_LINE_SPACING = ^DWRITE_LINE_SPACING;
+	TDWriteLineSpacing = DWRITE_LINE_SPACING;
+	PDWriteLineSpacing = ^TDWriteLineSpacing;
 
 /// <summary>
 /// Represents a color glyph run. The IDWriteFactory4::TranslateColorGlyphRun
@@ -8270,10 +8419,10 @@ type
     /// Measuring mode to use for this glyph run.
     /// </summary>
     MeasuringMode: TDWriteMeasuringMode;
-
   end;
 
-  PDWRITE_COLOR_GLYPH_RUN1 = ^DWRITE_COLOR_GLYPH_RUN1;
+	TDWriteColorGlyphRun1 = DWRITE_COLOR_GLYPH_RUN1;
+	PDWriteColorGlyphRun1 = ^TDWriteColorGlyphRun1;
 
   /// <summary>
   /// Data for a single glyph from GetGlyphImageData.
@@ -8327,7 +8476,10 @@ type
     /// Bottom origin along vertical central baseline.
     /// </summary>
     VerticalBottomOrigin: TD2D1Point2L;
-end;
+  end;
+
+	TDWriteGlyphImageData = DWRITE_GLYPH_IMAGE_DATA;
+	PDWriteGlyphImageData = ^TDWriteGlyphImageData;
 
 /// <summary>
 /// DWRITE_FILE_FRAGMENT represents a range of bytes in a font file.
@@ -8345,7 +8497,8 @@ end;
     FragmentSize: UInt64;
   end;
 
-  PDWRITE_FILE_FRAGMENT = ^DWRITE_FILE_FRAGMENT;
+	TDWriteFileFragment = DWRITE_FILE_FRAGMENT;
+	PDWriteFileFragment = ^TDWriteFileFragment;
 
   /// <summary>
   /// Value for a font axis, used when querying and creating font instances.
@@ -8355,7 +8508,7 @@ end;
     /// <summary>
     /// Four character identifier of the font axis (weight, width, slant, italic...).
     /// </summary>
-    AxisTag: DWRITE_FONT_AXIS_TAG;
+    AxisTag: TDWriteFontAxisTag;
 
     /// <summary>
     /// Value for the given axis, with the meaning and range depending on the axis semantics.
@@ -8365,7 +8518,8 @@ end;
     Value: Single;
   end;
 
-  PDWRITE_FONT_AXIS_VALUE = ^DWRITE_FONT_AXIS_VALUE;
+	TDWriteFontAxisValue = DWRITE_FONT_AXIS_VALUE;
+	PDWriteFontAxisValue = ^TDWriteFontAxisValue;
 
   /// <summary>
   /// Minimum and maximum range of a font axis.
@@ -8375,7 +8529,7 @@ end;
     /// <summary>
     /// Four character identifier of the font axis (weight, width, slant, italic...).
     /// </summary>
-    AxisTag: DWRITE_FONT_AXIS_TAG;
+    AxisTag: TDWriteFontAxisTag;
 
     /// <summary>
     /// Minimum value supported by this axis.
@@ -8388,7 +8542,8 @@ end;
     MaxValue: Single;
   end;
 
-  PDWRITE_FONT_AXIS_RANGE = ^DWRITE_FONT_AXIS_RANGE;
+	TDWriteFontAxisRange = DWRITE_FONT_AXIS_RANGE;
+	PDWriteFontAxisRange = ^TDWriteFontAxisRange;
 
 {$ENDREGION}
 
@@ -9838,12 +9993,12 @@ end;
       ADataSize: UInt32): HRESULT; stdcall;
 
     function GetValue(
-      AIndex: UINT32;
+      AIndex: UInt32;
       AType: TD2D1PropertyType;
       AData: PByte;
       ADataSize: UInt32): HRESULT; stdcall;
 
-    function GetValueSize(AIndex: UINT32): UInt32; stdcall;
+    function GetValueSize(AIndex: UInt32): UInt32; stdcall;
 
     function GetSubProperties(
       AIndex: UInt32;
@@ -9858,16 +10013,15 @@ end;
       AInput: ID2D1Image;
       AInvalidate: BOOL = True); stdcall;
 
-    function SetInputCount(inputCount: UINT32): HRESULT; stdcall;
+    function SetInputCount(AIinputCount: UInt32): HRESULT; stdcall;
 
     procedure GetInput(
-      AIndex: UINT32;
+      AIndex: UInt32;
       out AInput: ID2D1Image); stdcall;
 
     function GetInputCount: UInt32; stdcall;
 
     procedure GetOutput(out AOutputImage: ID2D1Image); stdcall;
-
   end;
 
   ID2D1Bitmap1 = interface(ID2D1Bitmap)
@@ -10052,7 +10206,7 @@ end;
 
     function InvalidateEffectInputRectangle(
       AEffect: ID2D1Effect;
-      AInput: UINT32;
+      AInput: UInt32;
       const AIinputRectangle: PD2D1RectF): HRESULT; stdcall;
 
     function GetEffectInvalidRectangleCount(
@@ -10327,7 +10481,7 @@ end;
       APrecision: TD2D1BufferPrecision;
       const AExtents: PUint32;
       const AData: PByte;
-      ADataCount: UINT32;
+      ADataCount: UInt32;
       const AStrides: PUint32;
       out ALookupTable: ID2D1LookupTable3D): HRESULT; stdcall;
 
@@ -10337,7 +10491,7 @@ end;
     /// </summary>
     function CreateImageSourceFromDxgi(
       var ASurfaces: IDXGISurface;
-      ASurfaceCount: UINT32;
+      ASurfaceCount: UInt32;
       AColorSpace: DXGI_COLOR_SPACE_TYPE;
       AOptions: TD2D1ImageSourceFromDxgiOptions;
       out AImageSource:ID2D1ImageSource): HRESULT; stdcall;
@@ -10374,7 +10528,6 @@ end;
     procedure FlushDeviceContexts(ABitmap: ID2D1Bitmap); stdcall;
 
     function GetDxgiDevice(out ADXGIDevice: IDXGIDevice): HRESULT; stdcall;
-
   end;
 
   ID2D1Factory3 = interface(ID2D1Factory2)
@@ -10407,7 +10560,6 @@ end;
       out ADpiY: Single): HRESULT; stdcall;
 
     function GetSourceBounds(out ABounds: TD2D1RectF): HRESULT; stdcall;
-
   end;
 
   ID2D1GdiMetafileSink1 = interface(ID2D1GdiMetafileSink)
@@ -10417,7 +10569,7 @@ end;
       ARecordType: DWORD;
       const ARecordData: Pointer;
       ARecordDataSize: DWORD;
-      AFlags: UINT32): HRESULT; stdcall;
+      AFlags: UInt32): HRESULT; stdcall;
   end;
 
   ID2D1SpriteBatch = interface(ID2D1Resource)
@@ -10434,8 +10586,8 @@ end;
       ATransformsStride: UInt32 = SizeOf(TD2D1Matrix3x2F)): HRESULT; stdcall;
 
     function SetSprites(
-      AStartIndex: UINT32;
-      ASpriteCount: UINT32;
+      AStartIndex: UInt32;
+      ASpriteCount: UInt32;
       const ADestinationRectangles: PD2D1RectF;
       const ASourceRectangles: PD2D1RectU = nil;
       const AColors: PD2D1ColorF = nil;
@@ -10446,8 +10598,8 @@ end;
       ATransformsStride: UInt32 = SizeOf(TD2D1Matrix3x2F)): HRESULT; stdcall;
 
     function GetSprites(
-      AStartIndex: UINT32;
-      ASpriteCount: UINT32;
+      AStartIndex: UInt32;
+      ASpriteCount: UInt32;
       out ADestinationRectangles: TD2D1RectF;
       out ASourceRectangles: TD2D1RectU;
       out AColors: TD2D1ColorF;
@@ -10456,7 +10608,6 @@ end;
     function GetSpriteCount: UInt32; stdcall;
 
     procedure Clear; stdcall;
-
   end;
 
   ID2D1DeviceContext3 = interface(ID2D1DeviceContext2)
@@ -10549,7 +10700,7 @@ end;
       ATextLayout: IDWriteTextLayout;
       ADefaultFillBrush: ID2D1Brush;
       ASvgGlyphStyle: ID2D1SvgGlyphStyle;
-      AColorPaletteIndex: UINT32 = 0;
+      AColorPaletteIndex: UInt32 = 0;
       AOptions: TD2D1DrawTextOptions = D2D1_DRAW_TEXT_OPTIONS_ENABLE_COLOR_FONT); stdcall;
 
     procedure DrawColorBitmapGlyphRun(
@@ -10592,7 +10743,6 @@ end;
       ACcolorPaletteIndex: UInt32;
       out AGlyphTransform: TD2D1Matrix3x2F;
       out AGlyphImage: ID2D1CommandList): HRESULT; stdcall;
-
   end;
 
   ID2D1Device4 = interface(ID2D1Device3)
@@ -10614,14 +10764,12 @@ end;
     function CreateDevice(
       ADXGIDevice: IDXGIDevice;
       out AD2dDevice4: ID2D1Device4): HRESULT; stdcall;
-
   end;
 
   ID2D1CommandSink4 = interface(ID2D1CommandSink3)
     ['{c78a6519-40d6-4218-b2de-beeeb744bb3e}']
 
     function SetPrimitiveBlend2(APrimitiveBlend: TD2D1PrimitiveBlend): HRESULT; stdcall;
-
   end;
 
   ID2D1ColorContext1 = interface(ID2D1ColorContext)
@@ -10632,7 +10780,6 @@ end;
     function GetDXGIColorSpace: DXGI_COLOR_SPACE_TYPE; stdcall;
 
     function GetSimpleColorProfile(out ASimpleProfile: TD2D1SimpleColorProfile): HRESULT; stdcall;
-
   end;
 
   ID2D1DeviceContext5 = interface(ID2D1DeviceContext4)
@@ -10652,7 +10799,6 @@ end;
     function CreateColorContextFromSimpleColorProfile(
       const ASimpleProfile: PD2D1SimpleColorProfile;
       out AColorContext: ID2D1ColorContext1): HRESULT; stdcall;
-
   end;
 
   ID2D1Device5 = interface(ID2D1Device4)
@@ -10661,7 +10807,6 @@ end;
     function CreateDeviceContext(
       AOptions: TD2D1DeviceContextOptions;
       out ADeviceContext5: ID2D1DeviceContext5): HRESULT; stdcall;
-
   end;
 
   ID2D1Factory6 = interface(ID2D1Factory5)
@@ -10670,7 +10815,6 @@ end;
     function CreateDevice(
       ADXGIDevice: IDXGIDevice;
       out AD2DDevice5: ID2D1Device5): HRESULT; stdcall;
-
   end;
 
   ID2D1CommandSink5 = interface(ID2D1CommandSink4)
@@ -10682,7 +10826,6 @@ end;
       const ATargetOffset: PD2D1Point2F;
       const AImageRectangle: PD2D1RectF;
       AInterpolationMode: TD2D1InterpolationMode): HRESULT; stdcall;
-
   end;
 
   ID2D1DeviceContext6 = interface(ID2D1DeviceContext5)
@@ -10694,7 +10837,6 @@ end;
       const ATargetOffset: PD2D1Point2F = nil;
       const AImageRectangle: PD2D1RectF = nil;
       AInterpolationMode: TD2D1InterpolationMode = D2D1_INTERPOLATION_MODE_LINEAR); stdcall;
-
   end;
 
   ID2D1Device6 = interface(ID2D1Device5)
@@ -10703,7 +10845,6 @@ end;
     function CreateDeviceContext(
       AOptions: TD2D1DeviceContextOptions;
       out ADeviceContext6: ID2D1DeviceContext6): HRESULT; stdcall;
-
   end;
 
   ID2D1Factory7 = interface(ID2D1Factory6)
@@ -10776,7 +10917,7 @@ end;
       out AIsSupportedFontType: BOOL;
       out AFontFileType: TDWriteFontFileType;
       out AFontFaceType: TDWriteFontFaceType;
-      out ANumberOfFaces: UINT32): HRESULT; stdcall;
+      out ANumberOfFaces: UInt32): HRESULT; stdcall;
   end;
 
   IDWriteRenderingParams = interface(IUnknown)
@@ -10921,7 +11062,7 @@ end;
     function GetFontFamilyCount: UInt32; stdcall;
 
     function GetFontFamily(
-      AIndex: UINT32;
+      AIndex: UInt32;
       out AFontFamily: IDWriteFontFamily): HRESULT; stdcall;
 
     function FindFamilyName(
@@ -10942,7 +11083,7 @@ end;
     function GetFontCount: UInt32; stdcall;
 
     function GetFont(
-      AIndex: UINT32;
+      AIndex: UInt32;
       out AFont: IDWriteFont): HRESULT; stdcall;
   end;
 
@@ -11083,12 +11224,12 @@ end;
   IDWriteTextAnalysisSource = interface(IUnknown)
     ['{688e1a58-5094-47c8-adc8-fbcea60ae92b}']
     function GetTextAtPosition(
-      ATextPosition: UINT32;
+      ATextPosition: UInt32;
       out ATextString: PWideChar;
       out ATextLength: UInt32): HRESULT; stdcall;
 
     function GetTextBeforePosition(
-      ATextPosition: UINT32;
+      ATextPosition: UInt32;
       out ATextString: PWideChar;
       out ATextLength: UInt32): HRESULT; stdcall;
 
@@ -11114,8 +11255,8 @@ end;
       const AScriptAnalysis: PDWriteScriptAnalysis): HRESULT; stdcall;
 
     function SetLineBreakpoints(
-      ATextPosition: UINT32;
-      ATextLength: UINT32;
+      ATextPosition: UInt32;
+      ATextLength: UInt32;
       const ALineBreakpoints: TDWriteLineBreakpoint): HRESULT; stdcall;
 
     function SetBidiLevel(
@@ -11192,7 +11333,7 @@ end;
       ALocaleName: PWideChar;
       const AFeatures: PDWriteTypographicFeatures;
       const AFeatureRangeLengths: PUInt32;
-      AFeatureRanges: UINT32;
+      AFeatureRanges: UInt32;
       out AGlyphAdvances: Single;
       out AGlyphOffsets: TDWriteGlyphOffset): HRESULT; stdcall;
 
@@ -11414,8 +11555,8 @@ end;
       out ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function GetLocaleNameLength(
-      ACurrentPosition: UINT32;
-      out ANameLength: UINT32;
+      ACurrentPosition: UInt32;
+      out ANameLength: UInt32;
       out ATextRange: TDWriteTextRange
     ): HRESULT; stdcall;
 
@@ -11436,7 +11577,7 @@ end;
       AMaxLineCount: UInt32;
       out AActualLineCount: UInt32): HRESULT; stdcall;
 
-    function GetMetrics(out ATextMetrics: DWRITE_TEXT_METRICS): HRESULT; stdcall;
+    function GetMetrics(out ATextMetrics: TDWriteTextMetrics): HRESULT; stdcall;
 
     function GetOverhangMetrics(AOverhangs: TDWriteOverhangMetrics): HRESULT; stdcall;
 
@@ -11610,7 +11751,7 @@ end;
       ALocaleName: PWideChar;
       out ATextFormat: IDWriteTextFormat): HRESULT; stdcall;
 
-    function CreateTypography(ATypography: IDWriteTypography): HRESULT; stdcall;
+    function CreateTypography(out ATypography: IDWriteTypography): HRESULT; stdcall;
 
     function GetGdiInterop(AGdiInterop: IDWriteGdiInterop): HRESULT; stdcall;
 
@@ -11685,13 +11826,13 @@ end;
       AEmSize: Single;
       APixelsPerDip: Single;
       ATransform: PDWriteMatrix;
-      out AFontMetrics: DWRITE_FONT_METRICS1): HRESULT; stdcall;
+      out AFontMetrics: TDWriteFontMetrics1): HRESULT; stdcall;
 
-    procedure GetCaretMetrics(out ACaretMetrics: DWRITE_CARET_METRICS); stdcall;
+    procedure GetCaretMetrics(out ACaretMetrics: TDWriteCaretMetrics); stdcall;
 
     function GetUnicodeRanges(
       AMaxRangeCount: Uint32;
-      out AUnicodeRanges: DWRITE_UNICODE_RANGE;
+      out AUnicodeRanges: TDWriteUnicodeRange;
       out AActualRangeCount: Uint32): HRESULT; stdcall;
 
     function IsMonospacedFont: BOOL; stdcall;
@@ -11725,29 +11866,28 @@ end;
       ADpiY: Single;
       const ATransform: PDWriteMatrix;
       AIsSideways: BOOL;
-      AOutlineThreshold: DWRITE_OUTLINE_THRESHOLD;
+      AOutlineThreshold: TDWriteOutlineThreshold;
       AMeasuringMode: TDWriteMeasuringMode;
       out ARenderingMode: TDWriteRenderingMode): HRESULT; stdcall;
 
     function GetVerticalGlyphVariants(
-      AGlyphCount: UINT32;
+      AGlyphCount: UInt32;
       const nominalGlyphIndices: PWord;
       out AVerticalGlyphIndices: PWord): HRESULT; stdcall;
 
     function HasVerticalGlyphVariants: BOOL; stdcall;
-
   end;
 
   IDWriteFont1 = interface(IDWriteFont)
     ['{acd16696-8c14-4f5d-877e-fe3fc1d32738}']
 
-    procedure GetMetrics(out AFontMetrics: DWRITE_FONT_METRICS1); stdcall;
+    procedure GetMetrics(out AFontMetrics: TDWriteFontMetrics1); stdcall;
 
-    procedure GetPanose(out APanose: DWRITE_PANOSE); stdcall;
+    procedure GetPanose(out APanose: TDWritePanose); stdcall;
 
     function GetUnicodeRanges(
       AMaxRangeCount: UInt32;
-      AUnicodeRanges: DWRITE_UNICODE_RANGE;
+      AUnicodeRanges: TDWriteUnicodeRange;
       out AActualRangeCount: UInt32): HRESULT; stdcall;
 
     function IsMonospacedFont: BOOL; stdcall;
@@ -11778,10 +11918,10 @@ end;
 
     function GetBaseline(
       AFontFace: IDWriteFontFace;
-      ABaseline: DWRITE_BASELINE;
+      ABaseline: TDWriteBaseline;
       AIsVertical: BOOL;
       AIsSimulationAllowed: BOOL;
-      AScriptAnalysis: DWRITE_SCRIPT_ANALYSIS;
+      AScriptAnalysis: TDWriteScriptAnalysis;
       const ALocaleName: PWCHAR;
       out ABaselineCoordinate: PInteger;
       out AExists: BOOL): HRESULT; stdcall;
@@ -11793,13 +11933,13 @@ end;
       AAnalysisSink: IDWriteTextAnalysisSink1): HRESULT; stdcall;
 
     function GetGlyphOrientationTransform(
-      AGlyphOrientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE;
+      AGlyphOrientationAngle: TDWriteGlyphOrientationAngle;
       AIsSideways: BOOL;
       out ATransform: TDWriteMatrix): HRESULT; stdcall;
 
     function GetScriptProperties(
-      AScriptAnalysis: DWRITE_SCRIPT_ANALYSIS;
-      out AScriptProperties: DWRITE_SCRIPT_PROPERTIES): HRESULT; stdcall;
+      AScriptAnalysis: TDWriteScriptAnalysis;
+      out AScriptProperties: TDWriteScriptProperties): HRESULT; stdcall;
 
     function GetTextComplexity(
       const ATextString: PWCHAR;
@@ -11812,18 +11952,18 @@ end;
     function GetJustificationOpportunities(
       AFontFace: IDWriteFontFace;
       AFontEmSize: Single;
-      AScriptAnalysis: DWRITE_SCRIPT_ANALYSIS;
+      AScriptAnalysis: TDWriteScriptAnalysis;
       ATextLength: UInt32;
       AGlyphCount: UInt32;
       const ATextString: PWCHAR;
       const AClusterMap: PWord;
       const AGlyphProperties: PDWriteShapingGlyphProperties;
-      out AJustificationOpportunities: DWRITE_JUSTIFICATION_OPPORTUNITY): HRESULT; stdcall;
+      out AJustificationOpportunities: TDWriteJustificationOpportunity): HRESULT; stdcall;
 
     function JustifyGlyphAdvances(
       ALineWidth: Single;
       AGlyphCount: UInt32;
-      const AJustificationOpportunities: PDWRITE_JUSTIFICATION_OPPORTUNITY;
+      const AJustificationOpportunities: PDWriteJustificationOpportunity;
       const AGlyphAdvances: PSingle;
       const AGlyphOffsets: PDWriteGlyphOffset;
       out AJustifiedGlyphAdvances: Single;
@@ -11832,7 +11972,7 @@ end;
     function GetJustifiedGlyphs(
       AFontFace: IDWriteFontFace;
       AFontEmSize: Single;
-      AScriptAnalysis: DWRITE_SCRIPT_ANALYSIS;
+      AScriptAnalysis: TDWriteScriptAnalysis;
       ATextLength: UInt32;
       AGlyphCount: UInt32;
       AMaxGlyphCount: UInt32;
@@ -11855,7 +11995,7 @@ end;
     function GetVerticalGlyphOrientation(
       ATextPosition: UInt32;
       out ATextLength: UInt32;
-      out AGlyphOrientation: DWRITE_VERTICAL_GLYPH_ORIENTATION;
+      out AGlyphOrientation: TDWriteVerticalGlyphOrientation;
       out ABidiLevel: UInt8): HRESULT; stdcall;
 
   end;
@@ -11866,7 +12006,7 @@ end;
     function SetGlyphOrientation(
       ATextPosition: UInt32;
       ATextLength: UInt32;
-      AGlyphOrientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE;
+      AGlyphOrientationAngle: TDWriteGlyphOrientationAngle;
       AAdjustedBidiLevel: UInt8;
       AIsSideways: BOOL;
       AIsRightToLeft: BOOL): HRESULT; stdcall;
@@ -11880,7 +12020,7 @@ end;
       ATtextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function GetPairKerning(
-      ACurrentPosition: UINT32;
+      ACurrentPosition: UInt32;
       out AIsPairKerningEnabled: BOOL;
       out ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
@@ -11901,9 +12041,9 @@ end;
   IDWriteBitmapRenderTarget1 = interface(IDWriteBitmapRenderTarget)
     ['{791e8298-3ef3-4230-9880-c9bdecc42064}']
 
-    function GetTextAntialiasMode: DWRITE_TEXT_ANTIALIAS_MODE; stdcall;
+    function GetTextAntialiasMode: TDWriteTextAntialiasMode; stdcall;
 
-    function SetTextAntialiasMode(AAntialiasMode: DWRITE_TEXT_ANTIALIAS_MODE): HRESULT; stdcall;
+    function SetTextAntialiasMode(AAntialiasMode: TDWriteTextAntialiasMode): HRESULT; stdcall;
   end;
 
 {$ENDREGION}
@@ -11916,8 +12056,8 @@ end;
       ACclientDrawingContext: Pointer;
       ABaselineOriginX: Single;
       ABaselineOriginY: Single;
-      AOrientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE;
-      AMeasuringMode: DWRITE_MEASURING_MODE;
+      AOrientationAngle: TDWriteGlyphOrientationAngle;
+      AMeasuringMode: TDWriteMeasuringMode;
       const AGlyphRun: TDWriteGlyphRun;
       const AGlyphRunDescription: PDWriteGlyphRunDescription;
       AClientDrawingEffect: IUnknown): HRESULT; stdcall;
@@ -11926,7 +12066,7 @@ end;
       AClientDrawingContext: Pointer;
       ABaselineOriginX: Single;
       ABaselineOriginY: Single;
-      AOrientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE;
+      AOrientationAngle: TDWriteGlyphOrientationAngle;
       const AUnderline: PDWriteUnderline;
       AClientDrawingEffect: IUnknown): HRESULT; stdcall;
 
@@ -11934,7 +12074,7 @@ end;
       AClientDrawingContext: Pointer;
       ABaselineOriginX: Single;
       ABaselineOriginY: Single;
-      AOrientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE;
+      AOrientationAngle: TDWriteGlyphOrientationAngle;
       const AStrikethrough: PDWriteStrikethrough;
       AClientDrawingEffect: IUnknown): HRESULT; stdcall;
 
@@ -11942,7 +12082,7 @@ end;
       AClientDrawingContext: Pointer;
       AOriginX: Single;
       AOriginY: Single;
-      AOrientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE;
+      AOrientationAngle: TDWriteGlyphOrientationAngle;
       AInlineObject: IDWriteInlineObject;
       AIsSideways: BOOL;
       AIsRightToLeft: BOOL;
@@ -11952,17 +12092,17 @@ end;
   IDWriteTextFormat1 = interface(IDWriteTextFormat)
     ['{5f174b49-0d8b-4cfb-8bca-f1cce9d06c67}']
 
-    function SetVerticalGlyphOrientation(AGlyphOrientation: DWRITE_VERTICAL_GLYPH_ORIENTATION): HRESULT; stdcall;
+    function SetVerticalGlyphOrientation(AGlyphOrientation: TDWriteVerticalGlyphOrientation): HRESULT; stdcall;
 
-    function GetVerticalGlyphOrientation: DWRITE_VERTICAL_GLYPH_ORIENTATION; stdcall;
+    function GetVerticalGlyphOrientation: TDWriteVerticalGlyphOrientation; stdcall;
 
     function SetLastLineWrapping(AIsLastLineWrappingEnabled: BOOL): HRESULT; stdcall;
 
     function GetLastLineWrapping: BOOL; stdcall;
 
-    function SetOpticalAlignment(AOpticalAlignment: DWRITE_OPTICAL_ALIGNMENT): HRESULT; stdcall;
+    function SetOpticalAlignment(AOpticalAlignment: TDWriteOpticalAlignment): HRESULT; stdcall;
 
-    function GetOpticalAlignment: DWRITE_OPTICAL_ALIGNMENT; stdcall;
+    function GetOpticalAlignment: TDWriteOpticalAlignment; stdcall;
 
     function SetFontFallback(AFontFallback: IDWriteFontFallback): HRESULT; stdcall;
 
@@ -11972,19 +12112,19 @@ end;
   IDWriteTextLayout2 = interface(IDWriteTextLayout1)
     ['{1093c18f-8d5e-43f0-b064-0917311b525e}']
 
-    function GetMetrics(out ATextMetrics: DWRITE_TEXT_METRICS1): HRESULT; stdcall;
+    function GetMetrics(out ATextMetrics: TDWriteTextMetrics1): HRESULT; stdcall;
 
-    function SetVerticalGlyphOrientation(AGlyphOrientation: DWRITE_VERTICAL_GLYPH_ORIENTATION): HRESULT; stdcall;
+    function SetVerticalGlyphOrientation(AGlyphOrientation: TDWriteVerticalGlyphOrientation): HRESULT; stdcall;
 
-    function GetVerticalGlyphOrientation: DWRITE_VERTICAL_GLYPH_ORIENTATION; stdcall;
+    function GetVerticalGlyphOrientation: TDWriteVerticalGlyphOrientation; stdcall;
 
     function SetLastLineWrapping(AIsLastLineWrappingEnabled: BOOL): HRESULT; stdcall;
 
     function GetLastLineWrapping: BOOL; stdcall;
 
-    function SetOpticalAlignment(AOpticalAlignment: DWRITE_OPTICAL_ALIGNMENT): HRESULT; stdcall;
+    function SetOpticalAlignment(AOpticalAlignment: TDWriteOpticalAlignment): HRESULT; stdcall;
 
-    function GetOpticalAlignment: DWRITE_OPTICAL_ALIGNMENT; stdcall;
+    function GetOpticalAlignment: TDWriteOpticalAlignment; stdcall;
 
     function SetFontFallback(AFontFallback: IDWriteFontFallback): HRESULT; stdcall;
 
@@ -11995,7 +12135,7 @@ end;
     ['{553a9ff3-5693-4df7-b52b-74806f7f2eb9}']
 
     function GetGlyphOrientationTransform(
-      AGlyphOrientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE;
+      AGlyphOrientationAngle: TDWriteGlyphOrientationAngle;
       AIsSideways: BOOL;
       AOriginX: Single;
       AOriginY: Single;
@@ -12014,7 +12154,7 @@ end;
       AScriptAnalysis: TDWriteScriptAnalysis;
       const ALocaleName: PWCHAR;
       AFeatureTag: TDWriteFontFeatureTag;
-      AGlyphCount: UINT32;
+      AGlyphCount: UInt32;
       const AGlyphIndices: PWord;
       out AFeatureApplies: UInt8): HRESULT; stdcall;
   end;
@@ -12040,7 +12180,7 @@ end;
     ['{fd882d06-8aba-4fb8-b849-8be8b73e14de}']
 
     function AddMapping(
-      ARanges: PDWRITE_UNICODE_RANGE;
+      ARanges: PDWriteUnicodeRange;
       ARangesCount: UInt32;
       var ATargetFamilyNames: PWCHAR;
       ATargetFamilyNamesCount: UInt32;
@@ -12082,12 +12222,11 @@ end;
       ADpiY: Single;
       ATransform: PDWriteMatrix;
       AIsSideways: BOOL;
-      AOutlineThreshold: DWRITE_OUTLINE_THRESHOLD;
+      AOutlineThreshold: TDWriteOutlineThreshold;
       AMeasuringMode: TDWriteMeasuringMode;
       ARenderingParams: IDWriteRenderingParams;
       out ARenderingMode: TDWriteRenderingMode;
-      out AGridFitMode: DWRITE_GRID_FIT_MODE): HRESULT; stdcall;
-
+      out AGridFitMode: TDWriteGridFitMode): HRESULT; stdcall;
   end;
 
   IDWriteColorGlyphRunEnumerator = interface(IUnknown)
@@ -12095,14 +12234,13 @@ end;
 
     function MoveNext(out AHasRun: BOOL): HRESULT; stdcall;
 
-    function GetCurrentRun(out AColorGlyphRun: PDWRITE_COLOR_GLYPH_RUN): HRESULT; stdcall;
+    function GetCurrentRun(out AColorGlyphRun: PDWriteColorGlyphRun): HRESULT; stdcall;
   end;
 
   IDWriteRenderingParams2 = interface(IDWriteRenderingParams1)
     ['{f9d711c3-9777-40ae-87e8-3e5af9bf0948}']
 
-    function GetGridFitMode: DWRITE_GRID_FIT_MODE; stdcall;
-
+    function GetGridFitMode: TDWriteGridFitMode; stdcall;
   end;
 
   IDWriteFactory2 = interface(IDWriteFactory1)
@@ -12129,7 +12267,7 @@ end;
       AClearTypeLevel: Single;
       APixelGeometry: TDWritePixelGeometry;
       ARenderingMode: TDWriteRenderingMode;
-      AGridFitMode: DWRITE_GRID_FIT_MODE;
+      AGridFitMode: TDWriteGridFitMode;
       out ARenderingParams: IDWriteRenderingParams2): HRESULT; stdcall;
 
     function CreateGlyphRunAnalysis(
@@ -12137,8 +12275,8 @@ end;
       const transform: PDWriteMatrix;
       renderingMode: TDWriteRenderingMode;
       measuringMode: TDWriteMeasuringMode;
-      gridFitMode: DWRITE_GRID_FIT_MODE;
-      antialiasMode: DWRITE_TEXT_ANTIALIAS_MODE;
+      gridFitMode: TDWriteGridFitMode;
+      antialiasMode: TDWriteTextAntialiasMode;
       baselineOriginX: Single;
       baselineOriginY: Single;
       out glyphRunAnalysis: IDWriteGlyphRunAnalysis): HRESULT; stdcall;
@@ -12150,7 +12288,7 @@ end;
   IDWriteRenderingParams3 = interface(IDWriteRenderingParams2)
     ['{b7924baa-391b-412a-8c5c-e44cc2d867dc}']
 
-    function GetRenderingMode1: DWRITE_RENDERING_MODE1; stdcall;
+    function GetRenderingMode1: TDWriteRenderingMode1; stdcall;
 
   end;
 
@@ -12160,10 +12298,10 @@ end;
     function CreateGlyphRunAnalysis(
       const AGlyphRun: PDWriteGlyphRun;
       const ATransform: PDWriteMatrix;
-      ARenderingMode: DWRITE_RENDERING_MODE1;
+      ARenderingMode: TDWriteRenderingMode1;
       AMeasuringMode: TDWriteMeasuringMode;
-      AGridFitMode: DWRITE_GRID_FIT_MODE;
-      AAntialiasMode: DWRITE_TEXT_ANTIALIAS_MODE;
+      AGridFitMode: TDWriteGridFitMode;
+      AAntialiasMode: TDWriteTextAntialiasMode;
       ABaselineOriginX: Single;
       ABaselineOriginY: Single;
       out AGlyphRunAnalysis: IDWriteGlyphRunAnalysis): HRESULT; stdcall;
@@ -12173,9 +12311,9 @@ end;
       AEnhancedContrast: Single;
       AGrayscaleEnhancedContrast: Single;
       AClearTypeLevel: Single;
-      APixelGeometry: DWRITE_PIXEL_GEOMETRY;
-      ARenderingMode: DWRITE_RENDERING_MODE1;
-      AGridFitMode: DWRITE_GRID_FIT_MODE;
+      APixelGeometry: TDWritePixelGeometry;
+      ARenderingMode: TDWriteRenderingMode1;
+      AGridFitMode: TDWriteGridFitMode;
       out ARenderingParams: IDWriteRenderingParams3): HRESULT; stdcall;
 
     function CreateFontFaceReference(
@@ -12188,7 +12326,7 @@ end;
     function CreateFontFaceReference(
       AFontFile: IDWriteFontFile;
       AFaceIndex: UInt32;
-      AFontSimulations: DWRITE_FONT_SIMULATIONS;
+      AFontSimulations: TDWriteFontSimulations;
       out AFontFaceReference: IDWriteFontFaceReference): HRESULT; overload; stdcall;
 
     function GetSystemFontSet(out AFontSet: IDWriteFontSet): HRESULT; stdcall;
@@ -12212,7 +12350,7 @@ end;
     function GetFontCount: UInt32; stdcall;
 
     function GetFontFaceReference(
-      AListIndex: UINT32;
+      AListIndex: UInt32;
       out AFontFaceReference: IDWriteFontFaceReference): HRESULT; stdcall;
 
     function FindFontFaceReference(
@@ -12227,25 +12365,25 @@ end;
 
     function GetPropertyValues(
       AListIndex: UInt32;
-      APropertyId: DWRITE_FONT_PROPERTY_ID;
+      APropertyId: TDWriteFontPropertyId;
       out AExists: BOOL;
       out AValues: IDWriteLocalizedStrings): HRESULT; overload; stdcall;
 
     function GetPropertyValues(
-      APropertyID: DWRITE_FONT_PROPERTY_ID;
+      APropertyID: TDWriteFontPropertyId;
       APreferredLocaleNames: PWCHAR;
       out AValues: IDWriteStringList): HRESULT; overload; stdcall;
 
     function GetPropertyValues(
-      APropertyID: DWRITE_FONT_PROPERTY_ID;
+      APropertyID: TDWriteFontPropertyId;
       out AValues: IDWriteStringList): HRESULT; overload; stdcall;
 
     function GetPropertyOccurrenceCount(
-      const AProperty: PDWRITE_FONT_PROPERTY;
-      out propertyOccurrenceCount: UINT32): HRESULT; stdcall;
+      const AProperty: PDWriteFontProperty;
+      out propertyOccurrenceCount: UInt32): HRESULT; stdcall;
 
     function GetMatchingFonts(
-      const AProperties: PDWRITE_FONT_PROPERTY;
+      const AProperties: PDWriteFontProperty;
       APropertyCount: UInt32;
       out AFilteredSet: IDWriteFontSet): HRESULT; overload; stdcall;
 
@@ -12264,7 +12402,7 @@ end;
 
     function AddFontFaceReference(
       AFontFaceReference: IDWriteFontFaceReference;
-      const AProperties: PDWRITE_FONT_PROPERTY;
+      const AProperties: PDWriteFontProperty;
       APropertyCount: UInt32): HRESULT; overload; stdcall;
 
     function AddFontSet(AFontSet: IDWriteFontSet): HRESULT; stdcall;
@@ -12278,14 +12416,14 @@ end;
     function GetFontSet(out AFontSet: IDWriteFontSet): HRESULT; stdcall;
 
     function GetFontFamily(
-      AIndex: UINT32;
+      AIndex: UInt32;
       out AFontFamily: IDWriteFontFamily1): HRESULT; stdcall;
   end;
 
   IDWriteFontFamily1 = interface(IDWriteFontFamily)
     ['{da20d8ef-812a-4c43-9802-62ec4abd7adf}']
 
-    function GetFontLocality(AListIndex: UInt32): DWRITE_LOCALITY; stdcall;
+    function GetFontLocality(AListIndex: UInt32): TDWriteLocality; stdcall;
 
     function GetFont(
       AListIndex: UInt32;
@@ -12299,7 +12437,7 @@ end;
   IDWriteFontList1 = interface(IDWriteFontList)
     ['{da20d8ef-812a-4c43-9802-62ec4abd7ade}']
 
-    function GetFontLocality(AListIndex: UInt32): DWRITE_LOCALITY; stdcall;
+    function GetFontLocality(AListIndex: UInt32): TDWriteLocality; stdcall;
 
     function GetFont(
       AListIndex: UInt32;
@@ -12316,14 +12454,14 @@ end;
     function CreateFontFace(out AFontFace: IDWriteFontFace3): HRESULT; stdcall;
 
     function CreateFontFaceWithSimulations(
-      AFontFaceSimulationFlags: DWRITE_FONT_SIMULATIONS;
+      AFontFaceSimulationFlags: TDWriteFontSimulations;
       out AFontFace: IDWriteFontFace3): HRESULT; stdcall;
 
     function Equals(AFontFaceReference: IDWriteFontFaceReference): BOOL; stdcall;
 
     function GetFontFaceIndex: UInt32; stdcall;
 
-    function GetSimulations: DWRITE_FONT_SIMULATIONS; stdcall;
+    function GetSimulations: TDWriteFontSimulations; stdcall;
 
     function GetFontFile(out AFontFile: IDWriteFontFile): HRESULT; stdcall;
 
@@ -12333,7 +12471,7 @@ end;
 
     function GetFileTime(out ALastWriteTime: PFILETIME): HRESULT; stdcall;
 
-    function GetLocality: DWRITE_LOCALITY; stdcall;
+    function GetLocality: TDWriteLocality; stdcall;
 
     function EnqueueFontDownloadRequest: HRESULT; stdcall;
 
@@ -12359,9 +12497,9 @@ end;
 
     function GetFontFaceReference(out AFontFaceReference: IDWriteFontFaceReference): HRESULT; stdcall;
 
-    function HasCharacter(AUnicodeValue: UINT32): BOOL; stdcall;
+    function HasCharacter(AUnicodeValue: UInt32): BOOL; stdcall;
 
-    function GetLocality: DWRITE_LOCALITY; stdcall;
+    function GetLocality: TDWriteLocality; stdcall;
   end;
 
   IDWriteFontFace3 = interface(IDWriteFontFace2)
@@ -12369,7 +12507,7 @@ end;
 
     function GetFontFaceReference(out AFontFaceReference: IDWriteFontFaceReference): HRESULT; stdcall;
 
-    procedure GetPanose(out APanose: DWRITE_PANOSE); stdcall;
+    procedure GetPanose(out APanose: TDWritePanose); stdcall;
 
     function GetWeight: TDWriteFontWeight; stdcall;
 
@@ -12382,11 +12520,11 @@ end;
     function GetFaceNames(out ANnames: IDWriteLocalizedStrings): HRESULT; stdcall;
 
     function GetInformationalStrings(
-      AInformationalStringID: DWRITE_INFORMATIONAL_STRING_ID;
+      AInformationalStringID: TDWriteInformationalStringId;
       out AInformationalStrings: IDWriteLocalizedStrings;
       out AExists: BOOL): HRESULT; stdcall;
 
-    function HasCharacter(AUnicodeValue: UINT32): BOOL; stdcall;
+    function HasCharacter(AUnicodeValue: UInt32): BOOL; stdcall;
 
     function GetRecommendedRenderingMode(
       AFontEmSize: Single;
@@ -12394,11 +12532,11 @@ end;
       ADpiY: Single;
       const ATransform: PDWriteMatrix;
       AIsSideways: BOOL;
-      AOutlineThreshold: DWRITE_OUTLINE_THRESHOLD;
+      AOutlineThreshold: TDWriteOutlineThreshold;
       AMeasuringMode: TDWriteMeasuringMode;
       ARenderingParams: IDWriteRenderingParams;
-      out ARenderingMode: DWRITE_RENDERING_MODE1;
-      out AGridFitMode: DWRITE_GRID_FIT_MODE): HRESULT; stdcall;
+      out ARenderingMode: TDWriteRenderingMode1;
+      out AGridFitMode: TDWriteGridFitMode): HRESULT; stdcall;
 
     function IsCharacterLocal(AUnicodeValue: UInt32): BOOL; stdcall;
 
@@ -12496,9 +12634,9 @@ end;
   IDWriteTextFormat2 = interface(IDWriteTextFormat1)
     ['{f67e0edd-9e3d-4ecc-8c32-4183253dfe70}']
 
-    function SetLineSpacing(const ALineSpacingOptions: PDWRITE_LINE_SPACING): HRESULT; stdcall;
+    function SetLineSpacing(const ALineSpacingOptions: PDWriteLineSpacing): HRESULT; stdcall;
 
-    function GetLineSpacing(out ALineSpacingOptions: DWRITE_LINE_SPACING): HRESULT; stdcall;
+    function GetLineSpacing(out ALineSpacingOptions: TDWriteLineSpacing): HRESULT; stdcall;
   end;
 
   IDWriteTextLayout3 = interface(IDWriteTextLayout2)
@@ -12506,12 +12644,12 @@ end;
 
     function InvalidateLayout: HRESULT; stdcall;
 
-    function SetLineSpacing(ALineSpacingOptions: PDWRITE_LINE_SPACING): HRESULT; stdcall;
+    function SetLineSpacing(ALineSpacingOptions: PDWriteLineSpacing): HRESULT; stdcall;
 
-    function GetLineSpacing(out ALineSpacingOptions: DWRITE_LINE_SPACING): HRESULT; stdcall;
+    function GetLineSpacing(out ALineSpacingOptions: TDWriteLineSpacing): HRESULT; stdcall;
 
     function GetLineMetrics(
-      out ALineMetrics: DWRITE_LINE_METRICS1;
+      out ALineMetrics: TDWriteLineMetrics1;
       AMaxLineCount: UInt32;
       out AActualLineCount: UInt32): HRESULT; stdcall;
   end;
@@ -12519,26 +12657,26 @@ end;
   IDWriteColorGlyphRunEnumerator1 = interface(IDWriteColorGlyphRunEnumerator)
     ['{7c5f86da-c7a1-4f05-b8e1-55a179fe5a35}']
 
-    function GetCurrentRun(out AColorGlyphRun: DWRITE_COLOR_GLYPH_RUN1 ): HRESULT; stdcall;
+    function GetCurrentRun(out AColorGlyphRun: TDWriteColorGlyphRun1): HRESULT; stdcall;
 
   end;
 
   IDWriteFontFace4 = interface(IDWriteFontFace3)
     ['{27f2a904-4eb8-441d-9678-0563f53e3e2f}']
 
-    function GetGlyphImageFormats: DWRITE_GLYPH_IMAGE_FORMATS; overload; stdcall;
+    function GetGlyphImageFormats: TDWriteGlyphImageFormats; overload; stdcall;
 
     function GetGlyphImageFormats(
       AGlyphId: UInt16;
       APixelsPerEmFirst: UInt32;
       APixelsPerEmLast: UInt32;
-      out AGlyphImageFormats: DWRITE_GLYPH_IMAGE_FORMATS): HRESULT; overload; stdcall;
+      out AGlyphImageFormats: TDWriteGlyphImageFormats): HRESULT; overload; stdcall;
 
     function GetGlyphImageData(
       AGlyphId: UInt16;
-      APixelsPerEm: UINT32;
-      AGlyphImageFormat: DWRITE_GLYPH_IMAGE_FORMATS;
-      out AGlyphData: DWRITE_GLYPH_IMAGE_DATA;
+      APixelsPerEm: UInt32;
+      AGlyphImageFormat: TDWriteGlyphImageFormats;
+      out AGlyphData: TDWriteGlyphImageData;
       out AGlyphDataContext: Pointer): HRESULT; stdcall;
 
     procedure ReleaseGlyphImageData(glyphDataContext: Pointer); stdcall;
@@ -12582,7 +12720,6 @@ end;
     function GetWaitHandle: THandle; stdcall;
 
     function GetResult: HRESULT; stdcall;
-
   end;
 
   IDWriteRemoteFontFileStream = interface(IDWriteFontFileStream)
@@ -12596,11 +12733,11 @@ end;
       out AIsLocal: BOOL;
       out APartialSize: UInt64): HRESULT; stdcall;
 
-    function GetLocality: DWRITE_LOCALITY; stdcall;
+    function GetLocality: TDWriteLocality; stdcall;
 
     function BeginDownload(
       ADownloadOperationID: PGUID;
-      const AFileFragments: PDWRITE_FILE_FRAGMENT;
+      const AFileFragments: PDWriteFileFragment;
       AFragmentCount: UInt32;
       out AAsyncResult: IDWriteAsyncResult): HRESULT; stdcall;
   end;
@@ -12616,7 +12753,7 @@ end;
     function GetLocalityFromKey(
       const AFontFileReferenceKey: Pointer;
       AFontFileReferenceKeySize: UInt32;
-      out ALocality: DWRITE_LOCALITY): HRESULT; stdcall;
+      out ALocality: TDWriteLocality): HRESULT; stdcall;
 
     function CreateFontFileReferenceFromUrl(
       AFactory: IDWriteFactory;
@@ -12636,7 +12773,6 @@ end;
       out AFontFile: IDWriteFontFile): HRESULT; stdcall;
 
     function GetFileCount: UInt32; stdcall;
-
   end;
 
   IDWriteFactory5 = interface(IDWriteFactory4)
@@ -12656,7 +12792,7 @@ end;
       AFileDataSize: UInt32): HRESULT; stdcall;
 
     function UnpackFontFile(
-      AContainerType: DWRITE_CONTAINER_TYPE;
+      AContainerType: TDWriteContainerType;
       const AFileData: Pointer;
       AFileDataSize: UInt32;
       out AUnpackedFontStream: IDWriteFontFileStream): HRESULT; stdcall;
@@ -12667,8 +12803,8 @@ end;
 
     function CreateFontFaceReference(
       AFontFile: IDWriteFontFile;
-      AFaceIndex: UINT32;
-      AFontSimulations: DWRITE_FONT_SIMULATIONS;
+      AFaceIndex: UInt32;
+      AFontSimulations: TDWriteFontSimulations;
       const AFontAxisValues: Pointer;
       AFontAxisValueCount: UInt32;
       out AFontFaceReference: IDWriteFontFaceReference1): HRESULT; stdcall;
@@ -12684,12 +12820,12 @@ end;
 
     function GetSystemFontCollection(
       AIncludeDownloadableFonts: BOOL;
-      AFontFamilyModel: DWRITE_FONT_FAMILY_MODEL;
+      AFontFamilyModel: TDWriteFontFamilyModel;
       out fontCollection: IDWriteFontCollection2): HRESULT; stdcall;
 
     function CreateFontCollectionFromFontSet(
       AFontSet: IDWriteFontSet;
-      AFontFamilyModel: DWRITE_FONT_FAMILY_MODEL;
+      AFontFamilyModel: TDWriteFontFamilyModel;
       out AFontCollection: IDWriteFontCollection2): HRESULT; stdcall;
 
     function CreateFontSetBuilder(out AFontSetBuilder: IDWriteFontSetBuilder2): HRESULT; stdcall;
@@ -12697,7 +12833,7 @@ end;
     function CreateTextFormat(
       const fontFamilyName: PWCHAR;
       fontCollection: IDWriteFontCollection;
-      const fontAxisValues: PDWRITE_FONT_AXIS_VALUE;
+      const fontAxisValues: PDWriteFontAxisValue;
       fontAxisValueCount: UInt32;
       fontSize: Single;
       const localeName: PWCHAR;
@@ -12710,7 +12846,7 @@ end;
     function GetFontAxisValueCount: UInt32; stdcall;
 
     function GetFontAxisValues(
-      out fontAxisValues: DWRITE_FONT_AXIS_VALUE;
+      out fontAxisValues: TDWriteFontAxisValue;
       fontAxisValueCount: UInt32): HRESULT; stdcall;
 
     function HasVariations: BOOL; stdcall;
@@ -12730,14 +12866,14 @@ end;
     function GetFontAxisCount: UInt32; stdcall;
 
     function GetDefaultFontAxisValues(
-      out AFontAxisValues: DWRITE_FONT_AXIS_VALUE;
+      out AFontAxisValues: TDWriteFontAxisValue;
       AFontAxisValueCount: UInt32): HRESULT; stdcall;
 
     function GetFontAxisRanges(
-      out AFontAxisRanges: DWRITE_FONT_AXIS_RANGE;
+      out AFontAxisRanges: TDWriteFontAxisRange;
       AFontAxisRangeCount: UInt32): HRESULT; stdcall;
 
-    function GetFontAxisAttributes(AAxisIndex: UInt32): DWRITE_FONT_AXIS_ATTRIBUTES; stdcall;
+    function GetFontAxisAttributes(AAxisIndex: UInt32): TDWriteFontAxisAttributes; stdcall;
 
     function GetAxisNames(
       AAxisIndex: UInt32;
@@ -12746,22 +12882,22 @@ end;
     function GetAxisValueNameCount(AAxisIndex: UInt32): UInt32; stdcall;
 
     function GetAxisValueNames(
-      AAxisIndex: UINT32;
-      AAxisValueIndex: UINT32;
-      out AFontAxisRange: DWRITE_FONT_AXIS_RANGE;
+      AAxisIndex: UInt32;
+      AAxisValueIndex: UInt32;
+      out AFontAxisRange: TDWriteFontAxisRange;
       out ANames: IDWriteLocalizedStrings): HRESULT; stdcall;
 
     function HasVariations: BOOL; stdcall;
 
     function CreateFontFace(
-      AFontSimulations: DWRITE_FONT_SIMULATIONS;
-      const AFontAxisValues: PDWRITE_FONT_AXIS_VALUE;
+      AFontSimulations: TDWriteFontSimulations;
+      const AFontAxisValues: PDWriteFontAxisValue;
       AFontAxisValueCount: UInt32;
       out AFontFace: IDWriteFontFace5): HRESULT; stdcall;
 
     function CreateFontFaceReference(
-      AFontSimulations: DWRITE_FONT_SIMULATIONS;
-      const AFontAxisValues: PDWRITE_FONT_AXIS_VALUE;
+      AFontSimulations: TDWriteFontSimulations;
+      const AFontAxisValues: PDWriteFontAxisValue;
       AFontAxisValueCount: UInt32;
       out AFontFaceReference: IDWriteFontFaceReference1): HRESULT; stdcall;
   end;
@@ -12774,7 +12910,7 @@ end;
     function GetFontAxisValueCount: UInt32; stdcall;
 
     function GetFontAxisValues(
-      out AFontAxisValues: DWRITE_FONT_AXIS_VALUE;
+      out AFontAxisValues: TDWriteFontAxisValue;
       AFontAxisValueCount: UInt32): HRESULT; stdcall;
   end;
 
@@ -12783,13 +12919,13 @@ end;
 
     function AddFont(
       AFontFile: IDWriteFontFile;
-      AFontFaceIndex: UINT32;
-      AFontSimulations: DWRITE_FONT_SIMULATIONS;
-      const AFontAxisValues: PDWRITE_FONT_AXIS_VALUE;
+      AFontFaceIndex: UInt32;
+      AFontSimulations: TDWriteFontSimulations;
+      const AFontAxisValues: PDWriteFontAxisValue;
       AFontAxisValueCount: UInt32;
-      const AFontAxisRanges: PDWRITE_FONT_AXIS_RANGE;
+      const AFontAxisRanges: PDWriteFontAxisRange;
       AFontAxisRangeCount: UInt32;
-      const AProperties: PDWRITE_FONT_PROPERTY;
+      const AProperties: PDWriteFontProperty;
       APropertyCount: UInt32): HRESULT; stdcall;
 
     function AddFontFile(AFilePath: PWCHAR): HRESULT; stdcall;
@@ -12799,8 +12935,8 @@ end;
     ['{7e9fda85-6c92-4053-bc47-7ae3530db4d3}']
 
     function GetMatchingFonts(
-      const AFontProperty: PDWRITE_FONT_PROPERTY;
-      AFontAxisValues: PDWRITE_FONT_AXIS_VALUE;
+      const AFontProperty: PDWriteFontProperty;
+      AFontAxisValues: PDWriteFontAxisValue;
       AFontAxisValueCount: UInt32;
       out AMatchingFonts: IDWriteFontSet1): HRESULT; stdcall;
 
@@ -12812,7 +12948,7 @@ end;
       out AFilteredFontSet: IDWriteFontSet1): HRESULT; overload; stdcall;
 
     function GetFilteredFonts(
-      const AFontAxisRanges: PDWRITE_FONT_AXIS_RANGE;
+      const AFontAxisRanges: PDWriteFontAxisRange;
       AFontAxisRangeCount: UInt32;
       ASelectAnyRange: BOOL;
       out AFilteredFontSet: IDWriteFontSet1): HRESULT; overload; stdcall;
@@ -12823,28 +12959,28 @@ end;
       out AFilteredFontSet: IDWriteFontSet1): HRESULT; overload; stdcall;
 
     function GetFilteredFontIndices(
-     const properties: PDWRITE_FONT_PROPERTY;
+     const properties: PDWriteFontProperty;
      propertyCount: UInt32;
      selectAnyProperty: BOOL;
      out indices: PUint32;
      maxIndexCount: UInt32;
-     out actualIndexCount: UINT32): HRESULT; overload; stdcall;
+     out actualIndexCount: UInt32): HRESULT; overload; stdcall;
 
     function GetFilteredFontIndices(
-      const AFontAxisRanges: PDWRITE_FONT_AXIS_RANGE;
-      AFontAxisRangeCount: UINT32;
+      const AFontAxisRanges: PDWriteFontAxisRange;
+      AFontAxisRangeCount: UInt32;
       ASelectAnyRange: BOOL;
       out AIndices: PUint32;
       AMaxIndexCount: UInt32): HRESULT; overload; stdcall;
 
     function GetFontAxisRanges(
-      out AFontAxisRanges: DWRITE_FONT_AXIS_RANGE;
+      out AFontAxisRanges: TDWriteFontAxisRange;
       AMaxFontAxisRangeCount: UInt32;
       out AActualFontAxisRangeCount: UInt32): HRESULT; overload; stdcall;
 
     function GetFontAxisRanges(
       AListIndex: UInt32;
-      out AFontAxisRanges: PDWRITE_FONT_AXIS_RANGE;
+      out AFontAxisRanges: PDWriteFontAxisRange;
       AMaxFontAxisRangeCount: UInt32;
       out AActualFontAxisRangeCount: UInt32): HRESULT; overload; stdcall;
 
@@ -12860,7 +12996,7 @@ end;
       AListIndex: UInt32;
       AFontFace: IDWriteFontFace5): HRESULT; stdcall;
 
-    function GetFontLocality(AListIndex: UInt32): DWRITE_LOCALITY; stdcall;
+    function GetFontLocality(AListIndex: UInt32): TDWriteLocality; stdcall;
   end;
 
   IDWriteFontList2 = interface(IDWriteFontList1)
@@ -12873,7 +13009,7 @@ end;
     ['{3ed49e77-a398-4261-b9cf-c126c2131ef3}']
 
     function GetMatchingFonts(
-      const AFontAxisValues: PDWRITE_FONT_AXIS_VALUE;
+      const AFontAxisValues: PDWriteFontAxisValue;
       AFontAxisValueCount: UInt32;
       out AMatchingFonts: IDWriteFontList2): HRESULT; stdcall;
 
@@ -12884,16 +13020,16 @@ end;
     ['{514039c6-4617-4064-bf8b-92ea83e506e0}']
 
     function GetFontFamily(
-      AIndex: UINT32;
+      AIndex: UInt32;
       out AFontFamily: IDWriteFontFamily2): HRESULT; stdcall;
 
     function GetMatchingFonts(
       const AFamilyName: PWCHAR;
-      const AFontAxisValues: PDWRITE_FONT_AXIS_VALUE;
-      AFontAxisValueCount: UINT32;
+      const AFontAxisValues: PDWriteFontAxisValue;
+      AFontAxisValueCount: UInt32;
       out AFontList: IDWriteFontList2): HRESULT; stdcall;
 
-    function GetFontFamilyModel: DWRITE_FONT_FAMILY_MODEL; stdcall;
+    function GetFontFamilyModel: TDWriteFontFamilyModel; stdcall;
 
     function GetFontSet(out AFontSet: IDWriteFontSet1): HRESULT; stdcall;
   end;
@@ -12902,39 +13038,39 @@ end;
     ['{05a9bf42-223f-4441-b5fb-8263685f55e9}']
 
     function SetFontAxisValues(
-      const AFontAxisValues: PDWRITE_FONT_AXIS_VALUE;
+      const AFontAxisValues: PDWriteFontAxisValue;
       AFontAxisValueCount: UInt32;
-      ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
     function GetFontAxisValueCount(ACurrentPosition: UInt32): UInt32; stdcall;
 
     function GetFontAxisValues(
       ACurrentPosition: UInt32;
-      out AFontAxisValues: PDWRITE_FONT_AXIS_VALUE;
+      out AFontAxisValues: PDWriteFontAxisValue;
       AFontAxisValueCount: UInt32;
-      out ATextRange: DWRITE_TEXT_RANGE): HRESULT; stdcall;
+      out ATextRange: TDWriteTextRange): HRESULT; stdcall;
 
-    function GetAutomaticFontAxes: DWRITE_AUTOMATIC_FONT_AXES; stdcall;
+    function GetAutomaticFontAxes: TDWriteAutomaticFontAxes; stdcall;
 
-    function SetAutomaticFontAxes(AAutomaticFontAxes: DWRITE_AUTOMATIC_FONT_AXES): HRESULT; stdcall;
+    function SetAutomaticFontAxes(AAutomaticFontAxes: TDWriteAutomaticFontAxes): HRESULT; stdcall;
   end;
 
   IDWriteTextFormat3 = interface(IDWriteTextFormat2)
     ['{6d3b5641-e550-430d-a85b-b7bf48a93427}']
 
     function SetFontAxisValues(
-      const AFontAxisValues: PDWRITE_FONT_AXIS_VALUE;
+      const AFontAxisValues: PDWriteFontAxisValue;
       AFontAxisValueCount: UInt32): HRESULT; stdcall;
 
     function GetFontAxisValueCount: UInt32; stdcall;
 
     function GetFontAxisValues(
-      out AFontAxisValues: PDWRITE_FONT_AXIS_VALUE;
+      out AFontAxisValues: PDWriteFontAxisValue;
       AFontAxisValueCount: UInt32): HRESULT; stdcall;
 
-    function GetAutomaticFontAxes: DWRITE_AUTOMATIC_FONT_AXES; stdcall;
+    function GetAutomaticFontAxes: TDWriteAutomaticFontAxes; stdcall;
 
-    function SetAutomaticFontAxes(AAutomaticFontAxes: DWRITE_AUTOMATIC_FONT_AXES): HRESULT; stdcall;
+    function SetAutomaticFontAxes(AAutomaticFontAxes: TDWriteAutomaticFontAxes): HRESULT; stdcall;
   end;
 
   IDWriteFontFallback1 = interface(IDWriteFontFallback)
@@ -12946,7 +13082,7 @@ end;
       ATextLength: UInt32;
       ABaseFontCollection: IDWriteFontCollection;
       const ABaseFamilyName: PWCHAR;
-      const AFontAxisValues: PDWRITE_FONT_AXIS_VALUE;
+      const AFontAxisValues: PDWriteFontAxisValue;
       AFontAxisValueCount: UInt32;
       out AMappedLength: UInt32;
       out AScale: Single;
@@ -12974,14 +13110,14 @@ end;
 
     function GetSystemFontCollection(
       AIncludeDownloadableFonts: BOOL;
-      AFontFamilyModel: DWRITE_FONT_FAMILY_MODEL;
+      AFontFamilyModel: TDWriteFontFamilyModel;
       out fontCollection: IDWriteFontCollection3): HRESULT; stdcall;
   end;
 
   IDWriteFontSet3 = interface(IDWriteFontSet2)
     ['{7c073ef2-a7f4-4045-8c32-8ab8ae640f90}']
 
-    function GetFontSourceType(AFontIndex: UInt32): DWRITE_FONT_SOURCE_TYPE; stdcall;
+    function GetFontSourceType(AFontIndex: UInt32): TDWriteFontSourceType; stdcall;
 
     function GetFontSourceNameLength(AListIndex: UInt32): UInt32; stdcall;
 
@@ -12995,11 +13131,11 @@ end;
     ['{c4b1fe1b-6e84-47d5-b54c-a597981b06ad}']
 
     function GetFamilyNames(
-      AFontFamilyModel: DWRITE_FONT_FAMILY_MODEL;
+      AFontFamilyModel: TDWriteFontFamilyModel;
       out ANames: IDWriteLocalizedStrings): HRESULT; stdcall;
 
     function GetFaceNames(
-      AFontFamilyModel: DWRITE_FONT_FAMILY_MODEL;
+      AFontFamilyModel: TDWriteFontFamilyModel;
       out ANames: IDWriteLocalizedStrings): HRESULT; stdcall;
   end;
 
@@ -13032,7 +13168,7 @@ end;
     ['{519ae1bd-d19a-420d-b849-364f594776b7}']
 
     function SetInputDescription(
-      AInputIndex: UINT32;
+      AInputIndex: UInt32;
       AInputDescription: TD2D1InputDescription): HRESULT; stdcall;
 
     function SetOutputBuffer(
@@ -13041,7 +13177,7 @@ end;
 
     procedure SetCached(AIsCached: BOOL); stdcall;
 
-    procedure SetInstructionCountHint(AInstructionCount: UINT32); stdcall;
+    procedure SetInstructionCountHint(AInstructionCount: UInt32); stdcall;
   end;
 
   ID2D1DrawInfo = interface(ID2D1RenderInfo)
@@ -13112,15 +13248,13 @@ end;
       AToNodeInputIndex: UInt32): HRESULT; stdcall;
 
     function ConnectToEffectInput(
-      AToEffectInputIndex: UINT32;
+      AToEffectInputIndex: UInt32;
       ANode: ID2D1TransformNode;
-      AToNodeInputIndex: UINT32): HRESULT; stdcall;
+      AToNodeInputIndex: UInt32): HRESULT; stdcall;
 
     procedure Clear; stdcall;
 
-    function SetPassthroughGraph(AEffectInputIndex: UINT32): HRESULT; stdcall;
-
-
+    function SetPassthroughGraph(AEffectInputIndex: UInt32): HRESULT; stdcall;
   end;
 
   ID2D1Transform = interface(ID2D1TransformNode)
@@ -13270,7 +13404,7 @@ end;
       out ATransformNode: ID2D1TransformNode): HRESULT; stdcall;
 
     function CreateBlendTransform(
-      ANumInputs: UINT32;
+      ANumInputs: UInt32;
       const ABlendDescription: PD2D1BlendDescription;
       out ATransform: ID2D1BlendTransform): HRESULT; stdcall;
 
@@ -13553,7 +13687,7 @@ end;
 
     function GetSpecifiedAttributeNameLength(
       AIndex: UInt32;
-      out ANameLength: UINT32;
+      out ANameLength: UInt32;
       out AInherited: BOOL): HRESULT; stdcall;
 
     function RemoveAttribute(AName: LPCWSTR): HRESULT; stdcall;
