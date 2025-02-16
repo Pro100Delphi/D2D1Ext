@@ -1,4 +1,13 @@
-﻿unit D2D1ExtHelpers;
+﻿{
+	This is the second file and serves as a help for D2D1Ext.
+	
+	It contains the functions for parameterizing structures and custom user functions.
+	
+	16 Feb 2025
+	Pustowalow W.
+}
+
+unit D2D1ExtHelpers;
 
 interface
 
@@ -6,43 +15,8 @@ uses
   Winapi.DxgiFormat, Winapi.Windows, Winapi.Wincodec, Winapi.DXGI, Winapi.DxgiType, System.Math, Graphics,
   D2D1Ext;
 
-type
-
-  TD2D1ColorFHelper = record helper for TD2D1ColorF
-    class function Create(ARed, AGreen, ABlue, AAlpha: Single): TD2D1ColorF; overload; static;
-    class function Create(AColor: TColor): TD2D1ColorF; overload; static;
-  end;
-
-  TD2D1Matrix3x2FHelper = record helper for TD2D1Matrix3x2F
-
-    class function Create(AM11, AM12, AM21, AM22, AM31, AM32: Single): TD2D1Matrix3x2F; static;
-    class function Identity: TD2D1Matrix3x2F; static;
-
-    class function Translation(AX, AY: Single): TD2D1Matrix3x2F; overload; static;
-    class function Translation(APos: TD2D1Point2F): TD2D1Matrix3x2F; overload; static;
-
-    class function Rotation(AAngle, AX, AY: Single): TD2D1Matrix3x2F; overload; static;
-    class function Rotation(AAngle: Single; APos: TD2D1Point2F): TD2D1Matrix3x2F; overload; static;
-
-    class operator Multiply(AM1, AM2: TD2D1Matrix3x2F): TD2D1Matrix3x2F; overload;
-    class operator Multiply(APos: TD2D1Point2F; AM: TD2D1Matrix3x2F): TD2D1Point2F; overload;
-
-    function Transform(APos: TD2D1Point2F): TD2D1Point2F;
-  end;
-
-  TD2D1Point2FHelper = record helper for TD2D1Point2F
-    class function Create(AX, AY: Single): TD2D1Point2F; static;
-    class function Zero: TD2D1Point2F; static;
-    class function Infinite: TD2D1Point2F; static;
-  end;
-
-  TD2D1RectFHelper = record helper for TD2D1RectF
-    class function Create(ALeft, ATop, ARight, ABottom: Single): TD2D1RectF; static;
-    class function Zero: TD2D1RectF; static;
-    class function Infinite: TD2D1RectF; static;
-  end;
-
 {$REGION 'd2d1helper.h definition'}
+
 function D2D1ColorF(ARed, AGreen, ABlue, AAlpha: Single): TD2D1ColorF; overload; inline;
 function D2D1ColorF(AColor: TColor): TD2D1ColorF; overload; inline;
 function D2D1RandomColorF(AAlpha: Single = 1): TD2D1ColorF; inline;
@@ -64,7 +38,8 @@ function D2D1InfiniteSizeF: TD2D1SizeF; inline;
 function D2D1SizeU(AWidth, AHeight: UInt32): TD2D1SizeU; inline;
 function D2D1InfiniteSizeU: TD2D1SizeU; inline;
 
-function D2D1RectF(ALeft, ATop, ARight, ABottom: Single): TD2D1RectF; inline;
+function D2D1RectF(ALeft, ATop, ARight, ABottom: Single): TD2D1RectF; overload; inline;
+function D2D1RectF(ALeftTop, ARightBottom: TD2D1Point2F): TD2D1RectF; overload; inline;
 function D2D1InfiniteRectF: TD2D1RectF; inline;
 
 function D2D1RectU(ALeft, ATop, ARight, ABottom: UInt32): TD2D1RectU; inline;
@@ -106,12 +81,12 @@ function D2D1StrokeStyleProperties(
   ADashOffset: Single = 0): TD2D1StrokeStyleProperties;
 
 function D2D1BitmapBrushProperties(
-  AExtendModeX: D2D1_EXTEND_MODE = D2D1_EXTEND_MODE_CLAMP;
-  AExtendModeY: D2D1_EXTEND_MODE = D2D1_EXTEND_MODE_CLAMP;
-  AInterpolationMode : D2D1_BITMAP_INTERPOLATION_MODE = D2D1_BITMAP_INTERPOLATION_MODE_LINEAR): TD2D1BitmapBrushProperties;
+  AExtendModeX: TD2D1ExtendMode = D2D1_EXTEND_MODE_CLAMP;
+  AExtendModeY: TD2D1ExtendMode = D2D1_EXTEND_MODE_CLAMP;
+  AInterpolationMode : TD2D1BitmapInterpolationMode = D2D1_BITMAP_INTERPOLATION_MODE_LINEAR): TD2D1BitmapBrushProperties;
 
 function D2D1BitmapProperties(
-  APixelFormat: D2D1_PIXEL_FORMAT;
+  APixelFormat: TD2D1PixelFormat;
   ADpiX: Single;
   ADpiY: Single): TD2D1BitmapProperties; overload;
 
@@ -138,7 +113,7 @@ function D2D1DrawingStateDescription(
 function D2D1DrawingStateDescription: TD2D1DrawingStateDescription; overload;
 
 function D2D1PixelFormat(
-  ADXGIFormat: DXGI_FORMAT = DXGI_FORMAT_UNKNOWN;
+  ADXGIFormat: TDXGIFormat = DXGI_FORMAT_UNKNOWN;
   AAlphaMode: TD2D1AlphaMode = D2D1_ALPHA_MODE_UNKNOWN): TD2D1PixelFormat;
 
 function D2D1RenderTargetProperties(
@@ -159,6 +134,12 @@ function D2D1HwndRenderTargetProperties(
 
 function D2D1HwndRenderTargetProperties(
   AHwnd: HWND): TD2D1HwndRenderTargetProperties; overload;
+
+{$ENDREGION}
+
+{$REGION 'dwrite.h definition'}
+
+function DWriteTextRange(AStartPosition, ALength: Uint32): TDWriteTextRange;
 
 {$ENDREGION}
 
@@ -323,6 +304,14 @@ begin
   Result.Bottom := ABottom;
 end;
 
+function D2D1RectF(ALeftTop, ARightBottom: TD2D1Point2F): TD2D1RectF;
+begin
+  Result.Left := ALeftTop.X;
+  Result.Top := ALeftTop.Y;
+  Result.Right := ARightBottom.X;
+  Result.Bottom := ARightBottom.Y;
+end;
+
 function D2D1InfiniteRectF: TD2D1RectF; inline;
 begin
   Result.Left := -MaxSingle;
@@ -449,9 +438,9 @@ begin
 end;
 
 function D2D1BitmapBrushProperties(
-  AExtendModeX: D2D1_EXTEND_MODE = D2D1_EXTEND_MODE_CLAMP;
-  AExtendModeY: D2D1_EXTEND_MODE = D2D1_EXTEND_MODE_CLAMP;
-  AInterpolationMode : D2D1_BITMAP_INTERPOLATION_MODE = D2D1_BITMAP_INTERPOLATION_MODE_LINEAR): TD2D1BitmapBrushProperties;
+  AExtendModeX: TD2D1ExtendMode = D2D1_EXTEND_MODE_CLAMP;
+  AExtendModeY: TD2D1ExtendMode = D2D1_EXTEND_MODE_CLAMP;
+  AInterpolationMode : TD2D1BitmapInterpolationMode = D2D1_BITMAP_INTERPOLATION_MODE_LINEAR): TD2D1BitmapBrushProperties;
 begin
   Result.ExtendModeX := AExtendModeX;
   Result.ExtendModeY := AExtendModeY;
@@ -459,7 +448,7 @@ begin
 end;
 
 function D2D1BitmapProperties(
-  APixelFormat: D2D1_PIXEL_FORMAT;
+  APixelFormat: TD2D1PixelFormat;
   ADpiX: Single;
   ADpiY: Single): TD2D1BitmapProperties;
 begin
@@ -516,7 +505,7 @@ begin
 end;
 
 function D2D1PixelFormat(
-  ADXGIFormat: DXGI_FORMAT = DXGI_FORMAT_UNKNOWN;
+  ADXGIFormat: TDXGIFormat = DXGI_FORMAT_UNKNOWN;
   AAlphaMode: TD2D1AlphaMode = D2D1_ALPHA_MODE_UNKNOWN): TD2D1PixelFormat;
 begin
   Result.DXGIFormat := ADXGIFormat;
@@ -680,136 +669,14 @@ end;
 
 {$ENDREGION}
 
-{$REGION 'd2d1helper.h implementation records'}
+{$REGION 'dwrite.h definition'}
 
-{=========================================================================================================================================}
-{ TD2D1ColorFHelper }
-{=========================================================================================================================================}
-class function TD2D1ColorFHelper.Create(ARed, AGreen, ABlue, AAlpha: Single): TD2D1ColorF;
+function DWriteTextRange(AStartPosition, ALength: Uint32): TDWriteTextRange;
 begin
-  Result := D2D1ColorF(ARed, AGreen, ABlue, AAlpha);
-end;
-
-{=========================================================================================================================================}
-class function TD2D1ColorFHelper.Create(AColor: TColor): TD2D1ColorF;
-begin
-  Result := D2D1ColorF(AColor);
-end;
-
-{=========================================================================================================================================}
-{ TD2D1Matrix3x2FHelper }
-{=========================================================================================================================================}
-class function TD2D1Matrix3x2FHelper.Create(AM11, AM12, AM21, AM22, AM31, AM32: Single): TD2D1Matrix3x2F;
-begin
-  Result.M11 := AM11; Result.M12 := AM12;
-  Result.M21 := AM21; Result.M22 := AM22;
-  Result.M31 := AM31; Result.M32 := AM32;
-end;
-
-{=========================================================================================================================================}
-class function TD2D1Matrix3x2FHelper.Identity: TD2D1Matrix3x2F;
-begin
-  Result.M11 := 1; Result.M12 := 0;
-  Result.M21 := 0; Result.M22 := 1;
-  Result.M31 := 0; Result.M32 := 0;
-end;
-
-{=========================================================================================================================================}
-class function TD2D1Matrix3x2FHelper.Translation(AX, AY: Single): TD2D1Matrix3x2F;
-begin
-  Result.M11 := 1; Result.M12 := 0;
-  Result.M21 := 0; Result.M22 := 1;
-  Result.M31 := AX; Result.M32 := AY;
-end;
-
-{=========================================================================================================================================}
-class function TD2D1Matrix3x2FHelper.Rotation(AAngle: Single; APos: TD2D1Point2F): TD2D1Matrix3x2F;
-begin
-  D2D1MakeRotateMatrix(AAngle, APos, Result);
-end;
-
-{=========================================================================================================================================}
-class function TD2D1Matrix3x2FHelper.Rotation(AAngle, AX, AY: Single): TD2D1Matrix3x2F;
-begin
-  Result := Rotation(AAngle, D2D1Point2F(AX, AY));
-end;
-
-{=========================================================================================================================================}
-class function TD2D1Matrix3x2FHelper.Translation(APos: TD2D1Point2F): TD2D1Matrix3x2F;
-begin
-  Result := Translation(APos.X, APos.Y)
-end;
-
-{=========================================================================================================================================}
-class operator TD2D1Matrix3x2FHelper.Multiply(AM1, AM2: TD2D1Matrix3x2F): TD2D1Matrix3x2F;
-begin
-  Result.M11 := AM1.M11 * AM2.M11 + AM1.M12 * AM2.M21;
-  Result.M12 := AM1.M11 * AM2.M12 + AM1.M12 * AM2.M22;
-  Result.M21 := AM1.M21 * AM2.M11 + AM1.M22 * AM2.M21;
-  Result.M22 := AM1.M21 * AM2.M12 + AM1.M22 * AM2.M22;
-  Result.M31 := AM1.M31 * AM2.M11 + AM1.M32 * AM2.M21 + AM2.M31;
-  Result.M32 := AM1.M31 * AM2.M12 + AM1.M32 * AM2.M22 + AM2.M32;
-end;
-
-{=========================================================================================================================================}
-class operator TD2D1Matrix3x2FHelper.Multiply(APos: TD2D1Point2F; AM: TD2D1Matrix3x2F): TD2D1Point2F;
-begin
-  Result := AM.Transform(APos);
-end;
-
-{=========================================================================================================================================}
-function TD2D1Matrix3x2FHelper.Transform(APos: TD2D1Point2F): TD2D1Point2F;
-begin
-  Result.X := APos.X * M11 + APos.Y * M21 + M31;
-  Result.Y := APos.X * M12 + APos.Y * M22 + M32;
-end;
-
-{=========================================================================================================================================}
-{ TD2D1Point2FHelper }
-{=========================================================================================================================================}
-class function TD2D1Point2FHelper.Create(AX, AY: Single): TD2D1Point2F;
-begin
-  Result.X := AX;
-  Result.Y := AY;
-end;
-
-{=========================================================================================================================================}
-class function TD2D1Point2FHelper.Zero: TD2D1Point2F;
-begin
-  Result := Create(0, 0);
-end;
-
-{=========================================================================================================================================}
-class function TD2D1Point2FHelper.Infinite: TD2D1Point2F;
-begin
-  Result := D2D1InfinitePoint2F;
-end;
-
-{=========================================================================================================================================}
-{ TD2D1RectFHelper }
-{=========================================================================================================================================}
-class function TD2D1RectFHelper.Create(ALeft, ATop, ARight, ABottom: Single): TD2D1RectF;
-begin
-  Result.Left := ALeft;
-  Result.Top := ATop;
-  Result.Right := ARight;
-  Result.Bottom := ABottom;
-end;
-
-{=========================================================================================================================================}
-class function TD2D1RectFHelper.Zero: TD2D1RectF;
-begin
-  Result:= D2D1RectF(0, 0, 0, 0)
-end;
-
-{=========================================================================================================================================}
-class function TD2D1RectFHelper.Infinite: TD2D1RectF;
-begin
-  Result := D2D1InfiniteRectF;
+  Result.StartPosition := AStartPosition;
+  Result.Length := ALength;
 end;
 
 {$ENDREGION}
-{$ENDREGION}
-
 
 end.

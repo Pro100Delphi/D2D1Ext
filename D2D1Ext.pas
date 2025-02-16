@@ -7,6 +7,8 @@
   As the library is used, it is planned to conduct regular testing and fix any errors found.
 
   There are no restrictions on the use of this material. Everyone can do with it what they want.
+  
+  The library has been named D2D1Ext. The second file D2D1ExtHelpers is optional and contains only the help functions.
 
   Included files:
     DocumentTarget.h
@@ -33,8 +35,9 @@
     dwrite_3.h
 
   07 Feb 2025 - beginning work on the library, collecting materials and first structure
-  12 Feb 2025 - all the main base types have been translated
+  16 Feb 2025 - all types and interfaces were translated, helper structures were deleted
 
+  16 Feb 2025
   Pustowalow W.
 }
 
@@ -53,9 +56,6 @@ uses Winapi.DxgiFormat, Winapi.Windows, Winapi.Wincodec, Winapi.DXGI, Winapi.Dxg
 
 type
 
-  REFGUID = TGUID;
-  REFIID = TIID;
-
 {$REGION 'D2DBaseTypes.h'}
 
 //=========================================================================================================================================
@@ -64,6 +64,8 @@ type
 
   D2D1_COLOR_F = record
     R, G, B, A: Single;
+    class function Create(ARed, AGreen, ABlue, AAlpha: Single): D2D1_COLOR_F; overload; static;
+    class function Create(AColor: TColor): D2D1_COLOR_F; overload; static;
   end;
 
   TD2D1ColorF = D2D1_COLOR_F;
@@ -6070,18 +6072,6 @@ type
   TD2D1PixelFormat = D2D1_PIXEL_FORMAT;
   PD2D1PixelFormat = ^TD2D1PixelFormat;
 
-  D2D1_MATRIX_3X2_F = record
-    M11: Single;
-    M12: Single;
-    M21: Single;
-    M22: Single;
-    M31: Single;
-    M32: Single;
-  end;
-
-  TD2D1Matrix3x2F = D2D1_MATRIX_3X2_F;
-  PD2D1Matrix3x2F = ^TD2D1Matrix3x2F;
-
   D2D1_POINT_2F = record
     X: Single;
     Y: Single;
@@ -6089,6 +6079,39 @@ type
 
   TD2D1Point2F = D2D1_POINT_2F;
   PD2D1Point2F = ^TD2D1Point2F;
+
+  D2D1_MATRIX_3X2_F = record
+    M11: Single;
+    M12: Single;
+    M21: Single;
+    M22: Single;
+    M31: Single;
+    M32: Single;
+
+    class function Create(AM11, AM12, AM21, AM22, AM31, AM32: Single): D2D1_MATRIX_3X2_F; static;
+    class function Identity: D2D1_MATRIX_3X2_F; static;
+
+    class function Translation(AX, AY: Single): D2D1_MATRIX_3X2_F; overload; static;
+    class function Translation(APos: TD2D1Point2F): D2D1_MATRIX_3X2_F; overload; static;
+
+    class function Rotation(AAngle, AX, AY: Single): D2D1_MATRIX_3X2_F; overload; static;
+    class function Rotation(AAngle: Single; APos: TD2D1Point2F): D2D1_MATRIX_3X2_F; overload; static;
+
+    class function Scale(ASizeX, ASizeY, AX, AY: Single): D2D1_MATRIX_3X2_F; overload; static;
+    class function Scale(ASizeX, ASizeY: Single; APos: TD2D1Point2F): D2D1_MATRIX_3X2_F; overload; static;
+
+    class operator Multiply(AM1, AM2: D2D1_MATRIX_3X2_F): D2D1_MATRIX_3X2_F; overload;
+    class operator Multiply(APos: TD2D1Point2F; AM: D2D1_MATRIX_3X2_F): TD2D1Point2F; overload;
+
+    function Invert: Boolean;
+    function IsInvertible: Boolean;
+
+    function TransformPos(APos: TD2D1Point2F): TD2D1Point2F; overload;
+    function TransformPos(AX, AY: Single): TD2D1Point2F; overload;
+  end;
+
+  TD2D1Matrix3x2F = D2D1_MATRIX_3X2_F;
+  PD2D1Matrix3x2F = ^TD2D1Matrix3x2F;
 
   D2D1_POINT_2U = record
     X: UInt32;
@@ -9196,7 +9219,7 @@ type
       const ATriangles: PD2D1Triangle;
       ATrianglesCount: UInt32); stdcall;
 
-   function Close: HRESULT; stdcall;
+    function Close: HRESULT; stdcall;
   end;
 
   ID2D1PathGeometry = interface(ID2D1Geometry)
@@ -11373,13 +11396,13 @@ type
       AIsRightToLeft: BOOL;
       AClientDrawingEffect: IUnknown): HRESULT; stdcall;
 
-  function GetMetrics(out AMetrics: TDWriteInlineObjectMetrics): HRESULT; stdcall;
+    function GetMetrics(out AMetrics: TDWriteInlineObjectMetrics): HRESULT; stdcall;
 
-  function GetOverhangMetrics(out AOverhangs: TDWriteOverhangMetrics): HRESULT; stdcall;
+    function GetOverhangMetrics(out AOverhangs: TDWriteOverhangMetrics): HRESULT; stdcall;
 
-  function GetBreakConditions(
-    out ABreakConditionBefore: TDWriteBreakCondition;
-    out ABreakConditionAfter: TDWriteBreakCondition): HRESULT; stdcall;
+    function GetBreakConditions(
+      out ABreakConditionBefore: TDWriteBreakCondition;
+      out ABreakConditionAfter: TDWriteBreakCondition): HRESULT; stdcall;
   end;
 
   IDWritePixelSnapping = interface(IUnknown)
@@ -13888,7 +13911,7 @@ function DWriteCreateFactory(
 procedure D2D1MakeRotateMatrix(
   AAngle: Single;
   ACenter: TD2D1Point2F;
-  out AMatrix: TD2D1Matrix3x2F); stdcall; external d2d1lib;
+  AMatrix: PD2D1Matrix3x2F); stdcall; external d2d1lib;
 
 procedure D2D1MakeSkewMatrix(
   AAngleX: Single;
@@ -13896,11 +13919,9 @@ procedure D2D1MakeSkewMatrix(
   ACenter: TD2D1Point2F;
   out AMatrix: TD2D1Matrix3x2F); stdcall; external d2d1lib;
 
-function D2D1IsMatrixInvertible(
-  const AMatrix: PD2D1Matrix3x2F): BOOL; stdcall; external d2d1lib;
+function D2D1IsMatrixInvertible(const AMatrix: PD2D1Matrix3x2F): BOOL; stdcall; external d2d1lib;
 
-function D2D1InvertMatrix(
-  AMatrix: PD2D1Matrix3x2F): BOOL; stdcall; external d2d1lib;
+function D2D1InvertMatrix(AMatrix: PD2D1Matrix3x2F): BOOL; stdcall; external d2d1lib;
 
 function D2D1CreateDevice(
   ADXGIDevice: IDXGIDevice;
@@ -13936,6 +13957,8 @@ function D2D1CreateBitmap(ARenderTarget: ID2D1RenderTarget; ASrcBitmap: TBitmap;
 {$ENDREGION}
 
 implementation
+
+{$REGION 'simulate bit fields'}
 
 {=========================================================================================================================================}
 procedure SetBits8(var ABits: Byte; AIndex: Integer; AValue: Byte);
@@ -14007,6 +14030,141 @@ end;
 function GetBits32(ABits: UInt32; AIndex: Integer): UInt32;
 begin
   Result := (ABits shr (AIndex shr 16)) and (AIndex and $FFFF);
+end;
+
+{$ENDREGION}
+
+{=========================================================================================================================================}
+{ D2D1_COLOR_F }
+{=========================================================================================================================================}
+class function D2D1_COLOR_F.Create(ARed, AGreen, ABlue, AAlpha: Single): D2D1_COLOR_F;
+begin
+  Result.R := ARed;
+  Result.G := AGreen;
+  Result.B := ABlue;
+  Result.A := AAlpha;
+end;
+
+{=========================================================================================================================================}
+class function D2D1_COLOR_F.Create(AColor: TColor): D2D1_COLOR_F;
+var RGB: UInt32;
+begin
+  RGB := ColorToRGB(AColor);
+
+  Result.R :=   RGB         and $FF  / 255;
+  Result.G := ((RGB shr  8) and $FF) / 255;
+  Result.B := ((RGB shr 16) and $FF) / 255;
+  Result.A := 1;
+
+  if AColor = clNone then
+    Result.A := 0;
+end;
+
+{=========================================================================================================================================}
+{ D2D1_MATRIX_3X2_F }
+{=========================================================================================================================================}
+class function D2D1_MATRIX_3X2_F.Create(AM11, AM12, AM21, AM22, AM31, AM32: Single): TD2D1Matrix3x2F;
+begin
+  Result.M11 := AM11; Result.M12 := AM12;
+  Result.M21 := AM21; Result.M22 := AM22;
+  Result.M31 := AM31; Result.M32 := AM32;
+end;
+
+{=========================================================================================================================================}
+class function D2D1_MATRIX_3X2_F.Identity: TD2D1Matrix3x2F;
+begin
+  Result.M11 := 1; Result.M12 := 0;
+  Result.M21 := 0; Result.M22 := 1;
+  Result.M31 := 0; Result.M32 := 0;
+end;
+
+{=========================================================================================================================================}
+function D2D1_MATRIX_3X2_F.Invert: Boolean;
+begin
+  Result := D2D1InvertMatrix(@Self);
+end;
+
+{=========================================================================================================================================}
+function D2D1_MATRIX_3X2_F.IsInvertible: Boolean;
+begin
+  Result := D2D1IsMatrixInvertible(@Self);
+end;
+
+{=========================================================================================================================================}
+class function D2D1_MATRIX_3X2_F.Translation(AX, AY: Single): TD2D1Matrix3x2F;
+begin
+  Result.M11 := 1; Result.M12 := 0;
+  Result.M21 := 0; Result.M22 := 1;
+  Result.M31 := AX; Result.M32 := AY;
+end;
+
+{=========================================================================================================================================}
+class function D2D1_MATRIX_3X2_F.Translation(APos: TD2D1Point2F): TD2D1Matrix3x2F;
+begin
+  Result := Translation(APos.X, APos.Y)
+end;
+
+{=========================================================================================================================================}
+class function D2D1_MATRIX_3X2_F.Rotation(AAngle: Single; APos: TD2D1Point2F): TD2D1Matrix3x2F;
+begin
+  D2D1MakeRotateMatrix(AAngle, APos, @Result);
+end;
+
+{=========================================================================================================================================}
+class function D2D1_MATRIX_3X2_F.Rotation(AAngle, AX, AY: Single): TD2D1Matrix3x2F;
+var P: TD2D1Point2F;
+begin
+  P.X := AX;
+  P.Y := AY;
+  Result := Rotation(AAngle, P);
+end;
+
+{=========================================================================================================================================}
+class function D2D1_MATRIX_3X2_F.Scale(ASizeX, ASizeY, AX, AY: Single): TD2D1Matrix3x2F;
+begin
+  Result.M11 := ASizeX;
+  Result.M12 := 0.0;
+  Result.M21 := 0.0;
+  Result.M22 := ASizeY;
+  Result.M31 := AX - ASizeX * AX;
+  Result.M32 := AY - ASizeY * AY;
+end;
+
+{=========================================================================================================================================}
+class function D2D1_MATRIX_3X2_F.Scale(ASizeX, ASizeY: Single; APos: TD2D1Point2F): TD2D1Matrix3x2F;
+begin
+  Result := Scale(ASizeX, ASizeY, APos.X, APos.Y);
+end;
+
+{=========================================================================================================================================}
+class operator D2D1_MATRIX_3X2_F.Multiply(AM1, AM2: TD2D1Matrix3x2F): TD2D1Matrix3x2F;
+begin
+  Result.M11 := AM1.M11 * AM2.M11 + AM1.M12 * AM2.M21;
+  Result.M12 := AM1.M11 * AM2.M12 + AM1.M12 * AM2.M22;
+  Result.M21 := AM1.M21 * AM2.M11 + AM1.M22 * AM2.M21;
+  Result.M22 := AM1.M21 * AM2.M12 + AM1.M22 * AM2.M22;
+  Result.M31 := AM1.M31 * AM2.M11 + AM1.M32 * AM2.M21 + AM2.M31;
+  Result.M32 := AM1.M31 * AM2.M12 + AM1.M32 * AM2.M22 + AM2.M32;
+end;
+
+{=========================================================================================================================================}
+class operator D2D1_MATRIX_3X2_F.Multiply(APos: TD2D1Point2F; AM: TD2D1Matrix3x2F): TD2D1Point2F;
+begin
+  Result := AM.TransformPos(APos);
+end;
+
+{=========================================================================================================================================}
+function D2D1_MATRIX_3X2_F.TransformPos(APos: TD2D1Point2F): TD2D1Point2F;
+begin
+  Result.X := APos.X * M11 + APos.Y * M21 + M31;
+  Result.Y := APos.X * M12 + APos.Y * M22 + M32;
+end;
+
+{=========================================================================================================================================}
+function D2D1_MATRIX_3X2_F.TransformPos(AX, AY: Single): TD2D1Point2F;
+begin
+  Result.X := AX * M11 + AY * M21 + M31;
+  Result.Y := AX * M12 + AY * M22 + M32;
 end;
 
 {=========================================================================================================================================}

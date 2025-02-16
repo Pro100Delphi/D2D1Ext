@@ -6,6 +6,8 @@
   As the library is used, it is planned to conduct regular testing and fix any errors found.
 
   There are no restrictions on the use of this material. Everyone can do with it what they want.
+  
+  The library has been named D2D1Ext. The second file D2D1ExtHelpers is optional and contains only the help functions.
 
   Included files:
     DocumentTarget.h
@@ -32,6 +34,6 @@
     dwrite_3.h
 
   07 Feb 2025 - beginning work on the library, collecting materials and first structure
-  12 Feb 2025 - all the main base types have been translated
+  16 Feb 2025 - all types and interfaces were translated, helper structures were deleted
 
   Pustowalow W.
