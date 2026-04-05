@@ -44,4 +44,4 @@
 	- implement Create-Methods with overloads for D2D1, D2D1_1 structures
 
 ### Translated by
-	- Pustowalow W.
+- Pustowalow W.
