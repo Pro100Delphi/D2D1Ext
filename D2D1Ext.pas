@@ -42,7 +42,7 @@
   - 05 Apr 2026
     - fix missing params and directives,
     - implement basic methods for TD2D1Point2F
-    - implement Create-Methods with overloads for D2D1 structures
+    - implement Create-Methods with overloads for D2D1, D2D1_1 structures
 
   ### Translated by
   Pustowalow W.
@@ -6502,66 +6502,89 @@ type
 
 {$REGION 'd2d1_1.h records'}
 
-  D2D1_VECTOR_2F = record
+  TD2D1Vector2F = record
     X: Single;
     Y: Single;
+
+    class function Create(AX, AY: Single): TD2D1Vector2F; static;
   end;
 
-  D2D1_VECTOR_3F = record
+  D2D1_VECTOR_2F = TD2D1Vector2F;
+  PD2D1Vector2F = ^TD2D1Vector2F;
+
+  TD2D1Vector3F = record
     X: Single;
     Y: Single;
     Z: Single;
+
+    class function Create(AX, AY, AZ: Single): TD2D1Vector3F; static;
   end;
 
-  D2D1_VECTOR_4F = record
+  D2D1_VECTOR_3F = TD2D1Vector3F;
+  PD2D1Vector3F = ^TD2D1Vector3F;
+
+  TD2D1Vector4F = record
     X: Single;
     Y: Single;
     Z: Single;
     W: Single;
+
+    class function Create(AX, AY, AZ, AW: Single): TD2D1Vector4F; static;
   end;
 
-  D2D1_POINT_2L = record
+  D2D1_VECTOR_4F = TD2D1Vector4F;
+  PD2D1Vector4F = ^TD2D1Vector4F;
+
+  TD2D1Point2L = record
     X: Int32;
     Y: Int32;
+
+    class function Create(AX, AY: Int32): TD2D1Point2L; static;
   end;
 
-	TD2D1Point2L = D2D1_POINT_2L;
+	D2D1_POINT_2L = TD2D1Point2L;
 	PD2D1Point2L = ^TD2D1Point2L;
 
-  D2D1_RECT_L = record
+  TD2D1RectL = record
     Left: Int32;
     Top: Int32;
     Right: Int32;
     Bottom: Int32;
+
+    class function Create(ALeft, ATop, ARight, ABottom: Int32): TD2D1RectL; static;
   end;
 
-	TD2D1RectL = D2D1_RECT_L;
+	D2D1_RECT_L = TD2D1RectL;
 	PD2D1RectL = ^TD2D1RectL;
 
-  D2D1_MATRIX_4X3_F = record
+  TD2D1Matrix4x3F = record
     M11, M12, M13: Single;
     M21, M22, M23: Single;
     M31, M32, M33: Single;
     M41, M42, M43: Single;
+
+    class function Identity: TD2D1Matrix4x3F; static;
   end;
 
-	TD2D1Matrix4x3F = D2D1_MATRIX_4X3_F;
+	D2D1_MATRIX_4X3_F = TD2D1Matrix4x3F;
 	PD2D1Matrix4x3F = ^TD2D1Matrix4x3F;
 
-  D2D1_MATRIX_4X4_F = record
+  TD2D1Matrix4x4F = record
     M11, M12, M13, M14: Single;
     M21, M22, M23, M24: Single;
     M31, M32, M33, M34: Single;
     M41, M42, M43, M44: Single;
+
+    class function Identity: TD2D1Matrix4x4F; static;
   end;
 
-	TD2D1Matrix4x4F = D2D1_MATRIX_4X4_F;
+	D2D1_MATRIX_4X4_F = TD2D1Matrix4x4F;
 	PD2D1Matrix4x4F = ^TD2D1Matrix4x4F;
 
   /// <summary>
   /// Extended bitmap properties.
   /// </summary>
-  D2D1_BITMAP_PROPERTIES1 = record
+  TD2D1BitmapProperties1 = record
     PixelFormat: TD2D1PixelFormat;
     DpiX: Single;
     DpiY: Single;
@@ -6571,26 +6594,32 @@ type
     /// </summary>
     BitmapOptions: TD2D1BitmapOptions;
     ColorContext: ID2D1ColorContext;
+
+    class function Create(ABitmapOptions: TD2D1BitmapOptions; APixelFormat: TD2D1PixelFormat;
+      ADpiX: Single; ADpiY: Single; AColorContext: ID2D1ColorContext): TD2D1BitmapProperties1; overload; static;
+    class function Create: TD2D1BitmapProperties1; overload; static;
   end;
 
-	TD2D1BitmapProperties1 = D2D1_BITMAP_PROPERTIES1;
+	D2D1_BITMAP_PROPERTIES1 = TD2D1BitmapProperties1;
 	PD2D1BitmapProperties1 = ^TD2D1BitmapProperties1;
 
   /// <summary>
   /// Describes mapped memory from the ID2D1Bitmap1::Map API.
   /// </summary>
-  D2D1_MAPPED_RECT = record
+  TD2D1MappedRect = record
     Pitch: UInt32;
     Bits: PByte;
+
+    class function Create(APitch: Uint32; const ABits: PByte): TD2D1MappedRect; static;
   end;
 
-	TD2D1MappedRect = D2D1_MAPPED_RECT;
+	D2D1_MAPPED_RECT = TD2D1MappedRect ;
 	PD2D1MappedRect = ^TD2D1MappedRect;
 
   /// <summary>
   /// This controls advanced settings of the Direct2D imaging pipeline.
   /// </summary>
-  D2D1_RENDERING_CONTROLS = record
+  TD2D1RenderingControls = record
 
     /// <summary>
     /// The default buffer precision, used if the precision isn't otherwise specified.
@@ -6601,15 +6630,17 @@ type
     /// The size of allocated tiles used to render imaging effects.
     /// </summary>
     TileSize: TD2D1SizeU;
+
+    class function Create(ABufferPrecision: TD2D1BufferPrecision; ATileSize: TD2D1SizeU): TD2D1RenderingControls; static;
   end;
 
-	TD2D1RenderingControls = D2D1_RENDERING_CONTROLS;
+	D2D1_RENDERING_CONTROLS = TD2D1RenderingControls;
 	PD2D1RenderingControls = ^TD2D1RenderingControls;
 
   /// <summary>
   /// This identifies a certain input connection of a certain effect.
   /// </summary>
-  D2D1_EFFECT_INPUT_DESCRIPTION = record
+  TD2D1EffectInputDescription = record
 
     /// <summary>
     /// The effect whose input connection is being specified.
@@ -6626,54 +6657,64 @@ type
     /// render operations.
     /// </summary>
     InputRectangle: TD2D1RectF;
+
+    class function Create(AEffect: ID2D1Effect; AInputIndex: UInt32; AInputRectangle: TD2D1RectF): TD2D1EffectInputDescription; static;
   end;
 
-	TD2D1EffectInputDescription = D2D1_EFFECT_INPUT_DESCRIPTION;
+	D2D1_EFFECT_INPUT_DESCRIPTION = TD2D1EffectInputDescription;
 	PD2D1EffectInputDescription = ^TD2D1EffectInputDescription;
 
   /// <summary>
   /// Describes a point along a path.
   /// </summary>
-  D2D1_POINT_DESCRIPTION = record
+  TD2D1PointDescription = record
     Point: TD2D1Point2F;
     UnitTangentVector: TD2D1Point2F;
     EndSegment: UInt32;
     EndFigure: UInt32;
     LengthToEndSegment: Single;
+
+    class function Create(APoint: TD2D1Point2F; AUnitTangentVector: TD2D1Point2F;
+      AEndSegment, AEndFigure: UInt32; ALengthToEndSegment: Single): TD2D1PointDescription; static;
   end;
 
-	TD2D1PointDescription = D2D1_POINT_DESCRIPTION;
+	D2D1_POINT_DESCRIPTION = TD2D1PointDescription;
 	PD2D1PointDescription = ^TD2D1PointDescription;
 
   /// <summary>
   /// Creation properties for an image brush.
   /// </summary>
-  D2D1_IMAGE_BRUSH_PROPERTIES = record
+  TD2D1ImageBrushProperties = record
     SourceRectangle: TD2D1RectF;
     ExtendModeX: TD2D1ExtendMode;
     ExtendModeY: TD2D1ExtendMode;
     InterpolationMode: TD2D1InterpolationMode;
+
+    class function Create(ASourceRectangle: TD2D1RectF; AExtendModeX, AExtendModeY: TD2D1ExtendMode;
+      AInterpolationMode: TD2D1InterpolationMode): TD2D1ImageBrushProperties; static;
   end;
 
-	TD2D1ImageBrushProperties = D2D1_IMAGE_BRUSH_PROPERTIES;
+	D2D1_IMAGE_BRUSH_PROPERTIES = TD2D1ImageBrushProperties;
 	PD2D1ImageBrushProperties = ^TD2D1ImageBrushProperties;
 
   /// <summary>
   /// Describes the extend modes and the interpolation mode of an ID2D1BitmapBrush.
   /// </summary>
-  D2D1_BITMAP_BRUSH_PROPERTIES1 = record
+  TD2D1BitmapBrushProperties1 = record
     ExtendModeX: TD2D1ExtendMode;
     ExtendModeY: TD2D1ExtendMode;
     InterpolationMode: TD2D1InterpolationMode;
+
+    class function Create(AExtendModeX, AExtendModeY: TD2D1ExtendMode; AInterpolationMode: TD2D1InterpolationMode): TD2D1BitmapBrushProperties1; static;
   end;
 
-	TD2D1BitmapBrushProperties1 = D2D1_BITMAP_BRUSH_PROPERTIES1;
+	D2D1_BITMAP_BRUSH_PROPERTIES1 = TD2D1BitmapBrushProperties1;
 	PD2D1BitmapBrushProperties1 = ^TD2D1BitmapBrushProperties1;
 
   /// <summary>
   /// This defines how geometries should be drawn and widened.
   /// </summary>
-  D2D1_STROKE_STYLE_PROPERTIES1 = record
+  TD2D1StrokeStyleProperties1 = record
     StartCap    : TD2D1CapStyle;
     EndCap      : TD2D1CapStyle;
     DashCap     : TD2D1CapStyle;
@@ -6686,15 +6727,21 @@ type
     /// How the nib of the stroke is influenced by the context properties.
     /// </summary>
     TransformType: TD2D1StrokeTransformType;
+
+    class function Create(
+      AStartCap: TD2D1CapStyle = D2D1_CAP_STYLE_FLAT; AEndCap: TD2D1CapStyle = D2D1_CAP_STYLE_FLAT;
+      ADashCap: TD2D1CapStyle = D2D1_CAP_STYLE_FLAT; ALineJoin: TD2D1LineJoin = D2D1_LINE_JOIN_MITER;
+      AMiterLimit: Single = 10; ADashStyle: TD2D1DashStyle = D2D1_DASH_STYLE_SOLID;
+      ADashOffset: Single = 0.0; ATransformType: D2D1_STROKE_TRANSFORM_TYPE  = D2D1_STROKE_TRANSFORM_TYPE_NORMAL): TD2D1StrokeStyleProperties1; static;
   end;
 
-	TD2D1StrokeStyleProperties1 = D2D1_STROKE_STYLE_PROPERTIES1;
+	D2D1_STROKE_STYLE_PROPERTIES1 = TD2D1StrokeStyleProperties1;
 	PD2D1StrokeStyleProperties1 = ^TD2D1StrokeStyleProperties1;
 
   /// <summary>
   /// All parameters related to pushing a layer.
   /// </summary>
-  D2D1_LAYER_PARAMETERS1 = record
+  TD2D1LayerParameters1 = record
     ContentBounds: TD2D1RectF;
     GeometricMask: ID2D1Geometry;
     MaskAntialiasMode: TD2D1AntialiasMode;
@@ -6702,15 +6749,22 @@ type
     Opacity: Single;
     OpacityBrush: ID2D1Brush;
     LayerOptions: TD2D1LayerOptions1;
+
+    class function Create(AContentBounds: TD2D1RectF; AGeometricMask: ID2D1Geometry;
+      AMaskAntialiasMode: TD2D1AntialiasMode; AMaskTransform: TD2D1Matrix3x2F;
+      AOpacity: Single; AOpacityBrush: ID2D1Brush;
+      ALayerOptions: TD2D1LayerOptions1): TD2D1LayerParameters1; overload; static;
+
+    class function Create(AContentBounds: TD2D1RectF): TD2D1LayerParameters1; overload; static;
   end;
 
-	TD2D1LayerParameters1 = D2D1_LAYER_PARAMETERS1;
+	D2D1_LAYER_PARAMETERS1 = TD2D1LayerParameters1;
 	PD2D1LayerParameters1 = ^TD2D1LayerParameters1;
 
   /// <summary>
   /// This describes the drawing state.
   /// </summary>
-  D2D1_DRAWING_STATE_DESCRIPTION1 = record
+  TD2D1DrawingStateDescription1 = record
     AntialiasMode: TD2D1AntialiasMode;
     TextAntialiasMode: TD2D1TextAntialiasMode;
     Tag1: TD2D1Tag;
@@ -6718,15 +6772,21 @@ type
     Transform: TD2D1Matrix3x2F;
     PrimitiveBlend: TD2D1PrimitiveBlend;
     UnitMode: TD2D1UnitMode;
+
+    class function Create(AAntialiasMode: TD2D1AntialiasMode; ATextAntialiasMode: TD2D1TextAntialiasMode;
+      ATag1: TD2D1Tag; ATag2: TD2D1Tag; ATransform: TD2D1Matrix3x2F; APrimitiveBlend: D2D1_PRIMITIVE_BLEND;
+      AUnitMode: D2D1_UNIT_MODE): TD2D1DrawingStateDescription1; overload; static;
+
+    class function Create: TD2D1DrawingStateDescription1; overload; static;
   end;
 
-	TD2D1DrawingStateDescription1 = D2D1_DRAWING_STATE_DESCRIPTION1;
+	D2D1_DRAWING_STATE_DESCRIPTION1 = TD2D1DrawingStateDescription1;
 	PD2D1DrawingStateDescription1 = ^TD2D1DrawingStateDescription1;
 
   /// <summary>
   /// The creation properties for a ID2D1PrintControl object.
   /// </summary>
-  D2D1_PRINT_CONTROL_PROPERTIES = record
+  TD2D1PrintControlProperties = record
 
     FontSubset: TD2D1PrintFontSubsetMode;
 
@@ -6740,16 +6800,18 @@ type
     /// Color space for vector graphics in XPS package
     /// </summary>
     ColorSpace: TD2D1ColorSpace;
+
+    class function Create(AFontSubset: TD2D1PrintFontSubsetMode; ARasterDPI: Single; AColorSpace: TD2D1ColorSpace): TD2D1PrintControlProperties; static;
   end;
 
-	TD2D1PrintControlProperties = D2D1_PRINT_CONTROL_PROPERTIES;
+	D2D1_PRINT_CONTROL_PROPERTIES = TD2D1PrintControlProperties;
 	PD2D1PrintControlProperties = ^TD2D1PrintControlProperties;
 
   /// <summary>
   /// This specifies the options while simultaneously creating the device, factory,
   /// and device context.
   /// </summary>
-  D2D1_CREATION_PROPERTIES = record
+  TD2D1CreationProperties = record
 
     /// <summary>
     /// Describes locking behavior of D2D resources
@@ -6757,9 +6819,11 @@ type
     ThreadingMode: TD2D1ThreadingMode;
     DebugLevel: TD2D1DebugLevel;
     Options: TD2D1DeviceContextOptions;
+
+    class function Create(AThreadingMode: TD2D1ThreadingMode; ADebugLevel: TD2D1DebugLevel; AOptions: TD2D1DeviceContextOptions): TD2D1CreationProperties; static;
   end;
 
-	TD2D1CreationProperties = D2D1_CREATION_PROPERTIES;
+	D2D1_CREATION_PROPERTIES = TD2D1CreationProperties;
 	PD2D1CreationProperties = ^TD2D1CreationProperties;
 
 {$ENDREGION}
@@ -14243,7 +14307,6 @@ end;
 
 
 {$REGION 'd2d1.h implementation'}
-
 {=========================================================================================================================================}
 { TD2D1PixelFormat }
 {=========================================================================================================================================}
@@ -14828,6 +14891,257 @@ end;
 {=========================================================================================================================================}
 {$ENDREGION}
 
+{$REGION 'd2d1_1.h implementation'}
+{=========================================================================================================================================}
+{ TD2D1Vector2F }
+{=========================================================================================================================================}
+class function TD2D1Vector2F.Create(AX, AY: Single): TD2D1Vector2F;
+begin
+  Result.X := AX;
+  Result.Y := AY;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1Vector3F }
+{=========================================================================================================================================}
+class function TD2D1Vector3F.Create(AX, AY, AZ: Single): TD2D1Vector3F;
+begin
+  Result.X := AX;
+  Result.Y := AY;
+  Result.Z := AZ;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1Vector2F }
+{=========================================================================================================================================}
+class function TD2D1Vector4F.Create(AX, AY, AZ, AW: Single): TD2D1Vector4F;
+begin
+  Result.X := AX;
+  Result.Y := AY;
+  Result.Z := AZ;
+  Result.W := AW;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1Point2L }
+{=========================================================================================================================================}
+class function TD2D1Point2L.Create(AX, AY: Int32): TD2D1Point2L;
+begin
+  Result.X := AX;
+  Result.Y := AY;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1RectL }
+{=========================================================================================================================================}
+class function TD2D1RectL.Create(ALeft, ATop, ARight, ABottom: Int32): TD2D1RectL;
+begin
+  Result.Left   := ALeft;
+  Result.Top    := ATop;
+  Result.Right  := ARight;
+  Result.Bottom := ABottom;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1RectL }
+{=========================================================================================================================================}
+class function TD2D1Matrix4x3F.Identity: TD2D1Matrix4x3F;
+begin
+  Result.M11 := 1; Result.M12 := 0; Result.M13 := 0;
+  Result.M21 := 0; Result.M22 := 1; Result.M23 := 0;
+  Result.M31 := 0; Result.M32 := 0; Result.M33 := 1;
+  Result.M41 := 0; Result.M42 := 0; Result.M43 := 0;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1Matrix4x4F }
+{=========================================================================================================================================}
+class function TD2D1Matrix4x4F.Identity: TD2D1Matrix4x4F;
+begin
+  Result.M11 := 1; Result.M12 := 0; Result.M13 := 0; Result.M14 := 0;
+  Result.M21 := 0; Result.M22 := 1; Result.M23 := 0; Result.M24 := 0;
+  Result.M31 := 0; Result.M32 := 0; Result.M33 := 1; Result.M34 := 0;
+  Result.M41 := 0; Result.M42 := 0; Result.M43 := 0; Result.M44 := 1;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1BitmapProperties1 }
+{=========================================================================================================================================}
+class function TD2D1BitmapProperties1.Create(ABitmapOptions: TD2D1BitmapOptions; APixelFormat: TD2D1PixelFormat;
+  ADpiX: Single; ADpiY: Single; AColorContext: ID2D1ColorContext): TD2D1BitmapProperties1;
+begin
+  Result.PixelFormat    := APixelFormat;
+  Result.DpiX           := 96;
+  Result.DpiY           := 96;
+  Result.BitmapOptions  := ABitmapOptions;
+  Result.ColorContext   := AColorContext;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1BitmapProperties1.Create: TD2D1BitmapProperties1;
+begin
+  Result := TD2D1BitmapProperties1.Create(D2D1_BITMAP_OPTIONS_NONE, TD2D1PixelFormat.Create, 96, 96, nil);
+end;
+
+{=========================================================================================================================================}
+{ TD2D1MappedRect }
+{=========================================================================================================================================}
+class function TD2D1MappedRect.Create(APitch: Uint32; const ABits: PByte): TD2D1MappedRect;
+begin
+  Result.Pitch  := APitch;
+  Result.Bits   := ABits;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1RenderingControls }
+{=========================================================================================================================================}
+class function TD2D1RenderingControls.Create(ABufferPrecision: TD2D1BufferPrecision; ATileSize: TD2D1SizeU): TD2D1RenderingControls;
+begin
+  Result.BufferPrecision  := ABufferPrecision;
+  Result.TileSize         := ATileSize;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1EffectInputDescription }
+{=========================================================================================================================================}
+class function TD2D1EffectInputDescription.Create(AEffect: ID2D1Effect; AInputIndex: UInt32; AInputRectangle: TD2D1RectF): TD2D1EffectInputDescription;
+begin
+  Result.Effect         := AEffect;
+  Result.InputIndex     := AInputIndex;
+  Result.InputRectangle := AInputRectangle;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1PointDescription }
+{=========================================================================================================================================}
+class function TD2D1PointDescription.Create(APoint: TD2D1Point2F; AUnitTangentVector: TD2D1Point2F;
+  AEndSegment, AEndFigure: UInt32; ALengthToEndSegment: Single): TD2D1PointDescription;
+begin
+  Result.Point              := APoint;
+  Result.UnitTangentVector  := AUnitTangentVector;
+  Result.EndSegment         := AEndSegment;
+  Result.EndFigure          := AEndFigure;
+  Result.LengthToEndSegment := ALengthToEndSegment;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1ImageBrushProperties }
+{=========================================================================================================================================}
+class function TD2D1ImageBrushProperties.Create(ASourceRectangle: TD2D1RectF; AExtendModeX, AExtendModeY: TD2D1ExtendMode;
+  AInterpolationMode: TD2D1InterpolationMode): TD2D1ImageBrushProperties;
+begin
+  Result.SourceRectangle  := ASourceRectangle;
+  Result.ExtendModeX        := AExtendModeX;
+  Result.ExtendModeY        := AExtendModeY;
+  Result.InterpolationMode  := AInterpolationMode;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1BitmapBrushProperties1 }
+{=========================================================================================================================================}
+class function TD2D1BitmapBrushProperties1.Create(AExtendModeX, AExtendModeY: TD2D1ExtendMode; AInterpolationMode: TD2D1InterpolationMode): TD2D1BitmapBrushProperties1;
+begin
+  Result.ExtendModeX        := AExtendModeX;
+  Result.ExtendModeY        := AExtendModeY;
+  Result.InterpolationMode  := AInterpolationMode;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1StrokeStyleProperties1 }
+{=========================================================================================================================================}
+class function TD2D1StrokeStyleProperties1.Create(
+  AStartCap: TD2D1CapStyle = D2D1_CAP_STYLE_FLAT; AEndCap: TD2D1CapStyle = D2D1_CAP_STYLE_FLAT;
+  ADashCap: TD2D1CapStyle = D2D1_CAP_STYLE_FLAT; ALineJoin: TD2D1LineJoin = D2D1_LINE_JOIN_MITER;
+  AMiterLimit: Single = 10; ADashStyle: TD2D1DashStyle = D2D1_DASH_STYLE_SOLID;
+  ADashOffset: Single = 0.0; ATransformType: D2D1_STROKE_TRANSFORM_TYPE  = D2D1_STROKE_TRANSFORM_TYPE_NORMAL): TD2D1StrokeStyleProperties1;
+begin
+  Result.StartCap       := AStartCap;
+  Result.EndCap         := AEndCap;
+  Result.DashCap        := ADashCap;
+  Result.LineJoin       := ALineJoin;
+  Result.MiterLimit     := AMiterLimit;
+  Result.DashStyle      := ADashStyle;
+  Result.DashOffset     := ADashOffset;
+  Result.TransformType  := ATransformType;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1LayerParameters1 }
+{=========================================================================================================================================}
+class function TD2D1LayerParameters1.Create(AContentBounds: TD2D1RectF; AGeometricMask: ID2D1Geometry;
+  AMaskAntialiasMode: TD2D1AntialiasMode; AMaskTransform: TD2D1Matrix3x2F;
+  AOpacity: Single; AOpacityBrush: ID2D1Brush;
+  ALayerOptions: TD2D1LayerOptions1): TD2D1LayerParameters1;
+begin
+  Result.ContentBounds      := AContentBounds;
+  Result.GeometricMask      := AGeometricMask;
+  Result.MaskAntialiasMode  := AMaskAntialiasMode;
+  Result.MaskTransform      := AMaskTransform;
+  Result.Opacity            := AOpacity;
+  Result.OpacityBrush       := AOpacityBrush;
+  Result.LayerOptions       := ALayerOptions;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1LayerParameters1.Create(AContentBounds: TD2D1RectF): TD2D1LayerParameters1;
+begin
+  Result := TD2D1LayerParameters1.Create(AContentBounds, nil, D2D1_ANTIALIAS_MODE_PER_PRIMITIVE,
+    TD2D1Matrix3x2F.Identity, 1, nil, D2D1_LAYER_OPTIONS1_NONE);
+end;
+
+{=========================================================================================================================================}
+{ TD2D1DrawingStateDescription1 }
+{=========================================================================================================================================}
+class function TD2D1DrawingStateDescription1.Create(AAntialiasMode: TD2D1AntialiasMode; ATextAntialiasMode: TD2D1TextAntialiasMode;
+  ATag1: TD2D1Tag; ATag2: TD2D1Tag; ATransform: TD2D1Matrix3x2F; APrimitiveBlend: D2D1_PRIMITIVE_BLEND;
+  AUnitMode: D2D1_UNIT_MODE): TD2D1DrawingStateDescription1;
+begin
+  Result.AntialiasMode      := AAntialiasMode;
+  Result.TextAntialiasMode  := ATextAntialiasMode;
+  Result.Tag1               := ATag1;
+  Result.Tag2               := ATag2;
+  Result.Transform          := ATransform;
+  Result.PrimitiveBlend     := APrimitiveBlend;
+  Result.UnitMode           := AUnitMode;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1DrawingStateDescription1.Create: TD2D1DrawingStateDescription1;
+begin
+  Result := TD2D1DrawingStateDescription1.Create(
+    D2D1_ANTIALIAS_MODE_PER_PRIMITIVE,
+    D2D1_TEXT_ANTIALIAS_MODE_DEFAULT,
+    0,
+    0,
+    TD2D1Matrix3x2F.Identity,
+    D2D1_PRIMITIVE_BLEND_SOURCE_OVER,
+    D2D1_UNIT_MODE_DIPS);
+end;
+
+{=========================================================================================================================================}
+{ TD2D1PrintControlProperties }
+{=========================================================================================================================================}
+class function TD2D1PrintControlProperties.Create(AFontSubset: TD2D1PrintFontSubsetMode; ARasterDPI: Single; AColorSpace: TD2D1ColorSpace): TD2D1PrintControlProperties;
+begin
+  Result.FontSubset := AFontSubset;
+  Result.RasterDPI  := ARasterDPI;
+  Result.ColorSpace := AColorSpace;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1CreationProperties }
+{=========================================================================================================================================}
+class function TD2D1CreationProperties.Create(AThreadingMode: TD2D1ThreadingMode; ADebugLevel: TD2D1DebugLevel; AOptions: TD2D1DeviceContextOptions): TD2D1CreationProperties;
+begin
+  Result.ThreadingMode  := AThreadingMode;
+  Result.DebugLevel     := ADebugLevel;
+  Result.Options        := AOptions;
+end;
+
+{$ENDREGION}
+
+{$REGION 'd2d1_2.h implementation'}
+{$ENDREGION}
 
 {$REGION 'DWRITE bit fields ...'}
 {=========================================================================================================================================}
