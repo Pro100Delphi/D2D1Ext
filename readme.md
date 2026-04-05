@@ -29,9 +29,16 @@
 	- dwrite_2.h
 	- dwrite_3.h
 
-- 07 Feb 2025 - beginning work on the library, collecting materials and first structure
-- 16 Feb 2025 - all types and interfaces were translated, helper structures were deleted
-- 05 Apr 2026 - fix missing params and directives, implement basic methods for TD2D1Point2F
+- 07 Feb 2025
+	- beginning work on the library, collecting materials and first structure
+
+- 16 Feb 2025
+    - all types and interfaces were translated, helper structures were deleted
+
+- 05 Apr 2026
+	- fix missing params and directives,
+	- implement basic methods for TD2D1Point2F
+	- implement Create-Methods with overloads for D2D1 structures
 	
 ### Translated by
 Pustowalow W.
