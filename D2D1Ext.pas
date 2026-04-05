@@ -9,23 +9,23 @@
   ### Source SDK library - "Windows Kits\10\Include\10.0.22621.0\um"
   - Included files:
     - DocumentTarget.h
+    - dcommon.h
+    - d2dbasetypes.h
+    - d2derr.h
     - d2d1.h
+    - d2d1helper.h
     - d2d1_1.h
     - d2d1_1helper.h
     - d2d1_2.h
     - d2d1_2helper.h
     - d2d1_3.h
     - d2d1_3helper.h
+    - d2d1effects.h
+    - d2d1effecthelpers.h
+    - d2d1effects_1.h
     - d2d1effectauthor.h
     - d2d1effectauthor_1.h
-    - d2d1effecthelpers.h
-    - d2d1effects.h
-    - d2d1effects_1.h
-    - d2d1helper.h
     - d2d1svg.h
-    - d2dbasetypes.h
-    - d2derr.h
-    - dcommon.h
     - dwrite.h
     - dwrite_1.h
     - dwrite_2.h
@@ -108,509 +108,509 @@ const
   D2D1_INTERPOLATION_MODE_DEFINITION_MIPMAP_LINEAR        = 7;
 
   // d2d1.h
-  IID_ID2D1Resource                 : TGUID = '{2cd90691-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1Image                    : TGUID = '{65019f75-8da2-497c-b32c-dfa34e48ede6}';
-  IID_ID2D1Bitmap                   : TGUID = '{a2296057-ea42-4099-983b-539fb6505426}';
-  IID_ID2D1GradientStopCollection   : TGUID = '{2cd906a7-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1Brush                    : TGUID = '{2cd906a8-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1BitmapBrush              : TGUID = '{2cd906aa-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1SolidColorBrush          : TGUID = '{2cd906a9-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1LinearGradientBrush      : TGUID = '{2cd906ab-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1RadialGradientBrush      : TGUID = '{2cd906ac-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1StrokeStyle              : TGUID = '{2cd9069d-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1Geometry                 : TGUID = '{2cd906a1-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1RectangleGeometry        : TGUID = '{2cd906a2-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1RoundedRectangleGeometry : TGUID = '{2cd906a3-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1EllipseGeometry          : TGUID = '{2cd906a4-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1GeometryGroup            : TGUID = '{2cd906a6-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1TransformedGeometry      : TGUID = '{2cd906bb-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1SimplifiedGeometrySink   : TGUID = '{2cd9069e-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1GeometrySink             : TGUID = '{2cd9069f-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1TessellationSink         : TGUID = '{2cd906c1-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1PathGeometry             : TGUID = '{2cd906a5-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1Mesh                     : TGUID = '{2cd906c2-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1Layer                    : TGUID = '{2cd9069b-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1DrawingStateBlock        : TGUID = '{28506e39-ebf6-46a1-bb47-fd85565ab957}';
-  IID_ID2D1RenderTarget             : TGUID = '{2cd90694-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1BitmapRenderTarget       : TGUID = '{2cd90695-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1HwndRenderTarget         : TGUID = '{2cd90698-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1GdiInteropRenderTarget   : TGUID = '{e0db51c3-6f77-4bae-b3d5-e47509b35838}';
-  IID_ID2D1DCRenderTarget           : TGUID = '{1c51bc64-de61-46fd-9899-63a5d8f03950}';
-  IID_ID2D1Factory                  : TGUID = '{06152247-6f50-465a-9245-118bfd3b6007}';
+  IID_ID2D1Resource                       : TGUID = '{2cd90691-12e2-11dc-9fed-001143a055f9}';
+  IID_ID2D1Image                          : TGUID = '{65019f75-8da2-497c-b32c-dfa34e48ede6}';
+  IID_ID2D1Bitmap                         : TGUID = '{a2296057-ea42-4099-983b-539fb6505426}';
+  IID_ID2D1GradientStopCollection         : TGUID = '{2cd906a7-12e2-11dc-9fed-001143a055f9}';
+  IID_ID2D1Brush                          : TGUID = '{2cd906a8-12e2-11dc-9fed-001143a055f9}';
+  IID_ID2D1BitmapBrush                    : TGUID = '{2cd906aa-12e2-11dc-9fed-001143a055f9}';
+  IID_ID2D1SolidColorBrush                : TGUID = '{2cd906a9-12e2-11dc-9fed-001143a055f9}';
+  IID_ID2D1LinearGradientBrush            : TGUID = '{2cd906ab-12e2-11dc-9fed-001143a055f9}';
+  IID_ID2D1RadialGradientBrush            : TGUID = '{2cd906ac-12e2-11dc-9fed-001143a055f9}';
+  IID_ID2D1StrokeStyle                    : TGUID = '{2cd9069d-12e2-11dc-9fed-001143a055f9}';
+  IID_ID2D1Geometry                       : TGUID = '{2cd906a1-12e2-11dc-9fed-001143a055f9}';
+  IID_ID2D1RectangleGeometry              : TGUID = '{2cd906a2-12e2-11dc-9fed-001143a055f9}';
+  IID_ID2D1RoundedRectangleGeometry       : TGUID = '{2cd906a3-12e2-11dc-9fed-001143a055f9}';
+  IID_ID2D1EllipseGeometry                : TGUID = '{2cd906a4-12e2-11dc-9fed-001143a055f9}';
+  IID_ID2D1GeometryGroup                  : TGUID = '{2cd906a6-12e2-11dc-9fed-001143a055f9}';
+  IID_ID2D1TransformedGeometry            : TGUID = '{2cd906bb-12e2-11dc-9fed-001143a055f9}';
+  IID_ID2D1SimplifiedGeometrySink         : TGUID = '{2cd9069e-12e2-11dc-9fed-001143a055f9}';
+  IID_ID2D1GeometrySink                   : TGUID = '{2cd9069f-12e2-11dc-9fed-001143a055f9}';
+  IID_ID2D1TessellationSink               : TGUID = '{2cd906c1-12e2-11dc-9fed-001143a055f9}';
+  IID_ID2D1PathGeometry                   : TGUID = '{2cd906a5-12e2-11dc-9fed-001143a055f9}';
+  IID_ID2D1Mesh                           : TGUID = '{2cd906c2-12e2-11dc-9fed-001143a055f9}';
+  IID_ID2D1Layer                          : TGUID = '{2cd9069b-12e2-11dc-9fed-001143a055f9}';
+  IID_ID2D1DrawingStateBlock              : TGUID = '{28506e39-ebf6-46a1-bb47-fd85565ab957}';
+  IID_ID2D1RenderTarget                   : TGUID = '{2cd90694-12e2-11dc-9fed-001143a055f9}';
+  IID_ID2D1BitmapRenderTarget             : TGUID = '{2cd90695-12e2-11dc-9fed-001143a055f9}';
+  IID_ID2D1HwndRenderTarget               : TGUID = '{2cd90698-12e2-11dc-9fed-001143a055f9}';
+  IID_ID2D1GdiInteropRenderTarget         : TGUID = '{e0db51c3-6f77-4bae-b3d5-e47509b35838}';
+  IID_ID2D1DCRenderTarget                 : TGUID = '{1c51bc64-de61-46fd-9899-63a5d8f03950}';
+  IID_ID2D1Factory                        : TGUID = '{06152247-6f50-465a-9245-118bfd3b6007}';
 
   // d2d1_1.h
-  IID_ID2D1GdiMetafileSink          : TGUID = '{82237326-8111-4f7c-bcf4-b5c1175564fe}';
-  IID_ID2D1GdiMetafile              : TGUID = '{2f543dc3-cfc1-4211-864f-cfd91c6f3395}';
-  IID_ID2D1CommandSink              : TGUID = '{54d7898a-a061-40a7-bec7-e465bcba2c4f}';
-  IID_ID2D1CommandList              : TGUID = '{b4f34a19-2383-4d76-94f6-ec343657c3dc}';
-  IID_ID2D1PrintControl             : TGUID = '{2c1d867d-c290-41c8-ae7e-34a98702e9a5}';
-  IID_ID2D1ImageBrush               : TGUID = '{fe9e984d-3f95-407c-b5db-cb94d4e8f87c}';
-  IID_ID2D1BitmapBrush1             : TGUID = '{41343a53-e41a-49a2-91cd-21793bbb62e5}';
-  IID_ID2D1StrokeStyle1             : TGUID = '{10a72a66-e91c-43f4-993f-ddf4b82b0b4a}';
-  IID_ID2D1PathGeometry1            : TGUID = '{62baa2d2-ab54-41b7-b872-787e0106a421}';
-  IID_ID2D1Properties               : TGUID = '{483473d7-cd46-4f9d-9d3a-3112aa80159d}';
-  IID_ID2D1Effect                   : TGUID = '{28211a43-7d89-476f-8181-2d6159b220ad}';
-  IID_ID2D1Bitmap1                  : TGUID = '{a898a84c-3873-4588-b08b-ebbf978df041}';
-  IID_ID2D1ColorContext             : TGUID = '{1c4820bb-5771-4518-a581-2fe4dd0ec657}';
-  IID_ID2D1GradientStopCollection1  : TGUID = '{ae1572f4-5dd0-4777-998b-9279472ae63b}';
-  IID_ID2D1DrawingStateBlock1       : TGUID = '{689f1f85-c72e-4e33-8f19-85754efd5ace}';
-  IID_ID2D1DeviceContext            : TGUID = '{e8f7fe7a-191c-466d-ad95-975678bda998}';
-  IID_ID2D1Device                   : TGUID = '{47dd575d-ac05-4cdd-8049-9b02cd16f44c}';
-  IID_ID2D1Factory1                 : TGUID = '{bb12d362-daee-4b9a-aa1d-14ba401cfa1f}';
-  IID_ID2D1Multithread              : TGUID = '{31e6e7bc-e0ff-4d46-8c64-a0a8c41c15d3}';
+  IID_ID2D1GdiMetafileSink                : TGUID = '{82237326-8111-4f7c-bcf4-b5c1175564fe}';
+  IID_ID2D1GdiMetafile                    : TGUID = '{2f543dc3-cfc1-4211-864f-cfd91c6f3395}';
+  IID_ID2D1CommandSink                    : TGUID = '{54d7898a-a061-40a7-bec7-e465bcba2c4f}';
+  IID_ID2D1CommandList                    : TGUID = '{b4f34a19-2383-4d76-94f6-ec343657c3dc}';
+  IID_ID2D1PrintControl                   : TGUID = '{2c1d867d-c290-41c8-ae7e-34a98702e9a5}';
+  IID_ID2D1ImageBrush                     : TGUID = '{fe9e984d-3f95-407c-b5db-cb94d4e8f87c}';
+  IID_ID2D1BitmapBrush1                   : TGUID = '{41343a53-e41a-49a2-91cd-21793bbb62e5}';
+  IID_ID2D1StrokeStyle1                   : TGUID = '{10a72a66-e91c-43f4-993f-ddf4b82b0b4a}';
+  IID_ID2D1PathGeometry1                  : TGUID = '{62baa2d2-ab54-41b7-b872-787e0106a421}';
+  IID_ID2D1Properties                     : TGUID = '{483473d7-cd46-4f9d-9d3a-3112aa80159d}';
+  IID_ID2D1Effect                         : TGUID = '{28211a43-7d89-476f-8181-2d6159b220ad}';
+  IID_ID2D1Bitmap1                        : TGUID = '{a898a84c-3873-4588-b08b-ebbf978df041}';
+  IID_ID2D1ColorContext                   : TGUID = '{1c4820bb-5771-4518-a581-2fe4dd0ec657}';
+  IID_ID2D1GradientStopCollection1        : TGUID = '{ae1572f4-5dd0-4777-998b-9279472ae63b}';
+  IID_ID2D1DrawingStateBlock1             : TGUID = '{689f1f85-c72e-4e33-8f19-85754efd5ace}';
+  IID_ID2D1DeviceContext                  : TGUID = '{e8f7fe7a-191c-466d-ad95-975678bda998}';
+  IID_ID2D1Device                         : TGUID = '{47dd575d-ac05-4cdd-8049-9b02cd16f44c}';
+  IID_ID2D1Factory1                       : TGUID = '{bb12d362-daee-4b9a-aa1d-14ba401cfa1f}';
+  IID_ID2D1Multithread                    : TGUID = '{31e6e7bc-e0ff-4d46-8c64-a0a8c41c15d3}';
 
   // d2d1_2.h
-  IID_ID2D1GeometryRealization      : TGUID = '{a16907d7-bc02-4801-99e8-8cf7f485f774}';
-  IID_ID2D1DeviceContext1           : TGUID = '{d37f57e4-6908-459f-a199-e72f24f79987}';
-  IID_ID2D1Device1                  : TGUID = '{d21768e1-23a4-4823-a14b-7c3eba85d658}';
-  IID_ID2D1Factory2                 : TGUID = '{94f81a73-9212-4376-9c58-b16a3a0d3992}';
-  IID_ID2D1CommandSink1             : TGUID = '{9eb767fd-4269-4467-b8c2-eb30cb305743}';
+  IID_ID2D1GeometryRealization            : TGUID = '{a16907d7-bc02-4801-99e8-8cf7f485f774}';
+  IID_ID2D1DeviceContext1                 : TGUID = '{d37f57e4-6908-459f-a199-e72f24f79987}';
+  IID_ID2D1Device1                        : TGUID = '{d21768e1-23a4-4823-a14b-7c3eba85d658}';
+  IID_ID2D1Factory2                       : TGUID = '{94f81a73-9212-4376-9c58-b16a3a0d3992}';
+  IID_ID2D1CommandSink1                   : TGUID = '{9eb767fd-4269-4467-b8c2-eb30cb305743}';
 
   // d2d1_3.h
-  IID_ID2D1InkStyle                 : TGUID = '{bae8b344-23fc-4071-8cb5-d05d6f073848}';
-  IID_ID2D1Ink                      : TGUID = '{b499923b-7029-478f-a8b3-432c7c5f5312}';
-  IID_ID2D1GradientMesh             : TGUID = '{f292e401-c050-4cde-83d7-04962d3b23c2}';
-  IID_ID2D1ImageSource              : TGUID = '{c9b664e5-74a1-4378-9ac2-eefc37a3f4d8}';
-  IID_ID2D1ImageSourceFromWic       : TGUID = '{77395441-1c8f-4555-8683-f50dab0fe792}';
-  IID_ID2D1TransformedImageSource   : TGUID = '{7f1f79e5-2796-416c-8f55-700f911445e5}';
-  IID_ID2D1LookupTable3D            : TGUID = '{53dd9855-a3b0-4d5b-82e1-26e25c5e5797}';
-  IID_ID2D1DeviceContext2           : TGUID = '{394ea6a3-0c34-4321-950b-6ca20f0be6c7}';
-  IID_ID2D1Device2                  : TGUID = '{a44472e1-8dfb-4e60-8492-6e2861c9ca8b}';
-  IID_ID2D1Factory3                 : TGUID = '{0869759f-4f00-413f-b03e-2bda45404d0f}';
-  IID_ID2D1CommandSink2             : TGUID = '{3bab440e-417e-47df-a2e2-bc0be6a00916}';
-  IID_ID2D1GdiMetafile1             : TGUID = '{2e69f9e8-dd3f-4bf9-95ba-c04f49d788df}';
-  IID_ID2D1GdiMetafileSink1         : TGUID = '{fd0ecb6b-91e6-411e-8655-395e760f91b4}';
-  IID_ID2D1SpriteBatch              : TGUID = '{4dc583bf-3a10-438a-8722-e9765224f1f1}';
-  IID_ID2D1DeviceContext3           : TGUID = '{235a7496-8351-414c-bcd4-6672ab2d8e00}';
-  IID_ID2D1Device3                  : TGUID = '{852f2087-802c-4037-ab60-ff2e7ee6fc01}';
-  IID_ID2D1Factory4                 : TGUID = '{bd4ec2d2-0662-4bee-ba8e-6f29f032e096}';
-  IID_ID2D1CommandSink3             : TGUID = '{18079135-4cf3-4868-bc8e-06067e6d242d}';
-  IID_ID2D1SvgGlyphStyle            : TGUID = '{af671749-d241-4db8-8e41-dcc2e5c1a438}';
-  IID_ID2D1DeviceContext4           : TGUID = '{8c427831-3d90-4476-b647-c4fae349e4db}';
-  IID_ID2D1Device4                  : TGUID = '{d7bdb159-5683-4a46-bc9c-72dc720b858b}';
-  IID_ID2D1Factory5                 : TGUID = '{c4349994-838e-4b0f-8cab-44997d9eeacc}';
-  IID_ID2D1CommandSink4             : TGUID = '{c78a6519-40d6-4218-b2de-beeeb744bb3e}';
-  IID_ID2D1ColorContext1            : TGUID = '{1ab42875-c57f-4be9-bd85-9cd78d6f55ee}';
-  IID_ID2D1DeviceContext5           : TGUID = '{7836d248-68cc-4df6-b9e8-de991bf62eb7}';
-  IID_ID2D1Device5                  : TGUID = '{d55ba0a4-6405-4694-aef5-08ee1a4358b4}';
-  IID_ID2D1Factory6                 : TGUID = '{f9976f46-f642-44c1-97ca-da32ea2a2635}';
-  IID_ID2D1CommandSink5             : TGUID = '{7047dd26-b1e7-44a7-959a-8349e2144fa8}';
-  IID_ID2D1DeviceContext6           : TGUID = '{985f7e37-4ed0-4a19-98a3-15b0edfde306}';
-  IID_ID2D1Device6                  : TGUID = '{7bfef914-2d75-4bad-be87-e18ddb077b6d}';
-  IID_ID2D1Factory7                 : TGUID = '{bdc2bdd3-b96c-4de6-bdf7-99d4745454de}';
+  IID_ID2D1InkStyle                       : TGUID = '{bae8b344-23fc-4071-8cb5-d05d6f073848}';
+  IID_ID2D1Ink                            : TGUID = '{b499923b-7029-478f-a8b3-432c7c5f5312}';
+  IID_ID2D1GradientMesh                   : TGUID = '{f292e401-c050-4cde-83d7-04962d3b23c2}';
+  IID_ID2D1ImageSource                    : TGUID = '{c9b664e5-74a1-4378-9ac2-eefc37a3f4d8}';
+  IID_ID2D1ImageSourceFromWic             : TGUID = '{77395441-1c8f-4555-8683-f50dab0fe792}';
+  IID_ID2D1TransformedImageSource         : TGUID = '{7f1f79e5-2796-416c-8f55-700f911445e5}';
+  IID_ID2D1LookupTable3D                  : TGUID = '{53dd9855-a3b0-4d5b-82e1-26e25c5e5797}';
+  IID_ID2D1DeviceContext2                 : TGUID = '{394ea6a3-0c34-4321-950b-6ca20f0be6c7}';
+  IID_ID2D1Device2                        : TGUID = '{a44472e1-8dfb-4e60-8492-6e2861c9ca8b}';
+  IID_ID2D1Factory3                       : TGUID = '{0869759f-4f00-413f-b03e-2bda45404d0f}';
+  IID_ID2D1CommandSink2                   : TGUID = '{3bab440e-417e-47df-a2e2-bc0be6a00916}';
+  IID_ID2D1GdiMetafile1                   : TGUID = '{2e69f9e8-dd3f-4bf9-95ba-c04f49d788df}';
+  IID_ID2D1GdiMetafileSink1               : TGUID = '{fd0ecb6b-91e6-411e-8655-395e760f91b4}';
+  IID_ID2D1SpriteBatch                    : TGUID = '{4dc583bf-3a10-438a-8722-e9765224f1f1}';
+  IID_ID2D1DeviceContext3                 : TGUID = '{235a7496-8351-414c-bcd4-6672ab2d8e00}';
+  IID_ID2D1Device3                        : TGUID = '{852f2087-802c-4037-ab60-ff2e7ee6fc01}';
+  IID_ID2D1Factory4                       : TGUID = '{bd4ec2d2-0662-4bee-ba8e-6f29f032e096}';
+  IID_ID2D1CommandSink3                   : TGUID = '{18079135-4cf3-4868-bc8e-06067e6d242d}';
+  IID_ID2D1SvgGlyphStyle                  : TGUID = '{af671749-d241-4db8-8e41-dcc2e5c1a438}';
+  IID_ID2D1DeviceContext4                 : TGUID = '{8c427831-3d90-4476-b647-c4fae349e4db}';
+  IID_ID2D1Device4                        : TGUID = '{d7bdb159-5683-4a46-bc9c-72dc720b858b}';
+  IID_ID2D1Factory5                       : TGUID = '{c4349994-838e-4b0f-8cab-44997d9eeacc}';
+  IID_ID2D1CommandSink4                   : TGUID = '{c78a6519-40d6-4218-b2de-beeeb744bb3e}';
+  IID_ID2D1ColorContext1                  : TGUID = '{1ab42875-c57f-4be9-bd85-9cd78d6f55ee}';
+  IID_ID2D1DeviceContext5                 : TGUID = '{7836d248-68cc-4df6-b9e8-de991bf62eb7}';
+  IID_ID2D1Device5                        : TGUID = '{d55ba0a4-6405-4694-aef5-08ee1a4358b4}';
+  IID_ID2D1Factory6                       : TGUID = '{f9976f46-f642-44c1-97ca-da32ea2a2635}';
+  IID_ID2D1CommandSink5                   : TGUID = '{7047dd26-b1e7-44a7-959a-8349e2144fa8}';
+  IID_ID2D1DeviceContext6                 : TGUID = '{985f7e37-4ed0-4a19-98a3-15b0edfde306}';
+  IID_ID2D1Device6                        : TGUID = '{7bfef914-2d75-4bad-be87-e18ddb077b6d}';
+  IID_ID2D1Factory7                       : TGUID = '{bdc2bdd3-b96c-4de6-bdf7-99d4745454de}';
 
   // dwrite
-  IID_IDWriteFontFileLoader         : TGUID = '{727cad4e-d6af-4c9e-8a08-d695b11caa49}';
-  IID_IDWriteLocalFontFileLoader    : TGUID = '{b2d9f3ec-c9fe-4a11-a2ec-d86208f7c0a2}';
-  IID_IDWriteFontFileStream         : TGUID = '{6d4865fe-0ab8-4d91-8f62-5dd6be34a3e0}';
-  IID_IDWriteFontFile               : TGUID = '{739d886a-cef5-47dc-8769-1a8b41bebbb0}';
-  IID_IDWriteRenderingParams        : TGUID = '{2f0da53a-2add-47cd-82ee-d9ec34688e75}';
-  IID_IDWriteFontFace               : TGUID = '{5f49804d-7024-4d43-bfa9-d25984f53849}';
-  IID_IDWriteFontCollectionLoader   : TGUID = '{cca920e4-52f0-492b-bfa8-29c72ee0a468}';
-  IID_IDWriteFontFileEnumerator     : TGUID = '{72755049-5ff7-435d-8348-4be97cfa6c7c}';
-  IID_IDWriteLocalizedStrings       : TGUID = '{08256209-099a-4b34-b86d-c22b110e7771}';
-  IID_IDWriteFontCollection         : TGUID = '{a84cee02-3eea-4eee-a827-87c1a02a0fcc}';
-  IID_IDWriteFontList               : TGUID = '{1a0d8438-1d97-4ec1-aef9-a2fb86ed6acb}';
-  IID_IDWriteFontFamily             : TGUID = '{da20d8ef-812a-4c43-9802-62ec4abd7add}';
-  IID_IDWriteFont                   : TGUID = '{acd16696-8c14-4f5d-877e-fe3fc1d32737}';
-  IID_IDWriteTextFormat             : TGUID = '{9c906818-31d7-4fd3-a151-7c5e225db55a}';
-  IID_IDWriteTypography             : TGUID = '{55f1112b-1dc2-4b3c-9541-f46894ed85b6}';
-  IID_IDWriteNumberSubstitution     : TGUID = '{14885cc9-bab0-4f90-b6ed-5c366a2cd03d}';
-  IID_IDWriteTextAnalysisSource     : TGUID = '{688e1a58-5094-47c8-adc8-fbcea60ae92b}';
-  IID_IDWriteTextAnalysisSink       : TGUID = '{5810cd44-0ca0-4701-b3fa-bec5182ae4f6}';
-  IID_IDWriteTextAnalyzer           : TGUID = '{b7e6163e-7f46-43b4-84b3-e4e6249c365d}';
-  IID_IDWriteInlineObject           : TGUID = '{8339fde3-106f-47ab-8373-1c6295eb10b3}';
-  IID_IDWritePixelSnapping          : TGUID = '{eaf3a2da-ecf4-4d24-b644-b34f6842024b}';
-  IID_IDWriteTextRenderer           : TGUID = '{ef8a8135-5cc6-45fe-8825-c5a0724eb819}';
-  IID_IDWriteTextLayout             : TGUID = '{53737037-6d14-410b-9bfe-0b182bb70961}';
-  IID_IDWriteBitmapRenderTarget     : TGUID = '{5e5a32a3-8dff-4773-9ff6-0696eab77267}';
-  IID_IDWriteGdiInterop             : TGUID = '{1edd9491-9853-4299-898f-6432983b6f3a}';
-  IID_IDWriteGlyphRunAnalysis       : TGUID = '{7d97dbf7-e085-42d4-81e3-6a883bded118}';
-  IID_IDWriteFactory                : TGUID = '{b859ee5a-d838-4b5b-a2e8-1adc7d93db48}';
+  IID_IDWriteFontFileLoader               : TGUID = '{727cad4e-d6af-4c9e-8a08-d695b11caa49}';
+  IID_IDWriteLocalFontFileLoader          : TGUID = '{b2d9f3ec-c9fe-4a11-a2ec-d86208f7c0a2}';
+  IID_IDWriteFontFileStream               : TGUID = '{6d4865fe-0ab8-4d91-8f62-5dd6be34a3e0}';
+  IID_IDWriteFontFile                     : TGUID = '{739d886a-cef5-47dc-8769-1a8b41bebbb0}';
+  IID_IDWriteRenderingParams              : TGUID = '{2f0da53a-2add-47cd-82ee-d9ec34688e75}';
+  IID_IDWriteFontFace                     : TGUID = '{5f49804d-7024-4d43-bfa9-d25984f53849}';
+  IID_IDWriteFontCollectionLoader         : TGUID = '{cca920e4-52f0-492b-bfa8-29c72ee0a468}';
+  IID_IDWriteFontFileEnumerator           : TGUID = '{72755049-5ff7-435d-8348-4be97cfa6c7c}';
+  IID_IDWriteLocalizedStrings             : TGUID = '{08256209-099a-4b34-b86d-c22b110e7771}';
+  IID_IDWriteFontCollection               : TGUID = '{a84cee02-3eea-4eee-a827-87c1a02a0fcc}';
+  IID_IDWriteFontList                     : TGUID = '{1a0d8438-1d97-4ec1-aef9-a2fb86ed6acb}';
+  IID_IDWriteFontFamily                   : TGUID = '{da20d8ef-812a-4c43-9802-62ec4abd7add}';
+  IID_IDWriteFont                         : TGUID = '{acd16696-8c14-4f5d-877e-fe3fc1d32737}';
+  IID_IDWriteTextFormat                   : TGUID = '{9c906818-31d7-4fd3-a151-7c5e225db55a}';
+  IID_IDWriteTypography                   : TGUID = '{55f1112b-1dc2-4b3c-9541-f46894ed85b6}';
+  IID_IDWriteNumberSubstitution           : TGUID = '{14885cc9-bab0-4f90-b6ed-5c366a2cd03d}';
+  IID_IDWriteTextAnalysisSource           : TGUID = '{688e1a58-5094-47c8-adc8-fbcea60ae92b}';
+  IID_IDWriteTextAnalysisSink             : TGUID = '{5810cd44-0ca0-4701-b3fa-bec5182ae4f6}';
+  IID_IDWriteTextAnalyzer                 : TGUID = '{b7e6163e-7f46-43b4-84b3-e4e6249c365d}';
+  IID_IDWriteInlineObject                 : TGUID = '{8339fde3-106f-47ab-8373-1c6295eb10b3}';
+  IID_IDWritePixelSnapping                : TGUID = '{eaf3a2da-ecf4-4d24-b644-b34f6842024b}';
+  IID_IDWriteTextRenderer                 : TGUID = '{ef8a8135-5cc6-45fe-8825-c5a0724eb819}';
+  IID_IDWriteTextLayout                   : TGUID = '{53737037-6d14-410b-9bfe-0b182bb70961}';
+  IID_IDWriteBitmapRenderTarget           : TGUID = '{5e5a32a3-8dff-4773-9ff6-0696eab77267}';
+  IID_IDWriteGdiInterop                   : TGUID = '{1edd9491-9853-4299-898f-6432983b6f3a}';
+  IID_IDWriteGlyphRunAnalysis             : TGUID = '{7d97dbf7-e085-42d4-81e3-6a883bded118}';
+  IID_IDWriteFactory                      : TGUID = '{b859ee5a-d838-4b5b-a2e8-1adc7d93db48}';
 
   // dwrite_1
-  IID_IDWriteFactory1               : TGUID = '{30572f99-dac6-41db-a16e-0486307e606a}';
-  IID_IDWriteFontFace1              : TGUID = '{a71efdb4-9fdb-4838-ad90-cfc3be8c3daf}';
-  IID_IDWriteFont1                  : TGUID = '{acd16696-8c14-4f5d-877e-fe3fc1d32738}';
-  IID_IDWriteRenderingParams1       : TGUID = '{94413cf4-a6fc-4248-8b50-6674348fcad3}';
-  IID_IDWriteTextAnalyzer1          : TGUID = '{80dad800-e21f-4e83-96ce-bfcce500db7c}';
-  IID_IDWriteTextAnalysisSource1    : TGUID = '{639cfad8-0fb4-4b21-a58a-067920120009}';
-  IID_IDWriteTextAnalysisSink1      : TGUID = '{b0d941a0-85e7-4d8b-9fd3-5ced9934482a}';
-  IID_IDWriteTextLayout1            : TGUID = '{9064d822-80a7-465c-a986-df65f78b8feb}';
-  IID_IDWriteBitmapRenderTarget1    : TGUID = '{791e8298-3ef3-4230-9880-c9bdecc42064}';
+  IID_IDWriteFactory1                     : TGUID = '{30572f99-dac6-41db-a16e-0486307e606a}';
+  IID_IDWriteFontFace1                    : TGUID = '{a71efdb4-9fdb-4838-ad90-cfc3be8c3daf}';
+  IID_IDWriteFont1                        : TGUID = '{acd16696-8c14-4f5d-877e-fe3fc1d32738}';
+  IID_IDWriteRenderingParams1             : TGUID = '{94413cf4-a6fc-4248-8b50-6674348fcad3}';
+  IID_IDWriteTextAnalyzer1                : TGUID = '{80dad800-e21f-4e83-96ce-bfcce500db7c}';
+  IID_IDWriteTextAnalysisSource1          : TGUID = '{639cfad8-0fb4-4b21-a58a-067920120009}';
+  IID_IDWriteTextAnalysisSink1            : TGUID = '{b0d941a0-85e7-4d8b-9fd3-5ced9934482a}';
+  IID_IDWriteTextLayout1                  : TGUID = '{9064d822-80a7-465c-a986-df65f78b8feb}';
+  IID_IDWriteBitmapRenderTarget1          : TGUID = '{791e8298-3ef3-4230-9880-c9bdecc42064}';
 
   // dwrite_2
-  IID_IDWriteTextRenderer1          : TGUID = '{d3e0e934-22a0-427e-aae4-7d9574b59db1}';
-  IID_IDWriteTextFormat1            : TGUID = '{5f174b49-0d8b-4cfb-8bca-f1cce9d06c67}';
-  IID_IDWriteTextLayout2            : TGUID = '{1093c18f-8d5e-43f0-b064-0917311b525e}';
-  IID_IDWriteTextAnalyzer2          : TGUID = '{553a9ff3-5693-4df7-b52b-74806f7f2eb9}';
-  IID_IDWriteFontFallback           : TGUID = '{efa008f9-f7a1-48bf-b05c-f224713cc0ff}';
-  IID_IDWriteFontFallbackBuilder    : TGUID = '{fd882d06-8aba-4fb8-b849-8be8b73e14de}';
-  IID_IDWriteFont2                  : TGUID = '{29748ed6-8c9c-4a6a-be0b-d912e8538944}';
-  IID_IDWriteFontFace2              : TGUID = '{d8b768ff-64bc-4e66-982b-ec8e87f693f7}';
-  IID_IDWriteColorGlyphRunEnumerator: TGUID = '{d31fbe17-f157-41a2-8d24-cb779e0560e8}';
-  IID_IDWriteRenderingParams2       : TGUID = '{f9d711c3-9777-40ae-87e8-3e5af9bf0948}';
-  IID_IDWriteFactory2               : TGUID = '{0439fc60-ca44-4994-8dee-3a9af7b732ec}';
+  IID_IDWriteTextRenderer1                : TGUID = '{d3e0e934-22a0-427e-aae4-7d9574b59db1}';
+  IID_IDWriteTextFormat1                  : TGUID = '{5f174b49-0d8b-4cfb-8bca-f1cce9d06c67}';
+  IID_IDWriteTextLayout2                  : TGUID = '{1093c18f-8d5e-43f0-b064-0917311b525e}';
+  IID_IDWriteTextAnalyzer2                : TGUID = '{553a9ff3-5693-4df7-b52b-74806f7f2eb9}';
+  IID_IDWriteFontFallback                 : TGUID = '{efa008f9-f7a1-48bf-b05c-f224713cc0ff}';
+  IID_IDWriteFontFallbackBuilder          : TGUID = '{fd882d06-8aba-4fb8-b849-8be8b73e14de}';
+  IID_IDWriteFont2                        : TGUID = '{29748ed6-8c9c-4a6a-be0b-d912e8538944}';
+  IID_IDWriteFontFace2                    : TGUID = '{d8b768ff-64bc-4e66-982b-ec8e87f693f7}';
+  IID_IDWriteColorGlyphRunEnumerator      : TGUID = '{d31fbe17-f157-41a2-8d24-cb779e0560e8}';
+  IID_IDWriteRenderingParams2             : TGUID = '{f9d711c3-9777-40ae-87e8-3e5af9bf0948}';
+  IID_IDWriteFactory2                     : TGUID = '{0439fc60-ca44-4994-8dee-3a9af7b732ec}';
 
   // dwrite_3
-  IID_IDWriteRenderingParams3       : TGUID = '{b7924baa-391b-412a-8c5c-e44cc2d867dc}';
-  IID_IDWriteFactory3               : TGUID = '{9a1b41c3-d3bb-466a-87fc-fe67556a3b65}';
-  IID_IDWriteFontSet                : TGUID = '{53585141-d9f8-4095-8321-d73cf6bd116b}';
-  IID_IDWriteFontSetBuilder         : TGUID = '{2f642afe-9c68-4f40-b8be-457401afcb3d}';
-  IID_IDWriteFontCollection1        : TGUID = '{53585141-d9f8-4095-8321-d73cf6bd116c}';
-  IID_IDWriteFontFamily1            : TGUID = '{da20d8ef-812a-4c43-9802-62ec4abd7adf}';
-  IID_IDWriteFontList1              : TGUID = '{da20d8ef-812a-4c43-9802-62ec4abd7ade}';
-  IID_IDWriteFontFaceReference      : TGUID = '{5e7fa7ca-dde3-424c-89f0-9fcd6fed58cd}';
-  IID_IDWriteFont3                  : TGUID = '{29748ed6-8c9c-4a6a-be0b-d912e8538944}';
-  IID_IDWriteFontFace3              : TGUID = '{d37d7598-09be-4222-a236-2081341cc1f2}';
-  IID_IDWriteStringList             : TGUID = '{cfee3140-1157-47ca-8b85-31bfcf3f2d0e}';
-  IID_IDWriteFontDownloadListener   : TGUID = '{b06fe5b9-43ec-4393-881b-dbe4dc72fda7}';
-  IID_IDWriteFontDownloadQueue      : TGUID = '{b71e6052-5aea-4fa3-832e-f60d431f7e91}';
-  IID_IDWriteGdiInterop1            : TGUID = '{4556be70-3abd-4f70-90be-421780a6f515}';
-  IID_IDWriteTextFormat2            : TGUID = '{f67e0edd-9e3d-4ecc-8c32-4183253dfe70}';
-  IID_IDWriteTextLayout3            : TGUID = '{07ddcd52-020e-4de8-ac33-6c953d83f92d}';
-  IID_IDWriteColorGlyphRunEnumerator1: TGUID = '{7c5f86da-c7a1-4f05-b8e1-55a179fe5a35}';
-  IID_IDWriteFontFace4              : TGUID = '{27f2a904-4eb8-441d-9678-0563f53e3e2f}';
-  IID_IDWriteFactory4               : TGUID = '{4b0b5bd3-0797-4549-8ac5-fe915cc53856}';
-  IID_IDWriteFontSetBuilder1        : TGUID = '{3ff7715f-3cdc-4dc6-9b72-ec5621dccafd}';
-  IID_IDWriteAsyncResult            : TGUID = '{ce25f8fd-863b-4d13-9651-c1f88dc73fe2}';
-  IID_IDWriteRemoteFontFileStream   : TGUID = '{4db3757a-2c72-4ed9-b2b6-1ababe1aff9c}';
-  IID_IDWriteRemoteFontFileLoader   : TGUID = '{68648c83-6ede-46c0-ab46-20083a887fde}';
-  IID_IDWriteInMemoryFontFileLoader : TGUID = '{dc102f47-a12d-4b1c-822d-9e117e33043f}';
-  IID_IDWriteFactory5               : TGUID = '{958db99a-be2a-4f09-af7d-65189803d1d3}';
-  IID_IDWriteFactory6               : TGUID = '{f3744d80-21f7-42eb-b35d-995bc72fc223}';
-  IID_IDWriteFontFace5              : TGUID = '{98eff3a5-b667-479a-b145-e2fa5b9fdc29}';
-  IID_IDWriteFontResource           : TGUID = '{1f803a76-6871-48e8-987f-b975551c50f2}';
-  IID_IDWriteFontFaceReference1     : TGUID = '{c081fe77-2fd1-41ac-a5a3-34983c4ba61a}';
-  IID_IDWriteFontSetBuilder2        : TGUID = '{ee5ba612-b131-463c-8f4f-3189b9401e45}';
-  IID_IDWriteFontSet1               : TGUID = '{7e9fda85-6c92-4053-bc47-7ae3530db4d3}';
-  IID_IDWriteFontList2              : TGUID = '{c0763a34-77af-445a-b735-08c37b0a5bf5}';
-  IID_IDWriteFontFamily2            : TGUID = '{3ed49e77-a398-4261-b9cf-c126c2131ef3}';
-  IID_IDWriteFontCollection2        : TGUID = '{514039c6-4617-4064-bf8b-92ea83e506e0}';
-  IID_IDWriteTextLayout4            : TGUID = '{05a9bf42-223f-4441-b5fb-8263685f55e9}';
-  IID_IDWriteTextFormat3            : TGUID = '{6d3b5641-e550-430d-a85b-b7bf48a93427}';
-  IID_IDWriteFontFallback1          : TGUID = '{2397599d-dd0d-4681-bd6a-f4f31eaade77}';
-  IID_IDWriteFontSet2               : TGUID = '{dc7ead19-e54c-43af-b2da-4e2b79ba3f7f}';
-  IID_IDWriteFontCollection3        : TGUID = '{a4d055a6-f9e3-4e25-93b7-9e309f3af8e9}';
-  IID_IDWriteFactory7               : TGUID = '{35d0e0b3-9076-4d2e-a016-a91b568a06b4}';
-  IID_IDWriteFontSet3               : TGUID = '{7c073ef2-a7f4-4045-8c32-8ab8ae640f90}';
-  IID_IDWriteFontFace6              : TGUID = '{c4b1fe1b-6e84-47d5-b54c-a597981b06ad}';
-
-  // d2d1effects.h
-  CLSID_D2D12DAffineTransform       : TGUID = '{6aa97485-6354-4cfc-908c-e4a74f62c96c}';
-  CLSID_D2D13DPerspectiveTransform  : TGUID = '{c2844d0b-3d86-46e7-85ba-526c9240f3fb}';
-  CLSID_D2D13DTransform             : TGUID = '{e8467b04-ec61-4b8a-b5de-d4d73debea5a}';
-  CLSID_D2D1ArithmeticComposite     : TGUID = '{fc151437-049a-4784-a24a-f1c4daf20987}';
-  CLSID_D2D1Atlas                   : TGUID = '{913e2be4-fdcf-4fe2-a5f0-2454f14ff408}';
-  CLSID_D2D1BitmapSource            : TGUID = '{5fb6c24d-c6dd-4231-9404-50f4d5c3252d}';
-  CLSID_D2D1Blend                   : TGUID = '{81c5b77b-13f8-4cdd-ad20-c890547ac65d}';
-  CLSID_D2D1Border                  : TGUID = '{2a2d49c0-4acf-43c7-8c6a-7c4a27874d27}';
-  CLSID_D2D1Brightness              : TGUID = '{8cea8d1e-77b0-4986-b3b9-2f0c0eae7887}';
-  CLSID_D2D1ColorManagement         : TGUID = '{1a28524c-fdd6-4aa4-ae8f-837eb8267b37}';
-  CLSID_D2D1ColorMatrix             : TGUID = '{921f03d6-641c-47df-852d-b4bb6153ae11}';
-  CLSID_D2D1Composite               : TGUID = '{48fc9f51-f6ac-48f1-8b58-3b28ac46f76d}';
-  CLSID_D2D1ConvolveMatrix          : TGUID = '{407f8c08-5533-4331-a341-23cc3877843e}';
-  CLSID_D2D1Crop                    : TGUID = '{e23f7110-0e9a-4324-af47-6a2c0c46f35b}';
-  CLSID_D2D1DirectionalBlur         : TGUID = '{174319a6-58e9-49b2-bb63-caf2c811a3db}';
-  CLSID_D2D1DiscreteTransfer        : TGUID = '{90866fcd-488e-454b-af06-e5041b66c36c}';
-  CLSID_D2D1DisplacementMap         : TGUID = '{edc48364-0417-4111-9450-43845fa9f890}';
-  CLSID_D2D1DistantDiffuse          : TGUID = '{3e7efd62-a32d-46d4-a83c-5278889ac954}';
-  CLSID_D2D1DistantSpecular         : TGUID = '{428c1ee5-77b8-4450-8ab5-72219c21abda}';
-  CLSID_D2D1DpiCompensation         : TGUID = '{6c26c5c7-34e0-46fc-9cfd-e5823706e228}';
-  CLSID_D2D1Flood                   : TGUID = '{61c23c20-ae69-4d8e-94cf-50078df638f2}';
-  CLSID_D2D1GammaTransfer           : TGUID = '{409444c4-c419-41a0-b0c1-8cd0c0a18e42}';
-  CLSID_D2D1GaussianBlur            : TGUID = '{1feb6d69-2fe6-4ac9-8c58-1d7f93e7a6a5}';
-  CLSID_D2D1Scale                   : TGUID = '{9daf9369-3846-4d0e-a44e-0c607934a5d7}';
-  CLSID_D2D1Histogram               : TGUID = '{881db7d0-f7ee-4d4d-a6d2-4697acc66ee8}';
-  CLSID_D2D1HueRotation             : TGUID = '{0f4458ec-4b32-491b-9e85-bd73f44d3eb6}';
-  CLSID_D2D1LinearTransfer          : TGUID = '{ad47c8fd-63ef-4acc-9b51-67979c036c06}';
-  CLSID_D2D1LuminanceToAlpha        : TGUID = '{41251ab7-0beb-46f8-9da7-59e93fcce5de}';
-  CLSID_D2D1Morphology              : TGUID = '{eae6c40d-626a-4c2d-bfcb-391001abe202}';
-  CLSID_D2D1OpacityMetadata         : TGUID = '{6c53006a-4450-4199-aa5b-ad1656fece5e}';
-  CLSID_D2D1PointDiffuse            : TGUID = '{b9e303c3-c08c-4f91-8b7b-38656bc48c20}';
-  CLSID_D2D1PointSpecular           : TGUID = '{09c3ca26-3ae2-4f09-9ebc-ed3865d53f22}';
-  CLSID_D2D1Premultiply             : TGUID = '{06eab419-deed-4018-80d2-3e1d471adeb2}';
-  CLSID_D2D1Saturation              : TGUID = '{5cb2d9cf-327d-459f-a0ce-40c0b2086bf7}';
-  CLSID_D2D1Shadow                  : TGUID = '{c67ea361-1863-4e69-89db-695d3e9a5b6b}';
-  CLSID_D2D1SpotDiffuse             : TGUID = '{818a1105-7932-44f4-aa86-08ae7b2f2c93}';
-  CLSID_D2D1SpotSpecular            : TGUID = '{edae421e-7654-4a37-9db8-71acc1beb3c1}';
-  CLSID_D2D1TableTransfer           : TGUID = '{5bf818c3-5e43-48cb-b631-868396d6a1d4}';
-  CLSID_D2D1Tile                    : TGUID = '{b0784138-3b76-4bc5-b13b-0fa2ad02659f}';
-  CLSID_D2D1Turbulence              : TGUID = '{cf2bb6ae-889a-4ad7-ba29-a2fd732c9fc9}';
-  CLSID_D2D1UnPremultiply           : TGUID = '{fb9ac489-ad8d-41ed-9999-bb6347d110f7}';
-
-  // d2d1effects_1.h
-  CLSID_D2D1YCbCr                   : TGUID = '{99503cc1-66c7-45c9-a875-8ad8a7914401}';
+  IID_IDWriteRenderingParams3             : TGUID = '{b7924baa-391b-412a-8c5c-e44cc2d867dc}';
+  IID_IDWriteFactory3                     : TGUID = '{9a1b41c3-d3bb-466a-87fc-fe67556a3b65}';
+  IID_IDWriteFontSet                      : TGUID = '{53585141-d9f8-4095-8321-d73cf6bd116b}';
+  IID_IDWriteFontSetBuilder               : TGUID = '{2f642afe-9c68-4f40-b8be-457401afcb3d}';
+  IID_IDWriteFontCollection1              : TGUID = '{53585141-d9f8-4095-8321-d73cf6bd116c}';
+  IID_IDWriteFontFamily1                  : TGUID = '{da20d8ef-812a-4c43-9802-62ec4abd7adf}';
+  IID_IDWriteFontList1                    : TGUID = '{da20d8ef-812a-4c43-9802-62ec4abd7ade}';
+  IID_IDWriteFontFaceReference            : TGUID = '{5e7fa7ca-dde3-424c-89f0-9fcd6fed58cd}';
+  IID_IDWriteFont3                        : TGUID = '{29748ed6-8c9c-4a6a-be0b-d912e8538944}';
+  IID_IDWriteFontFace3                    : TGUID = '{d37d7598-09be-4222-a236-2081341cc1f2}';
+  IID_IDWriteStringList                   : TGUID = '{cfee3140-1157-47ca-8b85-31bfcf3f2d0e}';
+  IID_IDWriteFontDownloadListener         : TGUID = '{b06fe5b9-43ec-4393-881b-dbe4dc72fda7}';
+  IID_IDWriteFontDownloadQueue            : TGUID = '{b71e6052-5aea-4fa3-832e-f60d431f7e91}';
+  IID_IDWriteGdiInterop1                  : TGUID = '{4556be70-3abd-4f70-90be-421780a6f515}';
+  IID_IDWriteTextFormat2                  : TGUID = '{f67e0edd-9e3d-4ecc-8c32-4183253dfe70}';
+  IID_IDWriteTextLayout3                  : TGUID = '{07ddcd52-020e-4de8-ac33-6c953d83f92d}';
+  IID_IDWriteColorGlyphRunEnumerator1     : TGUID = '{7c5f86da-c7a1-4f05-b8e1-55a179fe5a35}';
+  IID_IDWriteFontFace4                    : TGUID = '{27f2a904-4eb8-441d-9678-0563f53e3e2f}';
+  IID_IDWriteFactory4                     : TGUID = '{4b0b5bd3-0797-4549-8ac5-fe915cc53856}';
+  IID_IDWriteFontSetBuilder1              : TGUID = '{3ff7715f-3cdc-4dc6-9b72-ec5621dccafd}';
+  IID_IDWriteAsyncResult                  : TGUID = '{ce25f8fd-863b-4d13-9651-c1f88dc73fe2}';
+  IID_IDWriteRemoteFontFileStream         : TGUID = '{4db3757a-2c72-4ed9-b2b6-1ababe1aff9c}';
+  IID_IDWriteRemoteFontFileLoader         : TGUID = '{68648c83-6ede-46c0-ab46-20083a887fde}';
+  IID_IDWriteInMemoryFontFileLoader       : TGUID = '{dc102f47-a12d-4b1c-822d-9e117e33043f}';
+  IID_IDWriteFactory5                     : TGUID = '{958db99a-be2a-4f09-af7d-65189803d1d3}';
+  IID_IDWriteFactory6                     : TGUID = '{f3744d80-21f7-42eb-b35d-995bc72fc223}';
+  IID_IDWriteFontFace5                    : TGUID = '{98eff3a5-b667-479a-b145-e2fa5b9fdc29}';
+  IID_IDWriteFontResource                 : TGUID = '{1f803a76-6871-48e8-987f-b975551c50f2}';
+  IID_IDWriteFontFaceReference1           : TGUID = '{c081fe77-2fd1-41ac-a5a3-34983c4ba61a}';
+  IID_IDWriteFontSetBuilder2              : TGUID = '{ee5ba612-b131-463c-8f4f-3189b9401e45}';
+  IID_IDWriteFontSet1                     : TGUID = '{7e9fda85-6c92-4053-bc47-7ae3530db4d3}';
+  IID_IDWriteFontList2                    : TGUID = '{c0763a34-77af-445a-b735-08c37b0a5bf5}';
+  IID_IDWriteFontFamily2                  : TGUID = '{3ed49e77-a398-4261-b9cf-c126c2131ef3}';
+  IID_IDWriteFontCollection2              : TGUID = '{514039c6-4617-4064-bf8b-92ea83e506e0}';
+  IID_IDWriteTextLayout4                  : TGUID = '{05a9bf42-223f-4441-b5fb-8263685f55e9}';
+  IID_IDWriteTextFormat3                  : TGUID = '{6d3b5641-e550-430d-a85b-b7bf48a93427}';
+  IID_IDWriteFontFallback1                : TGUID = '{2397599d-dd0d-4681-bd6a-f4f31eaade77}';
+  IID_IDWriteFontSet2                     : TGUID = '{dc7ead19-e54c-43af-b2da-4e2b79ba3f7f}';
+  IID_IDWriteFontCollection3              : TGUID = '{a4d055a6-f9e3-4e25-93b7-9e309f3af8e9}';
+  IID_IDWriteFactory7                     : TGUID = '{35d0e0b3-9076-4d2e-a016-a91b568a06b4}';
+  IID_IDWriteFontSet3                     : TGUID = '{7c073ef2-a7f4-4045-8c32-8ab8ae640f90}';
+  IID_IDWriteFontFace6                    : TGUID = '{c4b1fe1b-6e84-47d5-b54c-a597981b06ad}';
 
   // d2d1effectauthor.h
-  IID_ID2D1VertexBuffer             : TGUID = '{9b8b1336-00a5-4668-92b7-ced5d8bf9b7b}';
-  IID_ID2D1ResourceTexture          : TGUID = '{688d15c3-02b0-438d-b13a-d1b44c32c39a}';
-  IID_ID2D1RenderInfo               : TGUID = '{519ae1bd-d19a-420d-b849-364f594776b7}';
-  IID_ID2D1DrawInfo                 : TGUID = '{693ce632-7f2f-45de-93fe-18d88b37aa21}';
-  IID_ID2D1ComputeInfo              : TGUID = '{5598b14b-9fd7-48b7-9bdb-8f0964eb38bc}';
-  IID_ID2D1TransformNode            : TGUID = '{b2efe1e7-729f-4102-949f-505fa21bf666}';
-  IID_ID2D1TransformGraph           : TGUID = '{13d29038-c3e6-4034-9081-13b53a417992}';
-  IID_ID2D1Transform                : TGUID = '{ef1a287d-342a-4f76-8fdb-da0d6ea9f92b}';
-  IID_ID2D1DrawTransform            : TGUID = '{36bfdcb6-9739-435d-a30d-a653beff6a6f}';
-  IID_ID2D1ComputeTransform         : TGUID = '{0d85573c-01e3-4f7d-bfd9-0d60608bf3c3}';
-  IID_ID2D1AnalysisTransform        : TGUID = '{0359dc30-95e6-4568-9055-27720d130e93}';
-  IID_ID2D1SourceTransform          : TGUID = '{db1800dd-0c34-4cf9-be90-31cc0a5653e1}';
-  IID_ID2D1ConcreteTransform        : TGUID = '{1a799d8a-69f7-4e4c-9fed-437ccc6684cc}';
-  IID_ID2D1BlendTransform           : TGUID = '{63ac0b32-ba44-450f-8806-7f4ca1ff2f1b}';
-  IID_ID2D1BorderTransform          : TGUID = '{4998735c-3a19-473c-9781-656847e3a347}';
-  IID_ID2D1OffsetTransform          : TGUID = '{3fe6adea-7643-4f53-bd14-a0ce63f24042}';
-  IID_ID2D1BoundsAdjustmentTransform : TGUID = '{90f732e2-5092-4606-a819-8651970baccd}';
-  IID_ID2D1EffectImpl               : TGUID = '{a248fd3f-3e6c-4e63-9f03-7f68ecc91db9}';
-  IID_ID2D1EffectContext            : TGUID = '{3d9f916b-27dc-4ad7-b4f1-64945340f563}';
+  IID_ID2D1VertexBuffer                   : TGUID = '{9b8b1336-00a5-4668-92b7-ced5d8bf9b7b}';
+  IID_ID2D1ResourceTexture                : TGUID = '{688d15c3-02b0-438d-b13a-d1b44c32c39a}';
+  IID_ID2D1RenderInfo                     : TGUID = '{519ae1bd-d19a-420d-b849-364f594776b7}';
+  IID_ID2D1DrawInfo                       : TGUID = '{693ce632-7f2f-45de-93fe-18d88b37aa21}';
+  IID_ID2D1ComputeInfo                    : TGUID = '{5598b14b-9fd7-48b7-9bdb-8f0964eb38bc}';
+  IID_ID2D1TransformNode                  : TGUID = '{b2efe1e7-729f-4102-949f-505fa21bf666}';
+  IID_ID2D1TransformGraph                 : TGUID = '{13d29038-c3e6-4034-9081-13b53a417992}';
+  IID_ID2D1Transform                      : TGUID = '{ef1a287d-342a-4f76-8fdb-da0d6ea9f92b}';
+  IID_ID2D1DrawTransform                  : TGUID = '{36bfdcb6-9739-435d-a30d-a653beff6a6f}';
+  IID_ID2D1ComputeTransform               : TGUID = '{0d85573c-01e3-4f7d-bfd9-0d60608bf3c3}';
+  IID_ID2D1AnalysisTransform              : TGUID = '{0359dc30-95e6-4568-9055-27720d130e93}';
+  IID_ID2D1SourceTransform                : TGUID = '{db1800dd-0c34-4cf9-be90-31cc0a5653e1}';
+  IID_ID2D1ConcreteTransform              : TGUID = '{1a799d8a-69f7-4e4c-9fed-437ccc6684cc}';
+  IID_ID2D1BlendTransform                 : TGUID = '{63ac0b32-ba44-450f-8806-7f4ca1ff2f1b}';
+  IID_ID2D1BorderTransform                : TGUID = '{4998735c-3a19-473c-9781-656847e3a347}';
+  IID_ID2D1OffsetTransform                : TGUID = '{3fe6adea-7643-4f53-bd14-a0ce63f24042}';
+  IID_ID2D1BoundsAdjustmentTransform      : TGUID = '{90f732e2-5092-4606-a819-8651970baccd}';
+  IID_ID2D1EffectImpl                     : TGUID = '{a248fd3f-3e6c-4e63-9f03-7f68ecc91db9}';
+  IID_ID2D1EffectContext                  : TGUID = '{3d9f916b-27dc-4ad7-b4f1-64945340f563}';
 
   // d2d1effectauthor_1.h
-  IID_ID2D1EffectContext1           : TGUID = '{84ab595a-fc81-4546-bacd-e8ef4d8abe7a}';
-  IID_ID2D1EffectContext2           : TGUID = '{577ad2a0-9fc7-4dda-8b18-dab810140052}';
+  IID_ID2D1EffectContext1                 : TGUID = '{84ab595a-fc81-4546-bacd-e8ef4d8abe7a}';
+  IID_ID2D1EffectContext2                 : TGUID = '{577ad2a0-9fc7-4dda-8b18-dab810140052}';
 
   // d2d1svg.h
-  IID_ID2D1SvgAttribute             : TGUID = '{c9cdb0dd-f8c9-4e70-b7c2-301c80292c5e}';
-  IID_ID2D1SvgPaint                 : TGUID = '{d59bab0a-68a2-455b-a5dc-9eb2854e2490}';
-  IID_ID2D1SvgStrokeDashArray       : TGUID = '{f1c0ca52-92a3-4f00-b4ce-f35691efd9d9}';
-  IID_ID2D1SvgPointCollection       : TGUID = '{9dbe4c0d-3572-4dd9-9825-5530813bb712}';
-  IID_ID2D1SvgPathData              : TGUID = '{c095e4f4-bb98-43d6-9745-4d1b84ec9888}';
-  IID_ID2D1SvgElement               : TGUID = '{ac7b67a6-183e-49c1-a823-0ebe40b0db29}';
-  IID_ID2D1SvgDocument              : TGUID = '{86b88e4d-afa4-4d7b-88e4-68a51c4a0aec}';
+  IID_ID2D1SvgAttribute                   : TGUID = '{c9cdb0dd-f8c9-4e70-b7c2-301c80292c5e}';
+  IID_ID2D1SvgPaint                       : TGUID = '{d59bab0a-68a2-455b-a5dc-9eb2854e2490}';
+  IID_ID2D1SvgStrokeDashArray             : TGUID = '{f1c0ca52-92a3-4f00-b4ce-f35691efd9d9}';
+  IID_ID2D1SvgPointCollection             : TGUID = '{9dbe4c0d-3572-4dd9-9825-5530813bb712}';
+  IID_ID2D1SvgPathData                    : TGUID = '{c095e4f4-bb98-43d6-9745-4d1b84ec9888}';
+  IID_ID2D1SvgElement                     : TGUID = '{ac7b67a6-183e-49c1-a823-0ebe40b0db29}';
+  IID_ID2D1SvgDocument                    : TGUID = '{86b88e4d-afa4-4d7b-88e4-68a51c4a0aec}';
 
   // DocumentTarget.h
-  IID_IPrintDocumentPackageTarget       : TGUID = '{1b8efec4-3019-4c27-964e-367202156906}';
-  IID_IPrintDocumentPackageTarget2      : TGUID = '{c560298a-535c-48f9-866a-632540660cb4}';
-  IID_IPrintDocumentPackageStatusEvent  : TGUID = '{ed90c8ad-5c34-4d05-a1ec-0e8a9b3ad7af}';
-  IID_IPrintDocumentPackageTargetFactory: TGUID = '{d2959bf7-b31b-4a3d-9600-712eb1335ba4}';
+  IID_IPrintDocumentPackageTarget         : TGUID = '{1b8efec4-3019-4c27-964e-367202156906}';
+  IID_IPrintDocumentPackageTarget2        : TGUID = '{c560298a-535c-48f9-866a-632540660cb4}';
+  IID_IPrintDocumentPackageStatusEvent    : TGUID = '{ed90c8ad-5c34-4d05-a1ec-0e8a9b3ad7af}';
+  IID_IPrintDocumentPackageTargetFactory  : TGUID = '{d2959bf7-b31b-4a3d-9600-712eb1335ba4}';
+
+  // d2d1effects.h
+  CLSID_D2D12DAffineTransform             : TGUID = '{6aa97485-6354-4cfc-908c-e4a74f62c96c}';
+  CLSID_D2D13DPerspectiveTransform        : TGUID = '{c2844d0b-3d86-46e7-85ba-526c9240f3fb}';
+  CLSID_D2D13DTransform                   : TGUID = '{e8467b04-ec61-4b8a-b5de-d4d73debea5a}';
+  CLSID_D2D1ArithmeticComposite           : TGUID = '{fc151437-049a-4784-a24a-f1c4daf20987}';
+  CLSID_D2D1Atlas                         : TGUID = '{913e2be4-fdcf-4fe2-a5f0-2454f14ff408}';
+  CLSID_D2D1BitmapSource                  : TGUID = '{5fb6c24d-c6dd-4231-9404-50f4d5c3252d}';
+  CLSID_D2D1Blend                         : TGUID = '{81c5b77b-13f8-4cdd-ad20-c890547ac65d}';
+  CLSID_D2D1Border                        : TGUID = '{2a2d49c0-4acf-43c7-8c6a-7c4a27874d27}';
+  CLSID_D2D1Brightness                    : TGUID = '{8cea8d1e-77b0-4986-b3b9-2f0c0eae7887}';
+  CLSID_D2D1ColorManagement               : TGUID = '{1a28524c-fdd6-4aa4-ae8f-837eb8267b37}';
+  CLSID_D2D1ColorMatrix                   : TGUID = '{921f03d6-641c-47df-852d-b4bb6153ae11}';
+  CLSID_D2D1Composite                     : TGUID = '{48fc9f51-f6ac-48f1-8b58-3b28ac46f76d}';
+  CLSID_D2D1ConvolveMatrix                : TGUID = '{407f8c08-5533-4331-a341-23cc3877843e}';
+  CLSID_D2D1Crop                          : TGUID = '{e23f7110-0e9a-4324-af47-6a2c0c46f35b}';
+  CLSID_D2D1DirectionalBlur               : TGUID = '{174319a6-58e9-49b2-bb63-caf2c811a3db}';
+  CLSID_D2D1DiscreteTransfer              : TGUID = '{90866fcd-488e-454b-af06-e5041b66c36c}';
+  CLSID_D2D1DisplacementMap               : TGUID = '{edc48364-0417-4111-9450-43845fa9f890}';
+  CLSID_D2D1DistantDiffuse                : TGUID = '{3e7efd62-a32d-46d4-a83c-5278889ac954}';
+  CLSID_D2D1DistantSpecular               : TGUID = '{428c1ee5-77b8-4450-8ab5-72219c21abda}';
+  CLSID_D2D1DpiCompensation               : TGUID = '{6c26c5c7-34e0-46fc-9cfd-e5823706e228}';
+  CLSID_D2D1Flood                         : TGUID = '{61c23c20-ae69-4d8e-94cf-50078df638f2}';
+  CLSID_D2D1GammaTransfer                 : TGUID = '{409444c4-c419-41a0-b0c1-8cd0c0a18e42}';
+  CLSID_D2D1GaussianBlur                  : TGUID = '{1feb6d69-2fe6-4ac9-8c58-1d7f93e7a6a5}';
+  CLSID_D2D1Scale                         : TGUID = '{9daf9369-3846-4d0e-a44e-0c607934a5d7}';
+  CLSID_D2D1Histogram                     : TGUID = '{881db7d0-f7ee-4d4d-a6d2-4697acc66ee8}';
+  CLSID_D2D1HueRotation                   : TGUID = '{0f4458ec-4b32-491b-9e85-bd73f44d3eb6}';
+  CLSID_D2D1LinearTransfer                : TGUID = '{ad47c8fd-63ef-4acc-9b51-67979c036c06}';
+  CLSID_D2D1LuminanceToAlpha              : TGUID = '{41251ab7-0beb-46f8-9da7-59e93fcce5de}';
+  CLSID_D2D1Morphology                    : TGUID = '{eae6c40d-626a-4c2d-bfcb-391001abe202}';
+  CLSID_D2D1OpacityMetadata               : TGUID = '{6c53006a-4450-4199-aa5b-ad1656fece5e}';
+  CLSID_D2D1PointDiffuse                  : TGUID = '{b9e303c3-c08c-4f91-8b7b-38656bc48c20}';
+  CLSID_D2D1PointSpecular                 : TGUID = '{09c3ca26-3ae2-4f09-9ebc-ed3865d53f22}';
+  CLSID_D2D1Premultiply                   : TGUID = '{06eab419-deed-4018-80d2-3e1d471adeb2}';
+  CLSID_D2D1Saturation                    : TGUID = '{5cb2d9cf-327d-459f-a0ce-40c0b2086bf7}';
+  CLSID_D2D1Shadow                        : TGUID = '{c67ea361-1863-4e69-89db-695d3e9a5b6b}';
+  CLSID_D2D1SpotDiffuse                   : TGUID = '{818a1105-7932-44f4-aa86-08ae7b2f2c93}';
+  CLSID_D2D1SpotSpecular                  : TGUID = '{edae421e-7654-4a37-9db8-71acc1beb3c1}';
+  CLSID_D2D1TableTransfer                 : TGUID = '{5bf818c3-5e43-48cb-b631-868396d6a1d4}';
+  CLSID_D2D1Tile                          : TGUID = '{b0784138-3b76-4bc5-b13b-0fa2ad02659f}';
+  CLSID_D2D1Turbulence                    : TGUID = '{cf2bb6ae-889a-4ad7-ba29-a2fd732c9fc9}';
+  CLSID_D2D1UnPremultiply                 : TGUID = '{fb9ac489-ad8d-41ed-9999-bb6347d110f7}';
+
+  // d2d1effects_1.h
+  CLSID_D2D1YCbCr                         : TGUID = '{99503cc1-66c7-45c9-a875-8ad8a7914401}';
 
 type
   // d2d1.h
-  ID2D1Resource                   = interface;
-  ID2D1Image                      = interface;
-  ID2D1Bitmap                     = interface;
-  ID2D1GradientStopCollection     = interface;
-  ID2D1Brush                      = interface;
-  ID2D1BitmapBrush                = interface;
-  ID2D1SolidColorBrush            = interface;
-  ID2D1LinearGradientBrush        = interface;
-  ID2D1RadialGradientBrush        = interface;
-  ID2D1StrokeStyle                = interface;
-  ID2D1Geometry                   = interface;
-  ID2D1RectangleGeometry          = interface;
-  ID2D1RoundedRectangleGeometry   = interface;
-  ID2D1EllipseGeometry            = interface;
-  ID2D1GeometryGroup              = interface;
-  ID2D1TransformedGeometry        = interface;
-  ID2D1SimplifiedGeometrySink     = interface;
-  ID2D1GeometrySink               = interface;
-  ID2D1TessellationSink           = interface;
-  ID2D1PathGeometry               = interface;
-  ID2D1Mesh                       = interface;
-  ID2D1Layer                      = interface;
-  ID2D1DrawingStateBlock          = interface;
-  ID2D1RenderTarget               = interface;
-  ID2D1BitmapRenderTarget         = interface;
-  ID2D1HwndRenderTarget           = interface;
-  ID2D1GdiInteropRenderTarget     = interface;
-  ID2D1DCRenderTarget             = interface;
-  ID2D1Factory                    = interface;
+  ID2D1Resource                           = interface;
+  ID2D1Image                              = interface;
+  ID2D1Bitmap                             = interface;
+  ID2D1GradientStopCollection             = interface;
+  ID2D1Brush                              = interface;
+  ID2D1BitmapBrush                        = interface;
+  ID2D1SolidColorBrush                    = interface;
+  ID2D1LinearGradientBrush                = interface;
+  ID2D1RadialGradientBrush                = interface;
+  ID2D1StrokeStyle                        = interface;
+  ID2D1Geometry                           = interface;
+  ID2D1RectangleGeometry                  = interface;
+  ID2D1RoundedRectangleGeometry           = interface;
+  ID2D1EllipseGeometry                    = interface;
+  ID2D1GeometryGroup                      = interface;
+  ID2D1TransformedGeometry                = interface;
+  ID2D1SimplifiedGeometrySink             = interface;
+  ID2D1GeometrySink                       = interface;
+  ID2D1TessellationSink                   = interface;
+  ID2D1PathGeometry                       = interface;
+  ID2D1Mesh                               = interface;
+  ID2D1Layer                              = interface;
+  ID2D1DrawingStateBlock                  = interface;
+  ID2D1RenderTarget                       = interface;
+  ID2D1BitmapRenderTarget                 = interface;
+  ID2D1HwndRenderTarget                   = interface;
+  ID2D1GdiInteropRenderTarget             = interface;
+  ID2D1DCRenderTarget                     = interface;
+  ID2D1Factory                            = interface;
 
   // d2d1_1.h
-  ID2D1GdiMetafileSink            = interface;
-  ID2D1GdiMetafile                = interface;
-  ID2D1CommandSink                = interface;
-  ID2D1CommandList                = interface;
-  ID2D1PrintControl               = interface;
-  ID2D1ImageBrush                 = interface;
-  ID2D1BitmapBrush1               = interface;
-  ID2D1StrokeStyle1               = interface;
-  ID2D1PathGeometry1              = interface;
-  ID2D1Properties                 = interface;
-  ID2D1Effect                     = interface;
-  ID2D1Bitmap1                    = interface;
-  ID2D1ColorContext               = interface;
-  ID2D1GradientStopCollection1    = interface;
-  ID2D1DrawingStateBlock1         = interface;
-  ID2D1DeviceContext              = interface;
-  ID2D1Device                     = interface;
-  ID2D1Factory1                   = interface;
-  ID2D1Multithread                = interface;
+  ID2D1GdiMetafileSink                    = interface;
+  ID2D1GdiMetafile                        = interface;
+  ID2D1CommandSink                        = interface;
+  ID2D1CommandList                        = interface;
+  ID2D1PrintControl                       = interface;
+  ID2D1ImageBrush                         = interface;
+  ID2D1BitmapBrush1                       = interface;
+  ID2D1StrokeStyle1                       = interface;
+  ID2D1PathGeometry1                      = interface;
+  ID2D1Properties                         = interface;
+  ID2D1Effect                             = interface;
+  ID2D1Bitmap1                            = interface;
+  ID2D1ColorContext                       = interface;
+  ID2D1GradientStopCollection1            = interface;
+  ID2D1DrawingStateBlock1                 = interface;
+  ID2D1DeviceContext                      = interface;
+  ID2D1Device                             = interface;
+  ID2D1Factory1                           = interface;
+  ID2D1Multithread                        = interface;
 
   //  d2d1_2.h
-  ID2D1GeometryRealization        = interface;
-  ID2D1DeviceContext1             = interface;
-  ID2D1Device1                    = interface;
-  ID2D1Factory2                   = interface;
-  ID2D1CommandSink1               = interface;
+  ID2D1GeometryRealization                = interface;
+  ID2D1DeviceContext1                     = interface;
+  ID2D1Device1                            = interface;
+  ID2D1Factory2                           = interface;
+  ID2D1CommandSink1                       = interface;
 
   // d2d1_3.h
-  ID2D1InkStyle                   = interface;
-  ID2D1Ink                        = interface;
-  ID2D1GradientMesh               = interface;
-  ID2D1ImageSource                = interface;
-  ID2D1ImageSourceFromWic         = interface;
-  ID2D1TransformedImageSource     = interface;
-  ID2D1LookupTable3D              = interface;
-  ID2D1DeviceContext2             = interface;
-  ID2D1Device2                    = interface;
-  ID2D1Factory3                   = interface;
-  ID2D1CommandSink2               = interface;
-  ID2D1GdiMetafile1               = interface;
-  ID2D1GdiMetafileSink1           = interface;
-  ID2D1SpriteBatch                = interface;
-  ID2D1DeviceContext3             = interface;
-  ID2D1Device3                    = interface;
-  ID2D1Factory4                   = interface;
-  ID2D1CommandSink3               = interface;
-  ID2D1SvgGlyphStyle              = interface;
-  ID2D1DeviceContext4             = interface;
-  ID2D1Device4                    = interface;
-  ID2D1Factory5                   = interface;
-  ID2D1CommandSink4               = interface;
-  ID2D1ColorContext1              = interface;
-  ID2D1DeviceContext5             = interface;
-  ID2D1Device5                    = interface;
-  ID2D1Factory6                   = interface;
-  ID2D1CommandSink5               = interface;
-  ID2D1DeviceContext6             = interface;
-  ID2D1Device6                    = interface;
-  ID2D1Factory7                   = interface;
+  ID2D1InkStyle                           = interface;
+  ID2D1Ink                                = interface;
+  ID2D1GradientMesh                       = interface;
+  ID2D1ImageSource                        = interface;
+  ID2D1ImageSourceFromWic                 = interface;
+  ID2D1TransformedImageSource             = interface;
+  ID2D1LookupTable3D                      = interface;
+  ID2D1DeviceContext2                     = interface;
+  ID2D1Device2                            = interface;
+  ID2D1Factory3                           = interface;
+  ID2D1CommandSink2                       = interface;
+  ID2D1GdiMetafile1                       = interface;
+  ID2D1GdiMetafileSink1                   = interface;
+  ID2D1SpriteBatch                        = interface;
+  ID2D1DeviceContext3                     = interface;
+  ID2D1Device3                            = interface;
+  ID2D1Factory4                           = interface;
+  ID2D1CommandSink3                       = interface;
+  ID2D1SvgGlyphStyle                      = interface;
+  ID2D1DeviceContext4                     = interface;
+  ID2D1Device4                            = interface;
+  ID2D1Factory5                           = interface;
+  ID2D1CommandSink4                       = interface;
+  ID2D1ColorContext1                      = interface;
+  ID2D1DeviceContext5                     = interface;
+  ID2D1Device5                            = interface;
+  ID2D1Factory6                           = interface;
+  ID2D1CommandSink5                       = interface;
+  ID2D1DeviceContext6                     = interface;
+  ID2D1Device6                            = interface;
+  ID2D1Factory7                           = interface;
 
   // dwrite.h
-  IDWriteFontFileLoader           = interface;
-  IDWriteLocalFontFileLoader      = interface;
-  IDWriteFontFileStream           = interface;
-  IDWriteFontFile                 = interface;
-  IDWriteRenderingParams          = interface;
-  IDWriteFontFace                 = interface;
-  IDWriteFontCollectionLoader     = interface;
-  IDWriteFontFileEnumerator       = interface;
-  IDWriteLocalizedStrings         = interface;
-  IDWriteFontCollection           = interface;
-  IDWriteFontList                 = interface;
-  IDWriteFontFamily               = interface;
-  IDWriteFont                     = interface;
-  IDWriteTextFormat               = interface;
-  IDWriteTypography               = interface;
-  IDWriteNumberSubstitution       = interface;
-  IDWriteTextAnalysisSource       = interface;
-  IDWriteTextAnalysisSink         = interface;
-  IDWriteTextAnalyzer             = interface;
-  IDWriteInlineObject             = interface;
-  IDWritePixelSnapping            = interface;
-  IDWriteTextRenderer             = interface;
-  IDWriteTextLayout               = interface;
-  IDWriteBitmapRenderTarget       = interface;
-  IDWriteGdiInterop               = interface;
-  IDWriteGlyphRunAnalysis         = interface;
-  IDWriteFactory                  = interface;
-  IDWriteGeometrySink             = ID2D1SimplifiedGeometrySink;
+  IDWriteFontFileLoader                   = interface;
+  IDWriteLocalFontFileLoader              = interface;
+  IDWriteFontFileStream                   = interface;
+  IDWriteFontFile                         = interface;
+  IDWriteRenderingParams                  = interface;
+  IDWriteFontFace                         = interface;
+  IDWriteFontCollectionLoader             = interface;
+  IDWriteFontFileEnumerator               = interface;
+  IDWriteLocalizedStrings                 = interface;
+  IDWriteFontCollection                   = interface;
+  IDWriteFontList                         = interface;
+  IDWriteFontFamily                       = interface;
+  IDWriteFont                             = interface;
+  IDWriteTextFormat                       = interface;
+  IDWriteTypography                       = interface;
+  IDWriteNumberSubstitution               = interface;
+  IDWriteTextAnalysisSource               = interface;
+  IDWriteTextAnalysisSink                 = interface;
+  IDWriteTextAnalyzer                     = interface;
+  IDWriteInlineObject                     = interface;
+  IDWritePixelSnapping                    = interface;
+  IDWriteTextRenderer                     = interface;
+  IDWriteTextLayout                       = interface;
+  IDWriteBitmapRenderTarget               = interface;
+  IDWriteGdiInterop                       = interface;
+  IDWriteGlyphRunAnalysis                 = interface;
+  IDWriteFactory                          = interface;
+  IDWriteGeometrySink                     = ID2D1SimplifiedGeometrySink;
 
   // dwrite_1.h
-  IDWriteFactory1                 = interface;
-  IDWriteFontFace1                = interface;
-  IDWriteFont1                    = interface;
-  IDWriteRenderingParams1         = interface;
-  IDWriteTextAnalyzer1            = interface;
-  IDWriteTextAnalysisSource1      = interface;
-  IDWriteTextAnalysisSink1        = interface;
-  IDWriteTextLayout1              = interface;
-  IDWriteBitmapRenderTarget1      = interface;
+  IDWriteFactory1                         = interface;
+  IDWriteFontFace1                        = interface;
+  IDWriteFont1                            = interface;
+  IDWriteRenderingParams1                 = interface;
+  IDWriteTextAnalyzer1                    = interface;
+  IDWriteTextAnalysisSource1              = interface;
+  IDWriteTextAnalysisSink1                = interface;
+  IDWriteTextLayout1                      = interface;
+  IDWriteBitmapRenderTarget1              = interface;
 
   // dwrite_2.h
-  IDWriteTextRenderer1            = interface;
-  IDWriteTextFormat1              = interface;
-  IDWriteTextLayout2              = interface;
-  IDWriteTextAnalyzer2            = interface;
-  IDWriteFontFallback             = interface;
-  IDWriteFontFallbackBuilder      = interface;
-  IDWriteFont2                    = interface;
-  IDWriteFontFace2                = interface;
-  IDWriteColorGlyphRunEnumerator  = interface;
-  IDWriteRenderingParams2         = interface;
-  IDWriteFactory2                 = interface;
+  IDWriteTextRenderer1                    = interface;
+  IDWriteTextFormat1                      = interface;
+  IDWriteTextLayout2                      = interface;
+  IDWriteTextAnalyzer2                    = interface;
+  IDWriteFontFallback                     = interface;
+  IDWriteFontFallbackBuilder              = interface;
+  IDWriteFont2                            = interface;
+  IDWriteFontFace2                        = interface;
+  IDWriteColorGlyphRunEnumerator          = interface;
+  IDWriteRenderingParams2                 = interface;
+  IDWriteFactory2                         = interface;
 
   // dwrite_3.h
-  IDWriteRenderingParams3         = interface;
-  IDWriteFactory3                 = interface;
-  IDWriteFontSet                  = interface;
-  IDWriteFontSetBuilder           = interface;
-  IDWriteFontCollection1          = interface;
-  IDWriteFontFamily1              = interface;
-  IDWriteFontList1                = interface;
-  IDWriteFontFaceReference        = interface;
-  IDWriteFont3                    = interface;
-  IDWriteFontFace3                = interface;
-  IDWriteStringList               = interface;
-  IDWriteFontDownloadListener     = interface;
-  IDWriteFontDownloadQueue        = interface;
-  IDWriteGdiInterop1              = interface;
-  IDWriteTextFormat2              = interface;
-  IDWriteTextLayout3              = interface;
-  IDWriteColorGlyphRunEnumerator1 = interface;
-  IDWriteFontFace4                = interface;
-  IDWriteFactory4                 = interface;
-  IDWriteFontSetBuilder1          = interface;
-  IDWriteAsyncResult              = interface;
-  IDWriteRemoteFontFileStream     = interface;
-  IDWriteRemoteFontFileLoader     = interface;
-  IDWriteInMemoryFontFileLoader   = interface;
-  IDWriteFactory5                 = interface;
-  IDWriteFactory6                 = interface;
-  IDWriteFontFace5                = interface;
-  IDWriteFontResource             = interface;
-  IDWriteFontFaceReference1       = interface;
-  IDWriteFontSetBuilder2          = interface;
-  IDWriteFontSet1                 = interface;
-  IDWriteFontList2                = interface;
-  IDWriteFontFamily2              = interface;
-  IDWriteFontCollection2          = interface;
-  IDWriteTextLayout4              = interface;
-  IDWriteTextFormat3              = interface;
-  IDWriteFontFallback1            = interface;
-  IDWriteFontSet2                 = interface;
-  IDWriteFontCollection3          = interface;
-  IDWriteFactory7                 = interface;
-  IDWriteFontSet3                 = interface;
-  IDWriteFontFace6                = interface;
+  IDWriteRenderingParams3                 = interface;
+  IDWriteFactory3                         = interface;
+  IDWriteFontSet                          = interface;
+  IDWriteFontSetBuilder                   = interface;
+  IDWriteFontCollection1                  = interface;
+  IDWriteFontFamily1                      = interface;
+  IDWriteFontList1                        = interface;
+  IDWriteFontFaceReference                = interface;
+  IDWriteFont3                            = interface;
+  IDWriteFontFace3                        = interface;
+  IDWriteStringList                       = interface;
+  IDWriteFontDownloadListener             = interface;
+  IDWriteFontDownloadQueue                = interface;
+  IDWriteGdiInterop1                      = interface;
+  IDWriteTextFormat2                      = interface;
+  IDWriteTextLayout3                      = interface;
+  IDWriteColorGlyphRunEnumerator1         = interface;
+  IDWriteFontFace4                        = interface;
+  IDWriteFactory4                         = interface;
+  IDWriteFontSetBuilder1                  = interface;
+  IDWriteAsyncResult                      = interface;
+  IDWriteRemoteFontFileStream             = interface;
+  IDWriteRemoteFontFileLoader             = interface;
+  IDWriteInMemoryFontFileLoader           = interface;
+  IDWriteFactory5                         = interface;
+  IDWriteFactory6                         = interface;
+  IDWriteFontFace5                        = interface;
+  IDWriteFontResource                     = interface;
+  IDWriteFontFaceReference1               = interface;
+  IDWriteFontSetBuilder2                  = interface;
+  IDWriteFontSet1                         = interface;
+  IDWriteFontList2                        = interface;
+  IDWriteFontFamily2                      = interface;
+  IDWriteFontCollection2                  = interface;
+  IDWriteTextLayout4                      = interface;
+  IDWriteTextFormat3                      = interface;
+  IDWriteFontFallback1                    = interface;
+  IDWriteFontSet2                         = interface;
+  IDWriteFontCollection3                  = interface;
+  IDWriteFactory7                         = interface;
+  IDWriteFontSet3                         = interface;
+  IDWriteFontFace6                        = interface;
 
   // d2d1effectauthor.h
-  ID2D1VertexBuffer               = interface;
-  ID2D1ResourceTexture            = interface;
-  ID2D1RenderInfo                 = interface;
-  ID2D1DrawInfo                   = interface;
-  ID2D1ComputeInfo                = interface;
-  ID2D1TransformNode              = interface;
-  ID2D1TransformGraph             = interface;
-  ID2D1Transform                  = interface;
-  ID2D1DrawTransform              = interface;
-  ID2D1ComputeTransform           = interface;
-  ID2D1AnalysisTransform          = interface;
-  ID2D1SourceTransform            = interface;
-  ID2D1ConcreteTransform          = interface;
-  ID2D1BlendTransform             = interface;
-  ID2D1BorderTransform            = interface;
-  ID2D1OffsetTransform            = interface;
-  ID2D1BoundsAdjustmentTransform  = interface;
-  ID2D1EffectImpl                 = interface;
-  ID2D1EffectContext              = interface;
+  ID2D1VertexBuffer                       = interface;
+  ID2D1ResourceTexture                    = interface;
+  ID2D1RenderInfo                         = interface;
+  ID2D1DrawInfo                           = interface;
+  ID2D1ComputeInfo                        = interface;
+  ID2D1TransformNode                      = interface;
+  ID2D1TransformGraph                     = interface;
+  ID2D1Transform                          = interface;
+  ID2D1DrawTransform                      = interface;
+  ID2D1ComputeTransform                   = interface;
+  ID2D1AnalysisTransform                  = interface;
+  ID2D1SourceTransform                    = interface;
+  ID2D1ConcreteTransform                  = interface;
+  ID2D1BlendTransform                     = interface;
+  ID2D1BorderTransform                    = interface;
+  ID2D1OffsetTransform                    = interface;
+  ID2D1BoundsAdjustmentTransform          = interface;
+  ID2D1EffectImpl                         = interface;
+  ID2D1EffectContext                      = interface;
 
   // d2d1effectauthor_1.h
-  ID2D1EffectContext1             = interface;
-  ID2D1EffectContext2             = interface;
+  ID2D1EffectContext1                     = interface;
+  ID2D1EffectContext2                     = interface;
 
   // d2d1svg.h
-  ID2D1SvgAttribute               = interface;
-  ID2D1SvgPaint                   = interface;
-  ID2D1SvgStrokeDashArray         = interface;
-  ID2D1SvgPointCollection         = interface;
-  ID2D1SvgPathData                = interface;
-  ID2D1SvgElement                 = interface;
-  ID2D1SvgDocument                = interface;
+  ID2D1SvgAttribute                       = interface;
+  ID2D1SvgPaint                           = interface;
+  ID2D1SvgStrokeDashArray                 = interface;
+  ID2D1SvgPointCollection                 = interface;
+  ID2D1SvgPathData                        = interface;
+  ID2D1SvgElement                         = interface;
+  ID2D1SvgDocument                        = interface;
 
   // DocumentTarget.h
-  IPrintDocumentPackageTarget       = interface;
-  IPrintDocumentPackageStatusEvent  = interface;
-  IPrintDocumentPackageTargetFactory= interface;
+  IPrintDocumentPackageTarget             = interface;
+  IPrintDocumentPackageStatusEvent        = interface;
+  IPrintDocumentPackageTargetFactory      = interface;
 
 
   D2D1_TAG = UInt64;
@@ -635,7 +635,7 @@ type
   /// </summary>
   PD2D1_PROPERTY_GET_FUNCTION = function(AEffect: IUnknown; AData: PByte; ADataSize: UInt32; out AActualSize: UInt32): HRESULT; stdcall;
 
-  PD2D1_EFFECT_FACTORY = function(out AEffectImpl: IUnknown): HRESULT; stdcall;
+  PD2D1_EFFECT_FACTORY        = function(out AEffectImpl: IUnknown): HRESULT; stdcall;
 
 {$ENDREGION}
 
@@ -6115,7 +6115,7 @@ type
     class operator Negative(A: TD2D1Point2F): TD2D1Point2F;
   end;
 
-//  D2D1_POINT_2F = TD2D1Point2F;
+  D2D1_POINT_2F = TD2D1Point2F;
   PD2D1Point2F = ^TD2D1Point2F;
 
   TD2D1Matrix3x2F = record
@@ -6150,7 +6150,7 @@ type
     function TransformPos(AX, AY: Single): TD2D1Point2F; overload;
   end;
 
-  //TD2D1Matrix3x2F = D2D1_MATRIX_3X2_F;
+  D2D1_MATRIX_3X2_F = TD2D1Matrix3x2F;
   PD2D1Matrix3x2F = ^TD2D1Matrix3x2F;
 
   TD2D1Point2U = record
@@ -6189,7 +6189,8 @@ type
     Right:  Single;
     Bottom: Single;
 
-    class function Create(ALeft, ATop, ARight, ABottom: Single): TD2D1RectF; static;
+    class function Create(ALeft, ATop, ARight, ABottom: Single): TD2D1RectF; overload; static;
+    class function Create(ALeftTop, ARightBottom: TD2D1Point2F): TD2D1RectF; overload; static;
   end;
 
   D2D1_RECT_F = TD2D1RectF;
@@ -6247,7 +6248,11 @@ type
     SweepDirection  : TD2D1SweepDirection;
     ArcSize         : TD2D1ArcSize;
 
-    class function Create(APoint: TD2D1Point2F; ASize: TD2D1SizeF; ARotationAngle: Single; ASweepDirection: TD2D1SweepDirection; AArcSize: TD2D1ArcSize): TD2D1ArcSegment; static;
+    class function Create(APoint: TD2D1Point2F; ASize: TD2D1SizeF; ARotationAngle: Single; ASweepDirection: TD2D1SweepDirection; AArcSize: TD2D1ArcSize): TD2D1ArcSegment; overload; static;
+    class function Create(AX, AY, AWidth, AHeight, ARotationAngle: Single; ASweepDirection: TD2D1SweepDirection; AArcSize: TD2D1ArcSize): TD2D1ArcSegment; overload; static;
+    class function Create(APoint: TD2D1Point2F; AWidth, AHeight: Single; ARotationAngle: Single; ASweepDirection: TD2D1SweepDirection; AArcSize: TD2D1ArcSize): TD2D1ArcSegment; overload; static;
+    class function Create(AX, AY: Single; ASize: TD2D1SizeF; ARotationAngle: Single; ASweepDirection: TD2D1SweepDirection; AArcSize: TD2D1ArcSize): TD2D1ArcSegment; overload; static;
+
   end;
 
   D2D1_ARC_SEGMENT = TD2D1ArcSegment;
@@ -13760,7 +13765,6 @@ type
       ADataCount: UInt32;
       const AStrides: PUint32;
       out ALookupTable: ID2D1LookupTable3D): HRESULT; stdcall;
-
   end;
 
   ID2D1EffectContext2 = interface(ID2D1EffectContext1)
@@ -14596,6 +14600,15 @@ begin
 end;
 
 {=========================================================================================================================================}
+class function TD2D1RectF.Create(ALeftTop, ARightBottom: TD2D1Point2F): TD2D1RectF;
+begin
+  Result.Left   := ALeftTop.X;
+  Result.Top    := ALeftTop.Y;
+  Result.Right  := ARightBottom.X;
+  Result.Bottom := ARightBottom.Y;
+end;
+
+{=========================================================================================================================================}
 { TD2D1RectU }
 {=========================================================================================================================================}
 class function TD2D1RectU.Create(ALeft, ATop, ARight, ABottom: UInt32): TD2D1RectU;
@@ -14648,6 +14661,36 @@ end;
 class function TD2D1ArcSegment.Create(APoint: TD2D1Point2F; ASize: TD2D1SizeF; ARotationAngle: Single; ASweepDirection: TD2D1SweepDirection; AArcSize: TD2D1ArcSize): TD2D1ArcSegment;
 begin
   Result.Point          := APoint;
+  Result.Size           := ASize;
+  Result.RotationAngle  := ARotationAngle;
+  Result.SweepDirection := ASweepDirection;
+  Result.ArcSize        := AArcSize;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1ArcSegment.Create(AX, AY, AWidth, AHeight, ARotationAngle: Single; ASweepDirection: TD2D1SweepDirection; AArcSize: TD2D1ArcSize): TD2D1ArcSegment;
+begin
+  Result.Point          := TD2D1Point2F.Create(AX, AY);
+  Result.Size           := TD2D1SizeF.Create(AWidth, AHeight);
+  Result.RotationAngle  := ARotationAngle;
+  Result.SweepDirection := ASweepDirection;
+  Result.ArcSize        := AArcSize;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1ArcSegment.Create(APoint: TD2D1Point2F; AWidth, AHeight: Single; ARotationAngle: Single; ASweepDirection: TD2D1SweepDirection; AArcSize: TD2D1ArcSize): TD2D1ArcSegment;
+begin
+  Result.Point          := APoint;
+  Result.Size           := TD2D1SizeF.Create(AWidth, AHeight);
+  Result.RotationAngle  := ARotationAngle;
+  Result.SweepDirection := ASweepDirection;
+  Result.ArcSize        := AArcSize;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1ArcSegment.Create(AX, AY: Single; ASize: TD2D1SizeF; ARotationAngle: Single; ASweepDirection: TD2D1SweepDirection; AArcSize: TD2D1ArcSize): TD2D1ArcSegment;
+begin
+  Result.Point          := TD2D1Point2F.Create(AX, AY);
   Result.Size           := ASize;
   Result.RotationAngle  := ARotationAngle;
   Result.SweepDirection := ASweepDirection;
