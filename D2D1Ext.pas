@@ -13740,7 +13740,7 @@ type
       out AColorContext: ID2D1ColorContext): HRESULT; stdcall;
 
     function CreateColorContextFromWicColorContext(
-      AWiColorContext: IWICColorContext;
+      AWicColorContext: IWICColorContext;
       out AColorContext: ID2D1ColorContext): HRESULT; stdcall;
 
     function CheckFeatureSupport(
