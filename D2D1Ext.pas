@@ -34,9 +34,16 @@
     dwrite_2.h
     dwrite_3.h
 
-  07 Feb 2025 - beginning work on the library, collecting materials and first structure
-  16 Feb 2025 - all types and interfaces were translated, helper structures were deleted
-  05 Apr 2026 - fix missing params and directives, implement basic methods for TD2D1Point2F
+-07 Feb 2025
+	- beginning work on the library, collecting materials and first structure
+
+-16 Feb 2025
+	- all types and interfaces were translated, helper structures were deleted
+
+-05 Apr 2026
+	- fix missing params and directives,
+	- implement basic methods for TD2D1Point2F
+	- implement Create-Methods with overloads for D2D1 structures
 
   Pustowalow W.
 }
@@ -66,13 +73,13 @@ type
 // D2DBaseTypes.h
 //=========================================================================================================================================
 
-  D2D1_COLOR_F = record
+  TD2D1ColorF = record
     R, G, B, A: Single;
-    class function Create(ARed, AGreen, ABlue, AAlpha: Single): D2D1_COLOR_F; overload; static;
-    class function Create(AColor: TColor): D2D1_COLOR_F; overload; static;
+    class function Create(ARed, AGreen, ABlue, AAlpha: Single): TD2D1ColorF; overload; static;
+    class function Create(AColor: TColor): TD2D1ColorF; overload; static;
   end;
 
-  TD2D1ColorF = D2D1_COLOR_F;
+  D2D1_COLOR_F = TD2D1ColorF;
   PD2D1ColorF = ^TD2D1ColorF;
 
   DWRITE_COLOR_F = D2D1_COLOR_F;
@@ -6068,12 +6075,14 @@ type
 
 {$REGION 'd2d1.h records'}
 
-  D2D1_PIXEL_FORMAT = record
-    DXGIFormat: DXGI_FORMAT;
-    AlphaMode: TD2D1AlphaMode
+  TD2D1PixelFormat = record
+    DXGIFormat: TDXGIFormat;
+    AlphaMode: TD2D1AlphaMode;
+
+    class function Create(ADXGIFormat: TDXGIFormat = DXGI_FORMAT_UNKNOWN; AAlphaMode: TD2D1AlphaMode = D2D1_ALPHA_MODE_UNKNOWN): TD2D1PixelFormat; static;
   end;
 
-  TD2D1PixelFormat = D2D1_PIXEL_FORMAT;
+  D2D1_PIXEL_FORMAT = TD2D1PixelFormat;
   PD2D1PixelFormat = ^TD2D1PixelFormat;
 
   TD2D1Point2F = record
@@ -6144,127 +6153,154 @@ type
   //TD2D1Matrix3x2F = D2D1_MATRIX_3X2_F;
   PD2D1Matrix3x2F = ^TD2D1Matrix3x2F;
 
-  D2D1_POINT_2U = record
+  TD2D1Point2U = record
     X: UInt32;
     Y: UInt32;
+
+    class function Create(AX, AY: UInt32): TD2D1Point2U; static;
   end;
 
-  TD2D1Point2U = D2D1_POINT_2U;
+  D2D1_POINT_2U = TD2D1Point2U;
   PD2D1Point2U = ^TD2D1Point2U;
 
-  D2D1_SIZE_F = record
+  TD2D1SizeF = record
     Width:  Single;
     Height: Single;
+
+    class function Create(AWidth, AHeight: Single): TD2D1SizeF; static;
   end;
 
-  TD2D1SizeF = D2D1_SIZE_F;
+  D2D1_SIZE_F = TD2D1SizeF;
   PD2D1SizeF = ^TD2D1SizeF;
 
-  D2D1_SIZE_U = record
+  TD2D1SizeU = record
     Width:  UInt32;
     Height: UInt32;
+
+    class function Create(AWidth, AHeight: UInt32): TD2D1SizeU; static;
   end;
 
-  TD2D1SizeU = D2D1_SIZE_U;
+  D2D1_SIZE_U = TD2D1SizeU;
   PD2D1SizeU = ^TD2D1SizeU;
 
-  D2D1_RECT_F = record
+  TD2D1RectF = record
     Left:   Single;
     Top:    Single;
     Right:  Single;
     Bottom: Single;
+
+    class function Create(ALeft, ATop, ARight, ABottom: Single): TD2D1RectF; static;
   end;
 
-  TD2D1RectF = D2D1_RECT_F;
+  D2D1_RECT_F = TD2D1RectF;
   PD2D1RectF = ^TD2D1RectF;
 
-  D2D1_RECT_U = record
+  TD2D1RectU = record
     Left:   UInt32;
     Top:    UInt32;
     Right:  UInt32;
     Bottom: UInt32;
+
+    class function Create(ALeft, ATop, ARight, ABottom: UInt32): TD2D1RectU; static;
   end;
 
-  TD2D1RectU = D2D1_RECT_U;
+  D2D1_RECT_U = TD2D1RectU;
   PD2D1RectU = ^TD2D1RectU;
 
   /// <summary>
   /// Contains the dimensions and corner radii of a rounded rectangle.
   /// </summary>
-  D2D1_ROUNDED_RECT = record
+  TD2D1RoundedRect = record
     Rect    : TD2D1RectF;
     RadiusX : Single;
     RadiusY : Single;
+
+    class function Create(ARect: TD2D1RectF; ARadiusX, ARadiusY: Single): TD2D1RoundedRect; overload; static;
+    class function Create(ALeft, ATop, ARight, ABottom, ARadiusX, ARadiusY: Single): TD2D1RoundedRect; overload; static;
+    class function Create(ALeft, ATop, ARight, ABottom, ARadius: Single): TD2D1RoundedRect; overload; static;
   end;
 
-  TD2D1RoundedRect = D2D1_ROUNDED_RECT;
+  D2D1_ROUNDED_RECT = TD2D1RoundedRect;
   PD2D1RoundedRect = ^TD2D1RoundedRect;
 
   /// <summary>
   /// Describes a triangle.
   /// </summary>
-  D2D1_TRIANGLE = record
+  TD2D1Triangle = record
     Point1: TD2D1Point2F;
     Point2: TD2D1Point2F;
     Point3: TD2D1Point2F;
+
+    class function Create(APoint1, APoint2, APoint3: TD2D1Point2F): TD2D1Triangle; static;
   end;
 
-  TD2D1Triangle = D2D1_TRIANGLE;
+  D2D1_TRIANGLE = TD2D1Triangle;
   PD2D1Triangle = ^TD2D1Triangle;
 
   /// <summary>
   /// Describes an arc that is defined as part of a path.
   /// </summary>
-  D2D1_ARC_SEGMENT = record
+  TD2D1ArcSegment = record
     Point           : TD2D1Point2F;
     Size            : TD2D1SizeF;
     RotationAngle   : Single;
     SweepDirection  : TD2D1SweepDirection;
     ArcSize         : TD2D1ArcSize;
+
+    class function Create(APoint: TD2D1Point2F; ASize: TD2D1SizeF; ARotationAngle: Single; ASweepDirection: TD2D1SweepDirection; AArcSize: TD2D1ArcSize): TD2D1ArcSegment; static;
   end;
 
-  TD2D1ArcSegment = D2D1_ARC_SEGMENT;
+  D2D1_ARC_SEGMENT = TD2D1ArcSegment;
   PD2D1ArcSegment = ^TD2D1ArcSegment;
 
   /// <summary>
   /// Contains the center point, x-radius, and y-radius of an ellipse.
   /// </summary>
-  D2D1_ELLIPSE = record
+  TD2D1Ellipse = record
     Point   : TD2D1Point2F;
     RadiusX : Single;
     RadiusY : Single;
+
+    class function Create(AX, AY, ARadiusX, ARadiusY: Single): TD2D1Ellipse; overload; static;
+    class function Create(AX, AY, ARadius: Single): TD2D1Ellipse; overload; static;
+    class function Create(APoint: TD2D1Point2F; ARadiusX, ARadiusY: Single): TD2D1Ellipse; overload; static;
+    class function Create(APoint: TD2D1Point2F; ARadius: Single): TD2D1Ellipse; overload; static;
   end;
 
-  TD2D1Ellipse = D2D1_ELLIPSE;
+  D2D1_ELLIPSE = TD2D1Ellipse;
   PD2D1Ellipse = ^TD2D1Ellipse;
 
   /// <summary>
   /// Describes a cubic bezier in a path.
   /// </summary>
-  D2D1_BEZIER_SEGMENT = record
+  TD2D1BezierSegment = record
     Point1: TD2D1Point2F;
     Point2: TD2D1Point2F;
     Point3: TD2D1Point2F;
+
+    class function Create(APoint1, APoint2, APoint3: TD2D1Point2F): TD2D1BezierSegment; static;
   end;
 
-  TD2D1BezierSegment = D2D1_BEZIER_SEGMENT;
+  D2D1_BEZIER_SEGMENT = TD2D1BezierSegment;
   PD2D1BezierSegment = ^TD2D1BezierSegment;
 
   /// <summary>
   /// Contains the control point and end point for a quadratic Bezier segment.
   /// </summary>
-  D2D1_QUADRATIC_BEZIER_SEGMENT = record
+  TD2D1QuadraticBezierSegment = record
     Point1: TD2D1Point2F;
     Point2: TD2D1Point2F;
+
+    class function Create(APoint1, APoint2: TD2D1Point2F): TD2D1QuadraticBezierSegment; static;
   end;
 
-  TD2D1QuadraticBezierSegment = D2D1_QUADRATIC_BEZIER_SEGMENT;
+  D2D1_QUADRATIC_BEZIER_SEGMENT = TD2D1QuadraticBezierSegment;
   PD2D1QuadraticBezierSegment = ^TD2D1QuadraticBezierSegment;
 
   /// <summary>
   /// Properties, aside from the width, that allow geometric penning to be specified.
   /// </summary>
-  D2D1_STROKE_STYLE_PROPERTIES = record
+  TD2D1StrokeStyleProperties = record
     StartCap  : TD2D1CapStyle;
     EndCap    : TD2D1CapStyle;
     DashCap   : TD2D1CapStyle;
@@ -6272,12 +6308,16 @@ type
     MiterLimit: Single;
     DashStyle : TD2D1DashStyle;
     DashOffset: Single;
+
+    class function Create(AStartCap: TD2D1CapStyle = D2D1_CAP_STYLE_FLAT; AEndCap: TD2D1CapStyle = D2D1_CAP_STYLE_FLAT;
+      ADashCap: TD2D1CapStyle = D2D1_CAP_STYLE_FLAT; ALineJoin: TD2D1LineJoin = D2D1_LINE_JOIN_MITER; AMiterLimit: Single = 10;
+      ADashStyle : TD2D1DashStyle = D2D1_DASH_STYLE_SOLID; ADashOffset: Single = 0): TD2D1StrokeStyleProperties; static;
   end;
 
-  TD2D1StrokeStyleProperties = D2D1_STROKE_STYLE_PROPERTIES;
+  D2D1_STROKE_STYLE_PROPERTIES = TD2D1StrokeStyleProperties;
   PD2D1StrokeStyleProperties = ^TD2D1StrokeStyleProperties;
 
-  D2D1_LAYER_PARAMETERS = record
+  TD2D1LayerParameters = record
     ContentBounds     : TD2D1RectF;
     GeometricMask     : ID2D1Geometry;
     MaskAntialiasMode : TD2D1AntialiasMode;
@@ -6285,9 +6325,15 @@ type
     Opacity           : Single;
     OpacityBrush      : ID2D1Brush;
     LayerOptions      : TD2D1LayerOptions;
+
+    class function Create(AContentBounds: TD2D1RectF; AGeometricMask: ID2D1Geometry; AMaskAntialiasMode: TD2D1AntialiasMode;
+      AMaskTransform: TD2D1Matrix3x2F; AOpacity: Single; AOpacityBrush: ID2D1Brush; ALayerOptions: TD2D1LayerOptions): TD2D1LayerParameters; overload; static;
+
+    class function Create(AContentBounds: TD2D1RectF): TD2D1LayerParameters; overload; static;
+
   end;
 
-  TD2D1LayerParameters = D2D1_LAYER_PARAMETERS;
+  D2D1_LAYER_PARAMETERS = TD2D1LayerParameters;
   PD2D1LayerParameters = ^TD2D1LayerParameters;
 
   /// <summary>
@@ -6295,130 +6341,161 @@ type
   /// information, remoting options, and Direct3D support requirements for a render
   /// target.
   /// </summary>
-  D2D1_RENDER_TARGET_PROPERTIES = record
+  TD2D1RenderTargetProperties = record
     &Type       : TD2D1RenderTargetType;
     PixelFormat : TD2D1PixelFormat;
     DpiX        : Single;
     DpiY        : Single;
     Usage       : TD2D1RenderTargetUsage;
     MinLevel    : TD2D1FeatureLevel;
+
+    class function Create(AType: TD2D1RenderTargetType; APixelFormat: TD2D1PixelFormat; ADpiX: Single = 0; ADpiY: Single = 0;
+      AUsage: TD2D1RenderTargetUsage = D2D1_RENDER_TARGET_USAGE_NONE;
+      AMinLevel: TD2D1FeatureLevel = D2D1_FEATURE_LEVEL_DEFAULT): TD2D1RenderTargetProperties; overload; static;
+    class function Create(AType: TD2D1RenderTargetType = D2D1_RENDER_TARGET_TYPE_DEFAULT): TD2D1RenderTargetProperties; overload; static;
   end;
 
-  TD2D1RenderTargetProperties = D2D1_RENDER_TARGET_PROPERTIES;
+  D2D1_RENDER_TARGET_PROPERTIES = TD2D1RenderTargetProperties;
   PD2D1RenderTargetProperties = ^TD2D1renderTargetProperties;
 
   /// <summary>
   /// Contains the HWND, pixel size, and presentation options for an
   /// ID2D1HwndRenderTarget.
   /// </summary>
-  D2D1_HWND_RENDER_TARGET_PROPERTIES = record
+  TD2D1HwndRenderTargetProperties = record
     Hwnd          : HWND;
     PixelSize     : TD2D1SizeU;
     PresentOptions: TD2D1PresentOptions;
+
+    class function Create(AHwnd: HWND; APixelSize: TD2D1SizeU; APresentOptions: TD2D1PresentOptions = D2D1_PRESENT_OPTIONS_NONE): TD2D1HwndRenderTargetProperties; overload; static;
+    class function Create(AHwnd: HWND): TD2D1HwndRenderTargetProperties; overload; static;
   end;
 
-  TD2D1HwndRenderTargetProperties = D2D1_HWND_RENDER_TARGET_PROPERTIES;
+  D2D1_HWND_RENDER_TARGET_PROPERTIES = TD2D1HwndRenderTargetProperties;
   PD2D1HwndRenderTargetProperties = ^TD2D1HwndRenderTargetProperties;
 
   /// <summary>
   /// Allows the drawing state to be atomically created. This also specifies the
   /// drawing state that is saved into an IDrawingStateBlock object.
   /// </summary>
-  D2D1_DRAWING_STATE_DESCRIPTION = record
+  TD2D1DrawingStateDescription = record
     AntialiasMode: TD2D1AntialiasMode;
     TextAntialiasMode: TD2D1TextAntialiasMode;
     Tag1: TD2D1Tag;
     Tag2: TD2D1Tag;
     Transform: TD2D1Matrix3x2F;
+
+    class function Create(AAntialiasMode: TD2D1AntialiasMode; ATextAntialiasMode: TD2D1TextAntialiasMode;
+      ATag1: TD2D1Tag; ATag2: TD2D1Tag; ATransform: TD2D1Matrix3x2F): TD2D1DrawingStateDescription; overload; static;
+    class function Create: TD2D1DrawingStateDescription; overload; static;
   end;
 
-  TD2D1DrawingStateDescription = D2D1_DRAWING_STATE_DESCRIPTION;
+  D2D1_DRAWING_STATE_DESCRIPTION = TD2D1DrawingStateDescription;
   PD2D1DrawingStateDescription = ^TD2D1DrawingStateDescription;
 
   /// <summary>
   /// Allows additional parameters for factory creation.
   /// </summary>
-  D2D1_FACTORY_OPTIONS = record
+  TD2D1FactoryOptions = record
     /// <summary>
     /// Requests a certain level of debugging information from the debug layer. This
     /// parameter is ignored if the debug layer DLL is not present.
     /// </summary>
     DebugLevel: TD2D1DebugLevel;
+
+    class function Create(ADebugLevel: TD2D1DebugLevel): TD2D1FactoryOptions; static;
   end;
 
-  TD2D1FactoryOptions = D2D1_FACTORY_OPTIONS;
+  D2D1_FACTORY_OPTIONS = TD2D1FactoryOptions;
   PD2D1FactoryOptions = ^TD2D1FactoryOptions;
 
   /// <summary>
   /// Describes the pixel format and dpi of a bitmap.
   /// </summary>
-  D2D1_BITMAP_PROPERTIES = record
+  TD2D1BitmapProperties = record
     PixelFormat : TD2D1PixelFormat;
     DpiX        : Single;
     DpiY        : Single;
+
+    class function Create(APixelFormat: TD2D1PixelFormat; ADpiX: Single; ADpiY: Single): TD2D1BitmapProperties; overload; static;
+    class function Create: TD2D1BitmapProperties; overload; static;
   end;
 
-  TD2D1BitmapProperties = D2D1_BITMAP_PROPERTIES;
+  D2D1_BITMAP_PROPERTIES = TD2D1BitmapProperties;
   PD2D1BitmapProperties = ^TD2D1BitmapProperties;
 
   /// <summary>
   /// Contains the position and color of a gradient stop.
   /// </summary>
-  D2D1_GRADIENT_STOP = record
+  TD2D1GradientStop = record
     Position: Single;
     Color   : TD2D1ColorF;
+
+    class function Create(APosition: Single; AColor: TD2D1ColorF): TD2D1GradientStop; overload; static;
+    class function Create(APosition: Single; ARed, AGreen, ABlue, AAlpha: Single): TD2D1GradientStop; overload; static;
   end;
 
-  TD2D1GradientStop = D2D1_GRADIENT_STOP;
+  D2D1_GRADIENT_STOP = TD2D1GradientStop;
   PD2D1GradientStop = ^TD2D1GradientStop;
 
   /// <summary>
   /// Describes the opacity and transformation of a brush.
   /// </summary>
-  D2D1_BRUSH_PROPERTIES = record
+  TD2D1BrushProperties = record
     Opacity   : Single;
     Transform : TD2D1Matrix3x2F;
+
+    class function Create(AOpacity: Single; ATransform: TD2D1Matrix3x2F): TD2D1BrushProperties; overload; static;
   end;
 
-  TD2D1BrushProperties = D2D1_BRUSH_PROPERTIES;
+  D2D1_BRUSH_PROPERTIES = TD2D1BrushProperties;
   PD2D1BrushProperties = ^TD2D1BrushProperties;
 
   /// <summary>
   /// Describes the extend modes and the interpolation mode of an ID2D1BitmapBrush.
   /// </summary>
-  D2D1_BITMAP_BRUSH_PROPERTIES = record
+  TD2D1BitmapBrushProperties = record
     ExtendModeX       : TD2D1ExtendMode;
     ExtendModeY       : TD2D1ExtendMode;
     InterpolationMode : TD2D1BitmapInterpolationMode;
+
+    class function Create(AExtendModeX: TD2D1ExtendMode = D2D1_EXTEND_MODE_CLAMP;
+      AExtendModeY: TD2D1ExtendMode = D2D1_EXTEND_MODE_CLAMP;
+      AInterpolationMode : TD2D1BitmapInterpolationMode = D2D1_BITMAP_INTERPOLATION_MODE_LINEAR): TD2D1BitmapBrushProperties; static;
   end;
 
-  TD2D1BitmapBrushProperties = D2D1_BITMAP_BRUSH_PROPERTIES;
+  D2D1_BITMAP_BRUSH_PROPERTIES = TD2D1BitmapBrushProperties;
   PD2D1BitmapBrushProperties = ^TD2D1BitmapBrushProperties;
 
   /// <summary>
   /// Contains the starting point and endpoint of the gradient axis for an
   /// ID2D1LinearGradientBrush.
   /// </summary>
-  D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES = record
+  TD2D1LinearGradientBrushProperties = record
     StartPoint: TD2D1Point2F;
     EndPoint  : TD2D1Point2F;
+
+    class function Create(AStartPoint, AEndPoint: TD2D1Point2F): TD2D1LinearGradientBrushProperties; overload; static;
+    class function Create(AStartX, AStartY, AEndX, AEndY: Single): TD2D1LinearGradientBrushProperties; overload; static;
   end;
 
-  TD2D1LinearGradientBrushProperties = D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES;
+  D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES = TD2D1LinearGradientBrushProperties;
   PD2D1LinearGradientBrushProperties = ^TD2D1LinearGradientBrushProperties;
 
   /// <summary>
   /// Contains the gradient origin offset and the size and position of the gradient
   /// ellipse for an ID2D1RadialGradientBrush.
   /// </summary>
-  D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES = record
+  TD2D1RadialGradientBrushProperties = record
     Center              : TD2D1Point2F;
     GradientOriginOffset: TD2D1Point2F;
     RadiusX             : Single;
-    RadiusY             : Single
+    RadiusY             : Single;
+
+    class function Create(ACenter, AGradientOriginOffset: TD2D1Point2F; ARadiusX, ARadiusY: Single): TD2D1RadialGradientBrushProperties; overload; static;
   end;
 
-  TD2D1RadialGradientBrushProperties = D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES;
+  D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES = TD2D1RadialGradientBrushProperties;
   PD2D1RadialGradientBrushProperties = ^TD2D1RadialGradientBrushProperties;
 
 {$ENDREGION}
@@ -14166,6 +14243,16 @@ end;
 
 
 {$REGION 'd2d1.h implementation'}
+
+{=========================================================================================================================================}
+{ TD2D1PixelFormat }
+{=========================================================================================================================================}
+class function TD2D1PixelFormat.Create(ADXGIFormat: TDXGIFormat = DXGI_FORMAT_UNKNOWN; AAlphaMode: TD2D1AlphaMode = D2D1_ALPHA_MODE_UNKNOWN): TD2D1PixelFormat;
+begin
+  Result.DXGIFormat := ADXGIFormat;
+  Result.AlphaMode := AAlphaMode;
+end;
+
 {=========================================================================================================================================}
 { TD2D1Point2F }
 {=========================================================================================================================================}
@@ -14407,6 +14494,338 @@ begin
   Result.Y := AX * M12 + AY * M22 + M32;
 end;
 
+{=========================================================================================================================================}
+{ TD2D1Point2U }
+{=========================================================================================================================================}
+class function TD2D1Point2U.Create(AX, AY: UInt32): TD2D1Point2U;
+begin
+  Result.X := AX;
+  Result.Y := AY;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1SizeF }
+{=========================================================================================================================================}
+class function TD2D1SizeF.Create(AWidth, AHeight: Single): TD2D1SizeF;
+begin
+  Result.Width  := AWidth;
+  Result.Height := AHeight;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1SizeU }
+{=========================================================================================================================================}
+class function TD2D1SizeU.Create(AWidth, AHeight: UInt32): TD2D1SizeU;
+begin
+  Result.Width  := AWidth;
+  Result.Height := AHeight;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1RectF }
+{=========================================================================================================================================}
+class function TD2D1RectF.Create(ALeft, ATop, ARight, ABottom: Single): TD2D1RectF;
+begin
+  Result.Left   := ALeft;
+  Result.Top    := ATop;
+  Result.Right  := ARight;
+  Result.Bottom := ABottom;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1RectU }
+{=========================================================================================================================================}
+class function TD2D1RectU.Create(ALeft, ATop, ARight, ABottom: UInt32): TD2D1RectU;
+begin
+  Result.Left   := ALeft;
+  Result.Top    := ATop;
+  Result.Right  := ARight;
+  Result.Bottom := ABottom;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1RoundedRect }
+{=========================================================================================================================================}
+class function TD2D1RoundedRect.Create(ARect: TD2D1RectF; ARadiusX, ARadiusY: Single): TD2D1RoundedRect;
+begin
+  Result.Rect := ARect;
+  Result.RadiusX := ARadiusX;
+  Result.RadiusY := ARadiusY;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1RoundedRect.Create(ALeft, ATop, ARight, ABottom, ARadiusX, ARadiusY: Single): TD2D1RoundedRect;
+begin
+  Result.Rect := TD2D1RectF.Create(ALeft, ATop, ARight, ABottom);
+  Result.RadiusX := ARadiusX;
+  Result.RadiusY := ARadiusY;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1RoundedRect.Create(ALeft, ATop, ARight, ABottom, ARadius: Single): TD2D1RoundedRect;
+begin
+  Result.Rect := TD2D1RectF.Create(ALeft, ATop, ARight, ABottom);
+  Result.RadiusX := ARadius;
+  Result.RadiusY := ARadius;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1Triangle }
+{=========================================================================================================================================}
+class function TD2D1Triangle.Create(APoint1, APoint2, APoint3: TD2D1Point2F): TD2D1Triangle;
+begin
+  Result.Point1 := APoint1;
+  Result.Point2 := APoint2;
+  Result.Point3 := APoint3;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1ArcSegment }
+{=========================================================================================================================================}
+class function TD2D1ArcSegment.Create(APoint: TD2D1Point2F; ASize: TD2D1SizeF; ARotationAngle: Single; ASweepDirection: TD2D1SweepDirection; AArcSize: TD2D1ArcSize): TD2D1ArcSegment;
+begin
+  Result.Point          := APoint;
+  Result.Size           := ASize;
+  Result.RotationAngle  := ARotationAngle;
+  Result.SweepDirection := ASweepDirection;
+  Result.ArcSize        := AArcSize;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1Ellipse }
+{=========================================================================================================================================}
+class function TD2D1Ellipse.Create(AX, AY, ARadiusX, ARadiusY: Single): TD2D1Ellipse;
+begin
+  Result.Point    := TD2D1Point2F.Create(AX, AY);
+  Result.RadiusX  := ARadiusX;
+  Result.RadiusY  := ARadiusY;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1Ellipse.Create(AX, AY, ARadius: Single): TD2D1Ellipse;
+begin
+  Result.Point    := TD2D1Point2F.Create(AX, AY);
+  Result.RadiusX  := ARadius;
+  Result.RadiusY  := ARadius;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1Ellipse.Create(APoint: TD2D1Point2F; ARadiusX, ARadiusY: Single): TD2D1Ellipse;
+begin
+  Result.Point    := APoint;
+  Result.RadiusX  := ARadiusX;
+  Result.RadiusY  := ARadiusY;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1Ellipse.Create(APoint: TD2D1Point2F; ARadius: Single): TD2D1Ellipse;
+begin
+  Result.Point    := APoint;
+  Result.RadiusX  := ARadius;
+  Result.RadiusY  := ARadius;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1BezierSegment }
+{=========================================================================================================================================}
+class function TD2D1BezierSegment.Create(APoint1, APoint2, APoint3: TD2D1Point2F): TD2D1BezierSegment;
+begin
+  Result.Point1 := APoint1;
+  Result.Point2 := APoint2;
+  Result.Point3 := APoint3;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1QuadraticBezierSegment }
+{=========================================================================================================================================}
+class function TD2D1QuadraticBezierSegment.Create(APoint1, APoint2: TD2D1Point2F): TD2D1QuadraticBezierSegment;
+begin
+  Result.Point1 := APoint1;
+  Result.Point2 := APoint2;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1StrokeStyleProperties }
+{=========================================================================================================================================}
+class function TD2D1StrokeStyleProperties.Create(AStartCap: TD2D1CapStyle = D2D1_CAP_STYLE_FLAT; AEndCap: TD2D1CapStyle = D2D1_CAP_STYLE_FLAT;
+  ADashCap: TD2D1CapStyle = D2D1_CAP_STYLE_FLAT; ALineJoin: TD2D1LineJoin = D2D1_LINE_JOIN_MITER; AMiterLimit: Single = 10;
+  ADashStyle : TD2D1DashStyle = D2D1_DASH_STYLE_SOLID; ADashOffset: Single = 0): TD2D1StrokeStyleProperties;
+begin
+  Result.StartCap   := AStartCap;
+  Result.EndCap     := AEndCap;
+  Result.DashCap    := ADashCap;
+  Result.LineJoin   := ALineJoin;
+  Result.MiterLimit := AMiterLimit;
+  Result.DashStyle  := ADashStyle;
+  Result.DashOffset := ADashOffset;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1LayerParameters }
+{=========================================================================================================================================}
+class function TD2D1LayerParameters.Create(AContentBounds: TD2D1RectF; AGeometricMask: ID2D1Geometry; AMaskAntialiasMode: TD2D1AntialiasMode;
+  AMaskTransform: TD2D1Matrix3x2F; AOpacity: Single; AOpacityBrush: ID2D1Brush; ALayerOptions: TD2D1LayerOptions): TD2D1LayerParameters;
+begin
+  Result.ContentBounds      := AContentBounds;
+  Result.GeometricMask      := AGeometricMask;
+  Result.MaskAntialiasMode  := AMaskAntialiasMode;
+  Result.MaskTransform      := AMaskTransform;
+  Result.Opacity            := AOpacity;
+  Result.OpacityBrush       := AOpacityBrush;
+  Result.LayerOptions       := ALayerOptions;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1LayerParameters.Create(AContentBounds: TD2D1RectF): TD2D1LayerParameters;
+begin
+  Result := TD2D1LayerParameters.Create(AContentBounds, nil, D2D1_ANTIALIAS_MODE_PER_PRIMITIVE, TD2D1Matrix3x2F.Identity, 1, nil, D2D1_LAYER_OPTIONS_NONE);
+end;
+
+{=========================================================================================================================================}
+{ TD2D1RenderTargetProperties }
+{=========================================================================================================================================}
+class function TD2D1RenderTargetProperties.Create(AType: TD2D1RenderTargetType; APixelFormat: TD2D1PixelFormat; ADpiX: Single = 0; ADpiY: Single = 0;
+  AUsage: TD2D1RenderTargetUsage = D2D1_RENDER_TARGET_USAGE_NONE; AMinLevel: TD2D1FeatureLevel = D2D1_FEATURE_LEVEL_DEFAULT): TD2D1RenderTargetProperties;
+  begin
+  Result.&Type        := AType;
+  Result.PixelFormat  := APixelFormat;
+  Result.DpiX         := ADpiX;
+  Result.DpiY         := ADpiY;
+  Result.Usage        := AUsage;
+  Result.MinLevel     := AMinLevel;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1RenderTargetProperties.Create(AType: TD2D1RenderTargetType = D2D1_RENDER_TARGET_TYPE_DEFAULT): TD2D1RenderTargetProperties;
+begin
+  Result := TD2D1RenderTargetProperties.Create(AType, TD2D1PixelFormat.Create)
+end;
+
+{=========================================================================================================================================}
+{ TD2D1HwndRenderTargetProperties }
+{=========================================================================================================================================}
+class function TD2D1HwndRenderTargetProperties.Create(AHwnd: HWND; APixelSize: TD2D1SizeU; APresentOptions: TD2D1PresentOptions = D2D1_PRESENT_OPTIONS_NONE): TD2D1HwndRenderTargetProperties;
+begin
+  Result.Hwnd           := AHwnd;
+  Result.PixelSize      := APixelSize;
+  Result.PresentOptions := APresentOptions;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1HwndRenderTargetProperties.Create(AHwnd: HWND): TD2D1HwndRenderTargetProperties;
+begin
+  Result := TD2D1HwndRenderTargetProperties.Create(AHwnd, TD2D1SizeU.Create(0, 0));
+end;
+
+{=========================================================================================================================================}
+{ TD2D1DrawingStateDescription }
+{=========================================================================================================================================}
+class function TD2D1DrawingStateDescription.Create(AAntialiasMode: TD2D1AntialiasMode; ATextAntialiasMode: TD2D1TextAntialiasMode;
+  ATag1: TD2D1Tag; ATag2: TD2D1Tag; ATransform: TD2D1Matrix3x2F): TD2D1DrawingStateDescription;
+begin
+  Result.AntialiasMode      := AAntialiasMode;
+  Result.TextAntialiasMode  := ATextAntialiasMode;
+  Result.Tag1               := ATag1;
+  Result.Tag2               := ATag2;
+  Result.Transform          := ATransform;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1DrawingStateDescription.Create: TD2D1DrawingStateDescription;
+begin
+  Result := TD2D1DrawingStateDescription.Create(D2D1_ANTIALIAS_MODE_PER_PRIMITIVE, D2D1_TEXT_ANTIALIAS_MODE_DEFAULT, 0, 0, TD2D1Matrix3x2F.Identity);
+end;
+
+{=========================================================================================================================================}
+{ TD2D1FactoryOptions }
+{=========================================================================================================================================}
+class function TD2D1FactoryOptions.Create(ADebugLevel: TD2D1DebugLevel): TD2D1FactoryOptions;
+begin
+  Result.DebugLevel := ADebugLevel;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1BitmapProperties }
+{=========================================================================================================================================}
+class function TD2D1BitmapProperties.Create(APixelFormat: TD2D1PixelFormat; ADpiX: Single; ADpiY: Single): TD2D1BitmapProperties;
+begin
+  Result.PixelFormat  := APixelFormat;
+  Result.DpiX         := ADpiX;
+  Result.DpiY         := ADpiY;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1BitmapProperties.Create: TD2D1BitmapProperties;
+begin
+  Result := TD2D1BitmapProperties.Create(TD2D1PixelFormat.Create, 96, 96);
+end;
+
+{=========================================================================================================================================}
+{ TD2D1GradientStop }
+{=========================================================================================================================================}
+class function TD2D1GradientStop.Create(APosition: Single; AColor: TD2D1ColorF): TD2D1GradientStop;
+begin
+  Result.Position := APosition;
+  Result.Color    := AColor;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1GradientStop.Create(APosition: Single; ARed, AGreen, ABlue, AAlpha: Single): TD2D1GradientStop;
+begin
+  Result.Position := APosition;
+  Result.Color    := TD2D1ColorF.Create(ARed, AGreen, ABlue, AAlpha);
+end;
+
+{=========================================================================================================================================}
+{ TD2D1BrushProperties }
+{=========================================================================================================================================}
+class function TD2D1BrushProperties.Create(AOpacity: Single; ATransform: TD2D1Matrix3x2F): TD2D1BrushProperties;
+begin
+  Result.Opacity    := AOpacity;
+  Result.Transform  := ATransform;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1BitmapBrushProperties }
+{=========================================================================================================================================}
+class function TD2D1BitmapBrushProperties.Create(AExtendModeX: TD2D1ExtendMode = D2D1_EXTEND_MODE_CLAMP;
+  AExtendModeY: TD2D1ExtendMode = D2D1_EXTEND_MODE_CLAMP;
+  AInterpolationMode : TD2D1BitmapInterpolationMode = D2D1_BITMAP_INTERPOLATION_MODE_LINEAR): TD2D1BitmapBrushProperties;
+begin
+  Result.ExtendModeX        := AExtendModeX;
+  Result.ExtendModeY        := AExtendModeY;
+  Result.InterpolationMode  := AInterpolationMode;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1LinearGradientBrushProperties }
+{=========================================================================================================================================}
+class function TD2D1LinearGradientBrushProperties.Create(AStartPoint, AEndPoint: TD2D1Point2F): TD2D1LinearGradientBrushProperties;
+begin
+  Result.StartPoint := AStartPoint;
+  Result.EndPoint   := AEndPoint;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1LinearGradientBrushProperties.Create(AStartX, AStartY, AEndX, AEndY: Single): TD2D1LinearGradientBrushProperties;
+begin
+  Result.StartPoint := TD2D1Point2F.Create(AStartX, AStartY);
+  Result.EndPoint   := TD2D1Point2F.Create(AEndX, AEndY);
+end;
+
+{=========================================================================================================================================}
+{ TD2D1RadialGradientBrushProperties }
+{=========================================================================================================================================}
+class function TD2D1RadialGradientBrushProperties.Create(ACenter, AGradientOriginOffset: TD2D1Point2F; ARadiusX, ARadiusY: Single): TD2D1RadialGradientBrushProperties;
+begin
+  Result.Center               := ACenter;
+  Result.GradientOriginOffset := AGradientOriginOffset;
+  Result.RadiusX              := ARadiusX;
+  Result.RadiusY              := ARadiusY;
+end;
+
+
+{=========================================================================================================================================}
 {$ENDREGION}
 
 
