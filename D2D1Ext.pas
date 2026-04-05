@@ -36,8 +36,8 @@
 
   07 Feb 2025 - beginning work on the library, collecting materials and first structure
   16 Feb 2025 - all types and interfaces were translated, helper structures were deleted
+  05 Apr 2026 - fix missing params and directives, implement basic methods for TD2D1Point2F
 
-  16 Feb 2025
   Pustowalow W.
 }
 
@@ -45,7 +45,11 @@ unit D2D1Ext;
 
 interface
 
-uses Winapi.DxgiFormat, Winapi.Windows, Winapi.Wincodec, Winapi.DXGI, Winapi.DxgiType, Winapi.D3DCommon, ActiveX, Graphics;
+uses
+  System.Math,
+  Winapi.DxgiFormat, Winapi.Windows, Winapi.Wincodec, Winapi.DXGI, Winapi.DxgiType, Winapi.D3DCommon, Winapi.ActiveX,
+
+  Vcl.Graphics;
 
 
 // Determines whether data is aligned or packed
@@ -6072,15 +6076,40 @@ type
   TD2D1PixelFormat = D2D1_PIXEL_FORMAT;
   PD2D1PixelFormat = ^TD2D1PixelFormat;
 
-  D2D1_POINT_2F = record
+  TD2D1Point2F = record
     X: Single;
     Y: Single;
+
+    class function Create: TD2D1Point2F; overload; static;
+    class function Create(AX, AY: Single): TD2D1Point2F; overload; static;
+    class function Create(ARndLeft, ARndTop, ARndRight, ARndBottom: Single): TD2D1Point2F; overload; static;
+    class function Create(AX, AY, ARndRadius: Single): TD2D1Point2F; overload; static;
+
+    class function Dot(A, B: TD2D1Point2F): Single; static;
+    class function Cross(A, B: TD2D1Point2F): Single; static;
+    class function Normalize(A: TD2D1Point2F): TD2D1Point2F; static;
+
+    class function Length(A, B: TD2D1Point2F): Single; static;
+		class function Angle(A, B: TD2D1Point2F): Single; static;
+
+    class function ProjS(A, B: TD2D1Point2F): Single; static;
+    class function ProjV(A, B: TD2D1Point2F): TD2D1Point2F; static;
+
+    class function Direction(A, B: TD2D1Point2F): TD2D1Point2F; static;
+    class function Normal(A, B: TD2D1Point2F): TD2D1Point2F; static;
+
+    class function MidPos(A, B: TD2D1Point2F): TD2D1Point2F; static;
+
+    class operator Add(A, B: TD2D1Point2F): TD2D1Point2F;
+    class operator Subtract(A, B: TD2D1Point2F): TD2D1Point2F;
+    class operator Multiply(A: TD2D1Point2F; AFactor: Single): TD2D1Point2F;
+    class operator Negative(A: TD2D1Point2F): TD2D1Point2F;
   end;
 
-  TD2D1Point2F = D2D1_POINT_2F;
+//  D2D1_POINT_2F = TD2D1Point2F;
   PD2D1Point2F = ^TD2D1Point2F;
 
-  D2D1_MATRIX_3X2_F = record
+  TD2D1Matrix3x2F = record
     M11: Single;
     M12: Single;
     M21: Single;
@@ -6088,29 +6117,31 @@ type
     M31: Single;
     M32: Single;
 
-    class function Create(AM11, AM12, AM21, AM22, AM31, AM32: Single): D2D1_MATRIX_3X2_F; static;
-    class function Identity: D2D1_MATRIX_3X2_F; static;
+    class function Create(AM11, AM12, AM21, AM22, AM31, AM32: Single): TD2D1Matrix3x2F; static;
+    class function Identity: TD2D1Matrix3x2F; static;
 
-    class function Translation(AX, AY: Single): D2D1_MATRIX_3X2_F; overload; static;
-    class function Translation(APos: TD2D1Point2F): D2D1_MATRIX_3X2_F; overload; static;
+    class function Translation(AX, AY: Single): TD2D1Matrix3x2F; overload; static;
+    class function Translation(APos: TD2D1Point2F): TD2D1Matrix3x2F; overload; static;
 
-    class function Rotation(AAngle, AX, AY: Single): D2D1_MATRIX_3X2_F; overload; static;
-    class function Rotation(AAngle: Single; APos: TD2D1Point2F): D2D1_MATRIX_3X2_F; overload; static;
+    class function Rotation(AAngle, AX, AY: Single): TD2D1Matrix3x2F; overload; static;
+    class function Rotation(AAngle: Single; APos: TD2D1Point2F): TD2D1Matrix3x2F; overload; static;
 
-    class function Scale(ASizeX, ASizeY, AX, AY: Single): D2D1_MATRIX_3X2_F; overload; static;
-    class function Scale(ASizeX, ASizeY: Single; APos: TD2D1Point2F): D2D1_MATRIX_3X2_F; overload; static;
+    class function Scale(ASizeX, ASizeY, AX, AY: Single): TD2D1Matrix3x2F; overload; static;
+    class function Scale(ASizeX, ASizeY: Single; APos: TD2D1Point2F): TD2D1Matrix3x2F; overload; static;
 
-    class operator Multiply(AM1, AM2: D2D1_MATRIX_3X2_F): D2D1_MATRIX_3X2_F; overload;
-    class operator Multiply(APos: TD2D1Point2F; AM: D2D1_MATRIX_3X2_F): TD2D1Point2F; overload;
+    class function Invert(AM: TD2D1Matrix3x2F): TD2D1Matrix3x2F; overload; static;
 
-    function Invert: Boolean;
+    class operator Multiply(AM1, AM2: TD2D1Matrix3x2F): TD2D1Matrix3x2F; overload;
+    class operator Multiply(APos: TD2D1Point2F; AM: TD2D1Matrix3x2F): TD2D1Point2F; overload;
+
+    function Invert: Boolean; overload;
     function IsInvertible: Boolean;
 
     function TransformPos(APos: TD2D1Point2F): TD2D1Point2F; overload;
     function TransformPos(AX, AY: Single): TD2D1Point2F; overload;
   end;
 
-  TD2D1Matrix3x2F = D2D1_MATRIX_3X2_F;
+  //TD2D1Matrix3x2F = D2D1_MATRIX_3X2_F;
   PD2D1Matrix3x2F = ^TD2D1Matrix3x2F;
 
   D2D1_POINT_2U = record
@@ -6393,6 +6424,24 @@ type
 {$ENDREGION}
 
 {$REGION 'd2d1_1.h records'}
+
+  D2D1_VECTOR_2F = record
+    X: Single;
+    Y: Single;
+  end;
+
+  D2D1_VECTOR_3F = record
+    X: Single;
+    Y: Single;
+    Z: Single;
+  end;
+
+  D2D1_VECTOR_4F = record
+    X: Single;
+    Y: Single;
+    Z: Single;
+    W: Single;
+  end;
 
   D2D1_POINT_2L = record
     X: Int32;
@@ -9118,6 +9167,7 @@ type
     /// Computes the point and tangent a given distance along the path.
     /// </summary>
     function ComputePointAtLength(
+      ALength: Single;
       const AWorldTransform: PD2D1Matrix3x2F;
       AFlatteningTolerance: Single;
       out APoint: TD2D1Point2F;
@@ -9184,11 +9234,11 @@ type
       AFigureBegin: TD2D1FigureBegin); stdcall;
 
     procedure AddLines(
-      const APoints: PD2D1Point2F;
-      APointsCount: UInt32); stdcall;
+      APoints: PD2D1Point2F;
+      APointsCount: UInt32); stdcall; overload;
 
     procedure AddBeziers(
-      const ABeziers: PD2D1BezierSegment;
+      ABeziers: PD2D1BezierSegment;
       ABeziersCount: UInt32); stdcall;
 
     procedure EndFigure(AFigureEnd: TD2D1FigureEnd); stdcall;
@@ -9201,15 +9251,15 @@ type
 
     procedure AddLine(APoint: TD2D1Point2F); stdcall;
 
-    procedure AddBezier(const ABezier: PD2D1BezierSegment); stdcall;
+    procedure AddBezier(ABezier: PD2D1BezierSegment); stdcall;
 
-    procedure AddQuadraticBezier(const ABezier: PD2D1QuadraticBezierSegment); stdcall;
+    procedure AddQuadraticBezier(ABezier: PD2D1QuadraticBezierSegment); stdcall;
 
     procedure AddQuadraticBeziers(
-      const ABeziers: PD2D1QuadraticBezierSegment;
+      ABeziers: PD2D1QuadraticBezierSegment;
       ABeziersCount: UInt32); stdcall;
 
-    procedure AddArc(const AArc: PD2D1ArcSegment); stdcall;
+    procedure AddArc(AArc: PD2D1ArcSegment); stdcall;
   end;
 
   ID2D1TessellationSink = interface(IUnknown)
@@ -9790,8 +9840,7 @@ type
     function ProcessRecord(
       ARecordType: DWORD;
       const ARecordData: Pointer;
-      ARecordDataSize: DWORD
-    ): HResult; stdcall;
+      ARecordDataSize: DWORD): HResult; stdcall;
 
   end;
 
@@ -9976,7 +10025,7 @@ type
   ID2D1Properties = interface(IUnknown)
     ['{483473d7-cd46-4f9d-9d3a-3112aa80159d}']
 
-   function GetPropertyCount: UInt32; stdcall;
+    function GetPropertyCount: UInt32; stdcall;
 
     function GetPropertyName(
       AIndex: UInt32;
@@ -10003,7 +10052,7 @@ type
     function SetValue(
       AIndex: UInt32;
       AType: TD2D1PropertyType;
-      AData: PByte;
+      const AData: PByte;
       ADataSize: UInt32): HRESULT; stdcall;
 
     /// <summary>
@@ -10012,13 +10061,13 @@ type
     function GetValueByName(
       AName: LPCWSTR;
       AType: TD2D1PropertyType;
-      AData: PByte;
+      const AData: PByte;
       ADataSize: UInt32): HRESULT; stdcall;
 
     function GetValue(
       AIndex: UInt32;
       AType: TD2D1PropertyType;
-      AData: PByte;
+      const AData: PByte;
       ADataSize: UInt32): HRESULT; stdcall;
 
     function GetValueSize(AIndex: UInt32): UInt32; stdcall;
@@ -10036,15 +10085,21 @@ type
       AInput: ID2D1Image;
       AInvalidate: BOOL = True); stdcall;
 
-    function SetInputCount(AIinputCount: UInt32): HRESULT; stdcall;
+    function SetInputCount(
+      AInputCount: UInt32): HRESULT; stdcall;
+
+    function GetInputCount: UInt32; stdcall;
 
     procedure GetInput(
       AIndex: UInt32;
       out AInput: ID2D1Image); stdcall;
 
-    function GetInputCount: UInt32; stdcall;
-
     procedure GetOutput(out AOutputImage: ID2D1Image); stdcall;
+
+    procedure SetInputEffect(
+      AIndex: UInt32;
+      AInput: ID2D1Image;
+      AInvalidate: BOOL = True); stdcall;
   end;
 
   ID2D1Bitmap1 = interface(ID2D1Bitmap)
@@ -10104,7 +10159,7 @@ type
 
     function CreateBitmap(
       ASize: TD2D1SizeU;
-      ASourceData: PByte;
+      const ASourceData: PByte;
       APitch: UInt32;
       const ABitmapProperties: PD2D1BitmapProperties1;
       out ABitmap: ID2D1Bitmap1): HRESULT; stdcall;
@@ -10134,8 +10189,8 @@ type
       out ABitmap: ID2D1Bitmap1): HRESULT; stdcall;
 
     function CreateEffect(
-      AEffectId: TGUID;
-      out AEffect: ID2D1Effect): HRESULT; stdcall;
+      const AEffectId: TGUID;
+      out  AEffect: ID2D1Effect): HRESULT; stdcall;
 
     function CreateGradientStopCollection(
       const AStraightAlphaGradientStops: PD2D1GradientStop;
@@ -10204,12 +10259,56 @@ type
       AForegroundBrush: ID2D1Brush;
       AMeasuringMode: TDWriteMeasuringMode = DWRITE_MEASURING_MODE_NATURAL); stdcall;
 
+//    procedure DrawImage(
+//      AEffect: ID2D1Effect;
+//      AInterpolationMode: TD2D1InterpolationMode = D2D1_INTERPOLATION_MODE_LINEAR;
+//      ACompositeMode: TD2D1CompositeMode = D2D1_COMPOSITE_MODE_SOURCE_OVER); stdcall; overload;
+//
+//    procedure DrawImage(
+//      AEffect: ID2D1Effect;
+//      ATargetOffset: TD2D1Point2F;
+//      AInterpolationMode: TD2D1InterpolationMode = D2D1_INTERPOLATION_MODE_LINEAR;
+//      ACompositeMode: TD2D1CompositeMode = D2D1_COMPOSITE_MODE_SOURCE_OVER); stdcall; overload;
+//
+//    procedure DrawImage(
+//      AEffect: ID2D1Effect;
+//      ATargetOffset: TD2D1Point2F;
+//      const AImageRectangle: PD2D1RectF = nil;
+//      AInterpolationMode: TD2D1InterpolationMode = D2D1_INTERPOLATION_MODE_LINEAR;
+//      ACompositeMode: TD2D1CompositeMode = D2D1_COMPOSITE_MODE_SOURCE_OVER); stdcall; overload;
+
+//    procedure DrawImage(
+//      AEffect: ID2D1Effect;
+//      const ATargetOffset: PD2D1Point2F = nil;
+//      const AImageRectangle: PD2D1RectF = nil;
+//      AInterpolationMode: TD2D1InterpolationMode = D2D1_INTERPOLATION_MODE_LINEAR;
+//      ACompositeMode: TD2D1CompositeMode = D2D1_COMPOSITE_MODE_SOURCE_OVER); stdcall; overload;
+//
+//    procedure DrawImage(
+//      AImage: ID2D1Image;
+//      AInterpolationMode: TD2D1InterpolationMode = D2D1_INTERPOLATION_MODE_LINEAR;
+//      ACompositeMode: TD2D1CompositeMode = D2D1_COMPOSITE_MODE_SOURCE_OVER); stdcall; overload;
+//
+//    procedure DrawImage(
+//     AImage: ID2D1Image;
+//      ATargetOffset: TD2D1Point2F;
+//      AInterpolationMode: TD2D1InterpolationMode = D2D1_INTERPOLATION_MODE_LINEAR;
+//      ACompositeMode: TD2D1CompositeMode = D2D1_COMPOSITE_MODE_SOURCE_OVER); stdcall; overload;
+//
+//    procedure DrawImage(
+//      AImage: ID2D1Image;
+//      ATargetOffset: TD2D1Point2F;
+//      const AImageRectangle: PD2D1RectF = nil;
+//      AInterpolationMode: TD2D1InterpolationMode = D2D1_INTERPOLATION_MODE_LINEAR;
+//      ACompositeMode: TD2D1CompositeMode = D2D1_COMPOSITE_MODE_SOURCE_OVER); stdcall; overload;
+
     procedure DrawImage(
       AImage: ID2D1Image;
       const ATargetOffset: PD2D1Point2F = nil;
       const AImageRectangle: PD2D1RectF = nil;
       AInterpolationMode: TD2D1InterpolationMode = D2D1_INTERPOLATION_MODE_LINEAR;
       ACompositeMode: TD2D1CompositeMode = D2D1_COMPOSITE_MODE_SOURCE_OVER); stdcall;
+
 
     procedure DrawGdiMetafile(
       AGdiMetafile: ID2D1GdiMetafile;
@@ -10307,10 +10406,11 @@ type
       AEffectFactory: PD2D1_EFFECT_FACTORY): HRESULT; stdcall;
 
     function RegisterEffectFromString(
-      AClassId: TGUID;
+      const AClassId: TGUID;
       APropertyXml: LPCWSTR;
       const ABindings: PD2D1PropertyBinding;
-      ABindingsCount: UInt32): HRESULT; stdcall;
+      ABindingsCount: UInt32;
+      const AEffectFactory: PD2D1_EFFECT_FACTORY): HRESULT; stdcall;
 
     function UnregisterEffect(AClassId: TGUID): HRESULT; stdcall;
 
@@ -13219,7 +13319,7 @@ type
       ABufferCount: UInt32): HRESULT; stdcall;
 
     function SetPixelShader(
-      AShaderId: TGUID;
+      const AShaderId: TGUID;
       APixelOptions: TD2D1PixelOptions = D2D1_PIXEL_OPTIONS_NONE): HRESULT; stdcall;
 
     function SetVertexProcessing(
@@ -13414,7 +13514,7 @@ type
       out ADpiY: Single); stdcall;
 
     function CreateEffect(
-      AEffectId: TGUID;
+      const AEffectId: TGUID;
       out AEffect: ID2D1Effect): HRESULT; stdcall;
 
     function GetMaximumSupportedFeatureLevel(
@@ -13445,7 +13545,7 @@ type
       out ATransform: ID2D1BoundsAdjustmentTransform): HRESULT; stdcall;
 
     function LoadPixelShader(
-      AShaderId: TGUID;
+      const AShaderId: TGUID;
       const AShaderBuffer: PByte;
       AShaderBufferCount: UInt32): HRESULT; stdcall;
 
@@ -14034,6 +14134,8 @@ end;
 
 {$ENDREGION}
 
+
+{$REGION 'D2DBaseTypes.h implementation'}
 {=========================================================================================================================================}
 { D2D1_COLOR_F }
 {=========================================================================================================================================}
@@ -14060,10 +14162,141 @@ begin
     Result.A := 0;
 end;
 
+{$ENDREGION}
+
+
+{$REGION 'd2d1.h implementation'}
 {=========================================================================================================================================}
-{ D2D1_MATRIX_3X2_F }
+{ TD2D1Point2F }
 {=========================================================================================================================================}
-class function D2D1_MATRIX_3X2_F.Create(AM11, AM12, AM21, AM22, AM31, AM32: Single): TD2D1Matrix3x2F;
+class function TD2D1Point2F.Create: TD2D1Point2F;
+begin
+  Result.X := 0;
+  Result.Y := 0;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1Point2F.Create(AX, AY: Single): TD2D1Point2F;
+begin
+  Result.X := AX;
+  Result.Y := AY;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1Point2F.Create(ARndLeft, ARndTop, ARndRight, ARndBottom: Single): TD2D1Point2F;
+begin
+  Result.X := (ARndRight - ARndLeft) * Random + ARndLeft;
+  Result.Y := (ARndBottom - ARndTop) * Random + ARndTop;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1Point2F.Create(AX, AY, ARndRadius: Single): TD2D1Point2F;
+begin
+  Result.X := ARndRadius * Random + AX;
+  Result.Y := ARndRadius * Random + AY;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1Point2F.Dot(A, B: TD2D1Point2F): Single;
+begin
+  Result := A.X * B.X + A.Y * B.Y;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1Point2F.Cross(A, B: TD2D1Point2F): Single;
+begin
+  Result := A.X * B.Y - A.Y * B.X;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1Point2F.Normalize(A: TD2D1Point2F): TD2D1Point2F;
+var L: Single;
+begin
+  L := Sqrt(Sqr(A.X) + Sqr(A.Y));
+  Result.X := A.X / L;
+  Result.Y := A.Y / L;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1Point2F.Length(A, B: TD2D1Point2F): Single;
+begin
+  Result := Sqrt(Sqr(B.X - A.X) + Sqr(B.Y - A.Y));
+end;
+
+{=========================================================================================================================================}
+class function TD2D1Point2F.Angle(A, B: TD2D1Point2F): Single;
+begin
+  Result := ArcTan2(B.Y - A.Y, B.X - A.X) * 180 / Pi;
+
+  if Result < 0 then Result := Result + 360;
+end;
+
+{=========================================================================================================================================}
+class function TD2D1Point2F.ProjS(A, B: TD2D1Point2F): Single;
+begin
+  Result := (A.X * B.X + A.Y * B.Y) / (B.X * B.X + B.Y * B.Y);
+end;
+
+{=========================================================================================================================================}
+class function TD2D1Point2F.ProjV(A, B: TD2D1Point2F): TD2D1Point2F;
+begin
+  Result := B * ProjS(A, B);
+//  Result := B * ((A.X * B.X + A.Y * B.Y) / (B.X * B.X + B.Y * B.Y));
+end;
+
+{=========================================================================================================================================}
+class function TD2D1Point2F.Direction(A, B: TD2D1Point2F): TD2D1Point2F;
+begin
+  Result := TD2D1Point2F.Create(B.X - A.X, B.Y - A.Y);
+  Result := Normalize(Result);
+end;
+
+{=========================================================================================================================================}
+class function TD2D1Point2F.Normal(A, B: TD2D1Point2F): TD2D1Point2F;
+begin
+  Result := TD2D1Point2F.Create(B.Y - A.Y, A.X - B.X);
+  Result := Normalize(Result);
+end;
+
+{=========================================================================================================================================}
+class function TD2D1Point2F.MidPos(A, B: TD2D1Point2F): TD2D1Point2F;
+begin
+  Result.X := (A.X + B.X) / 2;
+  Result.Y := (A.Y + B.Y) / 2;
+end;
+
+{=========================================================================================================================================}
+class operator TD2D1Point2F.Add(A, B: TD2D1Point2F): TD2D1Point2F;
+begin
+  Result.X := A.X + B.X;
+  Result.Y := A.Y + B.Y;
+end;
+
+{=========================================================================================================================================}
+class operator TD2D1Point2F.Subtract(A, B: TD2D1Point2F): TD2D1Point2F;
+begin
+  Result.X := A.X - B.X;
+  Result.Y := A.Y - B.Y;
+end;
+
+{=========================================================================================================================================}
+class operator TD2D1Point2F.Multiply(A: TD2D1Point2F; AFactor: Single): TD2D1Point2F;
+begin
+  Result.X := A.X * AFactor;
+  Result.Y := A.Y * AFactor;
+end;
+
+{=========================================================================================================================================}
+class operator TD2D1Point2F.Negative(A: TD2D1Point2F): TD2D1Point2F;
+begin
+  Result.X := -A.X;
+  Result.Y := -A.Y;
+end;
+
+{=========================================================================================================================================}
+{ TD2D1Matrix3x2F }
+{=========================================================================================================================================}
+class function TD2D1Matrix3x2F.Create(AM11, AM12, AM21, AM22, AM31, AM32: Single): TD2D1Matrix3x2F;
 begin
   Result.M11 := AM11; Result.M12 := AM12;
   Result.M21 := AM21; Result.M22 := AM22;
@@ -14071,7 +14304,7 @@ begin
 end;
 
 {=========================================================================================================================================}
-class function D2D1_MATRIX_3X2_F.Identity: TD2D1Matrix3x2F;
+class function TD2D1Matrix3x2F.Identity: TD2D1Matrix3x2F;
 begin
   Result.M11 := 1; Result.M12 := 0;
   Result.M21 := 0; Result.M22 := 1;
@@ -14079,19 +14312,7 @@ begin
 end;
 
 {=========================================================================================================================================}
-function D2D1_MATRIX_3X2_F.Invert: Boolean;
-begin
-  Result := D2D1InvertMatrix(@Self);
-end;
-
-{=========================================================================================================================================}
-function D2D1_MATRIX_3X2_F.IsInvertible: Boolean;
-begin
-  Result := D2D1IsMatrixInvertible(@Self);
-end;
-
-{=========================================================================================================================================}
-class function D2D1_MATRIX_3X2_F.Translation(AX, AY: Single): TD2D1Matrix3x2F;
+class function TD2D1Matrix3x2F.Translation(AX, AY: Single): TD2D1Matrix3x2F;
 begin
   Result.M11 := 1; Result.M12 := 0;
   Result.M21 := 0; Result.M22 := 1;
@@ -14099,19 +14320,19 @@ begin
 end;
 
 {=========================================================================================================================================}
-class function D2D1_MATRIX_3X2_F.Translation(APos: TD2D1Point2F): TD2D1Matrix3x2F;
+class function TD2D1Matrix3x2F.Translation(APos: TD2D1Point2F): TD2D1Matrix3x2F;
 begin
   Result := Translation(APos.X, APos.Y)
 end;
 
 {=========================================================================================================================================}
-class function D2D1_MATRIX_3X2_F.Rotation(AAngle: Single; APos: TD2D1Point2F): TD2D1Matrix3x2F;
+class function TD2D1Matrix3x2F.Rotation(AAngle: Single; APos: TD2D1Point2F): TD2D1Matrix3x2F;
 begin
   D2D1MakeRotateMatrix(AAngle, APos, @Result);
 end;
 
 {=========================================================================================================================================}
-class function D2D1_MATRIX_3X2_F.Rotation(AAngle, AX, AY: Single): TD2D1Matrix3x2F;
+class function TD2D1Matrix3x2F.Rotation(AAngle, AX, AY: Single): TD2D1Matrix3x2F;
 var P: TD2D1Point2F;
 begin
   P.X := AX;
@@ -14120,7 +14341,7 @@ begin
 end;
 
 {=========================================================================================================================================}
-class function D2D1_MATRIX_3X2_F.Scale(ASizeX, ASizeY, AX, AY: Single): TD2D1Matrix3x2F;
+class function TD2D1Matrix3x2F.Scale(ASizeX, ASizeY, AX, AY: Single): TD2D1Matrix3x2F;
 begin
   Result.M11 := ASizeX;
   Result.M12 := 0.0;
@@ -14131,13 +14352,32 @@ begin
 end;
 
 {=========================================================================================================================================}
-class function D2D1_MATRIX_3X2_F.Scale(ASizeX, ASizeY: Single; APos: TD2D1Point2F): TD2D1Matrix3x2F;
+class function TD2D1Matrix3x2F.Scale(ASizeX, ASizeY: Single; APos: TD2D1Point2F): TD2D1Matrix3x2F;
 begin
   Result := Scale(ASizeX, ASizeY, APos.X, APos.Y);
 end;
 
 {=========================================================================================================================================}
-class operator D2D1_MATRIX_3X2_F.Multiply(AM1, AM2: TD2D1Matrix3x2F): TD2D1Matrix3x2F;
+class function TD2D1Matrix3x2F.Invert(AM: TD2D1Matrix3x2F): TD2D1Matrix3x2F;
+begin
+  Result := AM;
+  D2D1InvertMatrix(@Result);
+end;
+
+{=========================================================================================================================================}
+function TD2D1Matrix3x2F.Invert: Boolean;
+begin
+  Result := D2D1InvertMatrix(@Self);
+end;
+
+{=========================================================================================================================================}
+function TD2D1Matrix3x2F.IsInvertible: Boolean;
+begin
+  Result := D2D1IsMatrixInvertible(@Self);
+end;
+
+{=========================================================================================================================================}
+class operator TD2D1Matrix3x2F.Multiply(AM1, AM2: TD2D1Matrix3x2F): TD2D1Matrix3x2F;
 begin
   Result.M11 := AM1.M11 * AM2.M11 + AM1.M12 * AM2.M21;
   Result.M12 := AM1.M11 * AM2.M12 + AM1.M12 * AM2.M22;
@@ -14148,25 +14388,29 @@ begin
 end;
 
 {=========================================================================================================================================}
-class operator D2D1_MATRIX_3X2_F.Multiply(APos: TD2D1Point2F; AM: TD2D1Matrix3x2F): TD2D1Point2F;
+class operator TD2D1Matrix3x2F.Multiply(APos: TD2D1Point2F; AM: TD2D1Matrix3x2F): TD2D1Point2F;
 begin
   Result := AM.TransformPos(APos);
 end;
 
 {=========================================================================================================================================}
-function D2D1_MATRIX_3X2_F.TransformPos(APos: TD2D1Point2F): TD2D1Point2F;
+function TD2D1Matrix3x2F.TransformPos(APos: TD2D1Point2F): TD2D1Point2F;
 begin
   Result.X := APos.X * M11 + APos.Y * M21 + M31;
   Result.Y := APos.X * M12 + APos.Y * M22 + M32;
 end;
 
 {=========================================================================================================================================}
-function D2D1_MATRIX_3X2_F.TransformPos(AX, AY: Single): TD2D1Point2F;
+function TD2D1Matrix3x2F.TransformPos(AX, AY: Single): TD2D1Point2F;
 begin
   Result.X := AX * M11 + AY * M21 + M31;
   Result.Y := AX * M12 + AY * M22 + M32;
 end;
 
+{$ENDREGION}
+
+
+{$REGION 'DWRITE bit fields ...'}
 {=========================================================================================================================================}
 { DWRITE_LINE_BREAKPOINT }
 {=========================================================================================================================================}
@@ -14263,6 +14507,9 @@ begin
   Result := GetBits32(Data, AIndex);
 end;
 {=========================================================================================================================================}
+
+{$ENDREGION}
+
 
 {$REGION 'user functions'}
 function D2D1CreateBitmap(ARenderTarget: ID2D1RenderTarget; ASrcBitmap: TBitmap; out AD2D1Bitmap: ID2D1Bitmap): HRESULT;
