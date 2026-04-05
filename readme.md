@@ -10,33 +10,33 @@
   
   The library has been named D2D1Ext. The second file D2D1ExtHelpers is optional and contains only the help functions.
 
-	- Included files:
-		- DocumentTarget.h
-		- d2d1.h
-		- d2d1_1.h
-		- d2d1_1helper.h
-		- d2d1_2.h
-		- d2d1_2helper.h
-		- d2d1_3.h
-		- d2d1_3helper.h
-		- d2d1effectauthor.h
-		- d2d1effectauthor_1.h
-		- d2d1effecthelpers.h
-		- d2d1effects.h
-		- d2d1effects_1.h
-		- d2d1helper.h
-		- d2d1svg.h
-		- d2dbasetypes.h
-		- d2derr.h
-		- dcommon.h
-		- dwrite.h
-		- dwrite_1.h
-		- dwrite_2.h
-		- dwrite_3.h
+- Included files:
+	- DocumentTarget.h
+	- d2d1.h
+	- d2d1_1.h
+	- d2d1_1helper.h
+	- d2d1_2.h
+	- d2d1_2helper.h
+	- d2d1_3.h
+	- d2d1_3helper.h
+	- d2d1effectauthor.h
+	- d2d1effectauthor_1.h
+	- d2d1effecthelpers.h
+	- d2d1effects.h
+	- d2d1effects_1.h
+	- d2d1helper.h
+	- d2d1svg.h
+	- d2dbasetypes.h
+	- d2derr.h
+	- dcommon.h
+	- dwrite.h
+	- dwrite_1.h
+	- dwrite_2.h
+	- dwrite_3.h
 
-	- 07 Feb 2025 - beginning work on the library, collecting materials and first structure
-	- 16 Feb 2025 - all types and interfaces were translated, helper structures were deleted
-	- 05 Apr 2026 - fix missing params and directives, implement basic methods for TD2D1Point2F
+- 07 Feb 2025 - beginning work on the library, collecting materials and first structure
+- 16 Feb 2025 - all types and interfaces were translated, helper structures were deleted
+- 05 Apr 2026 - fix missing params and directives, implement basic methods for TD2D1Point2F
 	
 ### Author
 Pustowalow W.
