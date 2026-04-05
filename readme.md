@@ -38,11 +38,11 @@
 	#### Example
 		- fxc /T ps_5_0 /E main /D D2D_ENTRY=main /D D2D_FULL_SHADER /Fo PS.fxc PS.hlsl
 ### Links
-	- https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/Direct2D/effect-shader-linking.md
-	- https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/Direct2D/effect-shader-linking.md#authoring-a-shader-linking-compatible-custom-effect
-	- https://learn.microsoft.com/en-us/windows/win32/direct3dtools/dx-graphics-tools-fxc-using
-	- https://learn.microsoft.com/en-us/windows/win32/direct2d/custom-effects
-	- https://learn.microsoft.com/en-us/archive/msdn-magazine/2014/september/directx-factor-vertex-shaders-and-transforms
+- https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/Direct2D/effect-shader-linking.md
+- https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/Direct2D/effect-shader-linking.md#authoring-a-shader-linking-compatible-custom-effect
+- https://learn.microsoft.com/en-us/windows/win32/direct3dtools/dx-graphics-tools-fxc-using
+- https://learn.microsoft.com/en-us/windows/win32/direct2d/custom-effects
+- https://learn.microsoft.com/en-us/archive/msdn-magazine/2014/september/directx-factor-vertex-shaders-and-transforms
 
 ### Changes
 
