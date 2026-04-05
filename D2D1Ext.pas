@@ -8,28 +8,29 @@
 
   ### Source SDK library - "Windows Kits\10\Include\10.0.22621.0\um"
   - Included files:
-    - DocumentTarget.h
-    - dcommon.h
-    - d2dbasetypes.h
-    - d2derr.h
-    - d2d1.h
-    - d2d1helper.h
-    - d2d1_1.h
-    - d2d1_1helper.h
-    - d2d1_2.h
-    - d2d1_2helper.h
-    - d2d1_3.h
-    - d2d1_3helper.h
-    - d2d1effects.h
-    - d2d1effecthelpers.h
-    - d2d1effects_1.h
-    - d2d1effectauthor.h
-    - d2d1effectauthor_1.h
-    - d2d1svg.h
-    - dwrite.h
-    - dwrite_1.h
-    - dwrite_2.h
-    - dwrite_3.h
+	- DocumentTarget.h
+	- dcommon.h
+	- d2dbasetypes.h
+	- d2derr.h
+	- d2d1.h
+	- d2d1helper.h
+	- d2d1_1.h
+	- d2d1_1helper.h
+	- d2d1_2.h
+	- d2d1_2helper.h
+	- d2d1_3.h
+	- d2d1_3helper.h	
+	- d2d1effects.h
+	- d2d1effecthelpers.h
+	- d2d1effects_1.h
+	- d2d1effects_2.h
+	- d2d1effectauthor.h
+	- d2d1effectauthor_1.h
+	- d2d1svg.h
+	- dwrite.h
+	- dwrite_1.h
+	- dwrite_2.h
+	- dwrite_3.h
 
   ### Changes
 
@@ -98,289 +99,944 @@ type
 //=========================================================================================================================================
 const
 
-  D2D1_INTERPOLATION_MODE_DEFINITION_NEAREST_NEIGHBOR     = 0;
-  D2D1_INTERPOLATION_MODE_DEFINITION_LINEAR               = 1;
-  D2D1_INTERPOLATION_MODE_DEFINITION_CUBIC                = 2;
-  D2D1_INTERPOLATION_MODE_DEFINITION_MULTI_SAMPLE_LINEAR  = 3;
-  D2D1_INTERPOLATION_MODE_DEFINITION_ANISOTROPIC          = 4;
-  D2D1_INTERPOLATION_MODE_DEFINITION_HIGH_QUALITY_CUBIC   = 5;
-  D2D1_INTERPOLATION_MODE_DEFINITION_FANT                 = 6;
-  D2D1_INTERPOLATION_MODE_DEFINITION_MIPMAP_LINEAR        = 7;
+  D2D1_INTERPOLATION_MODE_DEFINITION_NEAREST_NEIGHBOR                 = 0;
+  D2D1_INTERPOLATION_MODE_DEFINITION_LINEAR                           = 1;
+  D2D1_INTERPOLATION_MODE_DEFINITION_CUBIC                            = 2;
+  D2D1_INTERPOLATION_MODE_DEFINITION_MULTI_SAMPLE_LINEAR              = 3;
+  D2D1_INTERPOLATION_MODE_DEFINITION_ANISOTROPIC                      = 4;
+  D2D1_INTERPOLATION_MODE_DEFINITION_HIGH_QUALITY_CUBIC               = 5;
+  D2D1_INTERPOLATION_MODE_DEFINITION_FANT                             = 6;
+  D2D1_INTERPOLATION_MODE_DEFINITION_MIPMAP_LINEAR                    = 7;
+
+//  D2D1_BORDER_MODE_SOFT                                               = 0;
+//  D2D1_BORDER_MODE_HARD                                               = 1;
+//
+//  D2D1_CHANNEL_SELECTOR_R                                             = 0;
+//  D2D1_CHANNEL_SELECTOR_G                                             = 1;
+//  D2D1_CHANNEL_SELECTOR_B                                             = 2;
+//  D2D1_CHANNEL_SELECTOR_A                                             = 3;
+//
+//  D2D1_BITMAPSOURCE_ORIENTATION_DEFAULT                               = 1;
+//  D2D1_BITMAPSOURCE_ORIENTATION_FLIP_HORIZONTAL                       = 2;
+//  D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE180                   = 3;
+//  D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE180_FLIP_HORIZONTAL   = 4;
+//  D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE270_FLIP_HORIZONTAL   = 5;
+//  D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE90                    = 6;
+//  D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE90_FLIP_HORIZONTAL    = 7;
+//  D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE270                   = 8;
+//
+//  D2D1_GAUSSIANBLUR_PROP_STANDARD_DEVIATION                           = 0;
+//  D2D1_GAUSSIANBLUR_PROP_OPTIMIZATION                                 = 1;
+//  D2D1_GAUSSIANBLUR_PROP_BORDER_MODE                                  = 2;
+//
+//  D2D1_GAUSSIANBLUR_OPTIMIZATION_SPEED                                = 0;
+//  D2D1_GAUSSIANBLUR_OPTIMIZATION_BALANCED                             = 1;
+//  D2D1_GAUSSIANBLUR_OPTIMIZATION_QUALITY                              = 2;
+//
+//  D2D1_DIRECTIONALBLUR_PROP_STANDARD_DEVIATION                        = 0;
+//  D2D1_DIRECTIONALBLUR_PROP_ANGLE                                     = 1;
+//  D2D1_DIRECTIONALBLUR_PROP_OPTIMIZATION                              = 2;
+//  D2D1_DIRECTIONALBLUR_PROP_BORDER_MODE                               = 3;
+//
+//  D2D1_DIRECTIONALBLUR_OPTIMIZATION_SPEED                             = 0;
+//  D2D1_DIRECTIONALBLUR_OPTIMIZATION_BALANCED                          = 1;
+//  D2D1_DIRECTIONALBLUR_OPTIMIZATION_QUALITY                           = 2;
+//
+//  D2D1_SHADOW_PROP_BLUR_STANDARD_DEVIATION                            = 0;
+//  D2D1_SHADOW_PROP_COLOR                                              = 1;
+//  D2D1_SHADOW_PROP_OPTIMIZATION                                       = 2;
+//
+//  D2D1_SHADOW_OPTIMIZATION_SPEED                                      = 0;
+//  D2D1_SHADOW_OPTIMIZATION_BALANCED                                   = 1;
+//  D2D1_SHADOW_OPTIMIZATION_QUALITY                                    = 2;
+//
+//  D2D1_BLEND_PROP_MODE                                                = 0;
+//
+//  D2D1_BLEND_MODE_MULTIPLY                                            = 0;
+//  D2D1_BLEND_MODE_SCREEN                                              = 1;
+//  D2D1_BLEND_MODE_DARKEN                                              = 2;
+//  D2D1_BLEND_MODE_LIGHTEN                                             = 3;
+//  D2D1_BLEND_MODE_DISSOLVE                                            = 4;
+//  D2D1_BLEND_MODE_COLOR_BURN                                          = 5;
+//  D2D1_BLEND_MODE_LINEAR_BURN                                         = 6;
+//  D2D1_BLEND_MODE_DARKER_COLOR                                        = 7;
+//  D2D1_BLEND_MODE_LIGHTER_COLOR                                       = 8;
+//  D2D1_BLEND_MODE_COLOR_DODGE                                         = 9;
+//  D2D1_BLEND_MODE_LINEAR_DODGE                                        = 10;
+//  D2D1_BLEND_MODE_OVERLAY                                             = 11;
+//  D2D1_BLEND_MODE_SOFT_LIGHT                                          = 12;
+//  D2D1_BLEND_MODE_HARD_LIGHT                                          = 13;
+//  D2D1_BLEND_MODE_VIVID_LIGHT                                         = 14;
+//  D2D1_BLEND_MODE_LINEAR_LIGHT                                        = 15;
+//  D2D1_BLEND_MODE_PIN_LIGHT                                           = 16;
+//  D2D1_BLEND_MODE_HARD_MIX                                            = 17;
+//  D2D1_BLEND_MODE_DIFFERENCE                                          = 18;
+//  D2D1_BLEND_MODE_EXCLUSION                                           = 19;
+//  D2D1_BLEND_MODE_HUE                                                 = 20;
+//  D2D1_BLEND_MODE_SATURATION                                          = 21;
+//  D2D1_BLEND_MODE_COLOR                                               = 22;
+//  D2D1_BLEND_MODE_LUMINOSITY                                          = 23;
+//  D2D1_BLEND_MODE_SUBTRACT                                            = 24;
+//  D2D1_BLEND_MODE_DIVISION                                            = 25;
+//
+//  D2D1_SATURATION_PROP_SATURATION                                     = 0;
+//
+//  D2D1_HUEROTATION_PROP_ANGLE                                         = 0;
+//
+//  D2D1_COLORMATRIX_PROP_COLOR_MATRIX                                  = 0;
+//  D2D1_COLORMATRIX_PROP_ALPHA_MODE                                    = 1;
+//  D2D1_COLORMATRIX_PROP_CLAMP_OUTPUT                                  = 2;
+//
+//  D2D1_COLORMATRIX_ALPHA_MODE_PREMULTIPLIED                           = 1;
+//  D2D1_COLORMATRIX_ALPHA_MODE_STRAIGHT                                = 2;
+//
+//  D2D1_BITMAPSOURCE_PROP_WIC_BITMAP_SOURCE                            = 0;
+//  D2D1_BITMAPSOURCE_PROP_SCALE                                        = 1;
+//  D2D1_BITMAPSOURCE_PROP_INTERPOLATION_MODE                           = 2;
+//  D2D1_BITMAPSOURCE_PROP_ENABLE_DPI_CORRECTION                        = 3;
+//  D2D1_BITMAPSOURCE_PROP_ALPHA_MODE                                   = 4;
+//  D2D1_BITMAPSOURCE_PROP_ORIENTATION                                  = 5;
+//
+//  D2D1_BITMAPSOURCE_INTERPOLATION_MODE_NEAREST_NEIGHBOR               = 0;
+//  D2D1_BITMAPSOURCE_INTERPOLATION_MODE_LINEAR                         = 1;
+//  D2D1_BITMAPSOURCE_INTERPOLATION_MODE_CUBIC                          = 2;
+//  D2D1_BITMAPSOURCE_INTERPOLATION_MODE_FANT                           = 6;
+//  D2D1_BITMAPSOURCE_INTERPOLATION_MODE_MIPMAP_LINEAR                  = 7;
+//
+//  D2D1_BITMAPSOURCE_ALPHA_MODE_PREMULTIPLIED                          = 1;
+//  D2D1_BITMAPSOURCE_ALPHA_MODE_STRAIGHT                               = 2;
+//
+//  D2D1_COMPOSITE_PROP_MODE                                            = 0;
+//
+//  D2D1_3DTRANSFORM_PROP_INTERPOLATION_MODE                            = 0;
+//  D2D1_3DTRANSFORM_PROP_BORDER_MODE                                   = 1;
+//  D2D1_3DTRANSFORM_PROP_TRANSFORM_MATRIX                              = 2;
+//
+//  D2D1_3DTRANSFORM_INTERPOLATION_MODE_NEAREST_NEIGHBOR                = 0;
+//  D2D1_3DTRANSFORM_INTERPOLATION_MODE_LINEAR                          = 1;
+//  D2D1_3DTRANSFORM_INTERPOLATION_MODE_CUBIC                           = 2;
+//  D2D1_3DTRANSFORM_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR             = 3;
+//  D2D1_3DTRANSFORM_INTERPOLATION_MODE_ANISOTROPIC                     = 4;
+//
+//  D2D1_3DPERSPECTIVETRANSFORM_PROP_INTERPOLATION_MODE                 = 0;
+//  D2D1_3DPERSPECTIVETRANSFORM_PROP_BORDER_MODE                        = 1;
+//  D2D1_3DPERSPECTIVETRANSFORM_PROP_DEPTH                              = 2;
+//  D2D1_3DPERSPECTIVETRANSFORM_PROP_PERSPECTIVE_ORIGIN                 = 3;
+//  D2D1_3DPERSPECTIVETRANSFORM_PROP_LOCAL_OFFSET                       = 4;
+//  D2D1_3DPERSPECTIVETRANSFORM_PROP_GLOBAL_OFFSET                      = 5;
+//  D2D1_3DPERSPECTIVETRANSFORM_PROP_ROTATION_ORIGIN                    = 6;
+//  D2D1_3DPERSPECTIVETRANSFORM_PROP_ROTATION                           = 7;
+//
+//  D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_NEAREST_NEIGHBOR     = 0;
+//  D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_LINEAR               = 1;
+//  D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_CUBIC                = 2;
+//  D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR  = 3;
+//  D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_ANISOTROPIC          = 4;
+//
+//  D2D1_2DAFFINETRANSFORM_PROP_INTERPOLATION_MODE                      = 0;
+//  D2D1_2DAFFINETRANSFORM_PROP_BORDER_MODE                             = 1;
+//  D2D1_2DAFFINETRANSFORM_PROP_TRANSFORM_MATRIX                        = 2;
+//  D2D1_2DAFFINETRANSFORM_PROP_SHARPNESS                               = 3;
+//
+//  D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_NEAREST_NEIGHBOR          = 0;
+//  D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_LINEAR                    = 1;
+//  D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_CUBIC                     = 2;
+//  D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR       = 3;
+//  D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_ANISOTROPIC               = 4;
+//  D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC        = 5;
+//
+//  D2D1_DPICOMPENSATION_PROP_INTERPOLATION_MODE                        = 0;
+//  D2D1_DPICOMPENSATION_PROP_BORDER_MODE                               = 1;
+//  D2D1_DPICOMPENSATION_PROP_INPUT_DPI                                 = 2;
+//
+//  D2D1_DPICOMPENSATION_INTERPOLATION_MODE_NEAREST_NEIGHBOR            = 0;
+//  D2D1_DPICOMPENSATION_INTERPOLATION_MODE_LINEAR                      = 1;
+//  D2D1_DPICOMPENSATION_INTERPOLATION_MODE_CUBIC                       = 2;
+//  D2D1_DPICOMPENSATION_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR         = 3;
+//  D2D1_DPICOMPENSATION_INTERPOLATION_MODE_ANISOTROPIC                 = 4;
+//  D2D1_DPICOMPENSATION_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC          = 5;
+//
+//  D2D1_SCALE_PROP_SCALE                                               = 0;
+//  D2D1_SCALE_PROP_CENTER_POINT                                        = 1;
+//  D2D1_SCALE_PROP_INTERPOLATION_MODE                                  = 2;
+//  D2D1_SCALE_PROP_BORDER_MODE                                         = 3;
+//  D2D1_SCALE_PROP_SHARPNESS                                           = 4;
+//
+//  D2D1_SCALE_INTERPOLATION_MODE_NEAREST_NEIGHBOR                      = 0;
+//  D2D1_SCALE_INTERPOLATION_MODE_LINEAR                                = 1;
+//  D2D1_SCALE_INTERPOLATION_MODE_CUBIC                                 = 2;
+//  D2D1_SCALE_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR                   = 3;
+//  D2D1_SCALE_INTERPOLATION_MODE_ANISOTROPIC                           = 4;
+//  D2D1_SCALE_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC                    = 5;
+//
+//  D2D1_TURBULENCE_PROP_OFFSET                                         = 0;
+//  D2D1_TURBULENCE_PROP_SIZE                                           = 1;
+//  D2D1_TURBULENCE_PROP_BASE_FREQUENCY                                 = 2;
+//  D2D1_TURBULENCE_PROP_NUM_OCTAVES                                    = 3;
+//  D2D1_TURBULENCE_PROP_SEED                                           = 4;
+//  D2D1_TURBULENCE_PROP_NOISE                                          = 5;
+//  D2D1_TURBULENCE_PROP_STITCHABLE                                     = 6;
+//
+//  D2D1_TURBULENCE_NOISE_FRACTAL_SUM                                   = 0;
+//  D2D1_TURBULENCE_NOISE_TURBULENCE                                    = 1;
+//
+//  D2D1_DISPLACEMENTMAP_PROP_SCALE                                     = 0;
+//  D2D1_DISPLACEMENTMAP_PROP_X_CHANNEL_SELECT                          = 1;
+//  D2D1_DISPLACEMENTMAP_PROP_Y_CHANNEL_SELECT                          = 2;
+//
+//  D2D1_COLORMANAGEMENT_PROP_SOURCE_COLOR_CONTEXT                      = 0;
+//  D2D1_COLORMANAGEMENT_PROP_SOURCE_RENDERING_INTENT                   = 1;
+//  D2D1_COLORMANAGEMENT_PROP_DESTINATION_COLOR_CONTEXT                 = 2;
+//  D2D1_COLORMANAGEMENT_PROP_DESTINATION_RENDERING_INTENT              = 3;
+//  D2D1_COLORMANAGEMENT_PROP_ALPHA_MODE                                = 4;
+//  D2D1_COLORMANAGEMENT_PROP_QUALITY                                   = 5;
+//
+//  D2D1_COLORMANAGEMENT_ALPHA_MODE_PREMULTIPLIED                       = 1;
+//  D2D1_COLORMANAGEMENT_ALPHA_MODE_STRAIGHT                            = 2;
+//
+//  D2D1_COLORMANAGEMENT_QUALITY_PROOF                                  = 0;
+//  D2D1_COLORMANAGEMENT_QUALITY_NORMAL                                 = 1;
+//  D2D1_COLORMANAGEMENT_QUALITY_BEST                                   = 2;
+//
+//  D2D1_COLORMANAGEMENT_RENDERING_INTENT_PERCEPTUAL                    = 0;
+//  D2D1_COLORMANAGEMENT_RENDERING_INTENT_RELATIVE_COLORIMETRIC         = 1;
+//  D2D1_COLORMANAGEMENT_RENDERING_INTENT_SATURATION                    = 2;
+//  D2D1_COLORMANAGEMENT_RENDERING_INTENT_ABSOLUTE_COLORIMETRIC         = 3;
+//
+//  D2D1_HISTOGRAM_PROP_NUM_BINS                                        = 0;
+//  D2D1_HISTOGRAM_PROP_CHANNEL_SELECT                                  = 1;
+//  D2D1_HISTOGRAM_PROP_HISTOGRAM_OUTPUT                                = 2;
+//
+//  D2D1_POINTSPECULAR_PROP_LIGHT_POSITION                              = 0;
+//  D2D1_POINTSPECULAR_PROP_SPECULAR_EXPONENT                           = 1;
+//  D2D1_POINTSPECULAR_PROP_SPECULAR_CONSTANT                           = 2;
+//  D2D1_POINTSPECULAR_PROP_SURFACE_SCALE                               = 3;
+//  D2D1_POINTSPECULAR_PROP_COLOR                                       = 4;
+//  D2D1_POINTSPECULAR_PROP_KERNEL_UNIT_LENGTH                          = 5;
+//  D2D1_POINTSPECULAR_PROP_SCALE_MODE                                  = 6;
+//
+//  D2D1_POINTSPECULAR_SCALE_MODE_NEAREST_NEIGHBOR                      = 0;
+//  D2D1_POINTSPECULAR_SCALE_MODE_LINEAR                                = 1;
+//  D2D1_POINTSPECULAR_SCALE_MODE_CUBIC                                 = 2;
+//  D2D1_POINTSPECULAR_SCALE_MODE_MULTI_SAMPLE_LINEAR                   = 3;
+//  D2D1_POINTSPECULAR_SCALE_MODE_ANISOTROPIC                           = 4;
+//  D2D1_POINTSPECULAR_SCALE_MODE_HIGH_QUALITY_CUBIC                    = 5;
+//
+//  D2D1_SPOTSPECULAR_PROP_LIGHT_POSITION                               = 0;
+//  D2D1_SPOTSPECULAR_PROP_POINTS_AT                                    = 1;
+//  D2D1_SPOTSPECULAR_PROP_FOCUS                                        = 2;
+//  D2D1_SPOTSPECULAR_PROP_LIMITING_CONE_ANGLE                          = 3;
+//  D2D1_SPOTSPECULAR_PROP_SPECULAR_EXPONENT                            = 4;
+//  D2D1_SPOTSPECULAR_PROP_SPECULAR_CONSTANT                            = 5;
+//  D2D1_SPOTSPECULAR_PROP_SURFACE_SCALE                                = 6;
+//  D2D1_SPOTSPECULAR_PROP_COLOR                                        = 7;
+//  D2D1_SPOTSPECULAR_PROP_KERNEL_UNIT_LENGTH                           = 8;
+//  D2D1_SPOTSPECULAR_PROP_SCALE_MODE                                   = 9;
+//
+//  D2D1_SPOTSPECULAR_SCALE_MODE_NEAREST_NEIGHBOR                       = 0;
+//  D2D1_SPOTSPECULAR_SCALE_MODE_LINEAR                                 = 1;
+//  D2D1_SPOTSPECULAR_SCALE_MODE_CUBIC                                  = 2;
+//  D2D1_SPOTSPECULAR_SCALE_MODE_MULTI_SAMPLE_LINEAR                    = 3;
+//  D2D1_SPOTSPECULAR_SCALE_MODE_ANISOTROPIC                            = 4;
+//  D2D1_SPOTSPECULAR_SCALE_MODE_HIGH_QUALITY_CUBIC                     = 5;
+//
+//  D2D1_DISTANTSPECULAR_PROP_AZIMUTH                                   = 0;
+//  D2D1_DISTANTSPECULAR_PROP_ELEVATION                                 = 1;
+//  D2D1_DISTANTSPECULAR_PROP_SPECULAR_EXPONENT                         = 2;
+//  D2D1_DISTANTSPECULAR_PROP_SPECULAR_CONSTANT                         = 3;
+//  D2D1_DISTANTSPECULAR_PROP_SURFACE_SCALE                             = 4;
+//  D2D1_DISTANTSPECULAR_PROP_COLOR                                     = 5;
+//  D2D1_DISTANTSPECULAR_PROP_KERNEL_UNIT_LENGTH                        = 6;
+//  D2D1_DISTANTSPECULAR_PROP_SCALE_MODE                                = 7;
+//
+//  D2D1_DISTANTSPECULAR_SCALE_MODE_NEAREST_NEIGHBOR                    = 0;
+//  D2D1_DISTANTSPECULAR_SCALE_MODE_LINEAR                              = 1;
+//  D2D1_DISTANTSPECULAR_SCALE_MODE_CUBIC                               = 2;
+//  D2D1_DISTANTSPECULAR_SCALE_MODE_MULTI_SAMPLE_LINEAR                 = 3;
+//  D2D1_DISTANTSPECULAR_SCALE_MODE_ANISOTROPIC                         = 4;
+//  D2D1_DISTANTSPECULAR_SCALE_MODE_HIGH_QUALITY_CUBIC                  = 5;
+//
+//  D2D1_POINTDIFFUSE_PROP_LIGHT_POSITION                               = 0;
+//  D2D1_POINTDIFFUSE_PROP_DIFFUSE_CONSTANT                             = 1;
+//  D2D1_POINTDIFFUSE_PROP_SURFACE_SCALE                                = 2;
+//  D2D1_POINTDIFFUSE_PROP_COLOR                                        = 3;
+//  D2D1_POINTDIFFUSE_PROP_KERNEL_UNIT_LENGTH                           = 4;
+//  D2D1_POINTDIFFUSE_PROP_SCALE_MODE                                   = 5;
+//
+//  D2D1_POINTDIFFUSE_SCALE_MODE_NEAREST_NEIGHBOR                       = 0;
+//  D2D1_POINTDIFFUSE_SCALE_MODE_LINEAR                                 = 1;
+//  D2D1_POINTDIFFUSE_SCALE_MODE_CUBIC                                  = 2;
+//  D2D1_POINTDIFFUSE_SCALE_MODE_MULTI_SAMPLE_LINEAR                    = 3;
+//  D2D1_POINTDIFFUSE_SCALE_MODE_ANISOTROPIC                            = 4;
+//  D2D1_POINTDIFFUSE_SCALE_MODE_HIGH_QUALITY_CUBIC                     = 5;
+//
+//  D2D1_SPOTDIFFUSE_PROP_LIGHT_POSITION                                = 0;
+//  D2D1_SPOTDIFFUSE_PROP_POINTS_AT                                     = 1;
+//  D2D1_SPOTDIFFUSE_PROP_FOCUS                                         = 2;
+//  D2D1_SPOTDIFFUSE_PROP_LIMITING_CONE_ANGLE                           = 3;
+//  D2D1_SPOTDIFFUSE_PROP_DIFFUSE_CONSTANT                              = 4;
+//  D2D1_SPOTDIFFUSE_PROP_SURFACE_SCALE                                 = 5;
+//  D2D1_SPOTDIFFUSE_PROP_COLOR                                         = 6;
+//  D2D1_SPOTDIFFUSE_PROP_KERNEL_UNIT_LENGTH                            = 7;
+//  D2D1_SPOTDIFFUSE_PROP_SCALE_MODE                                    = 8;
+//
+//  D2D1_SPOTDIFFUSE_SCALE_MODE_NEAREST_NEIGHBOR                        = 0;
+//  D2D1_SPOTDIFFUSE_SCALE_MODE_LINEAR                                  = 1;
+//  D2D1_SPOTDIFFUSE_SCALE_MODE_CUBIC                                   = 2;
+//  D2D1_SPOTDIFFUSE_SCALE_MODE_MULTI_SAMPLE_LINEAR                     = 3;
+//  D2D1_SPOTDIFFUSE_SCALE_MODE_ANISOTROPIC                             = 4;
+//  D2D1_SPOTDIFFUSE_SCALE_MODE_HIGH_QUALITY_CUBIC                      = 5;
+//
+//  D2D1_DISTANTDIFFUSE_PROP_AZIMUTH                                    = 0;
+//  D2D1_DISTANTDIFFUSE_PROP_ELEVATION                                  = 1;
+//  D2D1_DISTANTDIFFUSE_PROP_DIFFUSE_CONSTANT                           = 2;
+//  D2D1_DISTANTDIFFUSE_PROP_SURFACE_SCALE                              = 3;
+//  D2D1_DISTANTDIFFUSE_PROP_COLOR                                      = 4;
+//  D2D1_DISTANTDIFFUSE_PROP_KERNEL_UNIT_LENGTH                         = 5;
+//  D2D1_DISTANTDIFFUSE_PROP_SCALE_MODE                                 = 6;
+//
+//  D2D1_DISTANTDIFFUSE_SCALE_MODE_NEAREST_NEIGHBOR                     = 0;
+//  D2D1_DISTANTDIFFUSE_SCALE_MODE_LINEAR                               = 1;
+//  D2D1_DISTANTDIFFUSE_SCALE_MODE_CUBIC                                = 2;
+//  D2D1_DISTANTDIFFUSE_SCALE_MODE_MULTI_SAMPLE_LINEAR                  = 3;
+//  D2D1_DISTANTDIFFUSE_SCALE_MODE_ANISOTROPIC                          = 4;
+//  D2D1_DISTANTDIFFUSE_SCALE_MODE_HIGH_QUALITY_CUBIC                   = 5;
+//
+//  D2D1_FLOOD_PROP_COLOR                                               = 0;
+//
+//  D2D1_LINEARTRANSFER_PROP_RED_Y_INTERCEPT                            = 0;
+//  D2D1_LINEARTRANSFER_PROP_RED_SLOPE                                  = 1;
+//  D2D1_LINEARTRANSFER_PROP_RED_DISABLE                                = 2;
+//  D2D1_LINEARTRANSFER_PROP_GREEN_Y_INTERCEPT                          = 3;
+//  D2D1_LINEARTRANSFER_PROP_GREEN_SLOPE                                = 4;
+//  D2D1_LINEARTRANSFER_PROP_GREEN_DISABLE                              = 5;
+//  D2D1_LINEARTRANSFER_PROP_BLUE_Y_INTERCEPT                           = 6;
+//  D2D1_LINEARTRANSFER_PROP_BLUE_SLOPE                                 = 7;
+//  D2D1_LINEARTRANSFER_PROP_BLUE_DISABLE                               = 8;
+//  D2D1_LINEARTRANSFER_PROP_ALPHA_Y_INTERCEPT                          = 9;
+//  D2D1_LINEARTRANSFER_PROP_ALPHA_SLOPE                                = 10;
+//  D2D1_LINEARTRANSFER_PROP_ALPHA_DISABLE                              = 11;
+//  D2D1_LINEARTRANSFER_PROP_CLAMP_OUTPUT                               = 12;
+//
+//  D2D1_GAMMATRANSFER_PROP_RED_AMPLITUDE                               = 0;
+//  D2D1_GAMMATRANSFER_PROP_RED_EXPONENT                                = 1;
+//  D2D1_GAMMATRANSFER_PROP_RED_OFFSET                                  = 2;
+//  D2D1_GAMMATRANSFER_PROP_RED_DISABLE                                 = 3;
+//  D2D1_GAMMATRANSFER_PROP_GREEN_AMPLITUDE                             = 4;
+//  D2D1_GAMMATRANSFER_PROP_GREEN_EXPONENT                              = 5;
+//  D2D1_GAMMATRANSFER_PROP_GREEN_OFFSET                                = 6;
+//  D2D1_GAMMATRANSFER_PROP_GREEN_DISABLE                               = 7;
+//  D2D1_GAMMATRANSFER_PROP_BLUE_AMPLITUDE                              = 8;
+//  D2D1_GAMMATRANSFER_PROP_BLUE_EXPONENT                               = 9;
+//  D2D1_GAMMATRANSFER_PROP_BLUE_OFFSET                                 = 10;
+//  D2D1_GAMMATRANSFER_PROP_BLUE_DISABLE                                = 11;
+//  D2D1_GAMMATRANSFER_PROP_ALPHA_AMPLITUDE                             = 12;
+//  D2D1_GAMMATRANSFER_PROP_ALPHA_EXPONENT                              = 13;
+//  D2D1_GAMMATRANSFER_PROP_ALPHA_OFFSET                                = 14;
+//  D2D1_GAMMATRANSFER_PROP_ALPHA_DISABLE                               = 15;
+//  D2D1_GAMMATRANSFER_PROP_CLAMP_OUTPUT                                = 16;
+//
+//  D2D1_TABLETRANSFER_PROP_RED_TABLE                                   = 0;
+//  D2D1_TABLETRANSFER_PROP_RED_DISABLE                                 = 1;
+//  D2D1_TABLETRANSFER_PROP_GREEN_TABLE                                 = 2;
+//  D2D1_TABLETRANSFER_PROP_GREEN_DISABLE                               = 3;
+//  D2D1_TABLETRANSFER_PROP_BLUE_TABLE                                  = 4;
+//  D2D1_TABLETRANSFER_PROP_BLUE_DISABLE                                = 5;
+//  D2D1_TABLETRANSFER_PROP_ALPHA_TABLE                                 = 6;
+//  D2D1_TABLETRANSFER_PROP_ALPHA_DISABLE                               = 7;
+//  D2D1_TABLETRANSFER_PROP_CLAMP_OUTPUT                                = 8;
+//
+//  D2D1_DISCRETETRANSFER_PROP_RED_TABLE                                = 0;
+//  D2D1_DISCRETETRANSFER_PROP_RED_DISABLE                              = 1;
+//  D2D1_DISCRETETRANSFER_PROP_GREEN_TABLE                              = 2;
+//  D2D1_DISCRETETRANSFER_PROP_GREEN_DISABLE                            = 3;
+//  D2D1_DISCRETETRANSFER_PROP_BLUE_TABLE                               = 4;
+//  D2D1_DISCRETETRANSFER_PROP_BLUE_DISABLE                             = 5;
+//  D2D1_DISCRETETRANSFER_PROP_ALPHA_TABLE                              = 6;
+//  D2D1_DISCRETETRANSFER_PROP_ALPHA_DISABLE                            = 7;
+//  D2D1_DISCRETETRANSFER_PROP_CLAMP_OUTPUT                             = 8;
+//
+//  D2D1_CONVOLVEMATRIX_PROP_KERNEL_UNIT_LENGTH                         = 0;
+//  D2D1_CONVOLVEMATRIX_PROP_SCALE_MODE                                 = 1;
+//  D2D1_CONVOLVEMATRIX_PROP_KERNEL_SIZE_X                              = 2;
+//  D2D1_CONVOLVEMATRIX_PROP_KERNEL_SIZE_Y                              = 3;
+//  D2D1_CONVOLVEMATRIX_PROP_KERNEL_MATRIX                              = 4;
+//  D2D1_CONVOLVEMATRIX_PROP_DIVISOR                                    = 5;
+//  D2D1_CONVOLVEMATRIX_PROP_BIAS                                       = 6;
+//  D2D1_CONVOLVEMATRIX_PROP_KERNEL_OFFSET                              = 7;
+//  D2D1_CONVOLVEMATRIX_PROP_PRESERVE_ALPHA                             = 8;
+//  D2D1_CONVOLVEMATRIX_PROP_BORDER_MODE                                = 9;
+//  D2D1_CONVOLVEMATRIX_PROP_CLAMP_OUTPUT                               = 10;
+//
+//  D2D1_CONVOLVEMATRIX_SCALE_MODE_NEAREST_NEIGHBOR                     = 0;
+//  D2D1_CONVOLVEMATRIX_SCALE_MODE_LINEAR                               = 1;
+//  D2D1_CONVOLVEMATRIX_SCALE_MODE_CUBIC                                = 2;
+//  D2D1_CONVOLVEMATRIX_SCALE_MODE_MULTI_SAMPLE_LINEAR                  = 3;
+//  D2D1_CONVOLVEMATRIX_SCALE_MODE_ANISOTROPIC                          = 4;
+//  D2D1_CONVOLVEMATRIX_SCALE_MODE_HIGH_QUALITY_CUBIC                   = 5;
+//
+//  D2D1_BRIGHTNESS_PROP_WHITE_POINT                                    = 0;
+//  D2D1_BRIGHTNESS_PROP_BLACK_POINT                                    = 1;
+//
+//  D2D1_ARITHMETICCOMPOSITE_PROP_COEFFICIENTS                          = 0;
+//  D2D1_ARITHMETICCOMPOSITE_PROP_CLAMP_OUTPUT                          = 1;
+//
+//  D2D1_CROP_PROP_RECT                                                 = 0;
+//  D2D1_CROP_PROP_BORDER_MODE                                          = 1;
+//
+//  D2D1_BORDER_PROP_EDGE_MODE_X                                        = 0;
+//  D2D1_BORDER_PROP_EDGE_MODE_Y                                        = 1;
+//
+//  D2D1_BORDER_EDGE_MODE_CLAMP                                         = 0;
+//  D2D1_BORDER_EDGE_MODE_WRAP                                          = 1;
+//  D2D1_BORDER_EDGE_MODE_MIRROR                                        = 2;
+//
+//  D2D1_MORPHOLOGY_PROP_MODE                                           = 0;
+//  D2D1_MORPHOLOGY_PROP_WIDTH                                          = 1;
+//  D2D1_MORPHOLOGY_PROP_HEIGHT                                         = 2;
+//
+//  D2D1_MORPHOLOGY_MODE_ERODE                                          = 0;
+//  D2D1_MORPHOLOGY_MODE_DILATE                                         = 1;
+//
+//  D2D1_TILE_PROP_RECT                                                 = 0;
+//
+//  D2D1_ATLAS_PROP_INPUT_RECT                                          = 0;
+//  D2D1_ATLAS_PROP_INPUT_PADDING_RECT                                  = 1;
+//
+//  D2D1_OPACITYMETADATA_PROP_INPUT_OPAQUE_RECT                         = 0;
+//
+//  D2D1_YCBCR_PROP_CHROMA_SUBSAMPLING                                  = 0;
+//  D2D1_YCBCR_PROP_TRANSFORM_MATRIX                                    = 1;
+//  D2D1_YCBCR_PROP_INTERPOLATION_MODE                                  = 2;
+//
+//  D2D1_YCBCR_CHROMA_SUBSAMPLING_AUTO                                  = 0;
+//  D2D1_YCBCR_CHROMA_SUBSAMPLING_420                                   = 1;
+//  D2D1_YCBCR_CHROMA_SUBSAMPLING_422                                   = 2;
+//  D2D1_YCBCR_CHROMA_SUBSAMPLING_444                                   = 3;
+//  D2D1_YCBCR_CHROMA_SUBSAMPLING_440                                   = 4;
+//
+//  D2D1_YCBCR_INTERPOLATION_MODE_NEAREST_NEIGHBOR                      = 0;
+//  D2D1_YCBCR_INTERPOLATION_MODE_LINEAR                                = 1;
+//  D2D1_YCBCR_INTERPOLATION_MODE_CUBIC                                 = 2;
+//  D2D1_YCBCR_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR                   = 3;
+//  D2D1_YCBCR_INTERPOLATION_MODE_ANISOTROPIC                           = 4;
+//  D2D1_YCBCR_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC                    = 5;
+//
+//  D2D1_CONTRAST_PROP_CONTRAST                                         = 0;
+//  D2D1_CONTRAST_PROP_CLAMP_INPUT                                      = 1;
+//
+//  D2D1_RGBTOHUE_PROP_OUTPUT_COLOR_SPACE                               = 0;
+//
+//  D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE_HUE_SATURATION_VALUE               = 0;
+//  D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE_HUE_SATURATION_LIGHTNESS           = 1;
+//
+//  D2D1_HUETORGB_PROP_INPUT_COLOR_SPACE                                = 0;
+//
+//  D2D1_HUETORGB_INPUT_COLOR_SPACE_HUE_SATURATION_VALUE                = 0;
+//  D2D1_HUETORGB_INPUT_COLOR_SPACE_HUE_SATURATION_LIGHTNESS            = 1;
+//
+//  D2D1_CHROMAKEY_PROP_COLOR                                           = 0;
+//  D2D1_CHROMAKEY_PROP_TOLERANCE                                       = 1;
+//  D2D1_CHROMAKEY_PROP_INVERT_ALPHA                                    = 2;
+//  D2D1_CHROMAKEY_PROP_FEATHER                                         = 3;
+//
+//  D2D1_EMBOSS_PROP_HEIGHT                                             = 0;
+//  D2D1_EMBOSS_PROP_DIRECTION                                          = 1;
+//
+//  D2D1_EXPOSURE_PROP_EXPOSURE_VALUE                                   = 0;
+//
+//  D2D1_POSTERIZE_PROP_RED_VALUE_COUNT                                 = 0;
+//  D2D1_POSTERIZE_PROP_GREEN_VALUE_COUNT                               = 1;
+//  D2D1_POSTERIZE_PROP_BLUE_VALUE_COUNT                                = 2;
+//
+//  D2D1_SEPIA_PROP_INTENSITY                                           = 0;
+//  D2D1_SEPIA_PROP_ALPHA_MODE                                          = 1;
+//
+//  D2D1_SHARPEN_PROP_SHARPNESS                                         = 0;
+//  D2D1_SHARPEN_PROP_THRESHOLD                                         = 1;
+//
+//  D2D1_STRAIGHTEN_PROP_ANGLE                                          = 0;
+//  D2D1_STRAIGHTEN_PROP_MAINTAIN_SIZE                                  = 1;
+//  D2D1_STRAIGHTEN_PROP_SCALE_MODE                                     = 2;
+//
+//  D2D1_STRAIGHTEN_SCALE_MODE_NEAREST_NEIGHBOR                         = 0;
+//  D2D1_STRAIGHTEN_SCALE_MODE_LINEAR                                   = 1;
+//  D2D1_STRAIGHTEN_SCALE_MODE_CUBIC                                    = 2;
+//  D2D1_STRAIGHTEN_SCALE_MODE_MULTI_SAMPLE_LINEAR                      = 3;
+//  D2D1_STRAIGHTEN_SCALE_MODE_ANISOTROPIC                              = 4;
+//
+//  D2D1_TEMPERATUREANDTINT_PROP_TEMPERATURE                            = 0;
+//  D2D1_TEMPERATUREANDTINT_PROP_TINT                                   = 1;
+//
+//  D2D1_VIGNETTE_PROP_COLOR                                            = 0;
+//  D2D1_VIGNETTE_PROP_TRANSITION_SIZE                                  = 1;
+//  D2D1_VIGNETTE_PROP_STRENGTH                                         = 2;
+//
+//  D2D1_EDGEDETECTION_PROP_STRENGTH                                    = 0;
+//  D2D1_EDGEDETECTION_PROP_BLUR_RADIUS                                 = 1;
+//  D2D1_EDGEDETECTION_PROP_MODE                                        = 2;
+//  D2D1_EDGEDETECTION_PROP_OVERLAY_EDGES                               = 3;
+//  D2D1_EDGEDETECTION_PROP_ALPHA_MODE                                  = 4;
+//
+//  D2D1_EDGEDETECTION_MODE_SOBEL                                       = 0;
+//  D2D1_EDGEDETECTION_MODE_PREWITT                                     = 1;
+//
+//  D2D1_HIGHLIGHTSANDSHADOWS_PROP_HIGHLIGHTS                           = 0;
+//  D2D1_HIGHLIGHTSANDSHADOWS_PROP_SHADOWS                              = 1;
+//  D2D1_HIGHLIGHTSANDSHADOWS_PROP_CLARITY                              = 2;
+//  D2D1_HIGHLIGHTSANDSHADOWS_PROP_INPUT_GAMMA                          = 3;
+//  D2D1_HIGHLIGHTSANDSHADOWS_PROP_MASK_BLUR_RADIUS                     = 4;
+//
+//  D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA_LINEAR                        = 0;
+//  D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA_SRGB                          = 1;
+//
+//  D2D1_LOOKUPTABLE3D_PROP_LUT                                         = 0;
+//  D2D1_LOOKUPTABLE3D_PROP_ALPHA_MODE                                  = 1;
+//
+//  D2D1_OPACITY_PROP_OPACITY                                           = 0;
+//
+//  D2D1_CROSSFADE_PROP_WEIGHT                                          = 0;
+//
+//  D2D1_TINT_PROP_COLOR                                                = 0;
+//  D2D1_TINT_PROP_CLAMP_OUTPUT                                         = 1;
+//
+//  D2D1_WHITELEVELADJUSTMENT_PROP_INPUT_WHITE_LEVEL                    = 0;
+//  D2D1_WHITELEVELADJUSTMENT_PROP_OUTPUT_WHITE_LEVEL                   = 1;
+//
+//  D2D1_HDRTONEMAP_PROP_INPUT_MAX_LUMINANCE                            = 0;
+//  D2D1_HDRTONEMAP_PROP_OUTPUT_MAX_LUMINANCE                           = 1;
+//  D2D1_HDRTONEMAP_PROP_DISPLAY_MODE                                   = 2;
+//
+//  D2D1_HDRTONEMAP_DISPLAY_MODE_SDR                                    = 0;
+//  D2D1_HDRTONEMAP_DISPLAY_MODE_HDR                                    = 1;
+//
+//  D2D1_CHANGE_TYPE_NONE                                               = 0;
+//  D2D1_CHANGE_TYPE_PROPERTIES                                         = 1;
+//  D2D1_CHANGE_TYPE_CONTEXT                                            = 2;
+//  D2D1_CHANGE_TYPE_GRAPH                                              = 3;
+//
+//  D2D1_PIXEL_OPTIONS_NONE                                             = 0;
+//  D2D1_PIXEL_OPTIONS_TRIVIAL_SAMPLING                                 = 1;
+//
+//  D2D1_VERTEX_OPTIONS_NONE                                            = 0;
+//  D2D1_VERTEX_OPTIONS_DO_NOT_CLEAR                                    = 1;
+//  D2D1_VERTEX_OPTIONS_USE_DEPTH_BUFFER                                = 2;
+//  D2D1_VERTEX_OPTIONS_ASSUME_NO_OVERLAP                               = 4;
+//
+//  D2D1_VERTEX_USAGE_STATIC                                            = 0;
+//  D2D1_VERTEX_USAGE_DYNAMIC                                           = 1;
+//
+//  D2D1_BLEND_OPERATION_ADD                                            = 1;
+//  D2D1_BLEND_OPERATION_SUBTRACT                                       = 2;
+//  D2D1_BLEND_OPERATION_REV_SUBTRACT                                   = 3;
+//  D2D1_BLEND_OPERATION_MIN                                            = 4;
+//  D2D1_BLEND_OPERATION_MAX                                            = 5;
+//
+//  D2D1_BLEND_ZERO                                                     = 1;
+//  D2D1_BLEND_ONE                                                      = 2;
+//  D2D1_BLEND_SRC_COLOR                                                = 3;
+//  D2D1_BLEND_INV_SRC_COLOR                                            = 4;
+//  D2D1_BLEND_SRC_ALPHA                                                = 5;
+//  D2D1_BLEND_INV_SRC_ALPHA                                            = 6;
+//  D2D1_BLEND_DEST_ALPHA                                               = 7;
+//  D2D1_BLEND_INV_DEST_ALPHA                                           = 8;
+//  D2D1_BLEND_DEST_COLOR                                               = 9;
+//  D2D1_BLEND_INV_DEST_COLOR                                           = 10;
+//  D2D1_BLEND_SRC_ALPHA_SAT                                            = 11;
+//  D2D1_BLEND_BLEND_FACTOR                                             = 14;
+//  D2D1_BLEND_INV_BLEND_FACTOR                                         = 15;
+//
+//  D2D1_CHANNEL_DEPTH_DEFAULT                                          = 0;
+//  D2D1_CHANNEL_DEPTH_1                                                = 1;
+//  D2D1_CHANNEL_DEPTH_4                                                = 4;
+//
+//  D2D1_FEATURE_DOUBLES                                                = 0;
+//  D2D1_FEATURE_D3D10_X_HARDWARE_OPTIONS                               = 1;
+//
+//  D2D1_SVG_PAINT_TYPE_NONE                                            = 0;
+//  D2D1_SVG_PAINT_TYPE_COLOR                                           = 1;
+//  D2D1_SVG_PAINT_TYPE_CURRENT_COLOR                                   = 2;
+//  D2D1_SVG_PAINT_TYPE_URI                                             = 3;
+//  D2D1_SVG_PAINT_TYPE_URI_NONE                                        = 4;
+//  D2D1_SVG_PAINT_TYPE_URI_COLOR                                       = 5;
+//  D2D1_SVG_PAINT_TYPE_URI_CURRENT_COLOR                               = 6;
+//
+//  D2D1_SVG_LENGTH_UNITS_NUMBER                                        = 0;
+//  D2D1_SVG_LENGTH_UNITS_PERCENTAGE                                    = 1;
+//
+//  D2D1_SVG_DISPLAY_INLINE                                             = 0;
+//  D2D1_SVG_DISPLAY_NONE                                               = 1;
+//
+//  D2D1_SVG_VISIBILITY_VISIBLE                                         = 0;
+//  D2D1_SVG_VISIBILITY_HIDDEN                                          = 1;
+//
+//  D2D1_SVG_OVERFLOW_VISIBLE                                           = 0;
+//  D2D1_SVG_OVERFLOW_HIDDEN                                            = 1;
+//
+//  D2D1_SVG_LINE_CAP_BUTT                                              = 0;
+//  D2D1_SVG_LINE_CAP_SQUARE                                            = 1;
+//  D2D1_SVG_LINE_CAP_ROUND                                             = 2;
+//
+//  D2D1_SVG_LINE_JOIN_BEVEL                                            = 1;
+//  D2D1_SVG_LINE_JOIN_MITER                                            = 3;
+//  D2D1_SVG_LINE_JOIN_ROUND                                            = 2;
+//
+//  D2D1_SVG_ASPECT_ALIGN_NONE                                          = 0;
+//  D2D1_SVG_ASPECT_ALIGN_X_MIN_Y_MIN                                   = 1;
+//  D2D1_SVG_ASPECT_ALIGN_X_MID_Y_MIN                                   = 2;
+//  D2D1_SVG_ASPECT_ALIGN_X_MAX_Y_MIN                                   = 3;
+//  D2D1_SVG_ASPECT_ALIGN_X_MIN_Y_MID                                   = 4;
+//  D2D1_SVG_ASPECT_ALIGN_X_MID_Y_MID                                   = 5;
+//  D2D1_SVG_ASPECT_ALIGN_X_MAX_Y_MID                                   = 6;
+//  D2D1_SVG_ASPECT_ALIGN_X_MIN_Y_MAX                                   = 7;
+//  D2D1_SVG_ASPECT_ALIGN_X_MID_Y_MAX                                   = 8;
+//  D2D1_SVG_ASPECT_ALIGN_X_MAX_Y_MAX                                   = 9;
+//
+//  D2D1_SVG_ASPECT_SCALING_MEET                                        = 0;
+//  D2D1_SVG_ASPECT_SCALING_SLICE                                       = 1;
+//
+//  D2D1_SVG_PATH_COMMAND_CLOSE_PATH                                    = 0;
+//  D2D1_SVG_PATH_COMMAND_MOVE_ABSOLUTE                                 = 1;
+//  D2D1_SVG_PATH_COMMAND_MOVE_RELATIVE                                 = 2;
+//  D2D1_SVG_PATH_COMMAND_LINE_ABSOLUTE                                 = 3;
+//  D2D1_SVG_PATH_COMMAND_LINE_RELATIVE                                 = 4;
+//  D2D1_SVG_PATH_COMMAND_CUBIC_ABSOLUTE                                = 5;
+//  D2D1_SVG_PATH_COMMAND_CUBIC_RELATIVE                                = 6;
+//  D2D1_SVG_PATH_COMMAND_QUADRADIC_ABSOLUTE                            = 7;
+//  D2D1_SVG_PATH_COMMAND_QUADRADIC_RELATIVE                            = 8;
+//  D2D1_SVG_PATH_COMMAND_ARC_ABSOLUTE                                  = 9;
+//  D2D1_SVG_PATH_COMMAND_ARC_RELATIVE                                  = 10;
+//  D2D1_SVG_PATH_COMMAND_HORIZONTAL_ABSOLUTE                           = 11;
+//  D2D1_SVG_PATH_COMMAND_HORIZONTAL_RELATIVE                           = 12;
+//  D2D1_SVG_PATH_COMMAND_VERTICAL_ABSOLUTE                             = 13;
+//  D2D1_SVG_PATH_COMMAND_VERTICAL_RELATIVE                             = 14;
+//  D2D1_SVG_PATH_COMMAND_CUBIC_SMOOTH_ABSOLUTE                         = 15;
+//  D2D1_SVG_PATH_COMMAND_CUBIC_SMOOTH_RELATIVE                         = 16;
+//  D2D1_SVG_PATH_COMMAND_QUADRADIC_SMOOTH_ABSOLUTE                     = 17;
+//  D2D1_SVG_PATH_COMMAND_QUADRADIC_SMOOTH_RELATIVE                     = 18;
+//
+//  D2D1_SVG_UNIT_TYPE_USER_SPACE_ON_USE                                = 0;
+//  D2D1_SVG_UNIT_TYPE_OBJECT_BOUNDING_BOX                              = 1;
+//
+//  D2D1_SVG_ATTRIBUTE_STRING_TYPE_SVG                                  = 0;
+//  D2D1_SVG_ATTRIBUTE_STRING_TYPE_ID                                   = 1;
+//
+//  D2D1_SVG_ATTRIBUTE_POD_TYPE_FLOAT                                   = 0;
+//  D2D1_SVG_ATTRIBUTE_POD_TYPE_COLOR                                   = 1;
+//  D2D1_SVG_ATTRIBUTE_POD_TYPE_FILL_MODE                               = 2;
+//  D2D1_SVG_ATTRIBUTE_POD_TYPE_DISPLAY                                 = 3;
+//  D2D1_SVG_ATTRIBUTE_POD_TYPE_OVERFLOW                                = 4;
+//  D2D1_SVG_ATTRIBUTE_POD_TYPE_LINE_CAP                                = 5;
+//  D2D1_SVG_ATTRIBUTE_POD_TYPE_LINE_JOIN                               = 6;
+//  D2D1_SVG_ATTRIBUTE_POD_TYPE_VISIBILITY                              = 7;
+//  D2D1_SVG_ATTRIBUTE_POD_TYPE_MATRIX                                  = 8;
+//  D2D1_SVG_ATTRIBUTE_POD_TYPE_UNIT_TYPE                               = 9;
+//  D2D1_SVG_ATTRIBUTE_POD_TYPE_EXTEND_MODE                             = 10;
+//  D2D1_SVG_ATTRIBUTE_POD_TYPE_PRESERVE_ASPECT_RATIO                   = 11;
+//  D2D1_SVG_ATTRIBUTE_POD_TYPE_VIEWBOX                                 = 12;
+//  D2D1_SVG_ATTRIBUTE_POD_TYPE_LENGTH                                  = 13;
 
   // d2d1.h
-  IID_ID2D1Resource                       : TGUID = '{2cd90691-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1Image                          : TGUID = '{65019f75-8da2-497c-b32c-dfa34e48ede6}';
-  IID_ID2D1Bitmap                         : TGUID = '{a2296057-ea42-4099-983b-539fb6505426}';
-  IID_ID2D1GradientStopCollection         : TGUID = '{2cd906a7-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1Brush                          : TGUID = '{2cd906a8-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1BitmapBrush                    : TGUID = '{2cd906aa-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1SolidColorBrush                : TGUID = '{2cd906a9-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1LinearGradientBrush            : TGUID = '{2cd906ab-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1RadialGradientBrush            : TGUID = '{2cd906ac-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1StrokeStyle                    : TGUID = '{2cd9069d-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1Geometry                       : TGUID = '{2cd906a1-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1RectangleGeometry              : TGUID = '{2cd906a2-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1RoundedRectangleGeometry       : TGUID = '{2cd906a3-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1EllipseGeometry                : TGUID = '{2cd906a4-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1GeometryGroup                  : TGUID = '{2cd906a6-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1TransformedGeometry            : TGUID = '{2cd906bb-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1SimplifiedGeometrySink         : TGUID = '{2cd9069e-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1GeometrySink                   : TGUID = '{2cd9069f-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1TessellationSink               : TGUID = '{2cd906c1-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1PathGeometry                   : TGUID = '{2cd906a5-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1Mesh                           : TGUID = '{2cd906c2-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1Layer                          : TGUID = '{2cd9069b-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1DrawingStateBlock              : TGUID = '{28506e39-ebf6-46a1-bb47-fd85565ab957}';
-  IID_ID2D1RenderTarget                   : TGUID = '{2cd90694-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1BitmapRenderTarget             : TGUID = '{2cd90695-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1HwndRenderTarget               : TGUID = '{2cd90698-12e2-11dc-9fed-001143a055f9}';
-  IID_ID2D1GdiInteropRenderTarget         : TGUID = '{e0db51c3-6f77-4bae-b3d5-e47509b35838}';
-  IID_ID2D1DCRenderTarget                 : TGUID = '{1c51bc64-de61-46fd-9899-63a5d8f03950}';
-  IID_ID2D1Factory                        : TGUID = '{06152247-6f50-465a-9245-118bfd3b6007}';
+  IID_ID2D1Resource                       : TGUID = '{2CD90691-12E2-11DC-9FED-001143A055F9}';
+  IID_ID2D1Image                          : TGUID = '{65019F75-8DA2-497C-B32C-DFA34E48EDE6}';
+  IID_ID2D1Bitmap                         : TGUID = '{A2296057-EA42-4099-983B-539FB6505426}';
+  IID_ID2D1GradientStopCollection         : TGUID = '{2CD906A7-12E2-11DC-9FED-001143A055F9}';
+  IID_ID2D1Brush                          : TGUID = '{2CD906A8-12E2-11DC-9FED-001143A055F9}';
+  IID_ID2D1BitmapBrush                    : TGUID = '{2CD906AA-12E2-11DC-9FED-001143A055F9}';
+  IID_ID2D1SolidColorBrush                : TGUID = '{2CD906A9-12E2-11DC-9FED-001143A055F9}';
+  IID_ID2D1LinearGradientBrush            : TGUID = '{2CD906AB-12E2-11DC-9FED-001143A055F9}';
+  IID_ID2D1RadialGradientBrush            : TGUID = '{2CD906AC-12E2-11DC-9FED-001143A055F9}';
+  IID_ID2D1StrokeStyle                    : TGUID = '{2CD9069D-12E2-11DC-9FED-001143A055F9}';
+  IID_ID2D1Geometry                       : TGUID = '{2CD906A1-12E2-11DC-9FED-001143A055F9}';
+  IID_ID2D1RectangleGeometry              : TGUID = '{2CD906A2-12E2-11DC-9FED-001143A055F9}';
+  IID_ID2D1RoundedRectangleGeometry       : TGUID = '{2CD906A3-12E2-11DC-9FED-001143A055F9}';
+  IID_ID2D1EllipseGeometry                : TGUID = '{2CD906A4-12E2-11DC-9FED-001143A055F9}';
+  IID_ID2D1GeometryGroup                  : TGUID = '{2CD906A6-12E2-11DC-9FED-001143A055F9}';
+  IID_ID2D1TransformedGeometry            : TGUID = '{2CD906BB-12E2-11DC-9FED-001143A055F9}';
+  IID_ID2D1SimplifiedGeometrySink         : TGUID = '{2CD9069E-12E2-11DC-9FED-001143A055F9}';
+  IID_ID2D1GeometrySink                   : TGUID = '{2CD9069F-12E2-11DC-9FED-001143A055F9}';
+  IID_ID2D1TessellationSink               : TGUID = '{2CD906C1-12E2-11DC-9FED-001143A055F9}';
+  IID_ID2D1PathGeometry                   : TGUID = '{2CD906A5-12E2-11DC-9FED-001143A055F9}';
+  IID_ID2D1Mesh                           : TGUID = '{2CD906C2-12E2-11DC-9FED-001143A055F9}';
+  IID_ID2D1Layer                          : TGUID = '{2CD9069B-12E2-11DC-9FED-001143A055F9}';
+  IID_ID2D1DrawingStateBlock              : TGUID = '{28506E39-EBF6-46A1-BB47-FD85565AB957}';
+  IID_ID2D1RenderTarget                   : TGUID = '{2CD90694-12E2-11DC-9FED-001143A055F9}';
+  IID_ID2D1BitmapRenderTarget             : TGUID = '{2CD90695-12E2-11DC-9FED-001143A055F9}';
+  IID_ID2D1HwndRenderTarget               : TGUID = '{2CD90698-12E2-11DC-9FED-001143A055F9}';
+  IID_ID2D1GdiInteropRenderTarget         : TGUID = '{E0DB51C3-6F77-4BAE-B3D5-E47509B35838}';
+  IID_ID2D1DCRenderTarget                 : TGUID = '{1C51BC64-DE61-46FD-9899-63A5D8F03950}';
+  IID_ID2D1Factory                        : TGUID = '{06152247-6F50-465A-9245-118BFD3B6007}';
 
   // d2d1_1.h
-  IID_ID2D1GdiMetafileSink                : TGUID = '{82237326-8111-4f7c-bcf4-b5c1175564fe}';
-  IID_ID2D1GdiMetafile                    : TGUID = '{2f543dc3-cfc1-4211-864f-cfd91c6f3395}';
-  IID_ID2D1CommandSink                    : TGUID = '{54d7898a-a061-40a7-bec7-e465bcba2c4f}';
-  IID_ID2D1CommandList                    : TGUID = '{b4f34a19-2383-4d76-94f6-ec343657c3dc}';
-  IID_ID2D1PrintControl                   : TGUID = '{2c1d867d-c290-41c8-ae7e-34a98702e9a5}';
-  IID_ID2D1ImageBrush                     : TGUID = '{fe9e984d-3f95-407c-b5db-cb94d4e8f87c}';
-  IID_ID2D1BitmapBrush1                   : TGUID = '{41343a53-e41a-49a2-91cd-21793bbb62e5}';
-  IID_ID2D1StrokeStyle1                   : TGUID = '{10a72a66-e91c-43f4-993f-ddf4b82b0b4a}';
-  IID_ID2D1PathGeometry1                  : TGUID = '{62baa2d2-ab54-41b7-b872-787e0106a421}';
-  IID_ID2D1Properties                     : TGUID = '{483473d7-cd46-4f9d-9d3a-3112aa80159d}';
-  IID_ID2D1Effect                         : TGUID = '{28211a43-7d89-476f-8181-2d6159b220ad}';
-  IID_ID2D1Bitmap1                        : TGUID = '{a898a84c-3873-4588-b08b-ebbf978df041}';
-  IID_ID2D1ColorContext                   : TGUID = '{1c4820bb-5771-4518-a581-2fe4dd0ec657}';
-  IID_ID2D1GradientStopCollection1        : TGUID = '{ae1572f4-5dd0-4777-998b-9279472ae63b}';
-  IID_ID2D1DrawingStateBlock1             : TGUID = '{689f1f85-c72e-4e33-8f19-85754efd5ace}';
-  IID_ID2D1DeviceContext                  : TGUID = '{e8f7fe7a-191c-466d-ad95-975678bda998}';
-  IID_ID2D1Device                         : TGUID = '{47dd575d-ac05-4cdd-8049-9b02cd16f44c}';
-  IID_ID2D1Factory1                       : TGUID = '{bb12d362-daee-4b9a-aa1d-14ba401cfa1f}';
-  IID_ID2D1Multithread                    : TGUID = '{31e6e7bc-e0ff-4d46-8c64-a0a8c41c15d3}';
+  IID_ID2D1GdiMetafileSink                : TGUID = '{82237326-8111-4F7C-BCF4-B5C1175564FE}';
+  IID_ID2D1GdiMetafile                    : TGUID = '{2F543DC3-CFC1-4211-864F-CFD91C6F3395}';
+  IID_ID2D1CommandSink                    : TGUID = '{54D7898A-A061-40A7-BEC7-E465BCBA2C4F}';
+  IID_ID2D1CommandList                    : TGUID = '{B4F34A19-2383-4D76-94F6-EC343657C3DC}';
+  IID_ID2D1PrintControl                   : TGUID = '{2C1D867D-C290-41C8-AE7E-34A98702E9A5}';
+  IID_ID2D1ImageBrush                     : TGUID = '{FE9E984D-3F95-407C-B5DB-CB94D4E8F87C}';
+  IID_ID2D1BitmapBrush1                   : TGUID = '{41343A53-E41A-49A2-91CD-21793BBB62E5}';
+  IID_ID2D1StrokeStyle1                   : TGUID = '{10A72A66-E91C-43F4-993F-DDF4B82B0B4A}';
+  IID_ID2D1PathGeometry1                  : TGUID = '{62BAA2D2-AB54-41B7-B872-787E0106A421}';
+  IID_ID2D1Properties                     : TGUID = '{483473D7-CD46-4F9D-9D3A-3112AA80159D}';
+  IID_ID2D1Effect                         : TGUID = '{28211A43-7D89-476F-8181-2D6159B220AD}';
+  IID_ID2D1Bitmap1                        : TGUID = '{A898A84C-3873-4588-B08B-EBBF978DF041}';
+  IID_ID2D1ColorContext                   : TGUID = '{1C4820BB-5771-4518-A581-2FE4DD0EC657}';
+  IID_ID2D1GradientStopCollection1        : TGUID = '{AE1572F4-5DD0-4777-998B-9279472AE63B}';
+  IID_ID2D1DrawingStateBlock1             : TGUID = '{689F1F85-C72E-4E33-8F19-85754EFD5ACE}';
+  IID_ID2D1DeviceContext                  : TGUID = '{E8F7FE7A-191C-466D-AD95-975678BDA998}';
+  IID_ID2D1Device                         : TGUID = '{47DD575D-AC05-4CDD-8049-9B02CD16F44C}';
+  IID_ID2D1Factory1                       : TGUID = '{BB12D362-DAEE-4B9A-AA1D-14BA401CFA1F}';
+  IID_ID2D1Multithread                    : TGUID = '{31E6E7BC-E0FF-4D46-8C64-A0A8C41C15D3}';
 
   // d2d1_2.h
-  IID_ID2D1GeometryRealization            : TGUID = '{a16907d7-bc02-4801-99e8-8cf7f485f774}';
-  IID_ID2D1DeviceContext1                 : TGUID = '{d37f57e4-6908-459f-a199-e72f24f79987}';
-  IID_ID2D1Device1                        : TGUID = '{d21768e1-23a4-4823-a14b-7c3eba85d658}';
-  IID_ID2D1Factory2                       : TGUID = '{94f81a73-9212-4376-9c58-b16a3a0d3992}';
-  IID_ID2D1CommandSink1                   : TGUID = '{9eb767fd-4269-4467-b8c2-eb30cb305743}';
+  IID_ID2D1GeometryRealization            : TGUID = '{A16907D7-BC02-4801-99E8-8CF7F485F774}';
+  IID_ID2D1DeviceContext1                 : TGUID = '{D37F57E4-6908-459F-A199-E72F24F79987}';
+  IID_ID2D1Device1                        : TGUID = '{D21768E1-23A4-4823-A14B-7C3EBA85D658}';
+  IID_ID2D1Factory2                       : TGUID = '{94F81A73-9212-4376-9C58-B16A3A0D3992}';
+  IID_ID2D1CommandSink1                   : TGUID = '{9EB767FD-4269-4467-B8C2-EB30CB305743}';
 
   // d2d1_3.h
-  IID_ID2D1InkStyle                       : TGUID = '{bae8b344-23fc-4071-8cb5-d05d6f073848}';
-  IID_ID2D1Ink                            : TGUID = '{b499923b-7029-478f-a8b3-432c7c5f5312}';
-  IID_ID2D1GradientMesh                   : TGUID = '{f292e401-c050-4cde-83d7-04962d3b23c2}';
-  IID_ID2D1ImageSource                    : TGUID = '{c9b664e5-74a1-4378-9ac2-eefc37a3f4d8}';
-  IID_ID2D1ImageSourceFromWic             : TGUID = '{77395441-1c8f-4555-8683-f50dab0fe792}';
-  IID_ID2D1TransformedImageSource         : TGUID = '{7f1f79e5-2796-416c-8f55-700f911445e5}';
-  IID_ID2D1LookupTable3D                  : TGUID = '{53dd9855-a3b0-4d5b-82e1-26e25c5e5797}';
-  IID_ID2D1DeviceContext2                 : TGUID = '{394ea6a3-0c34-4321-950b-6ca20f0be6c7}';
-  IID_ID2D1Device2                        : TGUID = '{a44472e1-8dfb-4e60-8492-6e2861c9ca8b}';
-  IID_ID2D1Factory3                       : TGUID = '{0869759f-4f00-413f-b03e-2bda45404d0f}';
-  IID_ID2D1CommandSink2                   : TGUID = '{3bab440e-417e-47df-a2e2-bc0be6a00916}';
-  IID_ID2D1GdiMetafile1                   : TGUID = '{2e69f9e8-dd3f-4bf9-95ba-c04f49d788df}';
-  IID_ID2D1GdiMetafileSink1               : TGUID = '{fd0ecb6b-91e6-411e-8655-395e760f91b4}';
-  IID_ID2D1SpriteBatch                    : TGUID = '{4dc583bf-3a10-438a-8722-e9765224f1f1}';
-  IID_ID2D1DeviceContext3                 : TGUID = '{235a7496-8351-414c-bcd4-6672ab2d8e00}';
-  IID_ID2D1Device3                        : TGUID = '{852f2087-802c-4037-ab60-ff2e7ee6fc01}';
-  IID_ID2D1Factory4                       : TGUID = '{bd4ec2d2-0662-4bee-ba8e-6f29f032e096}';
-  IID_ID2D1CommandSink3                   : TGUID = '{18079135-4cf3-4868-bc8e-06067e6d242d}';
-  IID_ID2D1SvgGlyphStyle                  : TGUID = '{af671749-d241-4db8-8e41-dcc2e5c1a438}';
-  IID_ID2D1DeviceContext4                 : TGUID = '{8c427831-3d90-4476-b647-c4fae349e4db}';
-  IID_ID2D1Device4                        : TGUID = '{d7bdb159-5683-4a46-bc9c-72dc720b858b}';
-  IID_ID2D1Factory5                       : TGUID = '{c4349994-838e-4b0f-8cab-44997d9eeacc}';
-  IID_ID2D1CommandSink4                   : TGUID = '{c78a6519-40d6-4218-b2de-beeeb744bb3e}';
-  IID_ID2D1ColorContext1                  : TGUID = '{1ab42875-c57f-4be9-bd85-9cd78d6f55ee}';
-  IID_ID2D1DeviceContext5                 : TGUID = '{7836d248-68cc-4df6-b9e8-de991bf62eb7}';
-  IID_ID2D1Device5                        : TGUID = '{d55ba0a4-6405-4694-aef5-08ee1a4358b4}';
-  IID_ID2D1Factory6                       : TGUID = '{f9976f46-f642-44c1-97ca-da32ea2a2635}';
-  IID_ID2D1CommandSink5                   : TGUID = '{7047dd26-b1e7-44a7-959a-8349e2144fa8}';
-  IID_ID2D1DeviceContext6                 : TGUID = '{985f7e37-4ed0-4a19-98a3-15b0edfde306}';
-  IID_ID2D1Device6                        : TGUID = '{7bfef914-2d75-4bad-be87-e18ddb077b6d}';
-  IID_ID2D1Factory7                       : TGUID = '{bdc2bdd3-b96c-4de6-bdf7-99d4745454de}';
+  IID_ID2D1InkStyle                       : TGUID = '{BAE8B344-23FC-4071-8CB5-D05D6F073848}';
+  IID_ID2D1Ink                            : TGUID = '{B499923B-7029-478F-A8B3-432C7C5F5312}';
+  IID_ID2D1GradientMesh                   : TGUID = '{F292E401-C050-4CDE-83D7-04962D3B23C2}';
+  IID_ID2D1ImageSource                    : TGUID = '{C9B664E5-74A1-4378-9AC2-EEFC37A3F4D8}';
+  IID_ID2D1ImageSourceFromWic             : TGUID = '{77395441-1C8F-4555-8683-F50DAB0FE792}';
+  IID_ID2D1TransformedImageSource         : TGUID = '{7F1F79E5-2796-416C-8F55-700F911445E5}';
+  IID_ID2D1LookupTable3D                  : TGUID = '{53DD9855-A3B0-4D5B-82E1-26E25C5E5797}';
+  IID_ID2D1DeviceContext2                 : TGUID = '{394EA6A3-0C34-4321-950B-6CA20F0BE6C7}';
+  IID_ID2D1Device2                        : TGUID = '{A44472E1-8DFB-4E60-8492-6E2861C9CA8B}';
+  IID_ID2D1Factory3                       : TGUID = '{0869759F-4F00-413F-B03E-2BDA45404D0F}';
+  IID_ID2D1CommandSink2                   : TGUID = '{3BAB440E-417E-47DF-A2E2-BC0BE6A00916}';
+  IID_ID2D1GdiMetafile1                   : TGUID = '{2E69F9E8-DD3F-4BF9-95BA-C04F49D788DF}';
+  IID_ID2D1GdiMetafileSink1               : TGUID = '{FD0ECB6B-91E6-411E-8655-395E760F91B4}';
+  IID_ID2D1SpriteBatch                    : TGUID = '{4DC583BF-3A10-438A-8722-E9765224F1F1}';
+  IID_ID2D1DeviceContext3                 : TGUID = '{235A7496-8351-414C-BCD4-6672AB2D8E00}';
+  IID_ID2D1Device3                        : TGUID = '{852F2087-802C-4037-AB60-FF2E7EE6FC01}';
+  IID_ID2D1Factory4                       : TGUID = '{BD4EC2D2-0662-4BEE-BA8E-6F29F032E096}';
+  IID_ID2D1CommandSink3                   : TGUID = '{18079135-4CF3-4868-BC8E-06067E6D242D}';
+  IID_ID2D1SvgGlyphStyle                  : TGUID = '{AF671749-D241-4DB8-8E41-DCC2E5C1A438}';
+  IID_ID2D1DeviceContext4                 : TGUID = '{8C427831-3D90-4476-B647-C4FAE349E4DB}';
+  IID_ID2D1Device4                        : TGUID = '{D7BDB159-5683-4A46-BC9C-72DC720B858B}';
+  IID_ID2D1Factory5                       : TGUID = '{C4349994-838E-4B0F-8CAB-44997D9EEACC}';
+  IID_ID2D1CommandSink4                   : TGUID = '{C78A6519-40D6-4218-B2DE-BEEEB744BB3E}';
+  IID_ID2D1ColorContext1                  : TGUID = '{1AB42875-C57F-4BE9-BD85-9CD78D6F55EE}';
+  IID_ID2D1DeviceContext5                 : TGUID = '{7836D248-68CC-4DF6-B9E8-DE991BF62EB7}';
+  IID_ID2D1Device5                        : TGUID = '{D55BA0A4-6405-4694-AEF5-08EE1A4358B4}';
+  IID_ID2D1Factory6                       : TGUID = '{F9976F46-F642-44C1-97CA-DA32EA2A2635}';
+  IID_ID2D1CommandSink5                   : TGUID = '{7047DD26-B1E7-44A7-959A-8349E2144FA8}';
+  IID_ID2D1DeviceContext6                 : TGUID = '{985F7E37-4ED0-4A19-98A3-15B0EDFDE306}';
+  IID_ID2D1Device6                        : TGUID = '{7BFEF914-2D75-4BAD-BE87-E18DDB077B6D}';
+  IID_ID2D1Factory7                       : TGUID = '{BDC2BDD3-B96C-4DE6-BDF7-99D4745454DE}';
 
   // dwrite
-  IID_IDWriteFontFileLoader               : TGUID = '{727cad4e-d6af-4c9e-8a08-d695b11caa49}';
-  IID_IDWriteLocalFontFileLoader          : TGUID = '{b2d9f3ec-c9fe-4a11-a2ec-d86208f7c0a2}';
-  IID_IDWriteFontFileStream               : TGUID = '{6d4865fe-0ab8-4d91-8f62-5dd6be34a3e0}';
-  IID_IDWriteFontFile                     : TGUID = '{739d886a-cef5-47dc-8769-1a8b41bebbb0}';
-  IID_IDWriteRenderingParams              : TGUID = '{2f0da53a-2add-47cd-82ee-d9ec34688e75}';
-  IID_IDWriteFontFace                     : TGUID = '{5f49804d-7024-4d43-bfa9-d25984f53849}';
-  IID_IDWriteFontCollectionLoader         : TGUID = '{cca920e4-52f0-492b-bfa8-29c72ee0a468}';
-  IID_IDWriteFontFileEnumerator           : TGUID = '{72755049-5ff7-435d-8348-4be97cfa6c7c}';
-  IID_IDWriteLocalizedStrings             : TGUID = '{08256209-099a-4b34-b86d-c22b110e7771}';
-  IID_IDWriteFontCollection               : TGUID = '{a84cee02-3eea-4eee-a827-87c1a02a0fcc}';
-  IID_IDWriteFontList                     : TGUID = '{1a0d8438-1d97-4ec1-aef9-a2fb86ed6acb}';
-  IID_IDWriteFontFamily                   : TGUID = '{da20d8ef-812a-4c43-9802-62ec4abd7add}';
-  IID_IDWriteFont                         : TGUID = '{acd16696-8c14-4f5d-877e-fe3fc1d32737}';
-  IID_IDWriteTextFormat                   : TGUID = '{9c906818-31d7-4fd3-a151-7c5e225db55a}';
-  IID_IDWriteTypography                   : TGUID = '{55f1112b-1dc2-4b3c-9541-f46894ed85b6}';
-  IID_IDWriteNumberSubstitution           : TGUID = '{14885cc9-bab0-4f90-b6ed-5c366a2cd03d}';
-  IID_IDWriteTextAnalysisSource           : TGUID = '{688e1a58-5094-47c8-adc8-fbcea60ae92b}';
-  IID_IDWriteTextAnalysisSink             : TGUID = '{5810cd44-0ca0-4701-b3fa-bec5182ae4f6}';
-  IID_IDWriteTextAnalyzer                 : TGUID = '{b7e6163e-7f46-43b4-84b3-e4e6249c365d}';
-  IID_IDWriteInlineObject                 : TGUID = '{8339fde3-106f-47ab-8373-1c6295eb10b3}';
-  IID_IDWritePixelSnapping                : TGUID = '{eaf3a2da-ecf4-4d24-b644-b34f6842024b}';
-  IID_IDWriteTextRenderer                 : TGUID = '{ef8a8135-5cc6-45fe-8825-c5a0724eb819}';
-  IID_IDWriteTextLayout                   : TGUID = '{53737037-6d14-410b-9bfe-0b182bb70961}';
-  IID_IDWriteBitmapRenderTarget           : TGUID = '{5e5a32a3-8dff-4773-9ff6-0696eab77267}';
-  IID_IDWriteGdiInterop                   : TGUID = '{1edd9491-9853-4299-898f-6432983b6f3a}';
-  IID_IDWriteGlyphRunAnalysis             : TGUID = '{7d97dbf7-e085-42d4-81e3-6a883bded118}';
-  IID_IDWriteFactory                      : TGUID = '{b859ee5a-d838-4b5b-a2e8-1adc7d93db48}';
+  IID_IDWriteFontFileLoader               : TGUID = '{727CAD4E-D6AF-4C9E-8A08-D695B11CAA49}';
+  IID_IDWriteLocalFontFileLoader          : TGUID = '{B2D9F3EC-C9FE-4A11-A2EC-D86208F7C0A2}';
+  IID_IDWriteFontFileStream               : TGUID = '{6D4865FE-0AB8-4D91-8F62-5DD6BE34A3E0}';
+  IID_IDWriteFontFile                     : TGUID = '{739D886A-CEF5-47DC-8769-1A8B41BEBBB0}';
+  IID_IDWriteRenderingParams              : TGUID = '{2F0DA53A-2ADD-47CD-82EE-D9EC34688E75}';
+  IID_IDWriteFontFace                     : TGUID = '{5F49804D-7024-4D43-BFA9-D25984F53849}';
+  IID_IDWriteFontCollectionLoader         : TGUID = '{CCA920E4-52F0-492B-BFA8-29C72EE0A468}';
+  IID_IDWriteFontFileEnumerator           : TGUID = '{72755049-5FF7-435D-8348-4BE97CFA6C7C}';
+  IID_IDWriteLocalizedStrings             : TGUID = '{08256209-099A-4B34-B86D-C22B110E7771}';
+  IID_IDWriteFontCollection               : TGUID = '{A84CEE02-3EEA-4EEE-A827-87C1A02A0FCC}';
+  IID_IDWriteFontList                     : TGUID = '{1A0D8438-1D97-4EC1-AEF9-A2FB86ED6ACB}';
+  IID_IDWriteFontFamily                   : TGUID = '{DA20D8EF-812A-4C43-9802-62EC4ABD7ADD}';
+  IID_IDWriteFont                         : TGUID = '{ACD16696-8C14-4F5D-877E-FE3FC1D32737}';
+  IID_IDWriteTextFormat                   : TGUID = '{9C906818-31D7-4FD3-A151-7C5E225DB55A}';
+  IID_IDWriteTypography                   : TGUID = '{55F1112B-1DC2-4B3C-9541-F46894ED85B6}';
+  IID_IDWriteNumberSubstitution           : TGUID = '{14885CC9-BAB0-4F90-B6ED-5C366A2CD03D}';
+  IID_IDWriteTextAnalysisSource           : TGUID = '{688E1A58-5094-47C8-ADC8-FBCEA60AE92B}';
+  IID_IDWriteTextAnalysisSink             : TGUID = '{5810CD44-0CA0-4701-B3FA-BEC5182AE4F6}';
+  IID_IDWriteTextAnalyzer                 : TGUID = '{B7E6163E-7F46-43B4-84B3-E4E6249C365D}';
+  IID_IDWriteInlineObject                 : TGUID = '{8339FDE3-106F-47AB-8373-1C6295EB10B3}';
+  IID_IDWritePixelSnapping                : TGUID = '{EAF3A2DA-ECF4-4D24-B644-B34F6842024B}';
+  IID_IDWriteTextRenderer                 : TGUID = '{EF8A8135-5CC6-45FE-8825-C5A0724EB819}';
+  IID_IDWriteTextLayout                   : TGUID = '{53737037-6D14-410B-9BFE-0B182BB70961}';
+  IID_IDWriteBitmapRenderTarget           : TGUID = '{5E5A32A3-8DFF-4773-9FF6-0696EAB77267}';
+  IID_IDWriteGdiInterop                   : TGUID = '{1EDD9491-9853-4299-898F-6432983B6F3A}';
+  IID_IDWriteGlyphRunAnalysis             : TGUID = '{7D97DBF7-E085-42D4-81E3-6A883BDED118}';
+  IID_IDWriteFactory                      : TGUID = '{B859EE5A-D838-4B5B-A2E8-1ADC7D93DB48}';
 
   // dwrite_1
-  IID_IDWriteFactory1                     : TGUID = '{30572f99-dac6-41db-a16e-0486307e606a}';
-  IID_IDWriteFontFace1                    : TGUID = '{a71efdb4-9fdb-4838-ad90-cfc3be8c3daf}';
-  IID_IDWriteFont1                        : TGUID = '{acd16696-8c14-4f5d-877e-fe3fc1d32738}';
-  IID_IDWriteRenderingParams1             : TGUID = '{94413cf4-a6fc-4248-8b50-6674348fcad3}';
-  IID_IDWriteTextAnalyzer1                : TGUID = '{80dad800-e21f-4e83-96ce-bfcce500db7c}';
-  IID_IDWriteTextAnalysisSource1          : TGUID = '{639cfad8-0fb4-4b21-a58a-067920120009}';
-  IID_IDWriteTextAnalysisSink1            : TGUID = '{b0d941a0-85e7-4d8b-9fd3-5ced9934482a}';
-  IID_IDWriteTextLayout1                  : TGUID = '{9064d822-80a7-465c-a986-df65f78b8feb}';
-  IID_IDWriteBitmapRenderTarget1          : TGUID = '{791e8298-3ef3-4230-9880-c9bdecc42064}';
+  IID_IDWriteFactory1                     : TGUID = '{30572F99-DAC6-41DB-A16E-0486307E606A}';
+  IID_IDWriteFontFace1                    : TGUID = '{A71EFDB4-9FDB-4838-AD90-CFC3BE8C3DAF}';
+  IID_IDWriteFont1                        : TGUID = '{ACD16696-8C14-4F5D-877E-FE3FC1D32738}';
+  IID_IDWriteRenderingParams1             : TGUID = '{94413CF4-A6FC-4248-8B50-6674348FCAD3}';
+  IID_IDWriteTextAnalyzer1                : TGUID = '{80DAD800-E21F-4E83-96CE-BFCCE500DB7C}';
+  IID_IDWriteTextAnalysisSource1          : TGUID = '{639CFAD8-0FB4-4B21-A58A-067920120009}';
+  IID_IDWriteTextAnalysisSink1            : TGUID = '{B0D941A0-85E7-4D8B-9FD3-5CED9934482A}';
+  IID_IDWriteTextLayout1                  : TGUID = '{9064D822-80A7-465C-A986-DF65F78B8FEB}';
+  IID_IDWriteBitmapRenderTarget1          : TGUID = '{791E8298-3EF3-4230-9880-C9BDECC42064}';
 
   // dwrite_2
-  IID_IDWriteTextRenderer1                : TGUID = '{d3e0e934-22a0-427e-aae4-7d9574b59db1}';
-  IID_IDWriteTextFormat1                  : TGUID = '{5f174b49-0d8b-4cfb-8bca-f1cce9d06c67}';
-  IID_IDWriteTextLayout2                  : TGUID = '{1093c18f-8d5e-43f0-b064-0917311b525e}';
-  IID_IDWriteTextAnalyzer2                : TGUID = '{553a9ff3-5693-4df7-b52b-74806f7f2eb9}';
-  IID_IDWriteFontFallback                 : TGUID = '{efa008f9-f7a1-48bf-b05c-f224713cc0ff}';
-  IID_IDWriteFontFallbackBuilder          : TGUID = '{fd882d06-8aba-4fb8-b849-8be8b73e14de}';
-  IID_IDWriteFont2                        : TGUID = '{29748ed6-8c9c-4a6a-be0b-d912e8538944}';
-  IID_IDWriteFontFace2                    : TGUID = '{d8b768ff-64bc-4e66-982b-ec8e87f693f7}';
-  IID_IDWriteColorGlyphRunEnumerator      : TGUID = '{d31fbe17-f157-41a2-8d24-cb779e0560e8}';
-  IID_IDWriteRenderingParams2             : TGUID = '{f9d711c3-9777-40ae-87e8-3e5af9bf0948}';
-  IID_IDWriteFactory2                     : TGUID = '{0439fc60-ca44-4994-8dee-3a9af7b732ec}';
+  IID_IDWriteTextRenderer1                : TGUID = '{D3E0E934-22A0-427E-AAE4-7D9574B59DB1}';
+  IID_IDWriteTextFormat1                  : TGUID = '{5F174B49-0D8B-4CFB-8BCA-F1CCE9D06C67}';
+  IID_IDWriteTextLayout2                  : TGUID = '{1093C18F-8D5E-43F0-B064-0917311B525E}';
+  IID_IDWriteTextAnalyzer2                : TGUID = '{553A9FF3-5693-4DF7-B52B-74806F7F2EB9}';
+  IID_IDWriteFontFallback                 : TGUID = '{EFA008F9-F7A1-48BF-B05C-F224713CC0FF}';
+  IID_IDWriteFontFallbackBuilder          : TGUID = '{FD882D06-8ABA-4FB8-B849-8BE8B73E14DE}';
+  IID_IDWriteFont2                        : TGUID = '{29748ED6-8C9C-4A6A-BE0B-D912E8538944}';
+  IID_IDWriteFontFace2                    : TGUID = '{D8B768FF-64BC-4E66-982B-EC8E87F693F7}';
+  IID_IDWriteColorGlyphRunEnumerator      : TGUID = '{D31FBE17-F157-41A2-8D24-CB779E0560E8}';
+  IID_IDWriteRenderingParams2             : TGUID = '{F9D711C3-9777-40AE-87E8-3E5AF9BF0948}';
+  IID_IDWriteFactory2                     : TGUID = '{0439FC60-CA44-4994-8DEE-3A9AF7B732EC}';
 
   // dwrite_3
-  IID_IDWriteRenderingParams3             : TGUID = '{b7924baa-391b-412a-8c5c-e44cc2d867dc}';
-  IID_IDWriteFactory3                     : TGUID = '{9a1b41c3-d3bb-466a-87fc-fe67556a3b65}';
-  IID_IDWriteFontSet                      : TGUID = '{53585141-d9f8-4095-8321-d73cf6bd116b}';
-  IID_IDWriteFontSetBuilder               : TGUID = '{2f642afe-9c68-4f40-b8be-457401afcb3d}';
-  IID_IDWriteFontCollection1              : TGUID = '{53585141-d9f8-4095-8321-d73cf6bd116c}';
-  IID_IDWriteFontFamily1                  : TGUID = '{da20d8ef-812a-4c43-9802-62ec4abd7adf}';
-  IID_IDWriteFontList1                    : TGUID = '{da20d8ef-812a-4c43-9802-62ec4abd7ade}';
-  IID_IDWriteFontFaceReference            : TGUID = '{5e7fa7ca-dde3-424c-89f0-9fcd6fed58cd}';
-  IID_IDWriteFont3                        : TGUID = '{29748ed6-8c9c-4a6a-be0b-d912e8538944}';
-  IID_IDWriteFontFace3                    : TGUID = '{d37d7598-09be-4222-a236-2081341cc1f2}';
-  IID_IDWriteStringList                   : TGUID = '{cfee3140-1157-47ca-8b85-31bfcf3f2d0e}';
-  IID_IDWriteFontDownloadListener         : TGUID = '{b06fe5b9-43ec-4393-881b-dbe4dc72fda7}';
-  IID_IDWriteFontDownloadQueue            : TGUID = '{b71e6052-5aea-4fa3-832e-f60d431f7e91}';
-  IID_IDWriteGdiInterop1                  : TGUID = '{4556be70-3abd-4f70-90be-421780a6f515}';
-  IID_IDWriteTextFormat2                  : TGUID = '{f67e0edd-9e3d-4ecc-8c32-4183253dfe70}';
-  IID_IDWriteTextLayout3                  : TGUID = '{07ddcd52-020e-4de8-ac33-6c953d83f92d}';
-  IID_IDWriteColorGlyphRunEnumerator1     : TGUID = '{7c5f86da-c7a1-4f05-b8e1-55a179fe5a35}';
-  IID_IDWriteFontFace4                    : TGUID = '{27f2a904-4eb8-441d-9678-0563f53e3e2f}';
-  IID_IDWriteFactory4                     : TGUID = '{4b0b5bd3-0797-4549-8ac5-fe915cc53856}';
-  IID_IDWriteFontSetBuilder1              : TGUID = '{3ff7715f-3cdc-4dc6-9b72-ec5621dccafd}';
-  IID_IDWriteAsyncResult                  : TGUID = '{ce25f8fd-863b-4d13-9651-c1f88dc73fe2}';
-  IID_IDWriteRemoteFontFileStream         : TGUID = '{4db3757a-2c72-4ed9-b2b6-1ababe1aff9c}';
-  IID_IDWriteRemoteFontFileLoader         : TGUID = '{68648c83-6ede-46c0-ab46-20083a887fde}';
-  IID_IDWriteInMemoryFontFileLoader       : TGUID = '{dc102f47-a12d-4b1c-822d-9e117e33043f}';
-  IID_IDWriteFactory5                     : TGUID = '{958db99a-be2a-4f09-af7d-65189803d1d3}';
-  IID_IDWriteFactory6                     : TGUID = '{f3744d80-21f7-42eb-b35d-995bc72fc223}';
-  IID_IDWriteFontFace5                    : TGUID = '{98eff3a5-b667-479a-b145-e2fa5b9fdc29}';
-  IID_IDWriteFontResource                 : TGUID = '{1f803a76-6871-48e8-987f-b975551c50f2}';
-  IID_IDWriteFontFaceReference1           : TGUID = '{c081fe77-2fd1-41ac-a5a3-34983c4ba61a}';
-  IID_IDWriteFontSetBuilder2              : TGUID = '{ee5ba612-b131-463c-8f4f-3189b9401e45}';
-  IID_IDWriteFontSet1                     : TGUID = '{7e9fda85-6c92-4053-bc47-7ae3530db4d3}';
-  IID_IDWriteFontList2                    : TGUID = '{c0763a34-77af-445a-b735-08c37b0a5bf5}';
-  IID_IDWriteFontFamily2                  : TGUID = '{3ed49e77-a398-4261-b9cf-c126c2131ef3}';
-  IID_IDWriteFontCollection2              : TGUID = '{514039c6-4617-4064-bf8b-92ea83e506e0}';
-  IID_IDWriteTextLayout4                  : TGUID = '{05a9bf42-223f-4441-b5fb-8263685f55e9}';
-  IID_IDWriteTextFormat3                  : TGUID = '{6d3b5641-e550-430d-a85b-b7bf48a93427}';
-  IID_IDWriteFontFallback1                : TGUID = '{2397599d-dd0d-4681-bd6a-f4f31eaade77}';
-  IID_IDWriteFontSet2                     : TGUID = '{dc7ead19-e54c-43af-b2da-4e2b79ba3f7f}';
-  IID_IDWriteFontCollection3              : TGUID = '{a4d055a6-f9e3-4e25-93b7-9e309f3af8e9}';
-  IID_IDWriteFactory7                     : TGUID = '{35d0e0b3-9076-4d2e-a016-a91b568a06b4}';
-  IID_IDWriteFontSet3                     : TGUID = '{7c073ef2-a7f4-4045-8c32-8ab8ae640f90}';
-  IID_IDWriteFontFace6                    : TGUID = '{c4b1fe1b-6e84-47d5-b54c-a597981b06ad}';
+  IID_IDWriteRenderingParams3             : TGUID = '{B7924BAA-391B-412A-8C5C-E44CC2D867DC}';
+  IID_IDWriteFactory3                     : TGUID = '{9A1B41C3-D3BB-466A-87FC-FE67556A3B65}';
+  IID_IDWriteFontSet                      : TGUID = '{53585141-D9F8-4095-8321-D73CF6BD116B}';
+  IID_IDWriteFontSetBuilder               : TGUID = '{2F642AFE-9C68-4F40-B8BE-457401AFCB3D}';
+  IID_IDWriteFontCollection1              : TGUID = '{53585141-D9F8-4095-8321-D73CF6BD116C}';
+  IID_IDWriteFontFamily1                  : TGUID = '{DA20D8EF-812A-4C43-9802-62EC4ABD7ADF}';
+  IID_IDWriteFontList1                    : TGUID = '{DA20D8EF-812A-4C43-9802-62EC4ABD7ADE}';
+  IID_IDWriteFontFaceReference            : TGUID = '{5E7FA7CA-DDE3-424C-89F0-9FCD6FED58CD}';
+  IID_IDWriteFont3                        : TGUID = '{29748ED6-8C9C-4A6A-BE0B-D912E8538944}';
+  IID_IDWriteFontFace3                    : TGUID = '{D37D7598-09BE-4222-A236-2081341CC1F2}';
+  IID_IDWriteStringList                   : TGUID = '{CFEE3140-1157-47CA-8B85-31BFCF3F2D0E}';
+  IID_IDWriteFontDownloadListener         : TGUID = '{B06FE5B9-43EC-4393-881B-DBE4DC72FDA7}';
+  IID_IDWriteFontDownloadQueue            : TGUID = '{B71E6052-5AEA-4FA3-832E-F60D431F7E91}';
+  IID_IDWriteGdiInterop1                  : TGUID = '{4556BE70-3ABD-4F70-90BE-421780A6F515}';
+  IID_IDWriteTextFormat2                  : TGUID = '{F67E0EDD-9E3D-4ECC-8C32-4183253DFE70}';
+  IID_IDWriteTextLayout3                  : TGUID = '{07DDCD52-020E-4DE8-AC33-6C953D83F92D}';
+  IID_IDWriteColorGlyphRunEnumerator1     : TGUID = '{7C5F86DA-C7A1-4F05-B8E1-55A179FE5A35}';
+  IID_IDWriteFontFace4                    : TGUID = '{27F2A904-4EB8-441D-9678-0563F53E3E2F}';
+  IID_IDWriteFactory4                     : TGUID = '{4B0B5BD3-0797-4549-8AC5-FE915CC53856}';
+  IID_IDWriteFontSetBuilder1              : TGUID = '{3FF7715F-3CDC-4DC6-9B72-EC5621DCCAFD}';
+  IID_IDWriteAsyncResult                  : TGUID = '{CE25F8FD-863B-4D13-9651-C1F88DC73FE2}';
+  IID_IDWriteRemoteFontFileStream         : TGUID = '{4DB3757A-2C72-4ED9-B2B6-1ABABE1AFF9C}';
+  IID_IDWriteRemoteFontFileLoader         : TGUID = '{68648C83-6EDE-46C0-AB46-20083A887FDE}';
+  IID_IDWriteInMemoryFontFileLoader       : TGUID = '{DC102F47-A12D-4B1C-822D-9E117E33043F}';
+  IID_IDWriteFactory5                     : TGUID = '{958DB99A-BE2A-4F09-AF7D-65189803D1D3}';
+  IID_IDWriteFactory6                     : TGUID = '{F3744D80-21F7-42EB-B35D-995BC72FC223}';
+  IID_IDWriteFontFace5                    : TGUID = '{98EFF3A5-B667-479A-B145-E2FA5B9FDC29}';
+  IID_IDWriteFontResource                 : TGUID = '{1F803A76-6871-48E8-987F-B975551C50F2}';
+  IID_IDWriteFontFaceReference1           : TGUID = '{C081FE77-2FD1-41AC-A5A3-34983C4BA61A}';
+  IID_IDWriteFontSetBuilder2              : TGUID = '{EE5BA612-B131-463C-8F4F-3189B9401E45}';
+  IID_IDWriteFontSet1                     : TGUID = '{7E9FDA85-6C92-4053-BC47-7AE3530DB4D3}';
+  IID_IDWriteFontList2                    : TGUID = '{C0763A34-77AF-445A-B735-08C37B0A5BF5}';
+  IID_IDWriteFontFamily2                  : TGUID = '{3ED49E77-A398-4261-B9CF-C126C2131EF3}';
+  IID_IDWriteFontCollection2              : TGUID = '{514039C6-4617-4064-BF8B-92EA83E506E0}';
+  IID_IDWriteTextLayout4                  : TGUID = '{05A9BF42-223F-4441-B5FB-8263685F55E9}';
+  IID_IDWriteTextFormat3                  : TGUID = '{6D3B5641-E550-430D-A85B-B7BF48A93427}';
+  IID_IDWriteFontFallback1                : TGUID = '{2397599D-DD0D-4681-BD6A-F4F31EAADE77}';
+  IID_IDWriteFontSet2                     : TGUID = '{DC7EAD19-E54C-43AF-B2DA-4E2B79BA3F7F}';
+  IID_IDWriteFontCollection3              : TGUID = '{A4D055A6-F9E3-4E25-93B7-9E309F3AF8E9}';
+  IID_IDWriteFactory7                     : TGUID = '{35D0E0B3-9076-4D2E-A016-A91B568A06B4}';
+  IID_IDWriteFontSet3                     : TGUID = '{7C073EF2-A7F4-4045-8C32-8AB8AE640F90}';
+  IID_IDWriteFontFace6                    : TGUID = '{C4B1FE1B-6E84-47D5-B54C-A597981B06AD}';
 
   // d2d1effectauthor.h
-  IID_ID2D1VertexBuffer                   : TGUID = '{9b8b1336-00a5-4668-92b7-ced5d8bf9b7b}';
-  IID_ID2D1ResourceTexture                : TGUID = '{688d15c3-02b0-438d-b13a-d1b44c32c39a}';
-  IID_ID2D1RenderInfo                     : TGUID = '{519ae1bd-d19a-420d-b849-364f594776b7}';
-  IID_ID2D1DrawInfo                       : TGUID = '{693ce632-7f2f-45de-93fe-18d88b37aa21}';
-  IID_ID2D1ComputeInfo                    : TGUID = '{5598b14b-9fd7-48b7-9bdb-8f0964eb38bc}';
-  IID_ID2D1TransformNode                  : TGUID = '{b2efe1e7-729f-4102-949f-505fa21bf666}';
-  IID_ID2D1TransformGraph                 : TGUID = '{13d29038-c3e6-4034-9081-13b53a417992}';
-  IID_ID2D1Transform                      : TGUID = '{ef1a287d-342a-4f76-8fdb-da0d6ea9f92b}';
-  IID_ID2D1DrawTransform                  : TGUID = '{36bfdcb6-9739-435d-a30d-a653beff6a6f}';
-  IID_ID2D1ComputeTransform               : TGUID = '{0d85573c-01e3-4f7d-bfd9-0d60608bf3c3}';
-  IID_ID2D1AnalysisTransform              : TGUID = '{0359dc30-95e6-4568-9055-27720d130e93}';
-  IID_ID2D1SourceTransform                : TGUID = '{db1800dd-0c34-4cf9-be90-31cc0a5653e1}';
-  IID_ID2D1ConcreteTransform              : TGUID = '{1a799d8a-69f7-4e4c-9fed-437ccc6684cc}';
-  IID_ID2D1BlendTransform                 : TGUID = '{63ac0b32-ba44-450f-8806-7f4ca1ff2f1b}';
-  IID_ID2D1BorderTransform                : TGUID = '{4998735c-3a19-473c-9781-656847e3a347}';
-  IID_ID2D1OffsetTransform                : TGUID = '{3fe6adea-7643-4f53-bd14-a0ce63f24042}';
-  IID_ID2D1BoundsAdjustmentTransform      : TGUID = '{90f732e2-5092-4606-a819-8651970baccd}';
-  IID_ID2D1EffectImpl                     : TGUID = '{a248fd3f-3e6c-4e63-9f03-7f68ecc91db9}';
-  IID_ID2D1EffectContext                  : TGUID = '{3d9f916b-27dc-4ad7-b4f1-64945340f563}';
+  IID_ID2D1VertexBuffer                   : TGUID = '{9B8B1336-00A5-4668-92B7-CED5D8BF9B7B}';
+  IID_ID2D1ResourceTexture                : TGUID = '{688D15C3-02B0-438D-B13A-D1B44C32C39A}';
+  IID_ID2D1RenderInfo                     : TGUID = '{519AE1BD-D19A-420D-B849-364F594776B7}';
+  IID_ID2D1DrawInfo                       : TGUID = '{693CE632-7F2F-45DE-93FE-18D88B37AA21}';
+  IID_ID2D1ComputeInfo                    : TGUID = '{5598B14B-9FD7-48B7-9BDB-8F0964EB38BC}';
+  IID_ID2D1TransformNode                  : TGUID = '{B2EFE1E7-729F-4102-949F-505FA21BF666}';
+  IID_ID2D1TransformGraph                 : TGUID = '{13D29038-C3E6-4034-9081-13B53A417992}';
+  IID_ID2D1Transform                      : TGUID = '{EF1A287D-342A-4F76-8FDB-DA0D6EA9F92B}';
+  IID_ID2D1DrawTransform                  : TGUID = '{36BFDCB6-9739-435D-A30D-A653BEFF6A6F}';
+  IID_ID2D1ComputeTransform               : TGUID = '{0D85573C-01E3-4F7D-BFD9-0D60608BF3C3}';
+  IID_ID2D1AnalysisTransform              : TGUID = '{0359DC30-95E6-4568-9055-27720D130E93}';
+  IID_ID2D1SourceTransform                : TGUID = '{DB1800DD-0C34-4CF9-BE90-31CC0A5653E1}';
+  IID_ID2D1ConcreteTransform              : TGUID = '{1A799D8A-69F7-4E4C-9FED-437CCC6684CC}';
+  IID_ID2D1BlendTransform                 : TGUID = '{63AC0B32-BA44-450F-8806-7F4CA1FF2F1B}';
+  IID_ID2D1BorderTransform                : TGUID = '{4998735C-3A19-473C-9781-656847E3A347}';
+  IID_ID2D1OffsetTransform                : TGUID = '{3FE6ADEA-7643-4F53-BD14-A0CE63F24042}';
+  IID_ID2D1BoundsAdjustmentTransform      : TGUID = '{90F732E2-5092-4606-A819-8651970BACCD}';
+  IID_ID2D1EffectImpl                     : TGUID = '{A248FD3F-3E6C-4E63-9F03-7F68ECC91DB9}';
+  IID_ID2D1EffectContext                  : TGUID = '{3D9F916B-27DC-4AD7-B4F1-64945340F563}';
 
   // d2d1effectauthor_1.h
-  IID_ID2D1EffectContext1                 : TGUID = '{84ab595a-fc81-4546-bacd-e8ef4d8abe7a}';
-  IID_ID2D1EffectContext2                 : TGUID = '{577ad2a0-9fc7-4dda-8b18-dab810140052}';
+  IID_ID2D1EffectContext1                 : TGUID = '{84AB595A-FC81-4546-BACD-E8EF4D8ABE7A}';
+  IID_ID2D1EffectContext2                 : TGUID = '{577AD2A0-9FC7-4DDA-8B18-DAB810140052}';
 
   // d2d1svg.h
-  IID_ID2D1SvgAttribute                   : TGUID = '{c9cdb0dd-f8c9-4e70-b7c2-301c80292c5e}';
-  IID_ID2D1SvgPaint                       : TGUID = '{d59bab0a-68a2-455b-a5dc-9eb2854e2490}';
-  IID_ID2D1SvgStrokeDashArray             : TGUID = '{f1c0ca52-92a3-4f00-b4ce-f35691efd9d9}';
-  IID_ID2D1SvgPointCollection             : TGUID = '{9dbe4c0d-3572-4dd9-9825-5530813bb712}';
-  IID_ID2D1SvgPathData                    : TGUID = '{c095e4f4-bb98-43d6-9745-4d1b84ec9888}';
-  IID_ID2D1SvgElement                     : TGUID = '{ac7b67a6-183e-49c1-a823-0ebe40b0db29}';
-  IID_ID2D1SvgDocument                    : TGUID = '{86b88e4d-afa4-4d7b-88e4-68a51c4a0aec}';
+  IID_ID2D1SvgAttribute                   : TGUID = '{C9CDB0DD-F8C9-4E70-B7C2-301C80292C5E}';
+  IID_ID2D1SvgPaint                       : TGUID = '{D59BAB0A-68A2-455B-A5DC-9EB2854E2490}';
+  IID_ID2D1SvgStrokeDashArray             : TGUID = '{F1C0CA52-92A3-4F00-B4CE-F35691EFD9D9}';
+  IID_ID2D1SvgPointCollection             : TGUID = '{9DBE4C0D-3572-4DD9-9825-5530813BB712}';
+  IID_ID2D1SvgPathData                    : TGUID = '{C095E4F4-BB98-43D6-9745-4D1B84EC9888}';
+  IID_ID2D1SvgElement                     : TGUID = '{AC7B67A6-183E-49C1-A823-0EBE40B0DB29}';
+  IID_ID2D1SvgDocument                    : TGUID = '{86B88E4D-AFA4-4D7B-88E4-68A51C4A0AEC}';
 
   // DocumentTarget.h
-  IID_IPrintDocumentPackageTarget         : TGUID = '{1b8efec4-3019-4c27-964e-367202156906}';
-  IID_IPrintDocumentPackageTarget2        : TGUID = '{c560298a-535c-48f9-866a-632540660cb4}';
-  IID_IPrintDocumentPackageStatusEvent    : TGUID = '{ed90c8ad-5c34-4d05-a1ec-0e8a9b3ad7af}';
-  IID_IPrintDocumentPackageTargetFactory  : TGUID = '{d2959bf7-b31b-4a3d-9600-712eb1335ba4}';
+  IID_IPrintDocumentPackageTarget         : TGUID = '{1B8EFEC4-3019-4C27-964E-367202156906}';
+  IID_IPrintDocumentPackageTarget2        : TGUID = '{C560298A-535C-48F9-866A-632540660CB4}';
+  IID_IPrintDocumentPackageStatusEvent    : TGUID = '{ED90C8AD-5C34-4D05-A1EC-0E8A9B3AD7AF}';
+  IID_IPrintDocumentPackageTargetFactory  : TGUID = '{D2959BF7-B31B-4A3D-9600-712EB1335BA4}';
 
   // d2d1effects.h
-  CLSID_D2D12DAffineTransform             : TGUID = '{6aa97485-6354-4cfc-908c-e4a74f62c96c}';
-  CLSID_D2D13DPerspectiveTransform        : TGUID = '{c2844d0b-3d86-46e7-85ba-526c9240f3fb}';
-  CLSID_D2D13DTransform                   : TGUID = '{e8467b04-ec61-4b8a-b5de-d4d73debea5a}';
-  CLSID_D2D1ArithmeticComposite           : TGUID = '{fc151437-049a-4784-a24a-f1c4daf20987}';
-  CLSID_D2D1Atlas                         : TGUID = '{913e2be4-fdcf-4fe2-a5f0-2454f14ff408}';
-  CLSID_D2D1BitmapSource                  : TGUID = '{5fb6c24d-c6dd-4231-9404-50f4d5c3252d}';
-  CLSID_D2D1Blend                         : TGUID = '{81c5b77b-13f8-4cdd-ad20-c890547ac65d}';
-  CLSID_D2D1Border                        : TGUID = '{2a2d49c0-4acf-43c7-8c6a-7c4a27874d27}';
-  CLSID_D2D1Brightness                    : TGUID = '{8cea8d1e-77b0-4986-b3b9-2f0c0eae7887}';
-  CLSID_D2D1ColorManagement               : TGUID = '{1a28524c-fdd6-4aa4-ae8f-837eb8267b37}';
-  CLSID_D2D1ColorMatrix                   : TGUID = '{921f03d6-641c-47df-852d-b4bb6153ae11}';
-  CLSID_D2D1Composite                     : TGUID = '{48fc9f51-f6ac-48f1-8b58-3b28ac46f76d}';
-  CLSID_D2D1ConvolveMatrix                : TGUID = '{407f8c08-5533-4331-a341-23cc3877843e}';
-  CLSID_D2D1Crop                          : TGUID = '{e23f7110-0e9a-4324-af47-6a2c0c46f35b}';
-  CLSID_D2D1DirectionalBlur               : TGUID = '{174319a6-58e9-49b2-bb63-caf2c811a3db}';
-  CLSID_D2D1DiscreteTransfer              : TGUID = '{90866fcd-488e-454b-af06-e5041b66c36c}';
-  CLSID_D2D1DisplacementMap               : TGUID = '{edc48364-0417-4111-9450-43845fa9f890}';
-  CLSID_D2D1DistantDiffuse                : TGUID = '{3e7efd62-a32d-46d4-a83c-5278889ac954}';
-  CLSID_D2D1DistantSpecular               : TGUID = '{428c1ee5-77b8-4450-8ab5-72219c21abda}';
-  CLSID_D2D1DpiCompensation               : TGUID = '{6c26c5c7-34e0-46fc-9cfd-e5823706e228}';
-  CLSID_D2D1Flood                         : TGUID = '{61c23c20-ae69-4d8e-94cf-50078df638f2}';
-  CLSID_D2D1GammaTransfer                 : TGUID = '{409444c4-c419-41a0-b0c1-8cd0c0a18e42}';
-  CLSID_D2D1GaussianBlur                  : TGUID = '{1feb6d69-2fe6-4ac9-8c58-1d7f93e7a6a5}';
-  CLSID_D2D1Scale                         : TGUID = '{9daf9369-3846-4d0e-a44e-0c607934a5d7}';
-  CLSID_D2D1Histogram                     : TGUID = '{881db7d0-f7ee-4d4d-a6d2-4697acc66ee8}';
-  CLSID_D2D1HueRotation                   : TGUID = '{0f4458ec-4b32-491b-9e85-bd73f44d3eb6}';
-  CLSID_D2D1LinearTransfer                : TGUID = '{ad47c8fd-63ef-4acc-9b51-67979c036c06}';
-  CLSID_D2D1LuminanceToAlpha              : TGUID = '{41251ab7-0beb-46f8-9da7-59e93fcce5de}';
-  CLSID_D2D1Morphology                    : TGUID = '{eae6c40d-626a-4c2d-bfcb-391001abe202}';
-  CLSID_D2D1OpacityMetadata               : TGUID = '{6c53006a-4450-4199-aa5b-ad1656fece5e}';
-  CLSID_D2D1PointDiffuse                  : TGUID = '{b9e303c3-c08c-4f91-8b7b-38656bc48c20}';
-  CLSID_D2D1PointSpecular                 : TGUID = '{09c3ca26-3ae2-4f09-9ebc-ed3865d53f22}';
-  CLSID_D2D1Premultiply                   : TGUID = '{06eab419-deed-4018-80d2-3e1d471adeb2}';
-  CLSID_D2D1Saturation                    : TGUID = '{5cb2d9cf-327d-459f-a0ce-40c0b2086bf7}';
-  CLSID_D2D1Shadow                        : TGUID = '{c67ea361-1863-4e69-89db-695d3e9a5b6b}';
-  CLSID_D2D1SpotDiffuse                   : TGUID = '{818a1105-7932-44f4-aa86-08ae7b2f2c93}';
-  CLSID_D2D1SpotSpecular                  : TGUID = '{edae421e-7654-4a37-9db8-71acc1beb3c1}';
-  CLSID_D2D1TableTransfer                 : TGUID = '{5bf818c3-5e43-48cb-b631-868396d6a1d4}';
-  CLSID_D2D1Tile                          : TGUID = '{b0784138-3b76-4bc5-b13b-0fa2ad02659f}';
-  CLSID_D2D1Turbulence                    : TGUID = '{cf2bb6ae-889a-4ad7-ba29-a2fd732c9fc9}';
-  CLSID_D2D1UnPremultiply                 : TGUID = '{fb9ac489-ad8d-41ed-9999-bb6347d110f7}';
+  CLSID_D2D12DAffineTransform             : TGUID = '{6AA97485-6354-4CFC-908C-E4A74F62C96C}';
+  CLSID_D2D13DPerspectiveTransform        : TGUID = '{C2844D0B-3D86-46E7-85BA-526C9240F3FB}';
+  CLSID_D2D13DTransform                   : TGUID = '{E8467B04-EC61-4B8A-B5DE-D4D73DEBEA5A}';
+  CLSID_D2D1ArithmeticComposite           : TGUID = '{FC151437-049A-4784-A24A-F1C4DAF20987}';
+  CLSID_D2D1Atlas                         : TGUID = '{913E2BE4-FDCF-4FE2-A5F0-2454F14FF408}';
+  CLSID_D2D1BitmapSource                  : TGUID = '{5FB6C24D-C6DD-4231-9404-50F4D5C3252D}';
+  CLSID_D2D1Blend                         : TGUID = '{81C5B77B-13F8-4CDD-AD20-C890547AC65D}';
+  CLSID_D2D1Border                        : TGUID = '{2A2D49C0-4ACF-43C7-8C6A-7C4A27874D27}';
+  CLSID_D2D1Brightness                    : TGUID = '{8CEA8D1E-77B0-4986-B3B9-2F0C0EAE7887}';
+  CLSID_D2D1ColorManagement               : TGUID = '{1A28524C-FDD6-4AA4-AE8F-837EB8267B37}';
+  CLSID_D2D1ColorMatrix                   : TGUID = '{921F03D6-641C-47DF-852D-B4BB6153AE11}';
+  CLSID_D2D1Composite                     : TGUID = '{48FC9F51-F6AC-48F1-8B58-3B28AC46F76D}';
+  CLSID_D2D1ConvolveMatrix                : TGUID = '{407F8C08-5533-4331-A341-23CC3877843E}';
+  CLSID_D2D1Crop                          : TGUID = '{E23F7110-0E9A-4324-AF47-6A2C0C46F35B}';
+  CLSID_D2D1DirectionalBlur               : TGUID = '{174319A6-58E9-49B2-BB63-CAF2C811A3DB}';
+  CLSID_D2D1DiscreteTransfer              : TGUID = '{90866FCD-488E-454B-AF06-E5041B66C36C}';
+  CLSID_D2D1DisplacementMap               : TGUID = '{EDC48364-0417-4111-9450-43845FA9F890}';
+  CLSID_D2D1DistantDiffuse                : TGUID = '{3E7EFD62-A32D-46D4-A83C-5278889AC954}';
+  CLSID_D2D1DistantSpecular               : TGUID = '{428C1EE5-77B8-4450-8AB5-72219C21ABDA}';
+  CLSID_D2D1DpiCompensation               : TGUID = '{6C26C5C7-34E0-46FC-9CFD-E5823706E228}';
+  CLSID_D2D1Flood                         : TGUID = '{61C23C20-AE69-4D8E-94CF-50078DF638F2}';
+  CLSID_D2D1GammaTransfer                 : TGUID = '{409444C4-C419-41A0-B0C1-8CD0C0A18E42}';
+  CLSID_D2D1GaussianBlur                  : TGUID = '{1FEB6D69-2FE6-4AC9-8C58-1D7F93E7A6A5}';
+  CLSID_D2D1Scale                         : TGUID = '{9DAF9369-3846-4D0E-A44E-0C607934A5D7}';
+  CLSID_D2D1Histogram                     : TGUID = '{881DB7D0-F7EE-4D4D-A6D2-4697ACC66EE8}';
+  CLSID_D2D1HueRotation                   : TGUID = '{0F4458EC-4B32-491B-9E85-BD73F44D3EB6}';
+  CLSID_D2D1LinearTransfer                : TGUID = '{AD47C8FD-63EF-4ACC-9B51-67979C036C06}';
+  CLSID_D2D1LuminanceToAlpha              : TGUID = '{41251AB7-0BEB-46F8-9DA7-59E93FCCE5DE}';
+  CLSID_D2D1Morphology                    : TGUID = '{EAE6C40D-626A-4C2D-BFCB-391001ABE202}';
+  CLSID_D2D1OpacityMetadata               : TGUID = '{6C53006A-4450-4199-AA5B-AD1656FECE5E}';
+  CLSID_D2D1PointDiffuse                  : TGUID = '{B9E303C3-C08C-4F91-8B7B-38656BC48C20}';
+  CLSID_D2D1PointSpecular                 : TGUID = '{09C3CA26-3AE2-4F09-9EBC-ED3865D53F22}';
+  CLSID_D2D1Premultiply                   : TGUID = '{06EAB419-DEED-4018-80D2-3E1D471ADEB2}';
+  CLSID_D2D1Saturation                    : TGUID = '{5CB2D9CF-327D-459F-A0CE-40C0B2086BF7}';
+  CLSID_D2D1Shadow                        : TGUID = '{C67EA361-1863-4E69-89DB-695D3E9A5B6B}';
+  CLSID_D2D1SpotDiffuse                   : TGUID = '{818A1105-7932-44F4-AA86-08AE7B2F2C93}';
+  CLSID_D2D1SpotSpecular                  : TGUID = '{EDAE421E-7654-4A37-9DB8-71ACC1BEB3C1}';
+  CLSID_D2D1TableTransfer                 : TGUID = '{5BF818C3-5E43-48CB-B631-868396D6A1D4}';
+  CLSID_D2D1Tile                          : TGUID = '{B0784138-3B76-4BC5-B13B-0FA2AD02659F}';
+  CLSID_D2D1Turbulence                    : TGUID = '{CF2BB6AE-889A-4AD7-BA29-A2FD732C9FC9}';
+  CLSID_D2D1UnPremultiply                 : TGUID = '{FB9AC489-AD8D-41ED-9999-BB6347D110F7}';
 
   // d2d1effects_1.h
-  CLSID_D2D1YCbCr                         : TGUID = '{99503cc1-66c7-45c9-a875-8ad8a7914401}';
+  CLSID_D2D1YCbCr                         : TGUID = '{99503CC1-66C7-45C9-A875-8AD8A7914401}';
+
+  // d2d1effects_2.h
+  CLSID_D2D1Contrast                      : TGUID = '{B648A78A-0ED5-4F80-A94A-8E825ACA6B77}';
+  CLSID_D2D1RgbToHue                      : TGUID = '{23F3E5EC-91E8-4D3D-AD0A-AFADC1004AA1}';
+  CLSID_D2D1HueToRgb                      : TGUID = '{7B78A6BD-0141-4DEF-8A52-6356EE0CBDD5}';
+  CLSID_D2D1ChromaKey                     : TGUID = '{74C01F5B-2A0D-408C-88E2-C7A3C7197742}';
+  CLSID_D2D1Emboss                        : TGUID = '{B1C5EB2B-0348-43F0-8107-4957CACBA2AE}';
+  CLSID_D2D1Exposure                      : TGUID = '{B56C8CFA-F634-41EE-BEE0-FFA617106004}';
+  CLSID_D2D1Grayscale                     : TGUID = '{36DDE0EB-3725-42E0-836D-52FB20AEE644}';
+  CLSID_D2D1Invert                        : TGUID = '{E0C3784D-CB39-4E84-B6FD-6B72F0810263}';
+  CLSID_D2D1Posterize                     : TGUID = '{2188945E-33A3-4366-B7BC-086BD02D0884}';
+  CLSID_D2D1Sepia                         : TGUID = '{3A1AF410-5F1D-4DBE-84DF-915DA79B7153}';
+  CLSID_D2D1Sharpen                       : TGUID = '{C9B887CB-C5FF-4DC5-9779-273DCF417C7D}';
+  CLSID_D2D1Straighten                    : TGUID = '{4DA47B12-79A3-4FB0-8237-BBC3B2A4DE08}';
+  CLSID_D2D1TemperatureTint               : TGUID = '{89176087-8AF9-4A08-AEB1-895F38DB1766}';
+  CLSID_D2D1Vignette                      : TGUID = '{C00C40BE-5E67-4CA3-95B4-F4B02C115135}';
+  CLSID_D2D1EdgeDetection                 : TGUID = '{EFF583CA-CB07-4AA9-AC5D-2CC44C76460F}';
+  CLSID_D2D1HighlightsShadows             : TGUID = '{CADC8384-323F-4C7E-A361-2E2B24DF6EE4}';
+  CLSID_D2D1LookupTable3D                 : TGUID = '{349E0EDA-0088-4A79-9CA3-C7E300202020}';
+
+  CLSID_D2D1Opacity                       : TGUID = '{811D79A4-DE28-4454-8094-C64685F8BD4C}';
+  CLSID_D2D1AlphaMask                     : TGUID = '{C80ECFF0-3FD5-4F05-8328-C5D1724B4F0A}';
+  CLSID_D2D1CrossFade                     : TGUID = '{12F575E8-4DB1-485F-9A84-03A07DD3829F}';
+  CLSID_D2D1Tint                          : TGUID = '{36312B17-F7DD-4014-915D-FFCA768CF211}';
+
+  CLSID_D2D1WhiteLevelAdjustment          : TGUID = '{44A1CADB-6CDD-4818-8FF4-26C1CFE95BDB}';
+  CLSID_D2D1HdrToneMap                    : TGUID = '{7B0B748D-4610-4486-A90C-999D9A2E2B11}';
 
 type
   // d2d1.h
@@ -612,7 +1268,6 @@ type
   IPrintDocumentPackageStatusEvent        = interface;
   IPrintDocumentPackageTargetFactory      = interface;
 
-
   D2D1_TAG = UInt64;
 
   TD2D1Tag = D2D1_TAG;
@@ -621,7 +1276,6 @@ type
   PID2D1Geometry = ^ID2D1Geometry;
   PIDWriteFontFile = ^IDWriteFontFile;
 {$ENDREGION}
-
 
 {$REGION 'callbacks'}
 
@@ -5283,7 +5937,7 @@ type
 
 {$ENDREGION}
 
-{$REGION 'd2d1effects_1.h'}
+{$REGION 'd2d1effects_1.h enums'}
 
   /// <summary>
   /// The enumeration of the YCbCr effect's top level properties.
@@ -5345,6 +5999,479 @@ type
 
 {$ENDREGION}
 
+{$REGION 'd2d1effects_2.h enums'}
+
+  D2D1_CONTRAST_PROP = (
+
+    /// <summary>
+    /// Property Name: "Contrast"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_CONTRAST_PROP_CONTRAST     = 0,
+
+    /// <summary>
+    /// Property Name: "ClampInput"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_CONTRAST_PROP_CLAMP_INPUT  = 1,
+    D2D1_CONTRAST_PROP_FORCE_DWORD  = Integer($FFFFFFFF)
+  );
+
+  TD2D1ContrastProp = D2D1_CONTRAST_PROP;
+  PD2D1ContrastProp = ^TD2D1ContrastProp;
+
+
+  D2D1_RGBTOHUE_PROP = (
+
+    /// <summary>
+    /// Property Name: "OutputColorSpace"
+    /// Property Type: D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE
+    /// </summary>
+    D2D1_RGBTOHUE_PROP_OUTPUT_COLOR_SPACE = 0,
+    D2D1_RGBTOHUE_PROP_FORCE_DWORD        = Integer($FFFFFFFF)
+  );
+
+  TD2DRGBToHUEProp = D2D1_RGBTOHUE_PROP;
+  PD2DRGBToHUEProp = ^TD2DRGBToHUEProp;
+
+
+  D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE = (
+    D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE_HUE_SATURATION_VALUE     = 0,
+    D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE_HUE_SATURATION_LIGHTNESS = 1,
+    D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE_FORCE_DWORD              = Integer($FFFFFFFF)
+  );
+
+  TD2DRGBToHUEWOutputColorSpace = D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE;
+  PD2DRGBToHUEWOutputColorSpace = ^TD2DRGBToHUEWOutputColorSpace;
+
+  D2D1_HUETORGB_PROP = (
+    /// <summary>
+    /// Property Name: "InputColorSpace"
+    /// Property Type: D2D1_HUETORGB_INPUT_COLOR_SPACE
+    /// </summary>
+    D2D1_HUETORGB_PROP_INPUT_COLOR_SPACE  = 0,
+    D2D1_HUETORGB_PROP_FORCE_DWORD        = Integer($FFFFFFFF)
+  );
+
+  TD2D1HUEToRGBProp = D2D1_HUETORGB_PROP;
+  PD2D1HUEToRGBProp = ^TD2D1HUEToRGBProp;
+
+  D2D1_HUETORGB_INPUT_COLOR_SPACE = (
+    D2D1_HUETORGB_INPUT_COLOR_SPACE_HUE_SATURATION_VALUE      = 0,
+    D2D1_HUETORGB_INPUT_COLOR_SPACE_HUE_SATURATION_LIGHTNESS  = 1,
+    D2D1_HUETORGB_INPUT_COLOR_SPACE_FORCE_DWORD               = Integer($FFFFFFFF)
+  );
+
+  TD2DRGBToHUEWInputColorSpace = D2D1_HUETORGB_INPUT_COLOR_SPACE;
+  PD2DRGBToHUEWInputColorSpace = ^TD2DRGBToHUEWInputColorSpace;
+
+  D2D1_CHROMAKEY_PROP = (
+    /// <summary>
+    /// Property Name: "Color"
+    /// Property Type: D2D1_VECTOR_3F
+    /// </summary>
+    D2D1_CHROMAKEY_PROP_COLOR         = 0,
+
+    /// <summary>
+    /// Property Name: "Tolerance"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_CHROMAKEY_PROP_TOLERANCE     = 1,
+
+    /// <summary>
+    /// Property Name: "InvertAlpha"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_CHROMAKEY_PROP_INVERT_ALPHA  = 2,
+
+    /// <summary>
+    /// Property Name: "Feather"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_CHROMAKEY_PROP_FEATHER       = 3,
+    D2D1_CHROMAKEY_PROP_FORCE_DWORD   = Integer($FFFFFFFF)
+  );
+
+  TD2D1ChromaKeyProp = D2D1_CHROMAKEY_PROP;
+  PD2D1ChromaKeyProp = ^TD2D1ChromaKeyProp;
+
+  D2D1_EMBOSS_PROP = (
+    /// <summary>
+    /// Property Name: "Height"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_EMBOSS_PROP_HEIGHT       = 0,
+
+    /// <summary>
+    /// Property Name: "Direction"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_EMBOSS_PROP_DIRECTION    = 1,
+    D2D1_EMBOSS_PROP_FORCE_DWORD  = Integer($FFFFFFFF)
+  );
+
+  TD2D1EmbossProp = D2D1_EMBOSS_PROP;
+  PD2D1EmbossProp = ^TD2D1EmbossProp;
+
+  D2D1_EXPOSURE_PROP = (
+    /// <summary>
+    /// Property Name: "ExposureValue"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_EXPOSURE_PROP_EXPOSURE_VALUE = 0,
+    D2D1_EXPOSURE_PROP_FORCE_DWORD    = Integer($FFFFFFFF)
+  );
+
+  TD2D1ExposureProp = D2D1_EXPOSURE_PROP;
+  PD2D1ExposureProp = ^TD2D1ExposureProp;
+
+
+  D2D1_POSTERIZE_PROP = (
+    /// <summary>
+    /// Property Name: "RedValueCount"
+    /// Property Type: UINT32
+    /// </summary>
+    D2D1_POSTERIZE_PROP_RED_VALUE_COUNT   = 0,
+
+    /// <summary>
+    /// Property Name: "GreenValueCount"
+    /// Property Type: UINT32
+    /// </summary>
+    D2D1_POSTERIZE_PROP_GREEN_VALUE_COUNT = 1,
+
+    /// <summary>
+    /// Property Name: "BlueValueCount"
+    /// Property Type: UINT32
+    /// </summary>
+    D2D1_POSTERIZE_PROP_BLUE_VALUE_COUNT  = 2,
+    D2D1_POSTERIZE_PROP_FORCE_DWORD       = Integer($FFFFFFFF)
+  );
+
+  TD2D1PosterizeProp = D2D1_POSTERIZE_PROP;
+  PD2D1PosterizeProp = ^TD2D1PosterizeProp;
+
+  D2D1_SEPIA_PROP = (
+    /// <summary>
+    /// Property Name: "Intensity"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_SEPIA_PROP_INTENSITY   = 0,
+
+    /// <summary>
+    /// Property Name: "AlphaMode"
+    /// Property Type: D2D1_ALPHA_MODE
+    /// </summary>
+    D2D1_SEPIA_PROP_ALPHA_MODE  = 1,
+    D2D1_SEPIA_PROP_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  TD2D1SepiaProp = D2D1_SEPIA_PROP;
+  PD2D1SepiaProp = ^TD2D1SepiaProp;
+
+  D2D1_SHARPEN_PROP = (
+    /// <summary>
+    /// Property Name: "Sharpness"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_SHARPEN_PROP_SHARPNESS   = 0,
+
+    /// <summary>
+    /// Property Name: "Threshold"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_SHARPEN_PROP_THRESHOLD   = 1,
+    D2D1_SHARPEN_PROP_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  TD2D1SharpenProp = D2D1_SHARPEN_PROP;
+  PD2D1SharpenProp = ^TD2D1SharpenProp;
+
+  D2D1_STRAIGHTEN_PROP = (
+    /// <summary>
+    /// Property Name: "Angle"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_STRAIGHTEN_PROP_ANGLE          = 0,
+
+    /// <summary>
+    /// Property Name: "MaintainSize"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_STRAIGHTEN_PROP_MAINTAIN_SIZE  = 1,
+
+    /// <summary>
+    /// Property Name: "ScaleMode"
+    /// Property Type: D2D1_STRAIGHTEN_SCALE_MODE
+    /// </summary>
+    D2D1_STRAIGHTEN_PROP_SCALE_MODE     = 2,
+    D2D1_STRAIGHTEN_PROP_FORCE_DWORD    = Integer($FFFFFFFF)
+  );
+
+  TD2D1_StraightenProp = D2D1_STRAIGHTEN_PROP;
+  PD2D1_StraightenProp = ^TD2D1_StraightenProp;
+
+  D2D1_STRAIGHTEN_SCALE_MODE = (
+
+    D2D1_STRAIGHTEN_SCALE_MODE_NEAREST_NEIGHBOR     = 0,
+    D2D1_STRAIGHTEN_SCALE_MODE_LINEAR               = 1,
+    D2D1_STRAIGHTEN_SCALE_MODE_CUBIC                = 2,
+    D2D1_STRAIGHTEN_SCALE_MODE_MULTI_SAMPLE_LINEAR  = 3,
+    D2D1_STRAIGHTEN_SCALE_MODE_ANISOTROPIC          = 4,
+    D2D1_STRAIGHTEN_SCALE_MODE_FORCE_DWORD          = Integer($FFFFFFFF)
+  );
+
+  TD2D1StraightenScaleMode = D2D1_STRAIGHTEN_SCALE_MODE;
+  PD2D1StraightenScaleMode = ^TD2D1StraightenScaleMode;
+
+  D2D1_TEMPERATUREANDTINT_PROP = (
+    /// <summary>
+    /// Property Name: "Temperature"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_TEMPERATUREANDTINT_PROP_TEMPERATURE  = 0,
+
+    /// <summary>
+    /// Property Name: "Tint"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_TEMPERATUREANDTINT_PROP_TINT         = 1,
+    D2D1_TEMPERATUREANDTINT_PROP_FORCE_DWORD  = Integer($FFFFFFFF)
+  );
+
+  TD2D1TemperatureAndTint = D2D1_TEMPERATUREANDTINT_PROP;
+  PD2D1TemperatureAndTint = ^TD2D1TemperatureAndTint;
+
+  D2D1_VIGNETTE_PROP = (
+    /// <summary>
+    /// Property Name: "Color"
+    /// Property Type: D2D1_VECTOR_4F
+    /// </summary>
+    D2D1_VIGNETTE_PROP_COLOR            = 0,
+
+    /// <summary>
+    /// Property Name: "TransitionSize"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_VIGNETTE_PROP_TRANSITION_SIZE  = 1,
+
+    /// <summary>
+    /// Property Name: "Strength"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_VIGNETTE_PROP_STRENGTH         = 2,
+    D2D1_VIGNETTE_PROP_FORCE_DWORD      = Integer($FFFFFFFF)
+  );
+
+  TD2D1VignetteProp = D2D1_VIGNETTE_PROP;
+  PD2D1VignetteProp = ^TD2D1VignetteProp;
+
+  D2D1_EDGEDETECTION_PROP = (
+
+    /// <summary>
+    /// Property Name: "Strength"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_EDGEDETECTION_PROP_STRENGTH      = 0,
+
+    /// <summary>
+    /// Property Name: "BlurRadius"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_EDGEDETECTION_PROP_BLUR_RADIUS   = 1,
+
+    /// <summary>
+    /// Property Name: "Mode"
+    /// Property Type: D2D1_EDGEDETECTION_MODE
+    /// </summary>
+    D2D1_EDGEDETECTION_PROP_MODE          = 2,
+
+    /// <summary>
+    /// Property Name: "OverlayEdges"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_EDGEDETECTION_PROP_OVERLAY_EDGES = 3,
+
+    /// <summary>
+    /// Property Name: "AlphaMode"
+    /// Property Type: D2D1_ALPHA_MODE
+    /// </summary>
+    D2D1_EDGEDETECTION_PROP_ALPHA_MODE    = 4,
+    D2D1_EDGEDETECTION_PROP_FORCE_DWORD   = Integer($FFFFFFFF)
+  );
+
+  TD2D1EdgeDetectionProp = D2D1_EDGEDETECTION_PROP;
+  PD2D1EdgeDetectionProp = ^TD2D1EdgeDetectionProp;
+
+
+  D2D1_EDGEDETECTION_MODE = (
+    D2D1_EDGEDETECTION_MODE_SOBEL       = 0,
+    D2D1_EDGEDETECTION_MODE_PREWITT     = 1,
+    D2D1_EDGEDETECTION_MODE_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  TD2D1EdgeDetectionMode = D2D1_EDGEDETECTION_MODE;
+  PD2D1EdgeDetectionMode = ^TD2D1EdgeDetectionMode;
+
+  D2D1_HIGHLIGHTSANDSHADOWS_PROP = (
+    /// <summary>
+    /// Property Name: "Highlights"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_HIGHLIGHTSANDSHADOWS_PROP_HIGHLIGHTS       = 0,
+
+    /// <summary>
+    /// Property Name: "Shadows"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_HIGHLIGHTSANDSHADOWS_PROP_SHADOWS          = 1,
+
+    /// <summary>
+    /// Property Name: "Clarity"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_HIGHLIGHTSANDSHADOWS_PROP_CLARITY          = 2,
+
+    /// <summary>
+    /// Property Name: "InputGamma"
+    /// Property Type: D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA
+    /// </summary>
+    D2D1_HIGHLIGHTSANDSHADOWS_PROP_INPUT_GAMMA      = 3,
+
+    /// <summary>
+    /// Property Name: "MaskBlurRadius"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_HIGHLIGHTSANDSHADOWS_PROP_MASK_BLUR_RADIUS = 4,
+    D2D1_HIGHLIGHTSANDSHADOWS_PROP_FORCE_DWORD      = Integer($FFFFFFFF)
+  );
+
+  TD2D1HighlightsAndShadows = D2D1_HIGHLIGHTSANDSHADOWS_PROP;
+  PD2D1HighlightsAndShadows = ^TD2D1HighlightsAndShadows;
+
+  D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA = (
+    D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA_LINEAR      = 0,
+    D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA_SRGB        = 1,
+    D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  TD2D1HighlightsAndShadowsInputGamma = D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA;
+  PD2D1HighlightsAndShadowsInputGamma = ^TD2D1HighlightsAndShadowsInputGamma;
+
+  D2D1_LOOKUPTABLE3D_PROP = (
+    /// <summary>
+    /// Property Name: "Lut"
+    /// Property Type: IUnknown *
+    /// </summary>
+    D2D1_LOOKUPTABLE3D_PROP_LUT         = 0,
+
+    /// <summary>
+    /// Property Name: "AlphaMode"
+    /// Property Type: D2D1_ALPHA_MODE
+    /// </summary>
+    D2D1_LOOKUPTABLE3D_PROP_ALPHA_MODE  = 1,
+    D2D1_LOOKUPTABLE3D_PROP_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  TD2D1LookupTable3DProp = D2D1_LOOKUPTABLE3D_PROP;
+  PD2D1LookupTable3DProp = ^TD2D1LookupTable3DProp;
+
+  D2D1_OPACITY_PROP = (
+    /// <summary>
+    /// Property Name: "Opacity"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_OPACITY_PROP_OPACITY     = 0,
+    D2D1_OPACITY_PROP_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  TD2D1OpacityProp = D2D1_OPACITY_PROP;
+  PD2D1OpacityProp = ^TD2D1OpacityProp;
+
+  D2D1_CROSSFADE_PROP = (
+    /// <summary>
+    /// Property Name: "Weight"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_CROSSFADE_PROP_WEIGHT      = 0,
+    D2D1_CROSSFADE_PROP_FORCE_DWORD = Integer($FFFFFFFF)
+  );
+
+  TD2D1CrossFadeProp = D2D1_CROSSFADE_PROP;
+  PD2D1CrossFadeProp = ^TD2D1CrossFadeProp;
+
+  D2D1_TINT_PROP = (
+    /// <summary>
+    /// Property Name: "Color"
+    /// Property Type: D2D1_VECTOR_4F
+    /// </summary>
+    D2D1_TINT_PROP_COLOR        = 0,
+
+    /// <summary>
+    /// Property Name: "ClampOutput"
+    /// Property Type: BOOL
+    /// </summary>
+    D2D1_TINT_PROP_CLAMP_OUTPUT = 1,
+    D2D1_TINT_PROP_FORCE_DWORD  = Integer($FFFFFFFF)
+  );
+
+  TD2D1TintProp = D2D1_TINT_PROP;
+  PD2D1TintProp = ^TD2D1TintProp;
+
+  D2D1_WHITELEVELADJUSTMENT_PROP = (
+    /// <summary>
+    /// Property Name: "InputWhiteLevel"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_WHITELEVELADJUSTMENT_PROP_INPUT_WHITE_LEVEL  = 0,
+
+    /// <summary>
+    /// Property Name: "OutputWhiteLevel"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_WHITELEVELADJUSTMENT_PROP_OUTPUT_WHITE_LEVEL = 1,
+    D2D1_WHITELEVELADJUSTMENT_PROP_FORCE_DWORD        = Integer($FFFFFFFF)
+  );
+
+  TD2D1WhiteLevelAdjustmentProp = D2D1_WHITELEVELADJUSTMENT_PROP;
+  PD2D1WhiteLevelAdjustmentProp = ^TD2D1WhiteLevelAdjustmentProp;
+
+
+  D2D1_HDRTONEMAP_PROP = (
+    /// <summary>
+    /// Property Name: "InputMaxLuminance"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_HDRTONEMAP_PROP_INPUT_MAX_LUMINANCE  = 0,
+
+    /// <summary>
+    /// Property Name: "OutputMaxLuminance"
+    /// Property Type: FLOAT
+    /// </summary>
+    D2D1_HDRTONEMAP_PROP_OUTPUT_MAX_LUMINANCE = 1,
+
+    /// <summary>
+    /// Property Name: "DisplayMode"
+    /// Property Type: D2D1_HDRTONEMAP_DISPLAY_MODE
+    /// </summary>
+    D2D1_HDRTONEMAP_PROP_DISPLAY_MODE         = 2,
+    D2D1_HDRTONEMAP_PROP_FORCE_DWORD          = Integer($FFFFFFFF)
+  );
+
+  TD2D1HdrToneMapProp = D2D1_HDRTONEMAP_PROP;
+  PD2D1HdrToneMapProp = ^TD2D1HdrToneMapProp;
+
+  D2D1_HDRTONEMAP_DISPLAY_MODE = (
+
+    D2D1_HDRTONEMAP_DISPLAY_MODE_SDR          = 0,
+    D2D1_HDRTONEMAP_DISPLAY_MODE_HDR          = 1,
+    D2D1_HDRTONEMAP_DISPLAY_MODE_FORCE_DWORD  = Integer($FFFFFFFF)
+  );
+
+  TD2D1HdrToneMapDisplayMode = D2D1_HDRTONEMAP_DISPLAY_MODE;
+  PD2D1HdrToneMapDisplayMode = ^TD2D1HdrToneMapDisplayMode;
+
+{$ENDREGION}
+
 {$REGION 'd2d1effectauthor.h enums'}
 
   /// <summary>
@@ -5399,7 +6526,6 @@ type
 
 	TD2D1PixelOptions = D2D1_PIXEL_OPTIONS;
 	PD2D1PixelOptions = ^TD2D1PixelOptions;
-
 
   /// <summary>
   /// Indicates options for drawing custom vertices set by transforms.

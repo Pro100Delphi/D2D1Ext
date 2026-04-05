@@ -22,6 +22,7 @@
 	- d2d1effects.h
 	- d2d1effecthelpers.h
 	- d2d1effects_1.h
+	- d2d1effects_2.h
 	- d2d1effectauthor.h
 	- d2d1effectauthor_1.h
 	- d2d1svg.h
@@ -56,6 +57,7 @@
 	- fix missing params and directives
 	- implement basic methods for TD2D1Point2F
 	- implement Create-Methods with overloads for D2D1, D2D1_1 structures
+	- implement LCSID and enums from d2d1effects_2.h
 
 ### Translated by
 - Pustowalow W.
