@@ -37,7 +37,7 @@
 	C:\Program Files (x86)\Windows Kits\10\bin\10.0.22621.0\fxc.exe
 #### Example
 	fxc /T ps_5_0 /E main /D D2D_ENTRY=main /D D2D_FULL_SHADER /Fo PS.fxc PS.hlsl
-### Links
+#### Links
 - https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/Direct2D/effect-shader-linking.md
 - https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/Direct2D/effect-shader-linking.md#authoring-a-shader-linking-compatible-custom-effect
 - https://learn.microsoft.com/en-us/windows/win32/direct3dtools/dx-graphics-tools-fxc-using
