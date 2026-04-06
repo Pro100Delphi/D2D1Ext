@@ -8,29 +8,28 @@
 
   ### Source SDK library - "Windows Kits\10\Include\10.0.22621.0\um"
   - Included files:
-	- DocumentTarget.h
-	- dcommon.h
-	- d2dbasetypes.h
-	- d2derr.h
-	- d2d1.h
-	- d2d1helper.h
-	- d2d1_1.h
-	- d2d1_1helper.h
-	- d2d1_2.h
-	- d2d1_2helper.h
-	- d2d1_3.h
-	- d2d1_3helper.h	
-	- d2d1effects.h
-	- d2d1effecthelpers.h
-	- d2d1effects_1.h
-	- d2d1effects_2.h
-	- d2d1effectauthor.h
-	- d2d1effectauthor_1.h
-	- d2d1svg.h
-	- dwrite.h
-	- dwrite_1.h
-	- dwrite_2.h
-	- dwrite_3.h
+    - DocumentTarget.h
+    - dcommon.h
+    - d2dbasetypes.h
+    - d2derr.h
+    - d2d1.h
+    - d2d1helper.h
+    - d2d1_1.h
+    - d2d1_1helper.h
+    - d2d1_2.h
+    - d2d1_2helper.h
+    - d2d1_3.h
+    - d2d1_3helper.h
+    - d2d1effects.h
+    - d2d1effecthelpers.h
+    - d2d1effects_1.h
+    - d2d1effectauthor.h
+    - d2d1effectauthor_1.h
+    - d2d1svg.h
+    - dwrite.h
+    - dwrite_1.h
+    - dwrite_2.h
+    - dwrite_3.h
 
   ### Changes
 
@@ -44,6 +43,7 @@
     - fix missing params and directives,
     - implement basic methods for TD2D1Point2F
     - implement Create-Methods with overloads for D2D1, D2D1_1 structures
+    - implement LCSID and enums from d2d1effects_2.h
 
   ### Translated by
   Pustowalow W.
@@ -4066,14 +4066,14 @@ type
 
   D2D1_GAUSSIANBLUR_OPTIMIZATION = (
 
-    D2D1_GAUSSIANBLUR_OPTIMIZATION_SPEED = 0,
-    D2D1_GAUSSIANBLUR_OPTIMIZATION_BALANCED = 1,
-    D2D1_GAUSSIANBLUR_OPTIMIZATION_QUALITY = 2,
-    D2D1_GAUSSIANBLUR_OPTIMIZATION_FORCE_DWORD = Integer($FFFFFFFF)
+    D2D1_GAUSSIANBLUR_OPTIMIZATION_SPEED        = 0,
+    D2D1_GAUSSIANBLUR_OPTIMIZATION_BALANCED     = 1,
+    D2D1_GAUSSIANBLUR_OPTIMIZATION_QUALITY      = 2,
+    D2D1_GAUSSIANBLUR_OPTIMIZATION_FORCE_DWORD  = Integer($FFFFFFFF)
   );
 
-	TD2D1GaussianblurOptimization = D2D1_GAUSSIANBLUR_OPTIMIZATION;
-	PD2D1GaussianblurOptimization = ^TD2D1GaussianblurOptimization;
+	TD2D1GaussianBlurOptimization = D2D1_GAUSSIANBLUR_OPTIMIZATION;
+	PD2D1GaussianBlurOptimization = ^TD2D1GaussianblurOptimization;
 
 
   /// <summary>
@@ -11360,11 +11360,11 @@ type
     function SetInputCount(
       AInputCount: UInt32): HRESULT; stdcall;
 
-    function GetInputCount: UInt32; stdcall;
-
     procedure GetInput(
       AIndex: UInt32;
       out AInput: ID2D1Image); stdcall;
+
+    function GetInputCount: UInt32; stdcall;
 
     procedure GetOutput(out AOutputImage: ID2D1Image); stdcall;
 
@@ -14543,7 +14543,6 @@ type
     function Map(out AData: PByte): HRESULT; stdcall;
 
     function Unmap: HRESULT; stdcall;
-
   end;
 
   ID2D1ResourceTexture = interface(IUnknown)
@@ -14556,7 +14555,6 @@ type
       ADimensions: UInt32;
       const AData: PByte;
       ADataCount: UInt32): HRESULT; stdcall;
-
   end;
 
   ID2D1RenderInfo = interface(IUnknown)
@@ -15322,7 +15320,6 @@ function D2D1Vec3Length(
   AZ: Single): Single; stdcall; external d2d1lib;
 {$ENDREGION}
 
-
 {$REGION 'user functions'}
 function D2D1CreateBitmap(ARenderTarget: ID2D1RenderTarget; ASrcBitmap: TBitmap; out AD2D1Bitmap: ID2D1Bitmap): HRESULT;
 {$ENDREGION}
@@ -15405,7 +15402,6 @@ end;
 
 {$ENDREGION}
 
-
 {$REGION 'D2DBaseTypes.h implementation'}
 {=========================================================================================================================================}
 { D2D1_COLOR_F }
@@ -15434,7 +15430,6 @@ begin
 end;
 
 {$ENDREGION}
-
 
 {$REGION 'd2d1.h implementation'}
 {=========================================================================================================================================}
@@ -16411,7 +16406,6 @@ end;
 {=========================================================================================================================================}
 
 {$ENDREGION}
-
 
 {$REGION 'user functions'}
 function D2D1CreateBitmap(ARenderTarget: ID2D1RenderTarget; ASrcBitmap: TBitmap; out AD2D1Bitmap: ID2D1Bitmap): HRESULT;
