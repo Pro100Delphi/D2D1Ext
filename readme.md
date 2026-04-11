@@ -58,6 +58,9 @@
 	- implement basic methods for TD2D1Point2F
 	- implement Create-Methods with overloads for D2D1, D2D1_1 structures
 	- implement LCSID and enums from d2d1effects_2.h
+  
+- 11 Apr 2026
+	- Add missing ID2D1DeviceContext7, ID2D1Device7, ID2D1Factory8
 
 ### Translated by
 - Pustowalow W.
