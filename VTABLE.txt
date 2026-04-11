@@ -1,0 +1,965 @@
+https://www.autohotkey.com/boards/viewtopic.php?f=83&t=139183
+
+class VTABLE {
+    ;################################################ d2d1.h ################################################
+    ;################################################ d2d1.h ################################################
+    ;################################################ d2d1.h ################################################
+
+
+    class IUnknown {
+        static QueryInterface => 0
+        static AddRef => 1
+        static Release => 2
+    }
+
+    class ID2D1Resource extends VTABLE.IUnknown {
+        static GetFactory => 3
+    }
+
+    class ID2D1Image extends VTABLE.ID2D1Resource {
+        ; ~~~
+    }
+
+    class ID2D1Bitmap extends VTABLE.ID2D1Image {
+        static GetSize => 4
+        static GetPixelSize => 5
+        static GetPixelFormat => 6
+        static GetDpi => 7
+        static CopyFromBitmap => 8
+        static CopyFromRenderTarget => 9
+        static CopyFromMemory => 10
+    }
+
+    class ID2D1GradientStopCollection extends VTABLE.ID2D1Resource {
+        static GetGradientStopCount => 4
+        static GetGradientStops => 5
+        static GetColorInterpolationGamma => 6
+        static GetExtendMode => 7
+    }
+
+    class ID2D1Brush extends VTABLE.ID2D1Resource {
+        static SetOpacity => 4
+        static SetTransform => 5
+        static GetOpacity => 6
+        static GetTransform => 7
+    }
+
+    class ID2D1BitmapBrush extends VTABLE.ID2D1Brush {
+        static SetExtendModeX => 8
+        static SetExtendModeY => 9
+        static SetInterpolationMode => 10
+        static SetBitmap => 11
+        static GetExtendModeX => 12
+        static GetExtendModeY => 13
+        static GetInterpolationMode => 14
+        static GetBitmap => 15
+    }
+
+    class ID2D1SolidColorBrush extends VTABLE.ID2D1Brush {
+        static SetColor => 8
+        static GetColor => 9
+    }
+
+    class ID2D1LinearGradientBrush extends VTABLE.ID2D1Brush {
+        static SetStartPoint => 8
+        static SetEndPoint => 9
+        static GetStartPoint => 10
+        static GetEndPoint => 11
+        static GetGradientStopCollection => 12
+    }
+
+    class ID2D1RadialGradientBrush extends VTABLE.ID2D1Brush {
+        static SetCenter => 8
+        static SetGradientOriginOffset => 9
+        static SetRadiusX => 10
+        static SetRadiusY => 11
+        static GetCenter => 12
+        static GetGradientOriginOffset => 13
+        static GetRadiusX => 14
+        static GetRadiusY => 15
+        static GetGradientStopCollection => 16
+    }
+
+    class ID2D1StrokeStyle extends VTABLE.ID2D1Resource {
+        static GetStartCap => 4
+        static GetEndCap => 5
+        static GetDashCap => 6
+        static GetMiterLimit => 7
+        static GetLineJoin => 8
+        static GetDashOffset => 9
+        static GetDashStyle => 10
+        static GetDashesCount => 11
+        static GetDashes => 12
+    }
+
+    class ID2D1Geometry extends VTABLE.ID2D1Resource {
+        static GetBounds => 4
+        static GetWidenedBounds => 5
+        static StrokeContainsPoint => 6
+        static FillContainsPoint => 7
+        static CompareWithGeometry => 8
+        static Simplify => 9
+        static Tessellate => 10
+        static CombineWithGeometry => 11
+        static Outline => 12
+        static ComputeArea => 13
+        static ComputeLength => 14
+        static ComputePointAtLength => 15
+        static Widen => 16
+    }
+
+    class ID2D1RectangleGeometry extends VTABLE.ID2D1Geometry {
+        static GetRect => 17
+    }
+
+    class ID2D1RoundedRectangleGeometry extends VTABLE.ID2D1Geometry {
+        static GetRoundedRect => 17
+    }
+
+    class ID2D1EllipseGeometry extends VTABLE.ID2D1Geometry {
+        static GetEllipse => 17
+    }
+
+    class ID2D1GeometryGroup extends VTABLE.ID2D1Geometry {
+        static GetFillMode => 17
+        static GetSourceGeometryCount => 18
+        static GetSourceGeometries => 19
+    }
+
+    class ID2D1TransformedGeometry extends VTABLE.ID2D1Geometry {
+        static GetSourceGeometry => 17
+        static GetTransform => 18
+    }
+
+    class ID2D1SimplifiedGeometrySink extends VTABLE.IUnknown {
+        static SetFillMode => 3
+        static SetSegmentFlags => 4
+        static BeginFigure => 5
+        static AddLines => 6
+        static AddBeziers => 7
+        static EndFigure => 8
+        static Close => 9
+    }
+
+    class ID2D1GeometrySink extends VTABLE.ID2D1SimplifiedGeometrySink {
+        static AddLine => 10
+        static AddBezier => 11
+        static AddQuadraticBezier => 12
+        static AddQuadraticBeziers => 13
+        static AddArc => 14
+    }
+
+    class ID2D1TessellationSink extends VTABLE.IUnknown {
+        static AddTriangles => 3
+        static Close => 4
+    }
+
+    class ID2D1PathGeometry extends VTABLE.ID2D1Geometry {
+        static Open => 17
+        static Stream => 18
+        static GetSegmentCount => 19
+        static GetFigureCount => 20
+    }
+
+    class ID2D1Mesh extends VTABLE.ID2D1Resource {
+        static Open => 4
+    }
+
+    class ID2D1Layer extends VTABLE.ID2D1Resource {
+        static GetSize => 4
+    }
+
+    class ID2D1DrawingStateBlock extends VTABLE.ID2D1Resource {
+        static GetDescription => 4
+        static SetDescription => 5
+        static SetTextRenderingParams => 6
+        static GetTextRenderingParams => 7
+    }
+
+    class ID2D1RenderTarget extends VTABLE.ID2D1Resource {
+        static CreateBitmap => 4
+        static CreateBitmapFromWicBitmap => 5
+        static CreateSharedBitmap => 6
+        static CreateBitmapBrush => 7
+        static CreateSolidColorBrush => 8
+        static CreateGradientStopCollection => 9
+        static CreateLinearGradientBrush => 10
+        static CreateRadialGradientBrush => 11
+        static CreateCompatibleRenderTarget => 12
+        static CreateLayer => 13
+        static CreateMesh => 14
+        static DrawLine => 15
+        static DrawRectangle => 16
+        static FillRectangle => 17
+        static DrawRoundedRectangle => 18
+        static FillRoundedRectangle => 19
+        static DrawEllipse => 20
+        static FillEllipse => 21
+        static DrawGeometry => 22
+        static FillGeometry => 23
+        static FillMesh => 24
+        static FillOpacityMask => 25
+        static DrawBitmap => 26
+        static DrawText => 27
+        static DrawTextLayout => 28
+        static DrawGlyphRun => 29
+        static SetTransform => 30
+        static GetTransform => 31
+        static SetAntialiasMode => 32
+        static GetAntialiasMode => 33
+        static SetTextAntialiasMode => 34
+        static GetTextAntialiasMode => 35
+        static SetTextRenderingParams => 36
+        static GetTextRenderingParams => 37
+        static SetTags => 38
+        static GetTags => 39
+        static PushLayer => 40
+        static PopLayer => 41
+        static Flush => 42
+        static SaveDrawingState => 43
+        static RestoreDrawingState => 44
+        static PushAxisAlignedClip => 45
+        static PopAxisAlignedClip => 46
+        static Clear => 47
+        static BeginDraw => 48
+        static EndDraw => 49
+        static GetPixelFormat => 50
+        static SetDpi => 51
+        static GetDpi => 52
+        static GetSize => 53
+        static GetPixelSize => 54
+        static GetMaximumBitmapSize => 55
+        static IsSupported => 56
+    }
+
+    class ID2D1BitmapRenderTarget extends VTABLE.ID2D1RenderTarget {
+        static GetBitmap => 57
+    }
+
+    class ID2D1HwndRenderTarget extends VTABLE.ID2D1RenderTarget {
+        static CheckWindowState => 57
+        static Resize => 58
+        static GetHwnd => 59
+    }
+
+    class ID2D1DCRenderTarget extends VTABLE.ID2D1RenderTarget {
+        static BindDC => 57
+    }
+
+    class ID2D1Factory extends VTABLE.IUnknown {
+        static ReloadSystemMetrics => 3
+        static GetDesktopDpi => 4
+        static CreateRectangleGeometry => 5
+        static CreateRoundedRectangleGeometry => 6
+        static CreateEllipseGeometry => 7
+        static CreateGeometryGroup => 8
+        static CreateTransformedGeometry => 9
+        static CreatePathGeometry => 10
+        static CreateStrokeStyle => 11
+        static CreateDrawingStateBlock => 12
+        static CreateWicBitmapRenderTarget => 13
+        static CreateHwndRenderTarget => 14
+        static CreateDxgiSurfaceRenderTarget => 15
+        static CreateDCRenderTarget => 16
+    }
+
+
+    ;################################################ d2d1.h ################################################
+    ;################################################ d2d1.h ################################################
+    ;################################################ d2d1.h ################################################
+
+
+    ;############################################### d2d1_1.h ###############################################
+    ;############################################### d2d1_1.h ###############################################
+    ;############################################### d2d1_1.h ###############################################
+
+
+    class ID2D1GdiMetafileSink extends VTABLE.IUnknown {
+        static ProcessRecord => 3
+    }
+
+    class ID2D1GdiMetafile extends VTABLE.ID2D1Resource {
+        static Stream => 4
+        static GetBounds => 5
+    }
+
+    class ID2D1CommandSink extends VTABLE.IUnknown {
+        static BeginDraw => 3
+        static EndDraw => 4
+        static SetAntialiasMode => 5
+        static SetTags => 6
+        static SetTextAntialiasMode => 7
+        static SetTextRenderingParams => 8
+        static SetTransform => 9
+        static SetPrimitiveBlend => 10
+        static SetUnitMode => 11
+        static Clear => 12
+        static DrawGlyphRun => 13
+        static DrawLine => 14
+        static DrawGeometry => 15
+        static DrawRectangle => 16
+        static DrawBitmap => 17
+        static DrawImage => 18
+        static DrawGdiMetafile => 19
+        static FillMesh => 20
+        static FillOpacityMask => 21
+        static FillGeometry => 22
+        static FillRectangle => 23
+        static PushAxisAlignedClip => 24
+        static PushLayer => 25
+        static PopAxisAlignedClip => 26
+        static PopLayer => 27
+    }
+
+    class ID2D1CommandList extends VTABLE.ID2D1Image {
+        static Stream => 4
+        static Close => 5
+    }
+
+    class ID2D1PrintControl extends VTABLE.IUnknown {
+        static AddPage => 3
+        static Close => 4
+    }
+
+    class ID2D1ImageBrush extends VTABLE.ID2D1Brush {
+        static SetImage => 8
+        static SetExtendModeX => 9
+        static SetExtendModeY => 10
+        static SetInterpolationMode => 11
+        static SetSourceRectangle => 12
+        static GetImage => 13
+        static GetExtendModeX => 14
+        static GetExtendModeY => 15
+        static GetInterpolationMode => 16
+        static GetSourceRectangle => 17
+    }
+
+    class ID2D1BitmapBrush1 extends VTABLE.ID2D1BitmapBrush {
+        static SetInterpolationMode1 => 16
+        static GetInterpolationMode1 => 17
+    }
+
+    class ID2D1StrokeStyle1 extends VTABLE.ID2D1StrokeStyle {
+        static GetStrokeTransformType => 13
+    }
+
+    class ID2D1PathGeometry1 extends VTABLE.ID2D1PathGeometry {
+        static ComputePointAndSegmentAtLength => 21
+    }
+
+    class ID2D1Properties extends VTABLE.IUnknown {
+        static GetPropertyCount => 3
+        static GetPropertyName => 4
+        static GetPropertyNameLength => 5
+        static GetType => 6
+        static GetPropertyIndex => 7
+        static SetValueByName => 8
+        static SetValue => 9
+        static GetValueByName => 10
+        static GetValue => 11
+        static GetValueSize => 12
+        static GetSubProperties => 13
+    }
+
+    class ID2D1Effect extends VTABLE.ID2D1Properties {
+        static SetInput => 14
+        static SetInputCount => 15
+        static GetInput => 16
+        static GetInputCount => 17
+        static GetOutput => 18
+    }
+
+    class ID2D1Bitmap1 extends VTABLE.ID2D1Bitmap {
+        static GetColorContext => 11
+        static GetOptions => 12
+        static GetSurface => 13
+        static Map => 14
+        static Unmap => 15
+    }
+
+    class ID2D1ColorContext extends VTABLE.ID2D1Resource {
+        static GetColorSpace => 4
+        static GetProfileSize => 5
+        static GetProfile => 6
+    }
+
+    class ID2D1GradientStopCollection1 extends VTABLE.ID2D1GradientStopCollection {
+        static GetGradientStops1 => 8
+        static GetPreInterpolationSpace => 9
+        static GetPostInterpolationSpace => 10
+        static GetBufferPrecision => 11
+        static GetColorInterpolationMode => 12
+    }
+
+    class ID2D1DrawingStateBlock1 extends VTABLE.ID2D1DrawingStateBlock {
+        static GetDescription => 8
+        static SetDescription => 9
+    }
+
+    class ID2D1DeviceContext extends VTABLE.ID2D1RenderTarget {
+        static CreateBitmap => 57
+        static CreateBitmapFromWicBitmap => 58
+        static CreateColorContext => 59
+        static CreateColorContextFromFilename => 60
+        static CreateColorContextFromWicColorContext => 61
+        static CreateBitmapFromDxgiSurface => 62
+        static CreateEffect => 63
+        static CreateGradientStopCollection => 64
+        static CreateImageBrush => 65
+        static CreateBitmapBrush => 66
+        static CreateCommandList => 67
+        static IsDxgiFormatSupported => 68
+        static IsBufferPrecisionSupported => 69
+        static GetImageLocalBounds => 70
+        static GetImageWorldBounds => 71
+        static GetGlyphRunWorldBounds => 72
+        static GetDevice => 73
+        static SetTarget => 74
+        static GetTarget => 75
+        static SetRenderingControls => 76
+        static GetRenderingControls => 77
+        static SetPrimitiveBlend => 78
+        static GetPrimitiveBlend => 79
+        static SetUnitMode => 80
+        static GetUnitMode => 81
+        static DrawGlyphRun => 82
+        static DrawImage => 83
+        static DrawGdiMetafile => 84
+        static DrawBitmap => 85
+        static PushLayer => 86
+        static InvalidateEffectInputRectangle => 87
+        static GetEffectInvalidRectangleCount => 88
+        static GetEffectInvalidRectangles => 89
+        static GetEffectRequiredInputRectangles => 90
+        static FillOpacityMask => 91
+    }
+
+    class ID2D1Device extends VTABLE.ID2D1Resource {
+        static CreateDeviceContext => 4
+        static CreatePrintControl => 5
+        static SetMaximumTextureMemory => 6
+        static GetMaximumTextureMemory => 7
+        static ClearResources => 8
+    }
+
+    class ID2D1Factory1 extends VTABLE.ID2D1Factory {
+        static CreateDevice => 17
+        static CreateStrokeStyle => 18
+        static CreatePathGeometry => 19
+        static CreateDrawingStateBlock => 20
+        static CreateGdiMetafile => 21
+        static RegisterEffectFromStream => 22
+        static RegisterEffectFromString => 23
+        static UnregisterEffect => 24
+        static GetRegisteredEffects => 25
+        static GetEffectProperties => 26
+    }
+
+    class ID2D1Multithread extends VTABLE.IUnknown {
+        static GetMultithreadProtected => 3
+        static Enter => 4
+        static Leave => 5
+    }
+
+
+    ;############################################### d2d1_1.h ###############################################
+    ;############################################### d2d1_1.h ###############################################
+    ;############################################### d2d1_1.h ###############################################
+
+
+    ;############################################### d2d1_2.h ###############################################
+    ;############################################### d2d1_2.h ###############################################
+    ;############################################### d2d1_2.h ###############################################
+
+
+    class ID2D1GeometryRealization extends VTABLE.ID2D1Resource {
+        ; ~~~
+    }
+
+    class ID2D1DeviceContext1 extends VTABLE.ID2D1DeviceContext {
+        static CreateFilledGeometryRealization => 92
+        static CreateStrokedGeometryRealization => 93
+        static DrawGeometryRealization => 94
+    }
+
+    class ID2D1Device1 extends VTABLE.ID2D1Device {
+        static GetRenderingPriority => 9
+        static SetRenderingPriority => 10
+        static CreateDeviceContext => 11
+    }
+
+    class ID2D1Factory2 extends VTABLE.ID2D1Factory1 {
+        static CreateDevice => 27
+    }
+
+    class ID2D1CommandSink1 extends VTABLE.ID2D1CommandSink {
+        static SetPrimitiveBlend1 => 28
+    }
+
+
+    ;############################################### d2d1_2.h ###############################################
+    ;############################################### d2d1_2.h ###############################################
+    ;############################################### d2d1_2.h ###############################################
+
+
+    ;############################################### d2d1_3.h ###############################################
+    ;############################################### d2d1_3.h ###############################################
+    ;############################################### d2d1_3.h ###############################################
+
+
+    class ID2D1InkStyle extends VTABLE.ID2D1Resource {
+        static SetNibTransform => 4
+        static GetNibTransform => 5
+        static SetNibShape => 6
+        static GetNibShape => 7
+    }
+
+    class ID2D1Ink extends VTABLE.ID2D1Resource {
+        static SetStartPoint => 4
+        static GetStartPoint => 5
+        static AddSegments => 6
+        static RemoveSegmentsAtEnd => 7
+        static SetSegments => 8
+        static SetSegmentAtEnd => 9
+        static GetSegmentCount => 10
+        static GetSegments => 11
+        static StreamAsGeometry => 12
+        static GetBounds => 13
+    }
+
+    class ID2D1GradientMesh extends VTABLE.ID2D1Resource {
+        static GetPatchCount => 4
+        static GetPatches => 5
+    }
+
+    class ID2D1ImageSource extends VTABLE.ID2D1Image {
+        static OfferResources => 4
+        static TryReclaimResources => 5
+    }
+
+    class ID2D1ImageSourceFromWic extends VTABLE.ID2D1ImageSource {
+        static EnsureCached => 6
+        static TrimCache => 7
+        static GetSource => 8
+    }
+
+    class ID2D1TransformedImageSource extends VTABLE.ID2D1Image {
+        static GetSource => 4
+        static GetProperties => 5
+    }
+
+    class ID2D1LookupTable3D extends VTABLE.ID2D1Resource {
+        ; ~~~
+    }
+
+    class ID2D1DeviceContext2 extends VTABLE.ID2D1DeviceContext1 {
+        static CreateInk => 95
+        static CreateInkStyle => 96
+        static CreateGradientMesh => 97
+        static CreateImageSourceFromWic => 98
+        static CreateLookupTable3D => 99
+        static CreateImageSourceFromDxgi => 100
+        static GetGradientMeshWorldBounds => 101
+        static DrawInk => 102
+        static DrawGradientMesh => 103
+        static DrawGdiMetafile => 104
+        static CreateTransformedImageSource => 105
+    }
+
+    class ID2D1Device2 extends VTABLE.ID2D1Device1 {
+        static CreateDeviceContext => 12
+        static FlushDeviceContexts => 13
+        static GetDxgiDevice => 14
+    }
+
+    class ID2D1Factory3 extends VTABLE.ID2D1Factory2 {
+        static CreateDevice => 28
+    }
+
+    class ID2D1CommandSink2 extends VTABLE.ID2D1CommandSink1 {
+        static DrawInk => 29
+        static DrawGradientMesh => 30
+        static DrawGdiMetafile => 31
+    }
+
+    class ID2D1GdiMetafile1 extends VTABLE.ID2D1GdiMetafile {
+        static GetDpi => 6
+        static GetSourceBounds => 7
+    }
+
+    class ID2D1GdiMetafileSink1 extends VTABLE.ID2D1GdiMetafileSink {
+        static ProcessRecord => 4
+    }
+
+    class ID2D1SpriteBatch extends VTABLE.ID2D1Resource {
+        static AddSprites => 4
+        static SetSprites => 5
+        static GetSprites => 6
+        static GetSpriteCount => 7
+        static Clear => 8
+    }
+
+    class ID2D1DeviceContext3 extends VTABLE.ID2D1DeviceContext2 {
+        static CreateSpriteBatch => 106
+        static DrawSpriteBatch => 107
+    }
+
+    class ID2D1Device3 extends VTABLE.ID2D1Device2 {
+        static CreateDeviceContext => 15
+    }
+
+    class ID2D1Factory4 extends VTABLE.ID2D1Factory3 {
+        static CreateDevice => 29
+    }
+
+    class ID2D1CommandSink3 extends VTABLE.ID2D1CommandSink2 {
+        static DrawSpriteBatch => 32
+    }
+
+    class ID2D1SvgGlyphStyle extends VTABLE.ID2D1Resource {
+        static SetFill => 4
+        static GetFill => 5
+        static SetStroke => 6
+        static GetStrokeDashesCount => 7
+        static GetStroke => 8
+    }
+
+    class ID2D1DeviceContext4 extends VTABLE.ID2D1DeviceContext3 {
+        static CreateSvgGlyphStyle => 108
+        static DrawText => 109
+        static DrawTextLayout => 110
+        static DrawColorBitmapGlyphRun => 111
+        static DrawSvgGlyphRun => 112
+        static GetColorBitmapGlyphImage => 113
+        static GetSvgGlyphImage => 114
+    }
+
+    class ID2D1Device4 extends VTABLE.ID2D1Device3 {
+        static CreateDeviceContext => 16
+        static SetMaximumColorGlyphCacheMemory => 17
+        static GetMaximumColorGlyphCacheMemory => 18
+    }
+
+    class ID2D1Factory5 extends VTABLE.ID2D1Factory4 {
+        static CreateDevice => 30
+    }
+
+    class ID2D1CommandSink4 extends VTABLE.ID2D1CommandSink3 {
+        static SetPrimitiveBlend2 => 33
+    }
+
+    class ID2D1ColorContext1 extends VTABLE.ID2D1ColorContext {
+        static GetColorContextType => 7
+        static GetDXGIColorSpace => 8
+        static GetSimpleColorProfile => 9
+    }
+
+    class ID2D1DeviceContext5 extends VTABLE.ID2D1DeviceContext4 {
+        static CreateSvgDocument => 115
+        static DrawSvgDocument => 116
+        static CreateColorContextFromDxgiColorSpace => 117
+        static CreateColorContextFromSimpleColorProfile => 118
+    }
+
+    class ID2D1Device5 extends VTABLE.ID2D1Device4 {
+        static CreateDeviceContext => 19
+    }
+
+    class ID2D1Factory6 extends VTABLE.ID2D1Factory5 {
+        static CreateDevice => 31
+    }
+
+    class ID2D1CommandSink5 extends VTABLE.ID2D1CommandSink4 {
+        static BlendImage => 34
+    }
+
+    class ID2D1DeviceContext6 extends VTABLE.ID2D1DeviceContext5 {
+        static BlendImage => 119
+    }
+
+    class ID2D1Device6 extends VTABLE.ID2D1Device5 {
+        static CreateDeviceContext => 20
+    }
+
+    class ID2D1Factory7 extends VTABLE.ID2D1Factory6 {
+        static CreateDevice => 32
+    }
+
+    class ID2D1DeviceContext7 extends VTABLE.ID2D1DeviceContext6 {
+        static GetPaintFeatureLevel => 120
+        static DrawPaintGlyphRun => 121
+        static DrawGlyphRunWithColorSupport => 122
+    }
+
+    class ID2D1Device7 extends VTABLE.ID2D1Device6 {
+        static CreateDeviceContext => 21
+    }
+
+    class ID2D1Factory8 extends VTABLE.ID2D1Factory7 {
+        static CreateDevice => 33
+    }
+
+
+    ;############################################### d2d1_3.h ###############################################
+    ;############################################### d2d1_3.h ###############################################
+    ;############################################### d2d1_3.h ###############################################
+
+
+    ;########################################## d2d1effectauthor.h ##########################################
+    ;########################################## d2d1effectauthor.h ##########################################
+    ;########################################## d2d1effectauthor.h ##########################################
+
+
+    class ID2D1VertexBuffer extends VTABLE.IUnknown {
+        static Map => 3
+        static Unmap => 4
+    }
+
+    class ID2D1ResourceTexture extends VTABLE.IUnknown {
+        static Update => 3
+    }
+
+    class ID2D1RenderInfo extends VTABLE.IUnknown {
+        static SetInputDescription => 3
+        static SetOutputBuffer => 4
+        static SetCached => 5
+        static SetInstructionCountHint => 6
+    }
+
+    class ID2D1DrawInfo extends VTABLE.ID2D1RenderInfo {
+        static SetPixelShaderConstantBuffer => 7
+        static SetResourceTexture => 8
+        static SetVertexShaderConstantBuffer => 9
+        static SetPixelShader => 10
+        static SetVertexProcessing => 11
+    }
+
+    class ID2D1ComputeInfo extends VTABLE.ID2D1RenderInfo {
+        static SetComputeShaderConstantBuffer => 7
+        static SetComputeShader => 8
+        static SetResourceTexture => 9
+    }
+
+    class ID2D1TransformNode extends VTABLE.IUnknown {
+        static GetInputCount => 3
+    }
+
+    class ID2D1TransformGraph extends VTABLE.IUnknown {
+        static GetInputCount => 3
+        static SetSingleTransformNode => 4
+        static AddNode => 5
+        static RemoveNode => 6
+        static SetOutputNode => 7
+        static ConnectNode => 8
+        static ConnectToEffectInput => 9
+        static Clear => 10
+        static SetPassthroughGraph => 11
+    }
+
+    class ID2D1Transform extends VTABLE.ID2D1TransformNode {
+        static MapOutputRectToInputRects => 4
+        static MapInputRectsToOutputRect => 5
+        static MapInvalidRect => 6
+    }
+
+    class ID2D1DrawTransform extends VTABLE.ID2D1Transform {
+        static SetDrawInfo => 7
+    }
+
+    class ID2D1ComputeTransform extends VTABLE.ID2D1Transform {
+        static SetComputeInfo => 7
+        static CalculateThreadgroups => 8
+    }
+
+    class ID2D1AnalysisTransform extends VTABLE.IUnknown {
+        static ProcessAnalysisResults => 3
+    }
+
+    class ID2D1SourceTransform extends VTABLE.ID2D1Transform {
+        static SetRenderInfo => 7
+        static Draw => 8
+    }
+
+    class ID2D1ConcreteTransform extends VTABLE.ID2D1TransformNode {
+        static SetOutputBuffer => 4
+        static SetCached => 5
+    }
+
+    class ID2D1BlendTransform extends VTABLE.ID2D1ConcreteTransform {
+        static SetDescription => 6
+        static GetDescription => 7
+    }
+
+    class ID2D1BorderTransform extends VTABLE.ID2D1ConcreteTransform {
+        static SetExtendModeX => 6
+        static SetExtendModeY => 7
+        static GetExtendModeX => 8
+        static GetExtendModeY => 9
+    }
+
+    class ID2D1OffsetTransform extends VTABLE.ID2D1TransformNode {
+        static SetOffset => 4
+        static GetOffset => 5
+    }
+
+    class ID2D1BoundsAdjustmentTransform extends VTABLE.ID2D1TransformNode {
+        static SetOutputBounds => 4
+        static GetOutputBounds => 5
+    }
+
+    class ID2D1EffectImpl extends VTABLE.IUnknown {
+        static Initialize => 3
+        static PrepareForRender => 4
+        static SetGraph => 5
+    }
+
+    class ID2D1EffectContext extends VTABLE.IUnknown {
+        static GetDpi => 3
+        static CreateEffect => 4
+        static GetMaximumSupportedFeatureLevel => 5
+        static CreateTransformNodeFromEffect => 6
+        static CreateBlendTransform => 7
+        static CreateBorderTransform => 8
+        static CreateOffsetTransform => 9
+        static CreateBoundsAdjustmentTransform => 10
+        static LoadPixelShader => 11
+        static LoadVertexShader => 12
+        static LoadComputeShader => 13
+        static IsShaderLoaded => 14
+        static CreateResourceTexture => 15
+        static FindResourceTexture => 16
+        static CreateVertexBuffer => 17
+        static FindVertexBuffer => 18
+        static CreateColorContext => 19
+        static CreateColorContextFromFilename => 20
+        static CreateColorContextFromWicColorContext => 21
+        static CheckFeatureSupport => 22
+        static IsBufferPrecisionSupported => 23
+    }
+
+
+    ;########################################## d2d1effectauthor.h ##########################################
+    ;########################################## d2d1effectauthor.h ##########################################
+    ;########################################## d2d1effectauthor.h ##########################################
+
+
+    ;########################################## d2d1effectauthor_1.h ##########################################
+    ;########################################## d2d1effectauthor_1.h ##########################################
+    ;########################################## d2d1effectauthor_1.h ##########################################
+
+
+    class ID2D1EffectContext1 extends VTABLE.ID2D1EffectContext {
+        static CreateLookupTable3D => 24
+    }
+
+    class ID2D1EffectContext2 extends VTABLE.ID2D1EffectContext1 {
+        static CreateColorContextFromDxgiColorSpace => 25
+        static CreateColorContextFromSimpleColorProfile => 26
+    }
+
+
+    ;########################################## d2d1effectauthor_1.h ##########################################
+    ;########################################## d2d1effectauthor_1.h ##########################################
+    ;########################################## d2d1effectauthor_1.h ##########################################
+
+
+    ;############################################### d2d1svg.h ################################################
+    ;############################################### d2d1svg.h ################################################
+    ;############################################### d2d1svg.h ################################################
+
+
+    class ID2D1SvgAttribute extends VTABLE.ID2D1Resource {
+        static GetElement => 4
+        static Clone => 5
+    }
+
+    class ID2D1SvgPaint extends VTABLE.ID2D1SvgAttribute {
+        static SetPaintType => 6
+        static GetPaintType => 7
+        static SetColor => 8
+        static GetColor => 9
+        static SetId => 10
+        static GetId => 11
+        static GetIdLength => 12
+    }
+
+    class ID2D1SvgStrokeDashArray extends VTABLE.ID2D1SvgAttribute {
+        static RemoveDashesAtEnd => 6
+        static UpdateDashes => 7
+        static _UpdateDashes => 8 ; [UpdateDashes]
+        static GetDashes => 9
+        static _GetDashes => 10   ; [GetDashes]
+        static GetDashesCount => 11
+    }
+
+    class ID2D1SvgPointCollection extends VTABLE.ID2D1SvgAttribute {
+        static RemovePointsAtEnd => 6
+        static UpdatePoints => 7
+        static GetPoints => 8
+        static GetPointsCount => 9
+    }
+
+    class ID2D1SvgPathData extends VTABLE.ID2D1SvgAttribute {
+        static RemoveSegmentDataAtEnd => 6
+        static UpdateSegmentData => 7
+        static GetSegmentData => 8
+        static GetSegmentDataCount => 9
+        static RemoveCommandsAtEnd => 10
+        static UpdateCommands => 11
+        static GetCommands => 12
+        static GetCommandsCount => 13
+        static CreatePathGeometry => 14
+    }
+
+    class ID2D1SvgElement extends VTABLE.ID2D1Resource {
+        static GetDocument => 4
+        static GetTagName => 5
+        static GetTagNameLength => 6
+        static IsTextContent => 7
+        static GetParent => 8
+        static HasChildren => 9
+        static GetFirstChild => 10
+        static GetLastChild => 11
+        static GetPreviousChild => 12
+        static GetNextChild => 13
+        static InsertChildBefore => 14
+        static AppendChild => 15
+        static ReplaceChild => 16
+        static RemoveChild => 17
+        static CreateChild => 18
+        static IsAttributeSpecified => 19
+        static GetSpecifiedAttributeCount => 20
+        static GetSpecifiedAttributeName => 21
+        static GetSpecifiedAttributeNameLength => 22
+        static RemoveAttribute => 23
+        static SetTextValue => 24
+        static GetTextValue => 25
+        static GetTextValueLength => 26
+        static SetAttributeValue => 27
+        static GetAttributeValue => 28
+        static GetAttributeValueLength => 29
+        static _SetAttributeValue => 30    ; [SetAttributeValue]
+        static __GetAttributeValue => 31   ; [SetAttributeValue]
+        static ___SetAttributeValue => 32  ; [SetAttributeValue]
+        static ____GetAttributeValue => 33 ; [SetAttributeValue]
+    }
+
+    class ID2D1SvgDocument extends VTABLE.ID2D1Resource {
+        static SetViewportSize => 4
+        static GetViewportSize => 5
+        static SetRoot => 6
+        static GetRoot => 7
+        static FindElementById => 8
+        static Serialize => 9
+        static Deserialize => 10
+        static CreatePaint => 11
+        static CreateStrokeDashArray => 12
+        static CreatePointCollection => 13
+        static CreatePathData => 14
+    }
+
+
+    ;############################################### d2d1svg.h ################################################
+    ;############################################### d2d1svg.h ################################################
+    ;############################################### d2d1svg.h ################################################
+}

@@ -45,6 +45,9 @@
     - implement Create-Methods with overloads for D2D1, D2D1_1 structures
     - implement LCSID and enums from d2d1effects_2.h
 
+  - 11 Apr 2026
+    - Add missing ID2D1DeviceContext7, ID2D1Device7, ID2D1Factory8
+
   ### Translated by
   Pustowalow W.
 }
@@ -736,7 +739,7 @@ const
 //  D2D1_SVG_ATTRIBUTE_POD_TYPE_VIEWBOX                                 = 12;
 //  D2D1_SVG_ATTRIBUTE_POD_TYPE_LENGTH                                  = 13;
 
-  // d2d1.h
+// d2d1.h
   IID_ID2D1Resource                       : TGUID = '{2CD90691-12E2-11DC-9FED-001143A055F9}';
   IID_ID2D1Image                          : TGUID = '{65019F75-8DA2-497C-B32C-DFA34E48EDE6}';
   IID_ID2D1Bitmap                         : TGUID = '{A2296057-EA42-4099-983B-539FB6505426}';
@@ -827,6 +830,9 @@ const
   IID_ID2D1DeviceContext6                 : TGUID = '{985F7E37-4ED0-4A19-98A3-15B0EDFDE306}';
   IID_ID2D1Device6                        : TGUID = '{7BFEF914-2D75-4BAD-BE87-E18DDB077B6D}';
   IID_ID2D1Factory7                       : TGUID = '{BDC2BDD3-B96C-4DE6-BDF7-99D4745454DE}';
+  IID_ID2D1DeviceContext7                 : TGUID = '{EC891CF7-9B69-4851-9DEF-4E0915771E62}';
+  IID_ID2D1Device7                        : TGUID = '{F07C8968-DD4E-4BA6-9CBD-EB6D3752DCBB}';
+  IID_ID2D1Factory8                       : TGUID = '{677C9311-F36D-4B1F-AE86-86D1223FFD3A}';
 
   // dwrite
   IID_IDWriteFontFileLoader               : TGUID = '{727CAD4E-D6AF-4C9E-8A08-D695B11CAA49}';
@@ -1131,6 +1137,12 @@ type
   ID2D1Device6                            = interface;
   ID2D1Factory7                           = interface;
 
+  ID2D1DeviceContext7                     = interface;
+  ID2D1Device7                            = interface;
+  ID2D1Factory8                           = interface;
+
+
+
   // dwrite.h
   IDWriteFontFileLoader                   = interface;
   IDWriteLocalFontFileLoader              = interface;
@@ -1229,6 +1241,8 @@ type
   IDWriteFontSet3                         = interface;
   IDWriteFontFace6                        = interface;
 
+
+
   // d2d1effectauthor.h
   ID2D1VertexBuffer                       = interface;
   ID2D1ResourceTexture                    = interface;
@@ -1287,7 +1301,7 @@ type
   /// <summary>
   /// Function pointer that gets a property from an effect.
   /// </summary>
-  PD2D1_PROPERTY_GET_FUNCTION = function(AEffect: IUnknown; AData: PByte; ADataSize: UInt32; out AActualSize: UInt32): HRESULT; stdcall;
+  PD2D1_PROPERTY_GET_FUNCTION = function(AEffect: IUnknown; out AData: PByte; ADataSize: UInt32; out AActualSize: UInt32): HRESULT; stdcall;
 
   PD2D1_EFFECT_FACTORY        = function(out AEffectImpl: IUnknown): HRESULT; stdcall;
 
@@ -3981,6 +3995,15 @@ type
 	TDWriteFontSourceType = DWRITE_FONT_SOURCE_TYPE;
 	PDWriteFontSourceType = ^TDWriteFontSourceType;
 
+  DWRITE_PAINT_FEATURE_LEVEL = (
+    DWRITE_PAINT_FEATURE_LEVEL_NONE,
+    DWRITE_PAINT_FEATURE_LEVEL_COLR_V0,
+    DWRITE_PAINT_FEATURE_LEVEL_COLR_V1
+  ) ;
+
+  TDWritePaintFeatureLevel = DWRITE_PAINT_FEATURE_LEVEL;
+  PDWritePaintFeatureLevel = ^TDWritePaintFeatureLevel;
+
 {$ENDREGION}
 
 {$REGION 'd2d1effects.h enums'}
@@ -4066,14 +4089,14 @@ type
 
   D2D1_GAUSSIANBLUR_OPTIMIZATION = (
 
-    D2D1_GAUSSIANBLUR_OPTIMIZATION_SPEED        = 0,
-    D2D1_GAUSSIANBLUR_OPTIMIZATION_BALANCED     = 1,
-    D2D1_GAUSSIANBLUR_OPTIMIZATION_QUALITY      = 2,
-    D2D1_GAUSSIANBLUR_OPTIMIZATION_FORCE_DWORD  = Integer($FFFFFFFF)
+    D2D1_GAUSSIANBLUR_OPTIMIZATION_SPEED = 0,
+    D2D1_GAUSSIANBLUR_OPTIMIZATION_BALANCED = 1,
+    D2D1_GAUSSIANBLUR_OPTIMIZATION_QUALITY = 2,
+    D2D1_GAUSSIANBLUR_OPTIMIZATION_FORCE_DWORD = Integer($FFFFFFFF)
   );
 
-	TD2D1GaussianBlurOptimization = D2D1_GAUSSIANBLUR_OPTIMIZATION;
-	PD2D1GaussianBlurOptimization = ^TD2D1GaussianblurOptimization;
+	TD2D1GaussianblurOptimization = D2D1_GAUSSIANBLUR_OPTIMIZATION;
+	PD2D1GaussianblurOptimization = ^TD2D1GaussianblurOptimization;
 
 
   /// <summary>
@@ -7239,45 +7262,12 @@ type
     class operator Subtract(A, B: TD2D1Point2F): TD2D1Point2F;
     class operator Multiply(A: TD2D1Point2F; AFactor: Single): TD2D1Point2F;
     class operator Negative(A: TD2D1Point2F): TD2D1Point2F;
+
+    function Cartesian: TD2D1Point2F; inline;
   end;
 
   D2D1_POINT_2F = TD2D1Point2F;
   PD2D1Point2F = ^TD2D1Point2F;
-
-  TD2D1Matrix3x2F = record
-    M11: Single;
-    M12: Single;
-    M21: Single;
-    M22: Single;
-    M31: Single;
-    M32: Single;
-
-    class function Create(AM11, AM12, AM21, AM22, AM31, AM32: Single): TD2D1Matrix3x2F; static;
-    class function Identity: TD2D1Matrix3x2F; static;
-
-    class function Translation(AX, AY: Single): TD2D1Matrix3x2F; overload; static;
-    class function Translation(APos: TD2D1Point2F): TD2D1Matrix3x2F; overload; static;
-
-    class function Rotation(AAngle, AX, AY: Single): TD2D1Matrix3x2F; overload; static;
-    class function Rotation(AAngle: Single; APos: TD2D1Point2F): TD2D1Matrix3x2F; overload; static;
-
-    class function Scale(ASizeX, ASizeY, AX, AY: Single): TD2D1Matrix3x2F; overload; static;
-    class function Scale(ASizeX, ASizeY: Single; APos: TD2D1Point2F): TD2D1Matrix3x2F; overload; static;
-
-    class function Invert(AM: TD2D1Matrix3x2F): TD2D1Matrix3x2F; overload; static;
-
-    class operator Multiply(AM1, AM2: TD2D1Matrix3x2F): TD2D1Matrix3x2F; overload;
-    class operator Multiply(APos: TD2D1Point2F; AM: TD2D1Matrix3x2F): TD2D1Point2F; overload;
-
-    function Invert: Boolean; overload;
-    function IsInvertible: Boolean;
-
-    function TransformPos(APos: TD2D1Point2F): TD2D1Point2F; overload;
-    function TransformPos(AX, AY: Single): TD2D1Point2F; overload;
-  end;
-
-  D2D1_MATRIX_3X2_F = TD2D1Matrix3x2F;
-  PD2D1Matrix3x2F = ^TD2D1Matrix3x2F;
 
   TD2D1Point2U = record
     X: UInt32;
@@ -7317,6 +7307,8 @@ type
 
     class function Create(ALeft, ATop, ARight, ABottom: Single): TD2D1RectF; overload; static;
     class function Create(ALeftTop, ARightBottom: TD2D1Point2F): TD2D1RectF; overload; static;
+
+    function Cartesian: TD2D1RectF; inline;
   end;
 
   D2D1_RECT_F = TD2D1RectF;
@@ -7363,6 +7355,43 @@ type
 
   D2D1_TRIANGLE = TD2D1Triangle;
   PD2D1Triangle = ^TD2D1Triangle;
+
+  TD2D1Matrix3x2F = record
+    M11: Single;
+    M12: Single;
+    M21: Single;
+    M22: Single;
+    M31: Single;
+    M32: Single;
+
+    class function Create(AM11, AM12, AM21, AM22, AM31, AM32: Single): TD2D1Matrix3x2F; static;
+    class function Identity: TD2D1Matrix3x2F; static;
+
+    class function Translation(AX, AY: Single): TD2D1Matrix3x2F; overload; static;
+    class function Translation(APos: TD2D1Point2F): TD2D1Matrix3x2F; overload; static;
+
+    class function Rotation(AAngle, AX, AY: Single): TD2D1Matrix3x2F; overload; static;
+    class function Rotation(AAngle: Single; APos: TD2D1Point2F): TD2D1Matrix3x2F; overload; static;
+
+    class function Scale(ASizeX, ASizeY, AX, AY: Single): TD2D1Matrix3x2F; overload; static;
+    class function Scale(ASizeX, ASizeY: Single; APos: TD2D1Point2F): TD2D1Matrix3x2F; overload; static;
+
+    class function Invert(AM: TD2D1Matrix3x2F): TD2D1Matrix3x2F; overload; static;
+
+    class operator Multiply(AM1, AM2: TD2D1Matrix3x2F): TD2D1Matrix3x2F; overload;
+    class operator Multiply(APos: TD2D1Point2F; AM: TD2D1Matrix3x2F): TD2D1Point2F; overload;
+
+    function Invert: Boolean; overload;
+    function IsInvertible: Boolean;
+
+    function TransformPos(APos: TD2D1Point2F): TD2D1Point2F; overload;
+    function TransformPos(AX, AY: Single): TD2D1Point2F; overload;
+
+    function TransformRect(ARect: TD2D1RectF): TD2D1RectF; overload;
+  end;
+
+  D2D1_MATRIX_3X2_F = TD2D1Matrix3x2F;
+  PD2D1Matrix3x2F = ^TD2D1Matrix3x2F;
 
   /// <summary>
   /// Describes an arc that is defined as part of a path.
@@ -9949,7 +9978,6 @@ type
   /// This defines a single element of the vertex layout.
   /// </summary>
   D2D1_INPUT_ELEMENT_DESC = record
-
     SemanticName: LPCSTR;
     SemanticIndex: UInt32;
     Format: DXGI_FORMAT;
@@ -9965,7 +9993,6 @@ type
   /// layout.
   /// </summary>
   D2D1_VERTEX_BUFFER_PROPERTIES = record
-
     InputCount: UInt32;
     Usage: TD2D1VertexUsage;
     Data: PByte;
@@ -9995,7 +10022,6 @@ type
   /// This defines the range of vertices from a vertex buffer to draw.
   /// </summary>
   D2D1_VERTEX_RANGE = record
-
     StartVertex: UInt32;
     VertexCount: UInt32;
   end;
@@ -10007,14 +10033,13 @@ type
   /// Blend description which configures a blend transform object.
   /// </summary>
   D2D1_BLEND_DESCRIPTION = record
-
-    SourceBlend: TD2D1Blend;
-    DestinationBlend: TD2D1Blend;
-    BlendOperation: TD2D1BlendOperation;
-    SourceBlendAlpha: TD2D1Blend;
-    DestinationBlendAlpha: TD2D1Blend;
-    BlendOperationAlpha: TD2D1BlendOperation;
-    BlendFactor: Array[0..3] of Single;
+    SourceBlend           : TD2D1Blend;
+    DestinationBlend      : TD2D1Blend;
+    BlendOperation        : TD2D1BlendOperation;
+    SourceBlendAlpha      : TD2D1Blend;
+    DestinationBlendAlpha : TD2D1Blend;
+    BlendOperationAlpha   : TD2D1BlendOperation;
+    BlendFactor           : Array[0..3] of Single;
   end;
 
 	TD2D1BlendDescription = D2D1_BLEND_DESCRIPTION;
@@ -10149,17 +10174,20 @@ type
     /// <summary>
     /// Returns the size of the bitmap in resolution independent units.
     /// </summary>
-    function GetSize: TD2D1SizeF; stdcall;
+    //function GetSize: TD2D1SizeF; stdcall;
+    procedure GetSize(out ASize: TD2D1SizeF); stdcall;
 
     /// <summary>
     /// Returns the size of the bitmap in resolution dependent units, (pixels).
     /// </summary>
-    function GetPixelSize: TD2D1SizeU; stdcall;
+    //function GetPixelSize: TD2D1SizeU; stdcall;
+    procedure GetPixelSize(out ASize: TD2D1SizeU); stdcall;
 
     /// <summary>
     /// Retrieve the format of the bitmap.
     /// </summary>
-    function GetPixelFormat: TD2D1PixelFormat; stdcall;
+    //function GetPixelFormat: TD2D1PixelFormat; stdcall;
+    procedure GetPixelFormat(out APixelFormat: TD2D1PixelFormat); stdcall;
 
     /// <summary>
     /// Return the DPI of the bitmap.
@@ -10942,12 +10970,14 @@ type
     /// <summary>
     /// Returns the size of the render target in DIPs.
     /// </summary>
-    function GetSize: TD2D1SizeF; stdcall;
+//    function GetSize: TD2D1SizeF; stdcall;
+    procedure GetSize(out ASize: TD2D1SizeF); stdcall;
 
     /// <summary>
     /// Returns the size of the render target in pixels.
     /// </summary>
-    function GetPixelSize: TD2D1SizeU; stdcall;
+//    function GetPixelSize: TD2D1SizeU; stdcall;
+    procedure GetPixelSize(out ASize: TD2D1SizeU); stdcall;
 
     /// <summary>
     /// Returns the maximum bitmap and render target size that is guaranteed to be
@@ -11017,7 +11047,7 @@ type
     /// <summary>
     /// Retrieves the current desktop DPI. To refresh this, call ReloadSystemMetrics.
     /// </summary>
-    procedure GetDesktopDpi(out ADpiX, ADpiY: Single);
+    procedure GetDesktopDpi(out ADpiX, ADpiY: Single); stdcall;
 
     function CreateRectangleGeometry(
       const ARectangle: PD2D1RectF;
@@ -11319,6 +11349,7 @@ type
     function SetValueByName(
       AName: LPCWSTR;
       AType: TD2D1PropertyType;
+      const AData: PByte;
       ADataSize: UInt32): HRESULT; stdcall;
 
     function SetValue(
@@ -12248,6 +12279,46 @@ type
     function CreateDevice(
       ADXGIDevice: IDXGIDevice;
       out AD2DDevice6: ID2D1Device6): HRESULT; stdcall;
+  end;
+
+  ID2D1DeviceContext7 = interface(ID2D1DeviceContext6)
+    ['{EC891CF7-9B69-4851-9DEF-4E0915771E62}']
+
+    function GetPaintFeatureLevel: TDWritePaintFeatureLevel; stdcall;
+
+    procedure DrawPaintGlyphRun(
+      ABaselineOrigin: TD2D1Point2F;
+      AGlyphRun: PDWriteGlyphRun;
+      ADefaultFillBrush: ID2D1Brush;
+      AColorPaletteIndex: UInt32 = 0;
+      AMeasuringMode: TDWriteMeasuringMode = DWRITE_MEASURING_MODE_NATURAL); stdcall;
+
+    procedure DrawGlyphRunWithColorSupport(
+      ABaselineOrigin: TD2D1Point2F;
+      AGlyphRun: PDWriteGlyphRun;
+      AGlyphRunDescription: PDWriteGlyphRunDescription;
+      AForegroundBrush: ID2D1Brush;
+      ASvgGlyphStyle: ID2D1SvgGlyphStyle;
+      AColorPaletteIndex: UInt32 = 0;
+      AMeasuringMode: TDWriteMeasuringMode = DWRITE_MEASURING_MODE_NATURAL;
+      ABitmapSnapOption: TD2D1ColorBitmapGlyphSnapOption = D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION_DEFAULT); stdcall;
+
+  end;
+
+  ID2D1Device7 = interface(ID2D1Device6)
+    ['{F07C8968-DD4E-4BA6-9CBD-EB6D3752DCBB}']
+
+    function CreateDeviceContext(
+      AOptions: TD2D1DeviceContextOptions;
+      out ADeviceContext7: ID2D1DeviceContext7): HRESULT; stdcall;
+  end;
+
+  ID2D1Factory8 = interface(ID2D1Factory7)
+    ['{677C9311-F36D-4B1F-AE86-86D1223FFD3A}']
+
+    function CreateDevice(
+      ADXGIDevice: IDXGIDevice;
+      out AD2DDevice7: ID2D1Device7): HRESULT; stdcall;
   end;
 
 {$ENDREGION}
@@ -14540,7 +14611,9 @@ type
   ID2D1VertexBuffer = interface(IUnknown)
     ['{9b8b1336-00a5-4668-92b7-ced5d8bf9b7b}']
 
-    function Map(out AData: PByte): HRESULT; stdcall;
+    function Map(
+      out AData: PByte;
+      ABufferSize: UInt32): HRESULT; stdcall;
 
     function Unmap: HRESULT; stdcall;
   end;
@@ -14592,12 +14665,19 @@ type
       const AShaderId: TGUID;
       APixelOptions: TD2D1PixelOptions = D2D1_PIXEL_OPTIONS_NONE): HRESULT; stdcall;
 
+//    procedure SetVertexProcessing(
+//      AVertexBuffer: ID2D1VertexBuffer;
+//      AVertexOptions: TD2D1VertexOptions;
+//      ABlendDescription: PD2D1BlendDescription = nil;
+//      AVertexRange: PD2D1VertexRange = nil;
+//      AVertexShader: PGUID = nil); stdcall;
+
     function SetVertexProcessing(
       AVertexBuffer: ID2D1VertexBuffer;
       AVertexOptions: TD2D1VertexOptions;
-      const ABlendDescription: PD2D1BlendDescription = nil;
-      const AVertexRangeNULL: PD2D1VertexRange = nil;
-      const AVertexShaderNULL: PGUID = nil): HRESULT; stdcall;
+      ABlendDescription: PD2D1BlendDescription = nil;
+      AVertexRange: PD2D1VertexRange = nil;
+      AVertexShader: PGUID = nil): HRESULT; stdcall;
   end;
 
   ID2D1ComputeInfo = interface(ID2D1RenderInfo)
@@ -14820,12 +14900,12 @@ type
       AShaderBufferCount: UInt32): HRESULT; stdcall;
 
     function LoadVertexShader(
-      AResourceId: TGUID;
+      const AResourceId: TGUID;
       const AShaderBuffer: PByte;
       AShaderBufferCount: UInt32): HRESULT; stdcall;
 
     function LoadComputeShader(
-      AResourceId: TGUID;
+      const AResourceId: TGUID;
       const AShaderBuffer: PByte;
       AShaderBufferCount: UInt32): HRESULT; stdcall;
 
@@ -15320,6 +15400,7 @@ function D2D1Vec3Length(
   AZ: Single): Single; stdcall; external d2d1lib;
 {$ENDREGION}
 
+
 {$REGION 'user functions'}
 function D2D1CreateBitmap(ARenderTarget: ID2D1RenderTarget; ASrcBitmap: TBitmap; out AD2D1Bitmap: ID2D1Bitmap): HRESULT;
 {$ENDREGION}
@@ -15402,6 +15483,7 @@ end;
 
 {$ENDREGION}
 
+
 {$REGION 'D2DBaseTypes.h implementation'}
 {=========================================================================================================================================}
 { D2D1_COLOR_F }
@@ -15430,6 +15512,7 @@ begin
 end;
 
 {$ENDREGION}
+
 
 {$REGION 'd2d1.h implementation'}
 {=========================================================================================================================================}
@@ -15569,6 +15652,13 @@ begin
 end;
 
 {=========================================================================================================================================}
+function TD2D1Point2F.Cartesian: TD2D1Point2F;
+begin
+  Result.X :=  X;
+  Result.Y := -Y;
+end;
+
+{=========================================================================================================================================}
 { TD2D1Matrix3x2F }
 {=========================================================================================================================================}
 class function TD2D1Matrix3x2F.Create(AM11, AM12, AM21, AM22, AM31, AM32: Single): TD2D1Matrix3x2F;
@@ -15683,6 +15773,16 @@ begin
 end;
 
 {=========================================================================================================================================}
+function TD2D1Matrix3x2F.TransformRect(ARect: TD2D1RectF): TD2D1RectF;
+var P1, P2: TD2D1Point2F;
+begin
+  P1 := TD2D1Point2F.Create(ARect.Left, ARect.Top);
+  P2 := TD2D1Point2F.Create(ARect.Right, ARect.Bottom);
+
+  Result := TD2D1RectF.Create(TransformPos(P1), TransformPos(P2))
+end;
+
+{=========================================================================================================================================}
 { TD2D1Point2U }
 {=========================================================================================================================================}
 class function TD2D1Point2U.Create(AX, AY: UInt32): TD2D1Point2U;
@@ -15727,6 +15827,15 @@ begin
   Result.Top    := ALeftTop.Y;
   Result.Right  := ARightBottom.X;
   Result.Bottom := ARightBottom.Y;
+end;
+
+{=========================================================================================================================================}
+function TD2D1RectF.Cartesian: TD2D1RectF;
+begin
+  Result.Left   :=  Left;
+  Result.Top    := Bottom;
+  Result.Right  :=  Right;
+  Result.Bottom := Top;
 end;
 
 {=========================================================================================================================================}
@@ -16406,6 +16515,7 @@ end;
 {=========================================================================================================================================}
 
 {$ENDREGION}
+
 
 {$REGION 'user functions'}
 function D2D1CreateBitmap(ARenderTarget: ID2D1RenderTarget; ASrcBitmap: TBitmap; out AD2D1Bitmap: ID2D1Bitmap): HRESULT;
